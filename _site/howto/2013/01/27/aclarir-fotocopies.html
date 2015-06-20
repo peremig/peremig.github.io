@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width initial-scale=1">
+
+<meta property="og:title" content="Aclarir fotocòpies">
+<title>Aclarir fotocòpies</title>
+<meta property="og:description" content="    De vegades m’he trobat que haig de fer una fotocòpia d’alguna publicació per passar-la als alumnes i el resultat és força decebedor: o queda molt fosca o...">
+<meta property="og:url" content="http://peremig.github.io/howto/2013/01/27/aclarir-fotocopies.html">
+<meta property="og:site_name" content="Buscant pingüins al pol nord">
+<meta property="og:locale" content="ca_ES">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:site" content="@">
+<meta name="twitter:creator" content="@">
+<meta name="twitter:title" content="Aclarir fotocòpies">
+<meta name="twitter:description" content="    De vegades m’he trobat que haig de fer una fotocòpia d’alguna publicació per passar-la als alumnes i el resultat és força decebedor: o queda molt fosca o...">
+<meta name="twitter:url" content="http://peremig.github.io/howto/2013/01/27/aclarir-fotocopies.html">
+
+<meta name="keywords" content="Linux, debian, català">
+
+<link rel="icon" href="/images/favicon.ico">
+<link rel="stylesheet" href="/css/main.css">
+<link rel="canonical" href="http://peremig.github.io/howto/2013/01/27/aclarir-fotocopies.html">
+<link rel="alternate" type="application/atom+xml" title="Buscant pingüins al pol nord" href="http://peremig.github.io/feed.xml" />
+
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+<script language="Javascript" type="text/javascript">
+function search_google()
+{
+  var query = document.getElementById("google-search").value;
+  window.open("http://google.com/search?q=" + query
+      + "%20site:" + "http://peremig.github.io");
+}
+</script>
+
+<script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', '', 'auto');
+ga('send', 'pageview');
+
+</script>
+
+
+<script type='text/javascript'>
+var blocklink = ['http://humanorightswatch.org','http://o-o-6-o-o.com','http://darodar.com','http://blackhatworth.com','http://hulfingtonpost.com','http://bestwebsitesawards.com','http://darodar.com','http://buttons-for-website.com','http://ilovevitaly.co','http://semalt.com','http://priceg.com','http://simple-share-buttons.com','http://googlsucks.com','http://4webmasters.org','http://aliexpress.com','http://addons.mozilla.org/en-US/firefox/addon/ilovevitaly/','http://free-share-buttons.com','http://buttons-for-your-website.com','http://theguardlan.com','http://buy-cheap-online.info','http://best-seo-offer.com'];
+for (var b = blocklink.length; b--;) {
+  if (document.referrer.match(blocklink[b]))
+    window.location = "http://www.google.com";
+}
+</script>
+
+
+
+
+</head>
+
+
+<body>
+
+<div class="container">
+
+  <header class="site-header">
+
+  <div class="wrapper">
+
+    <h1 class="site-title"><a href="/">Buscant pingüins al pol nord</a></h1>
+    <h3 class="site-meta">Les aventures d'un professor de català amb Linux i el xinès</h3>
+
+    <nav class="site-nav">
+      <a href="#" class="menu-icon">
+        <svg viewBox="0 0 18 15">
+          <path fill="#424242" d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.031C17.335,0,18,0.665,18,1.484L18,1.484z"/>
+          <path fill="#424242" d="M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0c0-0.82,0.665-1.484,1.484-1.484 h15.031C17.335,6.031,18,6.696,18,7.516L18,7.516z"/>
+          <path fill="#424242" d="M18,13.516C18,14.335,17.335,15,16.516,15H1.484C0.665,15,0,14.335,0,13.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.031C17.335,12.031,18,12.696,18,13.516L18,13.516z"/>
+        </svg>
+      </a>
+      <div class="trigger">
+        
+        
+        <a class="page-link" href="/">Inici</a>
+        
+        
+        
+        <a class="page-link" href="/about/">Qui sóc?</a>
+        
+        
+        
+        <a class="page-link" href="/archives/">Arxiu</a>
+        
+        
+        
+        <a class="page-link" href="/categories/">Categories</a>
+        
+        
+        
+        <a class="page-link" href="/tags/">Etiquetes</a>
+        
+        
+        
+        <a class="page-link" href="/guestbook/">Llibre de visites</a>
+        
+        
+        
+        <a class="page-link" href="/feed.xml">Segueix-me</a>
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+      </div>
+    </nav>
+
+  </div>
+
+</header>
+
+
+    
+
+  <div class="page-content col-sm-8">
+    <div class="post" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 itemprop="name" class="post-title">Aclarir fotocòpies</h1>
+    <meta itemprop="keywords" content="PDF,xsane" />
+    <p class="post-meta">
+    Publicat a
+    
+    <a href="/categories/#howto">howto</a>&nbsp;
+     
+    
+    i etiquetat
+    
+    <a href="/tags/#PDF" title="PDF">PDF </a>, 
+    
+    <a href="/tags/#xsane" title="xsane">xsane </a>
+    
+    
+    <time itemprop="datePublished" datetime="2013-01-27">
+    el 27 Jan, 2013
+    </time>
+    </p>
+  </header>
+
+  <article class="post-content" itemprop="articleBody">
+    <div style="text-align:center">
+  <p><img title="Fotocòpia fosca" src="https://i2.wp.com/lh5.ggpht.com/_FSc4oex43IM/TH0EvqR9HBI/AAAAAAAAbiA/L1E2nFY2g7c/s512/L1160785.JPG" alt="Fotocòpia fosca" width="512" height="369" /></p>
+</div>
+<div style="text-align:justify">
+  <p>De vegades m’he trobat que haig de fer una fotocòpia d’alguna publicació per passar-la als alumnes i el resultat és força decebedor: o queda molt fosca o queda massa clara, de manera que esdevé inutilitzable.</p>
+
+  <p>Hi ha la possibilitat, però, de treballar-la abans amb eines informàtiques: la podrem aclarir o enfosquir per zones de manera que obtindrem un resultat acceptable.</p>
+
+  <!-- more -->
+
+  <p>El procediment seria el següent:</p>
+
+  <ul>
+    <li>Escanejar el document amb <a href="http://www.xsane.org/" target="_blank">Xsane</a>. Haurem de desar el document en format PNM, escala de grisos i una resolució mínima de 300 ppp (la que millor em resulta és 600 ppp). Si volem escanejar més d’una pàgina, cadascuna d’elles ha de constituir un sol fitxer</li>
+    <li>Treballar la pàgina amb el <a href="http://www.gimp.org/" target="_blank">Gimp</a>. Podrem fer el següent:
+      <ul>
+        <li>Girar la pàgina. Opció del menú <code>Imatge / Transforma</code></li>
+        <li>Invertir àrees en negatiu (que gasta molta tinta i deixa un resultat una mica brut). Primer caldrà que les seleccionem. Opció del menú <code>Colors / Inverteix</code></li>
+        <li>Aclarir les zones més fosques del document (per exemple, textos en zones tramades) per esvair o fer desaparèixer el fons negre; en aquest cas hem de seleccionar la zona. Opció del menú <code>Colors / Llindar blanc i negre</code> (ho haurem de fer per a cada zona de la pàgina).</li>
+        <li>Amb això ja haurem netejat. A l’hora de desar-lo, anirà bé desar en format PGM</li>
+      </ul>
+    </li>
+  </ul>
+
+  <p>A partir d’aquí podem seguir treballant per obtenir un PDF o bé enviar la imatge des de Gimp a la impressora. En el cas que vulguem obtenir-ne un PDF, caldria continuar des de Bash amb el procediment següent:</p>
+
+  <ul>
+    <li>Convertir els fitxers nets a TIFF</li>
+    <li>Agrupar totes les pàgines TIFF en un sol fitxer</li>
+    <li>Convertir el fitxer grupal a PDF</li>
+    <li>No és necessari, però m’agrada fer-ho: expandir el contingut perquè ocupi la mida d’un DIN-A4 (o sigui, ampliar la fotocòpia).</li>
+    <li>Com que per fer el pas anterior, hem hagut de convertir el PDF a PostScript, tornar a convertir-lo a PDF</li>
+  </ul>
+
+  <p>Això ho he concretat en un script molt simple que executo des de la carpeta on es troben tots els fitxers PGM:</p>
+
+  <div class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="c1">#!/bin/bash</span>
+<span class="l-Scalar-Plain">for i in *pgm; do convert $i -verbose ${i%pgm}tif; done</span>
+<span class="l-Scalar-Plain">tiffcp *.tif monebook.tif</span>
+<span class="l-Scalar-Plain">tiff2pdf -o monebook.pdf monebook.tif</span>
+<span class="l-Scalar-Plain">pdftops -level3 -paper &quot;A4&quot; -expand monebook.pdf</span>
+<span class="l-Scalar-Plain">ps2pdf -dCompatibility=1.4 miebook.ps</span></code></pre></div>
+
+  <p><strong>Crèdits</strong>: aquesta informació constitueix un extracte adaptat de l’article <strong><em><a href="http://www.linux-magazine.es/issue/66/070-073_CreaciondeEbooksLM66.pdf">Libritos</a></em></strong>, de Daniel Stender, aparegut a <strong><em><a href="http://www.linux-magazine.es/issue/66">Linux Magazine, 66</a></em></strong></p>
+
+  <p><strong>Requeriments sota Debian</strong>: per poder dur a terme aquesta tasca, cal tenir instal·lats els següents paquets (així com les seves dependències):</p>
+
+  <ul>
+    <li><a href="http://packages.debian.org/stable/xsane" target="_blank">Xsane</a></li>
+    <li><a href="http://packages.debian.org/stable/gimp" target="_blank">Gimp</a></li>
+    <li><a href="http://packages.debian.org/stable/imagemagick" target="_blank">imagemagick</a> (ens ofereix l’aplicació <strong><em>convert</em></strong>)</li>
+    <li><a href="http://packages.debian.org/stable/libtiff-tools" target="_blank">libtiff-tools</a> (ens ofeteix les aplicacions <strong><em>tiffcp</em></strong> i <strong><em>tiff2pdf</em></strong>)</li>
+    <li><a href="http://packages.debian.org/stable/poppler-utils" target="_blank">poppler-utils</a> (ens ofereix l’aplicació <strong><em>pdftops</em></strong>)</li>
+    <li><a href="http://packages.debian.org/stable/ghostscript" target="_blank">ghostscript</a> (ens ofereix l’aplicació <strong><em>ps2pdf</em></strong>)</li>
+  </ul>
+
+</div>
+
+  </article>
+  <hr />
+</div>
+
+
+<section class="pager">
+  <ul>
+    
+    <li class="previous"><a href="/articles/2011/03/21/Tegaki_mousepad.html" title="Tegaki, un mosepad per al xinès amb SCIM">&larr; Entrades més antigues</a></li>
+    
+    
+    <li class="next"><a href="/articles/2013/01/28/Debian_Linkat.html" title="Debian? I per què no Linkat?">Entrades més noves &rarr;</a></li>
+    
+  </ul>
+</section>
+
+<div id="disqus_thread"></div>
+
+<script type="text/javascript">
+
+  var disqus_developer = 1;
+
+var disqus_shortname ='peremig';
+/* * * DON'T EDIT BELOW THIS LINE * * */
+(function() {
+  var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+  dsq.src = 'https://' + disqus_shortname + '.disqus.com/embed.js';
+  (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+})();
+</script>
+
+<noscript>Sisplau activeu JavaScript per poder accedir als <a href="http://disqus.com/?ref_noscript">comentaris servits per Disqus.</a></noscript>
+
+
+
+    <section class="pager">
+  
+  
+</section>
+
+
+  </div>
+  <div class="col-sm-2">
+<div class="sidebar-module about">
+  <h4>Qui sóc?</h4>
+  <img title="Pere MiG" src="/images/pinguins.jpg" alt="Pere MiG"/>
+  <span>Blog sobre Linux de Pere MiG, professor de català amant dels impossibles.</span>
+  <br />
+
+  
+
+  Pots contactar amb mi a través de: <br />
+
+  
+  <a href="mailto:linux@peremig.cat" title="mailto: linux@peremig.cat"><i class="fa fa-envelope-square fa-3x"></i></a>&nbsp;
+  
+  
+  <a href="https://github.com/peremig" title="GithubID: peremig"><i class="fa fa-github-square fa-3x"></i></a>&nbsp;
+  
+  
+  <a href="https://twitter.com/" title="TwitterID: "><i class="fa fa-twitter-square fa-3x"></i></a>
+  
+
+  
+
+</div>
+
+<div class="sidebar-module">
+  <h4>Cerca en el lloc</h4>
+  <form onsubmit="search_google()" >
+    <input type="text" id="google-search" placeholder="Google search" />
+    <input type="submit" name="sa" value="Go" />
+  </form>
+</div>
+
+
+<div class="sidebar-module"> <!-- sidebar-module-inset">-->
+  <h4>Sobre el Copyright</h4>
+
+  
+
+  <a href="http://creativecommons.org/licenses/by-nc-sa/3.0/">
+    <img src="http://i.creativecommons.org/l/by-nc-sa/3.0/88x31.png">
+  </a>
+  <br />
+  <a href="http://creativecommons.org/licenses/by-nc-sa/3.0/">Attribution-NonCommercial-ShareAlike</a>
+
+  
+
+</div>
+
+
+<div class="sidebar-module">
+  <h4>Entrades recents</h4>
+  
+  <li>
+  <a href="//howto/2015/02/12/automuntar_usb_escriptura.html" title="Automuntar unitats USB amb accés a escriptura" rel="bookmark">Automuntar unitats USB amb accés a escriptura</a>
+  </li>
+  
+  <li>
+  <a href="//articles/2015/01/18/Debian_8_Acer_Aspire.html" title="Debian 8 (Jessie) en notebook Acer Aspire V5-121" rel="bookmark">Debian 8 (Jessie) en notebook Acer Aspire V5-121</a>
+  </li>
+  
+  <li>
+  <a href="//howto/2014/01/24/Emacs_fcitx.html" title="Emacs i el xinès (fcitx)" rel="bookmark">Emacs i el xinès (fcitx)</a>
+  </li>
+  
+  <li>
+  <a href="//articles/2014/01/23/problemes_ime.html" title="Els meus problemes amb els IME" rel="bookmark">Els meus problemes amb els IME</a>
+  </li>
+  
+  <li>
+  <a href="//howto/2014/01/02/de_squeeze_a_wheezy_2.html" title="De debian squeeze a wheezy (2)" rel="bookmark">De debian squeeze a wheezy (2)</a>
+  </li>
+  
+</div>
+
+
+<div class="sidebar-module">
+  <h4>Categories</h4>
+  
+  <li><a href="/categories/#articles" title="articles" rel="7">articles (7)</a></li>
+  
+  <li><a href="/categories/#howto" title="howto" rel="7">howto (7)</a></li>
+  
+</div>
+
+
+<div class="sidebar-module">
+  <h4>Etiquetes</h4>
+  
+    <a href="/tags/#ime" title="ime" rel="4">ime</a> &nbsp;
+  
+    <a href="/tags/#IBUS" title="IBUS" rel="2">IBUS</a> &nbsp;
+  
+    <a href="/tags/#Tegaki" title="Tegaki" rel="1">Tegaki</a> &nbsp;
+  
+    <a href="/tags/#PDF" title="PDF" rel="2">PDF</a> &nbsp;
+  
+    <a href="/tags/#xsane" title="xsane" rel="1">xsane</a> &nbsp;
+  
+    <a href="/tags/#Debian" title="Debian" rel="5">Debian</a> &nbsp;
+  
+    <a href="/tags/#Linkat" title="Linkat" rel="1">Linkat</a> &nbsp;
+  
+    <a href="/tags/#dictat" title="dictat" rel="1">dictat</a> &nbsp;
+  
+    <a href="/tags/#iconv" title="iconv" rel="1">iconv</a> &nbsp;
+  
+    <a href="/tags/#rename" title="rename" rel="1">rename</a> &nbsp;
+  
+    <a href="/tags/#sed" title="sed" rel="1">sed</a> &nbsp;
+  
+    <a href="/tags/#wdiff" title="wdiff" rel="1">wdiff</a> &nbsp;
+  
+    <a href="/tags/#vídeo" title="vídeo" rel="2">vídeo</a> &nbsp;
+  
+    <a href="/tags/#email" title="email" rel="1">email</a> &nbsp;
+  
+    <a href="/tags/#docència" title="docència" rel="1">docència</a> &nbsp;
+  
+    <a href="/tags/#corrector" title="corrector" rel="1">corrector</a> &nbsp;
+  
+    <a href="/tags/#gramàtica" title="gramàtica" rel="1">gramàtica</a> &nbsp;
+  
+    <a href="/tags/#Squeeze" title="Squeeze" rel="2">Squeeze</a> &nbsp;
+  
+    <a href="/tags/#Wheezy" title="Wheezy" rel="2">Wheezy</a> &nbsp;
+  
+    <a href="/tags/#nvidia" title="nvidia" rel="1">nvidia</a> &nbsp;
+  
+    <a href="/tags/#audio" title="audio" rel="1">audio</a> &nbsp;
+  
+    <a href="/tags/#AC'97" title="AC'97" rel="1">AC'97</a> &nbsp;
+  
+    <a href="/tags/#SCIM" title="SCIM" rel="1">SCIM</a> &nbsp;
+  
+    <a href="/tags/#UIM" title="UIM" rel="1">UIM</a> &nbsp;
+  
+    <a href="/tags/#FCITX" title="FCITX" rel="2">FCITX</a> &nbsp;
+  
+    <a href="/tags/#emacs" title="emacs" rel="1">emacs</a> &nbsp;
+  
+    <a href="/tags/#Jessie" title="Jessie" rel="2">Jessie</a> &nbsp;
+  
+    <a href="/tags/#usb" title="usb" rel="1">usb</a> &nbsp;
+  
+</div>
+
+
+<div class="sidebar-module">
+  <h4>Blogroll</h4>
+  
+  <li><a href="https://elageminada.wordpress.com" title="Bloc de llengua i literatura catalanes">Elageminada</a></li>
+  
+  <li><a href="https://hanyucat.wordpress.com/" title="Materials en català per a l'estudi de la llengua xinesa">Hanyu – Cat</a></li>
+  
+</div>
+
+
+<div class="sidebar-module">
+  <h4>Arxius</h4>
+
+  
+  
+  
+  
+  
+  <li id="2015" > <a href="/archives/#2015">2015</a></li>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <li id="2014" > <a href="/archives/#2014">2014</a></li>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <li id="2013" > <a href="/archives/#2013">2013</a></li>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <li id="2011" > <a href="/archives/#2011">2011</a></li>
+  
+  
+  
+  
+  
+
+</div>
+
+
+</div>
+
+
+
+  
+
+  <footer class="site-footer">
+
+  <p>Copyright &copy; <a href="/">Buscant pingüins al pol nord</a></p>
+  <p>Powered by <a href="https://github.com/jekyll/jekyll">Jekyll</a> 
+  a 
+  
+  <a href="https://github.com/">Github</a>
+  
+  | Tema <a href="https://github.com/yulijia/freshman21/">Freshman21</a> Dissenyat per <a href="http://yulijia.net">Lijia Yu</a>  
+
+
+  <div id="totop" style="position:fixed;bottom:150px;right:50px;cursor: pointer;">
+    <a title="Back To Top"><img src="/images/topbutton.png"/></a>
+  </div>
+
+  <script src="/js/jquery-1.9.1.min.js"></script>
+  <script src="/js/totop.js"></script>  
+
+
+
+</footer>
+
+
+</div>
+
+</body>
+
+</html>

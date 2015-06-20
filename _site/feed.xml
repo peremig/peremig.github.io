@@ -1,0 +1,665 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Buscant pingüins al pol nord</title>
+    <description>Buscant pingüins al pol nord. Un blog sobre Linux.</description>
+    <link>http://peremig.github.io/</link>
+    <atom:link href="http://peremig.github.io/zfeed.xml" rel="self" type="application/rss+xml"/>
+    <pubDate>Thu, 18 Jun 2015 00:08:12 +0200</pubDate>
+    <lastBuildDate>Thu, 18 Jun 2015 00:08:12 +0200</lastBuildDate>
+    <generator>Jekyll v2.2.0</generator>
+    
+      <item>
+        <title>Automuntar unitats USB amb accés a escriptura</title>
+        <description>&lt;div style=&quot;text-align:center&quot;&gt;
+
+  &lt;p&gt;&lt;img src=&quot;https://images.duckduckgo.com/iu/?u=http%3A%2F%2Fdebianhelp.files.wordpress.com%2F2011%2F11%2Fusb-300.gif&amp;amp;f=1&quot; alt=&quot;usb&quot; /&gt;&lt;/p&gt;
+
+&lt;/div&gt;
+&lt;div style=&quot;text-align:justify&quot;&gt;
+
+  &lt;p&gt;Després d’instal·lar &lt;em&gt;Debian 8 (Jessie)&lt;/em&gt; a l’&lt;em&gt;Acer Aspire V5-121&lt;/em&gt;, m’he trobat que l’accés a llapis de memòria USB amb format FAT era només d’escriptura per a l’usuari habitual. Si hi volia escriure, calia fer-ho com a &lt;em&gt;root&lt;/em&gt;. D’altra banda, el llapis es muntava a &lt;code&gt;/media/usb*&lt;/code&gt; en comptes de a &lt;code&gt;/media/usuari&lt;/code&gt;.&lt;/p&gt;
+
+  &lt;!-- more --&gt;
+
+  &lt;p&gt;He comprovat que no tenia en el meu sistema els paquets &lt;em&gt;usbmount&lt;/em&gt; ni &lt;em&gt;pmount&lt;/em&gt;, la presència dels quals provocava &lt;a href=&quot;http://forums.debian.net/viewtopic.php?f=7&amp;amp;t=109604&amp;amp;sid=fbef38fc21231d0ff2b4f8fc0a956f7d&quot; target=&quot;_blank&quot;&gt;el mateix error en un altre usuari de Debian&lt;/a&gt;, error que solucionà eliminant-los del sistema segons que explica en un post del 10 de desembre de 2013.&lt;/p&gt;
+
+  &lt;p&gt;No es tractava tampoc de llapis de memòria defectuosos, donat que funcionaven perfectament al PC de sobretaula (amb Debian Wheezy). Ni tampoc tenia pinta de ser un bug de Jessie, versió prou madura actualment (&lt;a href=&quot;https://lists.debian.org/debian-devel-announce/2015/01/msg00005.html&quot; target=&quot;_blank&quot;&gt;la RC1 va ser anunciada el 26 de gener de 2015 i s’espera la versió estable durant aquest mes de febrer&lt;/a&gt;).&lt;/p&gt;
+
+  &lt;p&gt;Fent memòria vaig recordar que vaig instal·lar Jessie des de llapis de memòria USB, cosa que m’havia deixat la següent línia a &lt;em&gt;fstab&lt;/em&gt;:&lt;/p&gt;
+
+  &lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;/dev/sdb1       /media/usb1        auto       rw,user,noauto      &lt;span class=&quot;m&quot;&gt;0&lt;/span&gt; 0&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+  &lt;p&gt;En principi, i donades les regles udev, no cal aquesta entrada en aquest fitxer. La solució, doncs, ha estat tan simple com comentar-la (també pot eliminar-se, però així em serveix de recordatori per si torna a passar en una altra instal·lació):&lt;/p&gt;
+
+  &lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span class=&quot;c&quot;&gt;# /dev/sdb1       /media/usb1        auto       rw,user,noauto      0 0&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+  &lt;p&gt;A partir d’aquest moment, el llapis ja s’ha muntat a &lt;code&gt;/media/usuari&lt;/code&gt; en comptes de a &lt;code&gt;/media/usb*&lt;/code&gt; i ja hi ha hagut accés de lectura i escriptura als llapis de memòria per a l’usuari habitual.&lt;/p&gt;
+
+&lt;/div&gt;
+</description>
+        <pubDate>Thu, 12 Feb 2015 00:00:00 +0100</pubDate>
+        <link>http://peremig.github.io/howto/2015/02/12/automuntar_usb_escriptura.html</link>
+        <guid isPermaLink="true">http://peremig.github.io/howto/2015/02/12/automuntar_usb_escriptura.html</guid>
+        
+        <category>Debian</category>
+        
+        <category>Jessie</category>
+        
+        <category>usb</category>
+        
+        
+        <category>howto</category>
+        
+      </item>
+    
+      <item>
+        <title>Debian 8 (Jessie) en notebook Acer Aspire V5-121</title>
+        <description>&lt;div style=&quot;text-align:center&quot;&gt;
+
+  &lt;p&gt;&lt;img src=&quot;https://i.imgur.com/aaw0gEC.png%3Fw%3D480?w=400&amp;amp;h=247&quot; alt=&quot;Debian Jessie&quot; /&gt;&lt;/p&gt;
+
+&lt;/div&gt;
+&lt;div style=&quot;text-align:justify&quot;&gt;
+
+  &lt;p&gt;L’agost de 2013 finalment va morir el meu estimat &lt;em&gt;Asus Eeepc 701&lt;/em&gt;, de manera que vaig adquirir un notebook nou per reemplaçar-lo. Vaig triar un &lt;em&gt;Acer Aspire V5-121&lt;/em&gt; després d’haver comprovat que a França en venien una versió amb sistema operatiu GNU/Linux (concretament la distribució &lt;em&gt;Linpus Linux&lt;/em&gt;).&lt;/p&gt;
+
+  &lt;!-- more --&gt;
+
+  &lt;p&gt;Per fer funcionar correctament el xip &lt;strong&gt;wifi&lt;/strong&gt;, cal que el &lt;strong&gt;kernel sigui igual o superior al 3.8.0&lt;/strong&gt;, motiu que em va fer decantar per instal·lar, en un primer moment la Kubuntu 13.04 (que més tard vaig actualitzar a 13.10 i a 14.04). En la primera actualització vaig perdre el so (sembla que és un clàssic de la meva relació amb les distribucions derivades d’Ubuntu) i, des d’un primer moment, la visualització de les aplicacions Gnome sota KDE era francament desagradable (fins i tot la de les antigues pantalles de fòsfor verd era millor!).&lt;/p&gt;
+
+  &lt;p&gt;A més, cap al més de juliol, la placa base va començar a fallar, motiu pel qual vaig enviar a reparar l’aparell al servei tècnic no sense abans haver reformatat l’aparell i haver-ne fet una instal·lació neta mínima. La visualització dels caràcters de les aplicacions Gnome sota KDE continuava tan horrorosa com abans i vaig tornar a tenir feina per configurar el so.&lt;/p&gt;
+
+  &lt;p&gt;Un cop reparat, vaig decidir que ja n’hi havia hagut prou de Kubuntu i que instal·laria Debian i que, com que Wheezy empra un kernel de la branca 3.2, havia de triar Wheezy + kernel del repositori backports o directament Jessie, que empra kernel de la branca 3.16. Vaig decantar-me per Jessie donat que ja està prou madura (en aquests moments està congelada i s’espera que s’alliberi cap al febrer de 2015, el proper mes).&lt;/p&gt;
+
+  &lt;p&gt;Ara bé, tot i això, perquè funcioni correctament aquest notebook amb &lt;em&gt;Debian 8 (Jessie)&lt;/em&gt;, cal tenir la precaució d’instal·lar els següents paquets:&lt;/p&gt;
+
+  &lt;ul&gt;
+    &lt;li&gt;&lt;strong&gt;firmware-realtek&lt;/strong&gt;, si volem utilitzar la xarxa ethernet, sense aquest paquet el funcionament de la xarxa “de fil” serà erràtic donat que el sistema no trobarà el controlador &lt;code&gt;rtl_nic/rtl8105e-1.fw&lt;/code&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;strong&gt;firmware-linux-nonfree&lt;/strong&gt;, essencial per poder activar el xip d’àudio (&lt;em&gt;Radeon HD 6250/6310&lt;/em&gt;)&lt;/li&gt;
+    &lt;li&gt;&lt;strong&gt;fglrx-driver + fglrx-modules-dkms + linux-headers-amd64 + &lt;em&gt;dependències necessàries&lt;/em&gt;&lt;/strong&gt;, opcionalment també &lt;strong&gt;fglrx-control&lt;/strong&gt;. Això ens instal·larà els controladors de vídeo &lt;em&gt;Catalyst&lt;/em&gt;. Com que aquest notebook porta un xip &lt;em&gt;Radeon HD 7290&lt;/em&gt;, els controladors lliures (&lt;em&gt;xserver-xorg-video-radeon&lt;/em&gt;) no funcionen correctament.&lt;/li&gt;
+  &lt;/ul&gt;
+
+  &lt;p&gt;La solució trobada ha acabat amb els problemes de pèrdua de so i de visualització horrible de caràcters de les aplicacions Gnome sota KDE que em trobava amb Kubuntu.&lt;/p&gt;
+
+&lt;/div&gt;
+</description>
+        <pubDate>Sun, 18 Jan 2015 00:00:00 +0100</pubDate>
+        <link>http://peremig.github.io/articles/2015/01/18/Debian_8_Acer_Aspire.html</link>
+        <guid isPermaLink="true">http://peremig.github.io/articles/2015/01/18/Debian_8_Acer_Aspire.html</guid>
+        
+        <category>Debian</category>
+        
+        <category>Jessie</category>
+        
+        
+        <category>articles</category>
+        
+      </item>
+    
+      <item>
+        <title>Emacs i el xinès (fcitx)</title>
+        <description>&lt;div style=&quot;text-align:center&quot;&gt;
+
+  &lt;p&gt;&lt;img src=&quot;https://llaisdy.files.wordpress.com/2009/02/echimp21.png%3Fw%3D480?w=490&amp;amp;h=247&quot; alt=&quot;Emacs&quot; /&gt;&lt;/p&gt;
+
+&lt;/div&gt;
+&lt;div style=&quot;text-align:justify&quot;&gt;
+
+  &lt;p&gt;Lligant amb l’article sobre els diferents IME a què m’he acostat, he preferit deixar per a un article posterior (aquest), la relació de l’IME triat amb &lt;a href=&quot;https://www.gnu.org/software/emacs/&quot; target=&quot;_blank&quot;&gt;Emacs&lt;/a&gt;. De fet &lt;em&gt;Emacs&lt;/em&gt; ja porta incorporat el seu IME i, en un determinat moment, quan ja gairebé desesperava de trobar un bon substitut per a &lt;em&gt;scim&lt;/em&gt;, vaig valorar seriosament la possibilitat de no instal·lar-ne cap i fer servir aquest editor de textos quan em calgués escriure res en xinès. Ara bé, com es pot veure en la imatge que acompanya aquestes línies (una mica obsoleta, però serveix), la visualització dels caràcters xinesos és un pèl deficient (sobretot si emprem un netbook).&lt;/p&gt;
+
+  &lt;!-- more --&gt;
+
+  &lt;p&gt;El problema ve donat pel fet que sembla ser que els diferents IME externs no es comuniquen bé amb Emacs; de manera que el més comú és que, d’entrada, no només no funcionin sinó que, a més a més, desactivin la possibilitat d’escriure paraules accentuades (maten les &lt;em&gt;dead keys&lt;/em&gt;, que substitueixen per una pitada esquerdada) així com la tecla &lt;em&gt;compose&lt;/em&gt;, que deixa d’actuar i se substiteix per la mateixa pitada esquerdada quan s’intenta activar.&lt;/p&gt;
+
+  &lt;h3 id=&quot;com-comunicar-un-ime-extern-amb-emacs&quot;&gt;Com comunicar un IME extern amb &lt;em&gt;Emacs&lt;/em&gt;&lt;/h3&gt;
+
+  &lt;p&gt;Els diferents IME presenten diferents solucions per a comunicar-se amb Emacs, la més estesa (compartida per &lt;em&gt;scim&lt;/em&gt;, &lt;em&gt;ibus&lt;/em&gt; i &lt;em&gt;uim&lt;/em&gt;) és la instal·lació d’una aplicació &lt;em&gt;elisp&lt;/em&gt; a què es crida mitjançant el fitxer de configuració &lt;code&gt;.emacs&lt;/code&gt; que se situa en el &lt;em&gt;home&lt;/em&gt; de l’usuari.&lt;/p&gt;
+
+  &lt;p&gt;&lt;em&gt;Fcitx&lt;/em&gt;, per contra, &lt;a href=&quot;https://fcitx-im.org/wiki/FAQ#Emacs&quot; target=&quot;_blank&quot;&gt;crida Emacs passant-li una variable d’entorn LC_CTYPE assignada a xinès simplificat&lt;/a&gt; amb la comanda:&lt;/p&gt;
+
+  &lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span class=&quot;nv&quot;&gt;$ LC_CTYPE&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;zh_CN.UTF-8 emacs&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+  &lt;p&gt;Aquesta comanda no canvia el &lt;em&gt;locale&lt;/em&gt; del sistema i activa &lt;em&gt;fcitx&lt;/em&gt; per a &lt;em&gt;Emacs&lt;/em&gt;. Cal, però, &lt;a href=&quot;https://wiki.debian.org/Locale&quot; target=&quot;_blank&quot;&gt;haver definit abans el locale&lt;/a&gt; que es passa amb la variable d’entorn LC_CTYPE (en aquest cas &lt;code&gt;zh_CN.UTF-8&lt;/code&gt;). La manera més senzilla en un sistema debian és emprant la comanda &lt;code&gt;# dpkg-reconfigure locales&lt;/code&gt; (com a &lt;em&gt;root&lt;/em&gt;)&lt;/p&gt;
+
+  &lt;p&gt;Ara bé, això no arregla el problema dels accents ni el de la tecla &lt;em&gt;compose&lt;/em&gt;. La &lt;a href=&quot;https://xmleye.wordpress.com/2009/12/13/entrada-de-acentos-y-japones-en-emacsgtkkde-en-ubuntu-9-10-karmic-koala/&quot; target=&quot;_blank&quot;&gt;solució, referida a uim&lt;/a&gt;, ens la dóna Antonio García-Domínguez, de la Universitat de Cadis: consisteix en cridar &lt;em&gt;Emacs&lt;/em&gt; buidant-li la variable d’entorn XMODIFIERS a través de la comanda&lt;/p&gt;
+
+  &lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span class=&quot;nv&quot;&gt;$ XMODIFIERS&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;@im&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;none emacs&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+  &lt;p&gt;Cridar així &lt;em&gt;Emacs&lt;/em&gt; ens restablirà els accents i la tecla &lt;em&gt;compose&lt;/em&gt;, però no ens comunicarà &lt;em&gt;Fcitx&lt;/em&gt; amb &lt;em&gt;Emacs&lt;/em&gt;, raó per la qual no hi podrem emprar l’IME.&lt;/p&gt;
+
+  &lt;h3 id=&quot;emacs--fcitx--accents--compose&quot;&gt;&lt;em&gt;Emacs&lt;/em&gt; + &lt;em&gt;fcitx&lt;/em&gt; + accents + &lt;em&gt;compose&lt;/em&gt;&lt;/h3&gt;
+
+  &lt;p&gt;La solució és cridar &lt;em&gt;Emacs&lt;/em&gt; passant-li el valor de les dues variables alhora. Això ho podem fer amb la instrucció següent:&lt;/p&gt;
+
+  &lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span class=&quot;nv&quot;&gt;$ LC_CTYPE&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;zh_CN.UTF-8 emacs &lt;span class=&quot;p&quot;&gt;|&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;XMODIFIERS&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;@im&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;none&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+  &lt;p&gt;I ara sí, ja tindrem l’&lt;em&gt;Emacs&lt;/em&gt; amb &lt;em&gt;fcitx&lt;/em&gt; de forma totalment funcional i hi podrem usar aquest IME a més a més dels que aquest editor ja porta incorporats. Només quedarien per fer uns petits detalls:&lt;/p&gt;
+
+  &lt;ul&gt;
+    &lt;li&gt;&lt;strong&gt;Canviar l’assignació de la combinació &lt;em&gt;Ctrl+Espai&lt;/em&gt;&lt;/strong&gt; a &lt;em&gt;Emacs&lt;/em&gt; (on indica inici-final de marca) o a &lt;em&gt;fcitx&lt;/em&gt; (on commuta el mètode d’entrada)&lt;/li&gt;
+    &lt;li&gt;&lt;strong&gt;Modificar les entrades del menú del &lt;em&gt;KDE&lt;/em&gt; que es refereixen a &lt;em&gt;Emacs&lt;/em&gt;&lt;/strong&gt; (normalment hi trobarem alguna cosa semblant a &lt;code&gt;/usr/bin/emacs23 %F&lt;/code&gt; i les canviarem per &lt;code&gt;LC_CTYPE=zh_CN.UTF-8 /usr/bin/emacs23 %F | XMODIFIERS=@im=none&lt;/code&gt;)&lt;/li&gt;
+    &lt;li&gt;&lt;strong&gt;Opcionalment, col·locar una icona a l’escriptori de treball&lt;/strong&gt; (a &lt;em&gt;KDE&lt;/em&gt; consisteix en clicar amb el botó dret del ratolí sobre l’entrada del menú i triar l’opció &lt;em&gt;Afegeix a l’escriptori&lt;/em&gt;)&lt;/li&gt;
+    &lt;li&gt;&lt;strong&gt;Només si hi ha diferents usuaris que utilitzen &lt;em&gt;Emacs&lt;/em&gt; i &lt;em&gt;fcitx&lt;/em&gt;&lt;/strong&gt;, caldrà instal·lar-hi una nova alternativa que reculli les modificacions de les dues variables LC_CTYPE i XMODIFIERS, més o menys &lt;a href=&quot;https://xmleye.wordpress.com/2009/12/13/entrada-de-acentos-y-japones-en-emacsgtkkde-en-ubuntu-9-10-karmic-koala/&quot; target=&quot;_blank&quot;&gt;com fa García-Dominguez per a uim&lt;/a&gt;.&lt;/li&gt;
+  &lt;/ul&gt;
+
+&lt;/div&gt;
+</description>
+        <pubDate>Fri, 24 Jan 2014 00:00:00 +0100</pubDate>
+        <link>http://peremig.github.io/howto/2014/01/24/Emacs_fcitx.html</link>
+        <guid isPermaLink="true">http://peremig.github.io/howto/2014/01/24/Emacs_fcitx.html</guid>
+        
+        <category>ime</category>
+        
+        <category>emacs</category>
+        
+        <category>FCITX</category>
+        
+        
+        <category>howto</category>
+        
+      </item>
+    
+      <item>
+        <title>Els meus problemes amb els IME</title>
+        <description>&lt;div style=&quot;text-align:center&quot;&gt;
+
+  &lt;p&gt;&lt;img src=&quot;https://fcitx-im.org/images/1/19/Fcitx-pinyin.png&quot; alt=&quot;Fcitx&quot; /&gt;&lt;/p&gt;
+
+&lt;/div&gt;
+&lt;div style=&quot;text-align:justify&quot;&gt;
+
+  &lt;p&gt;En la migració de Debian Squeeze a Wheezy he trobat un darrer entrebanc: el mètode d’entrada per a caràcters xinesos. Fins ara havia emprat &lt;strong&gt;SCIM&lt;/strong&gt; i n’estava força content, però el projecte semblava ja interromput  quan vaig actualitzar a Squeeze i ara sembla ja &lt;a href=&quot;http://www.scim-im.org/&quot; target=&quot;_blank&quot;&gt;totalment abandonat&lt;/a&gt;, de fet estava en projecte fer-ne una nova generació d’SCIM anomenada &lt;a href=&quot;http://code.google.com/p/scim2/&quot; target=&quot;_blank&quot;&gt;SCIM2&lt;/a&gt;, que va ser abandonada al seu torn quan alhora va començar el projecte &lt;em&gt;IBus&lt;/em&gt;. A més a més, ja no existeix el &lt;a href=&quot;http://packages.debian.org/search?keywords=scim&amp;amp;searchon=names&amp;amp;suite=stable&amp;amp;section=all&quot; target=&quot;_blank&quot;&gt;paquet corresponent al mètode d’entrada per pinyin en els repositoris de Wheezy&lt;/a&gt;.&lt;/p&gt;
+
+  &lt;!-- more --&gt;
+
+  &lt;p&gt;S’imposa, doncs, la migració a un altre mètode d’entrada (cosa que ja &lt;a href=&quot;/article/2011/02/10/perque_no_ibus.html&quot; target=&quot;_blank&quot;&gt;havia intentat el 2011 amb l’ibus&lt;/a&gt;, però que vaig descartar perquè no admetia la introducció de caràcters accentuats).  En aquesta migració he provat tres IME, dels quals n’he hagut de descartar dos:&lt;/p&gt;
+
+  &lt;h3 id=&quot;uim&quot;&gt;UIM&lt;/h3&gt;
+
+  &lt;p&gt;Ha estat el primer que he instal·lat i he intentat fer funcionar. No he estat capaç d’arrencar cap mètode d’entrada pinyin per al xinès simplificat. Sembla ser que funciona força bé amb el japonès, però com que no en sé, no he instal·lat cap mètode d’entrada per al japonès. Després de molt googlejar i de força intents frustrants, he desinstal·lat i purgat tot els paquets que havia introduït al meu sistema.&lt;/p&gt;
+
+  &lt;h3 id=&quot;ibus&quot;&gt;IBUS&lt;/h3&gt;
+
+  &lt;p&gt;A continuació, he donat una segona oportunitat a aquest IME que havia descartat dos anys abans. Continua tenint errors importants i inexplicables: ara ja permet caràcters accentuats, però no pas en totes les aplicacions. És especialment greu la seva &lt;a href=&quot;http://forums.debian.net/viewtopic.php?t=76716&quot; target=&quot;_blank&quot;&gt;incompatibilitat amb Libreoffice&lt;/a&gt;,  amb aquesta aplicació és possible emprar el mètode d’entrada per al xinès, però no pas els caràcters accentuats (però si que permet introduir la &lt;code&gt;ç&lt;/code&gt;, la &lt;code&gt;ŀ&lt;/code&gt; i la &lt;code&gt;ñ&lt;/code&gt;). és més, desactiva la tecla &lt;em&gt;Compose&lt;/em&gt; (que tinc assignada a &lt;em&gt;Win esquerra&lt;/em&gt;). Sembla funcionar bé, en canvi, amb altres aplicacions &lt;em&gt;KDE&lt;/em&gt; (com ara &lt;em&gt;KWrite&lt;/em&gt;).&lt;/p&gt;
+
+  &lt;p&gt;&lt;a href=&quot;https://duckduckgo.com/?q=ibus+libreoffice&amp;amp;t=debian&quot; target=&quot;_blank&quot;&gt;Aquestes disfuncions es documenten almenys des de 2010 fins a l’actualitat&lt;/a&gt; i amb diferents distribucions Linux (Debian, Ubuntu, Arch, OpenSuse, Fedora, etc) sense que estiguin encara resoltes del tot &lt;a href=&quot;https://bugs.launchpad.net/ubuntu/+source/ibus/+bug/1007423&quot; target=&quot;_blank&quot;&gt;ni sembli clara la voluntat de resoldre-les&lt;/a&gt;.&lt;/p&gt;
+
+  &lt;p&gt;L’única manera d’escriure caràcters accentuats amb Libreoffice és desactivar l’&lt;strong&gt;ibus&lt;/strong&gt; (tancar-lo) i iniciar-lo abans d’escriure en xinès (ara bé, en alguna pàgina web s’adverteix que l’ibus provoca tancaments sobtats i  de les aplicacions de Libreoffice al cap d’una estona de treballar-hi; no he comprovat, però).&lt;/p&gt;
+
+  &lt;h3 id=&quot;fcitx&quot;&gt;FCITX&lt;/h3&gt;
+
+  &lt;p&gt;Ha estat el tercer IME que he provat i amb el que m’he quedat. La instal·lació és senzilla i ràpida a partir dels paquets dels repositoris Debian i ha funcionat des del primer moment amb totes les aplicacions on l’he provat (incloent-hi Libreoffice).&lt;/p&gt;
+
+  &lt;p&gt;El seu punt més fort és que les diferents opcions que ofereix es presenten en un tipus de lletra clar i gros, clarament llegibles (a diferència d’&lt;em&gt;ibus&lt;/em&gt; i &lt;em&gt;scim&lt;/em&gt;), cosa que és d’agrair a partir de certes edats.&lt;/p&gt;
+
+  &lt;p&gt;El seu punt més feble és que les diferents &lt;em&gt;hotkeys&lt;/em&gt; es basen en la distribució del teclat americà (&lt;em&gt;us keyboard&lt;/em&gt;), de manera que les tecles que s’assignen per defecte per visionar diferents conjunts d’opcions (cinc per defecte, però la xifra és configurable), no corresponen a les que trobem impreses sobre el teclat català. Així, doncs, per defecte s’utilitza «=» per a mostrar les opcions següents i «-» per mostrar-ne les anteriors, però en el nostre teclat, aquestes opcions se situen a les tecles «¿¡»  i «?’» respectivament (també podem configurar aquestes opcions).&lt;/p&gt;
+
+  &lt;h3 id=&quot;addenda&quot;&gt;Addenda&lt;/h3&gt;
+
+  &lt;p&gt;Un cop acabada la tria del nou IME, he ensopegat amb dues pàgines que poden ajudar qui es trobi en una situació anàloga a la que he descrit. La primera &lt;a href=&quot;http://www.verious.com/article/linux-input-method-framework-brief-summary/&quot; target=&quot;_blank&quot;&gt;analitza diferents IME per a Linux&lt;/a&gt; a data 15 de gener de 2011. La segona és, de fet, la resposta a la pregunta &lt;em&gt;&lt;a href=&quot;http://chakra-project.org/bbs/viewtopic.php?id=10365&quot; target=&quot;_blank&quot;&gt;What’s your favourite user input method?&lt;/a&gt;&lt;/em&gt;  que es va fer dins del fòrum de Chakra per triar quin seria l’IME “oficial” d’aquesta distribució, aquesta pregunta es va fer el 5 de maig de 2013 i les respostes (poques) arriben fins al 7 de gener de 2014; aquesta pàgina ens pot ajudar a triar l’IME més adient per a la llengua en què vulguem escriure, en resum seria:&lt;/p&gt;
+
+  &lt;ul&gt;
+    &lt;li&gt;&lt;a href=&quot;https://fcitx-im.org/wiki/Fcitx&quot; target=&quot;_blank&quot;&gt;FCITX&lt;/a&gt; seria el millor IME per a &lt;strong&gt;xinès simplificat&lt;/strong&gt;, però no gaire adequat per a japonès.&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;https://code.google.com/p/gcin/&quot; target=&quot;_blank&quot;&gt;GCIN&lt;/a&gt; seria el millor IME per a &lt;strong&gt;xinès tradicional&lt;/strong&gt; (si més no, el més emprat per a aquesta finalitat)&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;https://code.google.com/p/ibus/&quot;&gt;IBUS&lt;/a&gt; seria l’IME més emprat per a &lt;strong&gt;japonès&lt;/strong&gt; i el que més suport presenta per a les &lt;strong&gt;llengües de l’Índia&lt;/strong&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;https://code.google.com/p/uim/&quot; target=&quot;_blank&quot;&gt;UIM&lt;/a&gt; és un IME adequat per a &lt;strong&gt;japonès&lt;/strong&gt;&lt;/li&gt;
+    &lt;li&gt;Per al &lt;strong&gt;Coreà&lt;/strong&gt;, hom aconsella &lt;em&gt;FCTIX&lt;/em&gt; en comptes d’&lt;em&gt;IBUS&lt;/em&gt;&lt;/li&gt;
+  &lt;/ul&gt;
+
+&lt;/div&gt;
+</description>
+        <pubDate>Thu, 23 Jan 2014 00:00:00 +0100</pubDate>
+        <link>http://peremig.github.io/articles/2014/01/23/problemes_ime.html</link>
+        <guid isPermaLink="true">http://peremig.github.io/articles/2014/01/23/problemes_ime.html</guid>
+        
+        <category>ime</category>
+        
+        <category>SCIM</category>
+        
+        <category>UIM</category>
+        
+        <category>IBUS</category>
+        
+        <category>FCITX</category>
+        
+        
+        <category>articles</category>
+        
+      </item>
+    
+      <item>
+        <title>De debian squeeze a wheezy (2)</title>
+        <description>&lt;div style=&quot;text-align:center&quot;&gt;
+
+  &lt;p&gt;&lt;img src=&quot;/images/mute_icon.png&quot; alt=&quot;Mute&quot; /&gt;&lt;/p&gt;
+
+&lt;/div&gt;
+&lt;div style=&quot;text-align:justify&quot;&gt;
+
+  &lt;p&gt;Comentava en l’entrada anterior com en la migració d’squeeze a wheezy m’havien fallat el sistema gràfic i el so. En el post anterior mostrava com s’havia solucionat la fallada del servidor gràfic. En aquest es mostrarà com s’ha arreglat el sistema d’àudio.&lt;/p&gt;
+
+  &lt;!-- more --&gt;
+
+  &lt;p&gt;El xip d’àudio que utilitza el maquinari és un SiS SI7012 integrat en la placa base, no havia mostrat mai símptomes de mal funcionament en cap de les versions anteriors de Debian emprades (la primera amb aquest maquinari va ser &lt;em&gt;Sarge&lt;/em&gt;, Debian 3.0), però havia mostrat un comportament una mica erràtic sota &lt;em&gt;Ubuntu 6.06 LTS&lt;/em&gt; (que es va solucionar migrant a Debian Sarge).&lt;/p&gt;
+
+  &lt;p&gt;En acabar la instal·lació de Wheezy (es va optar per fer una instal·lació neta del sistema en comptes d’una actualització des d’Squeeze), sobtava que el sistema estava mut. La icona del mesclador de so &lt;em&gt;kmix&lt;/em&gt; apareixia amb el símbol d’altaveu mut i era impossible activar el so a través dels controladors dels mesclador.&lt;/p&gt;
+
+  &lt;p&gt;Una revisió de la instal·lació amb les comandes &lt;code&gt;aplay -l&lt;/code&gt;, &lt;code&gt;aplay -L&lt;/code&gt;, &lt;code&gt;lspci&lt;/code&gt; i &lt;code&gt;cat /proc/asound/modules&lt;/code&gt; semblava indicar que tot era correcte, però no hi havia so. En arrencar l’&lt;em&gt;alsamixer&lt;/em&gt;, es mostrava com a sistema de so per defecte &lt;em&gt;pulseaudio&lt;/em&gt;.&lt;/p&gt;
+
+  &lt;p&gt;Una recerca a &lt;a href=&quot;https://encrypted.google.com/search?hl=en&amp;amp;q=debian%20wheezy%20%22SiS%20SI7012%22&quot; target=&quot;_blank&quot;&gt;Google&lt;/a&gt;, em va fer veure que aquest problema ja havia aparegut amb Squeeze i afectava també el xip &lt;em&gt;SiS AC’97&lt;/em&gt;. Les &lt;a href=&quot;https://www.debian-fr.org/pas-de-son-avec-squeeze-t37367.html&quot; target=&quot;_blank&quot;&gt;diferents solucions que hom hi aportava&lt;/a&gt; no em van funcionar. Vaig recordar que l’&lt;em&gt;Asus Eeepc 710&lt;/em&gt; duu com a xip de so un AC’97 i que en fer-li la migració a Wheezy el passat estiu no n’havia experimentat cap problema. Així que vaig decidir revisar-li la instal·lació i configuració per mirar de treure’n l’entrellat.&lt;/p&gt;
+
+  &lt;p&gt;La sorpresa me la va donar l’&lt;em&gt;alsamixer&lt;/em&gt;, en l’Eeepc el sistema de so per defecte no era &lt;em&gt;pulseaudio&lt;/em&gt; (de fet ni tan sols hi apareixia). La raó era molt senzilla: &lt;em&gt;pulseaudio&lt;/em&gt; no estava instal·lat en l’Eeepc; així, doncs, la solució ha estat tan senzilla com desintal·lar &lt;em&gt;pulseaudio&lt;/em&gt; en l’ordinador de sobretaula (deixant-hi, però, els paquets &lt;code&gt;libpulse-mainloop-glib0&lt;/code&gt; i &lt;code&gt;libpulse0&lt;/code&gt;). Un cop reiniciat el sistema de so (o tota la màquina, si es prefereix) i ajustats els controladors del mesclador de so, s’ha acabat amb la mudesa de Wheezy.&lt;/p&gt;
+
+  &lt;p&gt;Queda per explicar per què la instal·lació de l’Eeepc no duia el sistema de so &lt;em&gt;pulseaudio&lt;/em&gt;. En aquesta màquina, i donada la seva poca capacitat de disc (4 GB), es va fer una instal·lació del sistema base que es va anar completant a mà (sense utilitzar les Tasques de Debian); en instal·lar el so, es va instal·lar el sistema de so &lt;em&gt;alsa&lt;/em&gt; de la manera més mínima possible, per la qual cosa es va obviar &lt;em&gt;pulseaudio&lt;/em&gt;.&lt;/p&gt;
+
+&lt;/div&gt;
+</description>
+        <pubDate>Thu, 02 Jan 2014 00:00:00 +0100</pubDate>
+        <link>http://peremig.github.io/howto/2014/01/02/de_squeeze_a_wheezy_2.html</link>
+        <guid isPermaLink="true">http://peremig.github.io/howto/2014/01/02/de_squeeze_a_wheezy_2.html</guid>
+        
+        <category>Debian</category>
+        
+        <category>Squeeze</category>
+        
+        <category>Wheezy</category>
+        
+        <category>audio</category>
+        
+        <category>AC&#39;97</category>
+        
+        
+        <category>howto</category>
+        
+      </item>
+    
+      <item>
+        <title>De debian squeeze a wheezy (1)</title>
+        <description>&lt;div style=&quot;text-align:center&quot;&gt;
+
+  &lt;p&gt;&lt;img src=&quot;https://i1.wp.com/kbase.vectorworks.net/images/nvidia-2.jpg&quot; alt=&quot;nVidia&quot; /&gt;&lt;/p&gt;
+
+&lt;/div&gt;
+&lt;div style=&quot;text-align:justify&quot;&gt;
+
+  &lt;p&gt;Aquestes vacances de Cap d’Any he estat migrant d’Squeeze a Wheezy (versió 7.3). Tot ha anat bé llevat de dues qüestions: la gràfica i el so. En aquest primer post tractaré de com he resolt el sistema gràfic (ja que va ser el primer que vaig resoldre).&lt;/p&gt;
+
+  &lt;!-- more --&gt;
+
+  &lt;p&gt;El sistema actualitzat és un pèl antic, es tracta d’un AMD 386, amb una gràfica amb xip &lt;em&gt;nvidia Geforce 6200LE&lt;/em&gt;, per la qual cosa, almenys en teoria, no hauria de tenir problemes amb les drivers lliures &lt;em&gt;nouveau&lt;/em&gt;. D’entrada, cal dir ja que en la versió Squeeze aquests drivers no havien funcionat, per la qual cosa vaig optar per baixar-ne els drivers propietaris de la web d’&lt;em&gt;nvidia&lt;/em&gt; i compilar-los. Tot i que sempre van funcionar correctament, la veritat és que el procediment era una mica pesat, ja que qualsevol actualització del kernel linux o del servidor gràfic &lt;em&gt;x.org&lt;/em&gt; m’obligava a recompilar-ne els drivers.&lt;/p&gt;
+
+  &lt;p&gt;En arrencar Wheezy amb els drivers nouveau, feia la impressió que estigués arrencant un Windows: el sistema arrencava lentament i el servidor gràfic anava força lent (a trompades); és més, al cap d’una estona i quan es començava a fer ús de la multitasca, feia la impressió que tot el sistema s’hagués penjat (el sistema gràfic es congelava i deixava de respondre a ratolí i a teclat).&lt;/p&gt;
+
+  &lt;p&gt;La solució passa per desintal·lar els drivers &lt;em&gt;nouveau&lt;/em&gt; i fer servir els drivers propietaris. Si intentem la via fàcil (desintal·lar i purgar el paquet &lt;em&gt;xserver-xorg-video-nouveau&lt;/em&gt; i instal·lar el paquet &lt;em&gt;xserver-xorg-video-nvidia&lt;/em&gt;), observarem que no només no funciona, sinó que ni tan sols arrenca el servidor gràfic. Arreglar-ho demana uns quants passos més:&lt;/p&gt;
+
+  &lt;ol&gt;
+    &lt;li&gt;Eliminar el fitxer &lt;em&gt;/usr/lib/xorg/modules/drivers/nouveau.so&lt;/em&gt;&lt;/li&gt;
+    &lt;li&gt;Obligar el servidor gràfic a emprar els drivers propietaris i, per tant, crear el fitxer &lt;em&gt;/etc/X11/xorg.conf&lt;/em&gt; amb almenys les línies següents:&lt;/li&gt;
+  &lt;/ol&gt;
+
+  &lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;Section &lt;span class=&quot;s2&quot;&gt;&amp;quot;Screen&amp;quot;&lt;/span&gt;
+	Identifier	&lt;span class=&quot;s2&quot;&gt;&amp;quot;Default screen&amp;quot;&lt;/span&gt;
+	Device		&lt;span class=&quot;s2&quot;&gt;&amp;quot;Default Video Card&amp;quot;&lt;/span&gt;
+	DefaultDepth	24
+EndSection
+
+Section &lt;span class=&quot;s2&quot;&gt;&amp;quot;Device&amp;quot;&lt;/span&gt;
+	Identifier	&lt;span class=&quot;s2&quot;&gt;&amp;quot;Default Video Card&amp;quot;&lt;/span&gt;
+	Driver		&lt;span class=&quot;s2&quot;&gt;&amp;quot;nvidia&amp;quot;&lt;/span&gt;
+EndSection&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+  &lt;p&gt;Reiniciem llavors el servidor gràfic (o tot el sistema, com ho preferim) i ja tindrem el sistema gràfic amb la potència i fiabilitat de GNU/Linux, amb l’avantatge (respecte de la compilació dels drivers), que qualsevol actualització que es faci del nucli Linux o de les &lt;em&gt;X&lt;/em&gt; ens  recompilarà els drivers de forma totalment automàtica. El desavantatge és que no disposarem dels darrers drivers publicats per &lt;em&gt;nvidia&lt;/em&gt;.&lt;/p&gt;
+
+&lt;/div&gt;
+</description>
+        <pubDate>Wed, 01 Jan 2014 00:00:00 +0100</pubDate>
+        <link>http://peremig.github.io/howto/2014/01/01/de_squeeze_a_wheezy_1.html</link>
+        <guid isPermaLink="true">http://peremig.github.io/howto/2014/01/01/de_squeeze_a_wheezy_1.html</guid>
+        
+        <category>Debian</category>
+        
+        <category>Squeeze</category>
+        
+        <category>Wheezy</category>
+        
+        <category>vídeo</category>
+        
+        <category>nvidia</category>
+        
+        
+        <category>howto</category>
+        
+      </item>
+    
+      <item>
+        <title>Corrector gramatical i d’estil en català</title>
+        <description>&lt;div style=&quot;text-align:center&quot;&gt;
+
+  &lt;p&gt;&lt;img src=&quot;https://i0.wp.com/www.softcatala.org/w/images/8/8c/LanguageTool-Icon.png&quot; alt=&quot;Language Tool&quot; /&gt;&lt;/p&gt;
+
+&lt;/div&gt;
+&lt;div style=&quot;text-align:justify&quot;&gt;
+
+  &lt;p&gt;En la seva web, &lt;a href=&quot;https://www.languagetool.org/ca/&quot; target=&quot;_blank&quot;&gt;Language Tool&lt;/a&gt; es defineix com a &lt;em&gt;eina de programari lliure per a la correcció gramatical i d’estil en català i &lt;a href=&quot;http://www.languagetool.org/languages/&quot; target=&quot;_blank&quot;&gt;en moltes altres llengües&lt;/a&gt;&lt;/em&gt; (a més del català, el castellà, l’anglès, el francès i, fins i tot, xinès). Les seves funcions van més enllà de les del corrector ortogràfic (de fet, aplica més de 1000 regles, tant gramaticals com estilístiques: concordança, apostrofació, majúscules i minúscules, puntuació, accentuació, lèxiques, etc.).&lt;/p&gt;
+
+  &lt;!-- more --&gt;
+
+  &lt;p&gt;Per funcionar requereix que estigui instal·lada la versió 7 o superior de &lt;em&gt;Java&lt;/em&gt;. Pot executar-se des de tres escenaris diferenciats:&lt;/p&gt;
+
+  &lt;ul&gt;
+    &lt;li&gt;com a &lt;em&gt;extensió del LibreOffice&lt;/em&gt;&lt;/li&gt;
+    &lt;li&gt;com a &lt;em&gt;aplicació independent&lt;/em&gt; (com si fos qualsevol altre programa d’ordinador)&lt;/li&gt;
+    &lt;li&gt;com a &lt;a href=&quot;https://addons.mozilla.org/firefox/addon/languagetoolfx/&quot; target=&quot;_blank&quot;&gt;extensió per a Firefox&lt;/a&gt; (ens servirà, per exemple, per revisar la correcció del nostre correu, aportacions a fòrums, etc.)&lt;/li&gt;
+  &lt;/ul&gt;
+
+  &lt;p&gt;Cal tenir en compte que, a l’igual que qualsevol altre corrector gramatical, els resultats que ofereix són sempre propostes de correcció i que la decisió última sempre ha d’estar en mans de la persona que està escrivint el text. Tot i això, aquest corrector serà de gran ajut a l’hora d’intentar aconseguir una producció més correcta dels textos propis alhora que obliga a reflexionar sobre qüestions lingüístiques per decidir si s’accepten o no els diferents suggeriments que fa sobre els escrits que es revisen.&lt;/p&gt;
+
+&lt;/div&gt;
+</description>
+        <pubDate>Wed, 09 Oct 2013 00:00:00 +0200</pubDate>
+        <link>http://peremig.github.io/articles/2013/10/09/corrector_gramatical_catala.html</link>
+        <guid isPermaLink="true">http://peremig.github.io/articles/2013/10/09/corrector_gramatical_catala.html</guid>
+        
+        <category>corrector</category>
+        
+        <category>gramàtica</category>
+        
+        
+        <category>articles</category>
+        
+      </item>
+    
+      <item>
+        <title>Com enviar els butlletins de notes per correu electrònic</title>
+        <description>&lt;div style=&quot;text-align:center&quot;&gt;
+
+  &lt;p&gt;&lt;img src=&quot;https://i1.wp.com/inlab.fib.upc.edu/sites/default/files/styles/galleryformatter_slide/public/saga1.png&quot; alt=&quot;SAGA&quot; /&gt;&lt;/p&gt;
+
+&lt;/div&gt;
+&lt;div style=&quot;text-align:justify&quot;&gt;
+
+  &lt;p&gt;El proper dissabte comença el descans de setmana santa. Abans, però, en la majoria de centres es lliuraran els butlletins de qualificacions que s’han imprès des de &lt;a href=&quot;http://educacio.gencat.cat/portal/page/portal/Educacio/PCentrePrivat/PCPInici/PCPGestioAdministrativa/PCPAccesSAGA&quot; target=&quot;_blank&quot;&gt;SAGA&lt;/a&gt;, un cop acabades les avaluacions del segon trimestre. Aquests butlletins són, en origen, un document PDF generat per aquell aplicatiu; aquest document duu ordenats tots els butlletins de qualificacions dels alumnes d’un grup classe a raó d’un butlletí per pàgina. Amb les retallades econòmiques i l’augment d’hores de dedicació al centre que patim els docents, cal pensar algun sistema que estalviï alhora diners i temps. Pel que fa als butlletins, enviar-los per e-mail (s’estalvien diners de paper, tinta i lloguer de fotocopiadora) i enviar-los de forma automatitzada (estalviem el temps d’ensobrat i de preparació dels butlletins.&lt;/p&gt;
+
+  &lt;!-- more --&gt;
+
+  &lt;p&gt;Els passos a seguir són:&lt;/p&gt;
+
+  &lt;ol&gt;
+    &lt;li&gt;Configuració del servidor de correu electrònic (només cal fer-ho el primer cop que enviem butlletins)&lt;/li&gt;
+    &lt;li&gt;Desmuntar el document generat per SAGA&lt;/li&gt;
+    &lt;li&gt;Enviar els butlletins a les famílies respectives&lt;/li&gt;
+  &lt;/ol&gt;
+
+  &lt;h3 id=&quot;configurar-el-servidor-de-correu&quot;&gt;Configurar el servidor de correu&lt;/h3&gt;
+
+  &lt;p&gt;Com a servidor de correu, empro Exim4 perquè s’instal·la per defecte a Debian i és fàcil de configurar amb l’ordre dpkg-reconfigure exim4-config. Podem seguir &lt;a href=&quot;http://www.elrincondetolgalen.com/2012/07/09/configurar-exim4-com-gmail-como-smarthost-en-debian/&quot; target=&quot;_blank&quot;&gt;aquest tutorial en castellà&lt;/a&gt;. Cal tenir en compte una petita modificació: per enviar correus des de l’adreça &lt;u&gt;usuari@xtec.cat&lt;/u&gt;, hem d’editar el fitxer &lt;code&gt;/etc/exim4/passwd.client&lt;/code&gt; amb les següents dades:&lt;/p&gt;
+
+  &lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span class=&quot;lineno&quot;&gt;1 &lt;/span&gt;gmail-smtp.l.google.com:usuari@xtec.cat:password
+&lt;span class=&quot;lineno&quot;&gt;2 &lt;/span&gt;*.google.com:usuari@xtec.cat:password
+&lt;span class=&quot;lineno&quot;&gt;3 &lt;/span&gt;smtp.gmail.com:usuari@xtec.cat:password&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+  &lt;h3 id=&quot;desmuntar-el-document-generat-per-saga&quot;&gt;Desmuntar el document generat per SAGA&lt;/h3&gt;
+
+  &lt;p&gt;El document generat per SAGA s’anomena &lt;strong&gt;informe.pdf&lt;/strong&gt;, per desmuntar-lo i crear un document PDF per a cada pàgina podem utilitzar &lt;em&gt;pdftk&lt;/em&gt;:&lt;/p&gt;
+
+  &lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;pdftk informe.pdf burst&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+  &lt;p&gt;Això és crearà un seguit de fitxers anomenats &lt;em&gt;pg__000X.pdf&lt;/em&gt;, on X és el número corresponent a la pàgina que ocupa en el document mare (&lt;em&gt;informe.pdf&lt;/em&gt;). Ara bé, quan passem de les nou pàgines, la numeració elimina un zero (els fitxer passen a ser &lt;em&gt;pg_00XX.pdf&lt;/em&gt;). Com que encara no tenim grups classe de més de 99 alumnes, la cosa no passa d’aquí; altrament tindríem fitxers &lt;em&gt;pg_0XXX.pdf&lt;/em&gt;. Es crearà també un fitxer de text que fa les funcions de fitxer de log, és irrellevant per als nostres propòsits, de manera que el podem esborrar.&lt;/p&gt;
+
+  &lt;p&gt;La manera com ens ha desmuntat el fitxer inicial pot complicar-nos la feina. Personalment, prefereixo un seguit de fitxers anomenat &lt;em&gt;pN.pdf&lt;/em&gt;, on N sigui el número de pàgina independentment dels dígits que el conformin. He optat, doncs, per reanomenar aquests fitxers amb l’ordre &lt;code&gt;mv&lt;/code&gt; inserida dins un script de bash (el dono al final d’aquest article).&lt;/p&gt;
+
+  &lt;h3 id=&quot;enviar-els-butlletins-a-les-famlies-respectives&quot;&gt;Enviar els butlletins a les famílies respectives&lt;/h3&gt;
+
+  &lt;p&gt;Aquest procés ha de ser automàtic. Altrament es converteix en un assumpte més tediós que donar-los en suport físic (paper). Per tant, s’ha de crear un nou script de bash que adjunti cada butlletí a un missatge de correu electrònic apropiat per al seu destinatari. La meva solució opta per servir-se de diferents utilitats:&lt;/p&gt;
+
+  &lt;ul&gt;
+    &lt;li&gt;un fitxer de text on es recullin les adreces de correu que rebran els butlletins (&lt;strong&gt;important&lt;/strong&gt;: el contingut s’ha d’elaborar a raó d’una adreça per línia i s’han d’ordenar en el mateix ordre que apareix el llistat dels alumnes del grup-classe a SAGA). L’he anomenat &lt;em&gt;adreces.txt&lt;/em&gt;&lt;/li&gt;
+    &lt;li&gt;un fitxer de text on es recull el text que conformarà el cos del missatge. L’he anomenat &lt;em&gt;mailtext.txt&lt;/em&gt;&lt;/li&gt;
+    &lt;li&gt;l’aplicació &lt;code&gt;read&lt;/code&gt;, que ens servirà per llegir el fitxer d’adreces línia a línia (això és, adreça a adreça)&lt;/li&gt;
+    &lt;li&gt;l’aplicació &lt;code&gt;uuencode&lt;/code&gt;, que ens codificarà el butlletí en format PDF de forma convenient per adjuntar al correu electrònic&lt;/li&gt;
+    &lt;li&gt;l’aplicació &lt;code&gt;mail&lt;/code&gt;, que ens enviarà el correu electrònic a l’adreça desitjada a través d’&lt;code&gt;exim4&lt;/code&gt;&lt;/li&gt;
+  &lt;/ul&gt;
+
+  &lt;p&gt;En aquest procés, l’ordre bàsica és:&lt;/p&gt;
+
+  &lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;cat mailtext.txt&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; uuencode ./butlletins/pN.pdf butlleti.pdf&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;|&lt;/span&gt; mail -s &lt;span class=&quot;s2&quot;&gt;&amp;quot;Butlletins de l&amp;#39;avaluació&amp;quot;&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$i&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+  &lt;h3 id=&quot;reunim-ho-en-un-script-de-bash&quot;&gt;Reunim-ho en un script de bash&lt;/h3&gt;
+
+  &lt;p&gt;He reunit tot plegat en un script de bash, el llistat del qual és el següent:&lt;/p&gt;
+
+  &lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span class=&quot;lineno&quot;&gt; 1 &lt;/span&gt;&lt;span class=&quot;c&quot;&gt;#! /bin/bash&lt;/span&gt;
+&lt;span class=&quot;lineno&quot;&gt; 2 &lt;/span&gt;&lt;span class=&quot;c&quot;&gt;# Primer pas: desmuntar el pdf amb pdftk fitxer.pdf burst&lt;/span&gt;
+&lt;span class=&quot;lineno&quot;&gt; 3 &lt;/span&gt; mkdir butlletins
+&lt;span class=&quot;lineno&quot;&gt; 4 &lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;Pas 1: Creant els butlletins...&amp;quot;&lt;/span&gt;
+&lt;span class=&quot;lineno&quot;&gt; 5 &lt;/span&gt; cp informe.pdf ./butlletins
+&lt;span class=&quot;lineno&quot;&gt; 6 &lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;cd &lt;/span&gt;butlletins
+&lt;span class=&quot;lineno&quot;&gt; 7 &lt;/span&gt; pdftk informe.pdf burst
+&lt;span class=&quot;lineno&quot;&gt; 8 &lt;/span&gt; rm informe.pdf
+&lt;span class=&quot;lineno&quot;&gt; 9 &lt;/span&gt; rm *.txt
+&lt;span class=&quot;lineno&quot;&gt;10 &lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;... pas 1 fet!&amp;quot;&lt;/span&gt;
+&lt;span class=&quot;lineno&quot;&gt;11 &lt;/span&gt;
+&lt;span class=&quot;lineno&quot;&gt;12 &lt;/span&gt;&lt;span class=&quot;c&quot;&gt;# Segon pas: reanomenar les pàgines de pg__000X.pdf a pX.pdf &lt;/span&gt;
+&lt;span class=&quot;lineno&quot;&gt;13 &lt;/span&gt;&lt;span class=&quot;c&quot;&gt;# i de pg__00XX.pdf a pXX.pdf amb mv&lt;/span&gt;
+&lt;span class=&quot;lineno&quot;&gt;14 &lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;Pas 2: Preparant-los per trametre...&amp;quot;&lt;/span&gt;
+&lt;span class=&quot;lineno&quot;&gt;15 &lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;cont&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;1
+&lt;span class=&quot;lineno&quot;&gt;16 &lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;nom&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot;p&amp;quot;&lt;/span&gt;
+&lt;span class=&quot;lineno&quot;&gt;17 &lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;ext&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot;.pdf&amp;quot;&lt;/span&gt;
+&lt;span class=&quot;lineno&quot;&gt;18 &lt;/span&gt; &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; i in &lt;span class=&quot;k&quot;&gt;$(&lt;/span&gt;ls *.pdf&lt;span class=&quot;k&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;lineno&quot;&gt;19 &lt;/span&gt; &lt;span class=&quot;k&quot;&gt;do&lt;/span&gt;
+&lt;span class=&quot;lineno&quot;&gt;20 &lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;nounom&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$nom$cont$ext&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;lineno&quot;&gt;21 &lt;/span&gt; mv &lt;span class=&quot;nv&quot;&gt;$i&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$nounom&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;lineno&quot;&gt;22 &lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;cont&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;$((&lt;/span&gt;cont+1&lt;span class=&quot;k&quot;&gt;))&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;lineno&quot;&gt;23 &lt;/span&gt; &lt;span class=&quot;k&quot;&gt;done&lt;/span&gt;
+&lt;span class=&quot;lineno&quot;&gt;24 &lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;cd&lt;/span&gt; ..
+&lt;span class=&quot;lineno&quot;&gt;25 &lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;... pas 2 fet!&amp;quot;&lt;/span&gt;
+&lt;span class=&quot;lineno&quot;&gt;26 &lt;/span&gt;
+&lt;span class=&quot;lineno&quot;&gt;27 &lt;/span&gt;&lt;span class=&quot;c&quot;&gt;# Tercer pas: enviar correus amb el butlletí a cada família&lt;/span&gt;
+&lt;span class=&quot;lineno&quot;&gt;28 &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;Pas 3: enviant butlletins...&amp;quot;&lt;/span&gt;
+&lt;span class=&quot;lineno&quot;&gt;29 &lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;j&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;1
+&lt;span class=&quot;lineno&quot;&gt;30 &lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;h&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;1
+&lt;span class=&quot;lineno&quot;&gt;31 &lt;/span&gt; &lt;span class=&quot;k&quot;&gt;while&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;read &lt;/span&gt;i
+&lt;span class=&quot;lineno&quot;&gt;32 &lt;/span&gt; &lt;span class=&quot;k&quot;&gt;do&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;echo&lt;/span&gt;  &lt;span class=&quot;s2&quot;&gt;&amp;quot;Enviant a &lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$i&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;lineno&quot;&gt;33 &lt;/span&gt; &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;cat mailtext.txt&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; uuencode ./butlletins/p&lt;span class=&quot;si&quot;&gt;${&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;j&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;}&lt;/span&gt;.pdf butlleti.pdf&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;|&lt;/span&gt; mail -s &lt;span class=&quot;s2&quot;&gt;&amp;quot;Butlletins de l&amp;#39;avaluació&amp;quot;&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$i&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot;&lt;/span&gt;
+&lt;span class=&quot;lineno&quot;&gt;34 &lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;j&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;$((&lt;/span&gt;j+h&lt;span class=&quot;k&quot;&gt;))&lt;/span&gt;
+&lt;span class=&quot;lineno&quot;&gt;35 &lt;/span&gt; &lt;span class=&quot;k&quot;&gt;done&lt;/span&gt; &amp;lt; adreces.txt
+&lt;span class=&quot;lineno&quot;&gt;36 &lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;... tramesa feta. Pas 3 fet!&amp;quot;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+  &lt;p&gt;Si es vol utilitzar, n’hi ha prou amb copiar aquest codi i enganxar-ho en un fitxer de text (el meu s’anomena &lt;em&gt;butlletins.sh&lt;/em&gt;). En fer-ho, tinguem present que li haurem de donar permisos d’execució perquè funcioni.&lt;/p&gt;
+
+  &lt;p&gt;Requeriments sota Debian: per poder dur a terme aquesta tasca, cal tenir instal·lats els següents paquets (així com les seves dependències):&lt;/p&gt;
+
+  &lt;ul&gt;
+    &lt;li&gt;&lt;a href=&quot;http://packages.debian.org/stable/pdftk&quot; target=&quot;_blank&quot;&gt;pdftk&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;http://packages.debian.org/stable/coreutils&quot; target=&quot;_blank&quot;&gt;coreutils&lt;/a&gt; (ens ofereix l’aplicació &lt;strong&gt;&lt;em&gt;mv&lt;/em&gt;&lt;/strong&gt;)&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;http://packages.debian.org/stable/sharutils&quot; target=&quot;_blank&quot;&gt;sharutils&lt;/a&gt; (ens ofereix l’aplicació &lt;strong&gt;&lt;em&gt;uuencode&lt;/em&gt;&lt;/strong&gt;)&lt;/li&gt;
+  &lt;/ul&gt;
+
+&lt;/div&gt;
+</description>
+        <pubDate>Tue, 19 Mar 2013 00:00:00 +0100</pubDate>
+        <link>http://peremig.github.io/howto/2013/03/19/enviar-butlletins.html</link>
+        <guid isPermaLink="true">http://peremig.github.io/howto/2013/03/19/enviar-butlletins.html</guid>
+        
+        <category>PDF</category>
+        
+        <category>email</category>
+        
+        <category>docència</category>
+        
+        
+        <category>howto</category>
+        
+      </item>
+    
+      <item>
+        <title>Vídeo amb GNU/Linux</title>
+        <description>&lt;div style=&quot;text-align:center&quot;&gt;
+  &lt;p&gt;&lt;img src=&quot;https://i1.wp.com/www.pcactual.com/medio/2010/01/26/edita_videoen_linux_con_kdenlive_618x380.jpg&quot; alt=&quot;Vídeo amb Linux&quot; /&gt;&lt;/p&gt;
+&lt;/div&gt;
+
+&lt;div style=&quot;text-align:justify&quot;&gt;
+  &lt;p&gt;En el marc de l’edició del concurs &lt;a href=&quot;http://lletra.uoc.edu/viquilletra/Viquilletra&quot; target=&quot;_blank&quot;&gt;Viquilletra 2013&lt;/a&gt; (on han participat alumnes d’un grup de 4t d’ESO), vaig assistir a un seminari de vídeo impartit per un formador de la &lt;a href=&quot;http://www.xtec.cat/web/guest/home&quot; target=&quot;_blank&quot;&gt;XTEC&lt;/a&gt;. La sessió, de quatre hores de durada, va ser molt profitosa i interessant. Després d’una introducció teòrica que havia de durar una hora (i que es va allargar una mica més), es va passar a la part pràctica, on entre tots els assistents havíem de crear un vídeo a partir d’una obra literària catalana.&lt;/p&gt;
+
+  &lt;p&gt;Com que calia que cadascú portés el seu portàtil, ens hi vam trobar amb tres sistemes diferents: Windows, Mac i GNU/Linux (aquest darrer minoritari, només jo). Es va plantejar, doncs, el problema de les compatibilitats; el formador va recomanar el &lt;em&gt;Movie maker&lt;/em&gt; per a Windows i l’&lt;em&gt;iMovie&lt;/em&gt; per als que duien Mac. Pel que fa a GNU/Linux, va dir que &lt;em&gt;no hi ha un editor de vídeo satisfactori&lt;/em&gt; (sic). Quan li vaig exposar diferents alternatives, va reconèixer que li sonava &lt;em&gt;un tal Cinelerra molt complicat i Kdenlive&lt;/em&gt;, i que mai no havia utilitzat cap dels dos; per la qual cosa vaig deduir que la seva valoració sobre els editors de vídeo amb GNU/Linux partia d’apriorismes sense cap altres fonaments que el desconeixement i el prejudici.&lt;/p&gt;
+
+  &lt;!-- more --&gt;
+
+  &lt;p&gt;Personalment, conec força bé &lt;a href=&quot;http://www.kdenlive.org/&quot; target=&quot;_blank&quot;&gt;Kdenlive&lt;/a&gt; i no hi he trobat a faltar res que tinguin altres editors de vídeo d’altres plataformes. Però, a més, i a banda de &lt;a href=&quot;http://cinelerra.org/&quot; target=&quot;_blank&quot;&gt;Cinelerra&lt;/a&gt;, els usuaris de GNU/Linux disposem d’altres opcions com ara&lt;/p&gt;
+
+  &lt;ul&gt;
+    &lt;li&gt;&lt;a href=&quot;http://www.openmovieeditor.org/&quot; target=&quot;_blank&quot;&gt;Open movie editor&lt;/a&gt;,&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;http://www.openshotvideo.com/&quot; target=&quot;_blank&quot;&gt;Openshot video editor&lt;/a&gt;,&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;http://lives.sourceforge.net/&quot; target=&quot;_blank&quot;&gt;LiVES&lt;/a&gt;,&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;http://www.pitivi.org/&quot; target=&quot;_blank&quot;&gt;PiTiVi&lt;/a&gt;,&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;http://linuxstopmotion.org/&quot; target=&quot;_blank&quot;&gt;Stopmotion&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;http://www.blender.org/&quot; target=&quot;_blank&quot;&gt;Blender&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;…&lt;/li&gt;
+  &lt;/ul&gt;
+
+  &lt;p&gt;Encara més, només amb el terminal podem treballar sobre vídeos amb &lt;a href=&quot;http://www.ffmpeg.org/&quot; target=&quot;_blank&quot;&gt;FFmpeg&lt;/a&gt; i &lt;a href=&quot;http://www.mplayerhq.hu/design7/news.html&quot; target=&quot;_blank&quot;&gt;Mencoder&lt;/a&gt; amb els quals, a banda de convertir entre diferents formats de vídeo, separar imatge de so, etc., també podem crear diversos efectes.&lt;/p&gt;
+
+  &lt;p&gt;Treballant amb edició de vídeo amb &lt;em&gt;Kdenlive&lt;/em&gt;, només un cop no vaig saber com crear un efecte: el de rebobinat de cinta de vídeo (encara ara no sé com fer-lo).  Ho vaig solucionar ràpidament amb &lt;em&gt;Openshot&lt;/em&gt;, on aquesta opció es troba ràpidament en el seu menú d’efectes.&lt;/p&gt;
+
+  &lt;p&gt;Per acabar, dues anècdotes. Una d’antiga, el 2006, quan començava amb això de GNU/Linux, vaig trobar-me editant un vídeo amb un programa propietari sota Windows (penso que era &lt;em&gt;Pinacle Studio 8&lt;/em&gt;); va ser impossible fer un clip de més de 15 minuts sense que el programa petés i, encara més impossible, crear un DVD de vídeo. Amb GNU/Linux no se m’ha presentat mai aquest problema i, amb &lt;a href=&quot;http://qdvdauthor.sourceforge.net/&quot; target=&quot;_blank&quot;&gt;‘Q’ dvdauthor&lt;/a&gt;, crear un DVD vídeo és una tasca força fàcil i visual (de fet, hi he creat algun DVD de 80 minuts de durada).&lt;/p&gt;
+
+  &lt;p&gt;La segona anècdota és més moderna i es va esdevenir en el seminari a què vaig assistir. Hi havia assistents que duien Windows i altres que duien Mac; cadascun va crear els seus clips de vídeo. Quan els vam voler ajuntar va aparèixer la incompatibilitat dels formats de vídeo propietari (&lt;em&gt;mov&lt;/em&gt; i &lt;em&gt;wmv&lt;/em&gt;). A més a més, cap dels programes amb què els havien creat permetia la conversió a un format comú. Cap? No, per sort hi havia algú (jo) que duia GNU/Linux i, amb una senzilla comanda de &lt;em&gt;Ffmpeg&lt;/em&gt; (aplicació que era desconeguda per al formador), es van convertir tots els vídeos a un format comú i es van poder deixar els clips llestos per al muntatge final. La comanda va ser: &lt;code&gt;ffmpeg -i FitxerEntrada FitxerSortida&lt;/code&gt;, on l’extensió del fitxer n’indica el format.&lt;/p&gt;
+
+&lt;/div&gt;
+</description>
+        <pubDate>Sun, 10 Mar 2013 00:00:00 +0100</pubDate>
+        <link>http://peremig.github.io/articles/2013/03/10/video-amb-linux.html</link>
+        <guid isPermaLink="true">http://peremig.github.io/articles/2013/03/10/video-amb-linux.html</guid>
+        
+        <category>vídeo</category>
+        
+        
+        <category>articles</category>
+        
+      </item>
+    
+      <item>
+        <title>Dictats autocorrectius amb GNU/Linux</title>
+        <description>&lt;div style=&quot;text-align:center&quot;&gt;
+  &lt;p&gt;&lt;img src=&quot;https://deixebledetux.files.wordpress.com/2013/03/dictat.jpg?w=221&amp;amp;h=160&quot; alt=&quot;Dictat&quot; /&gt;&lt;/p&gt;
+&lt;/div&gt;
+
+&lt;div style=&quot;text-align:justify&quot;&gt;
+
+  &lt;p&gt;Avui dia, el dictat és un procediment que té poc prestigi (potser és perquè durant el segle XX per aquí hi va haver abundor de dictadors, o potser és perquè el més pesat de tot és haver-los de corregir); malgrat tot, encara és una pràctica útil que relaciona com cap altra el so amb la grafia que el representa.&lt;/p&gt;
+
+  &lt;p&gt;Com acabo d’apuntar, el més pesat del dictat és la seva correcció. La combinació d’unes poques eines sota GNU/Linux ens automatitzen aquesta tasca tan pesada (i més encara si volem). I, el que és més interessant, és que utilitzarem el format text pla (TXT).&lt;/p&gt;
+
+  &lt;!-- more --&gt;
+
+  &lt;p&gt;El procés a seguir és el següent:&lt;/p&gt;
+
+  &lt;ol&gt;
+    &lt;li&gt;Es fa el dictat (pot ser a càrrec del professor o, fins i tot, a través de síntesi de veu).&lt;/li&gt;
+    &lt;li&gt;Es fa una comparació automatitzada amb el text que s’ha dictat.&lt;/li&gt;
+    &lt;li&gt;Es retorna als alumnes .&lt;/li&gt;
+  &lt;/ol&gt;
+
+  &lt;p&gt;Necessitem tres aplicacions:&lt;/p&gt;
+
+  &lt;ul&gt;
+    &lt;li&gt;&lt;strong&gt;iconv&lt;/strong&gt; (només si el nostres alumnes utilitzen Windows o qualsevol altre sistema que encara no codifiqui amb UTF-8)&lt;/li&gt;
+    &lt;li&gt;&lt;strong&gt;wdiff&lt;/strong&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;strong&gt;sed&lt;/strong&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;strong&gt;rename&lt;/strong&gt;&lt;/li&gt;
+  &lt;/ul&gt;
+
+  &lt;p&gt;Els meus alumnes, que treballen amb ordinadors de l’Educat 1×1 (després va ser Educat  2.0), empren gairebé sempre l’entorn Windows, per la qual cosa, codifiquen el text en Latin-1. El primer pas a fer consiteix en canviar la codificació a UTF-8, cosa que, des de la terminal es fa amb l’ordre:&lt;/p&gt;
+
+  &lt;p&gt;&lt;code&gt;iconv -f LATIN1 -t UTF-8 -o FITXERi.utf FIXTER.latin1&lt;/code&gt;&lt;/p&gt;
+
+  &lt;p&gt;Com que tenim més d’un alumne, farem la conversió dins d’un bucle (assumim que tots els fitxers dels alumnes tenen l’extensió TXT):&lt;/p&gt;
+
+  &lt;p&gt;&lt;code&gt;for i in $( ls *.txt); do iconv -f LATIN1 -t UTF-8 -o $i.utf $i; done&lt;/code&gt;&lt;/p&gt;
+
+  &lt;p&gt;El següent pas,  seria ja corregir-los el dictat. Per fer-ho, comparem els fitxers dels alumnes amb el fitxer que contindrà el text correcte que els hem dictat. Aquesta comparació es fa mot a mot (d’aquí que s’utilitzi wdiff i no pas diff). Aquesta utilitat ens dóna diferents opcions de sortida:&lt;/p&gt;
+
+  &lt;ul&gt;
+    &lt;li&gt;tot el text amb els inputs incorrectes al costat del correctes sense estadístiques encert / error&lt;/li&gt;
+    &lt;li&gt;tot el text amb els inputs incorrectes al costat del correctes amb estadístiques encert / error&lt;/li&gt;
+    &lt;li&gt;tot el text amb les formes correctes de les errades (però sense mostrar-ne la forma errònia que ha introduït l’alumne)&lt;/li&gt;
+    &lt;li&gt;només les errades amb les formes correctes al costat (separades per línies i sense mostrar la resta del text)&lt;/li&gt;
+  &lt;/ul&gt;
+
+  &lt;p&gt;Les ordres corresponents són:&lt;/p&gt;
+
+  &lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;wdiff -1 dictat_original dictat_alumne.txt &lt;span class=&quot;c&quot;&gt;#tot el text amb els inputs incorrectes al costat del correctes sense estadístiques encert / error &lt;/span&gt;
+
+&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;wdiff -s dictat_original dictat_alumne.txt &lt;span class=&quot;c&quot;&gt;#tot el text amb els inputs incorrectes al costat del correctes amb estadístiques encert / error &lt;/span&gt;
+
+&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;wdiff -2 dictat_original dictat_alumne.txt &lt;span class=&quot;c&quot;&gt;#tot el text amb les formes correctes de les errades (però sense mostrar-ne la forma errònia que ha introduït l’alumne)&lt;/span&gt;
+
+&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;wdiff -3 dictat_original dictat_alumne.txt &lt;span class=&quot;c&quot;&gt;#només les errades amb les formes correctes al costat (separades per línies i sense mostrar la resta del text)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+  &lt;p&gt;Les ordres anteriors en mostraran la comparació en pantalla, però com el que ens interessarà serà produir un nou document per analitzar-lo (ja sigui per nosaltres o pels alumnes), emprarem la redirecció a fitxer de la sortida, per exemple:&lt;/p&gt;
+
+  &lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;wdiff -3 dictat_original dictat_alumne.txt &amp;gt; dictat_corregit.txt&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+  &lt;p&gt;Però, perquè ens sigui realment útil, tot això s’hauria de poder resumir en una sola ordre de la terminal. Hem de crear, per tant, un script de Bash i, per obtenir una sortida ordenada, ens anirà bé emprar les comandes sed i rename. Si hem anat seguint fins aquí, haurem observat que es creen fitxers de text, que cal que tinguin extensions diferents i que, al final, haurem de poder localitzar ràpidament els resultats.&lt;/p&gt;
+
+  &lt;p&gt;Un script pot ser el següent:&lt;/p&gt;
+
+  &lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span class=&quot;lineno&quot;&gt; 1 &lt;/span&gt;&lt;span class=&quot;c&quot;&gt;#!/bin/bash&lt;/span&gt;
+&lt;span class=&quot;lineno&quot;&gt; 2 &lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;Convertint a UTF-8...&amp;quot;&lt;/span&gt;
+&lt;span class=&quot;lineno&quot;&gt; 3 &lt;/span&gt; &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; i in &lt;span class=&quot;k&quot;&gt;$(&lt;/span&gt; ls *.txt&lt;span class=&quot;k&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;do&lt;/span&gt; iconv -f LATIN1 -t UTF-8 -o &lt;span class=&quot;nv&quot;&gt;$i&lt;/span&gt;.utf &lt;span class=&quot;nv&quot;&gt;$i&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;done&lt;/span&gt;
+&lt;span class=&quot;lineno&quot;&gt; 4 &lt;/span&gt; mkdir utf
+&lt;span class=&quot;lineno&quot;&gt; 5 &lt;/span&gt; &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; i in &lt;span class=&quot;k&quot;&gt;$(&lt;/span&gt; ls *.txt&lt;span class=&quot;k&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;do&lt;/span&gt; mv &lt;span class=&quot;nv&quot;&gt;$i&lt;/span&gt;.utf ./utf/&lt;span class=&quot;nv&quot;&gt;$i&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;done&lt;/span&gt;
+&lt;span class=&quot;lineno&quot;&gt; 6 &lt;/span&gt; cp dictat ./utf/dictat.txt
+&lt;span class=&quot;lineno&quot;&gt; 7 &lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;cd &lt;/span&gt;utf
+&lt;span class=&quot;lineno&quot;&gt; 8 &lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;Corregint...&amp;quot;&lt;/span&gt;
+&lt;span class=&quot;lineno&quot;&gt; 9 &lt;/span&gt; &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; i in &lt;span class=&quot;k&quot;&gt;$(&lt;/span&gt; ls *.txt&lt;span class=&quot;k&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;do&lt;/span&gt; sed &lt;span class=&quot;s2&quot;&gt;&amp;quot;s/&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$/&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;\n/&amp;quot;&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$i&lt;/span&gt; &amp;gt;&lt;span class=&quot;nv&quot;&gt;$i&lt;/span&gt;.nou&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;done&lt;/span&gt;
+&lt;span class=&quot;lineno&quot;&gt;10 &lt;/span&gt; &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; i in &lt;span class=&quot;k&quot;&gt;$(&lt;/span&gt; ls *.nou&lt;span class=&quot;k&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;do&lt;/span&gt; wdiff -s &lt;span class=&quot;nv&quot;&gt;$i&lt;/span&gt; dictat.txt.nou&amp;gt; &lt;span class=&quot;nv&quot;&gt;$i&lt;/span&gt;.res&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;done&lt;/span&gt;
+&lt;span class=&quot;lineno&quot;&gt;11 &lt;/span&gt; rm *.txt
+&lt;span class=&quot;lineno&quot;&gt;12 &lt;/span&gt; rm *.nou
+&lt;span class=&quot;lineno&quot;&gt;13 &lt;/span&gt; rm dictat.*
+&lt;span class=&quot;lineno&quot;&gt;14 &lt;/span&gt; rename &lt;span class=&quot;s1&quot;&gt;&amp;#39;s/\.nou.res$//&amp;#39;&lt;/span&gt; *.res
+&lt;span class=&quot;lineno&quot;&gt;15 &lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;Fet!&amp;quot;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+  &lt;p&gt;Al final de la seva execució, trobarem una carpeta /utf  dins de la qual hi seran els dictats dels alumnes en codificació UTF-8 i ja corregits (en aquest cas, el fitxer corregit de cada alumne contindrà tot el text amb les formes incorrectes -entre claudàtors- que ha introduït al costat de les correctes -entre claus- i, al final, l’estadística d’encerts / errors). Vegem-ne un exemple de fitxer de sortida:&lt;/p&gt;
+
+  &lt;blockquote&gt;
+    &lt;p&gt;Els caçadors [-fortius cercan-] {+furtius cerquen+} els grans goril·les mascles per convertir el seu crani en [-petxa papers,-] {+petjapapers,+} i les mans i els [-peus,-] {+peus+} en cendrers, que venen a uns preus que s’acosten [-els-] {+als+} 50 [-dolars-] {+dòlars+} la peça. Els caçadors més [-ábils-] {+hàbils+} capturen vius [-als-] {+els+} goril·les més joves i els [-subasten-] {+subhasten+} per exportar-los [-il·legantment-] {+il·legalment+} a [-zoologics-] {+zoològics+} i col·leccions privades [-de reu-] {+d’arreu+} del món.&lt;/p&gt;
+
+    &lt;p&gt;alumne.txt: 61 paraules  47 77% comunes  0 0% esborrades  14 22% canviades&lt;/p&gt;
+
+    &lt;p&gt;dictat.txt: 59 paraules  47 79% comunes  0 0% inserides  12 20% canviades&lt;/p&gt;
+  &lt;/blockquote&gt;
+
+  &lt;p&gt;Requeriments sota Debian: per poder dur a terme aquesta tasca, cal tenir instal·lats els següents paquets (així com les seves dependències):&lt;/p&gt;
+
+  &lt;ul&gt;
+    &lt;li&gt;&lt;a href=&quot;https://packages.debian.org/stable/libc-bin&quot; target=&quot;_blank&quot;&gt;libc-bin&lt;/a&gt; (ens ofereix l’aplicació &lt;em&gt;iconv&lt;/em&gt;)&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;https://packages.debian.org/stable/wdiff&quot; target=&quot;_blank&quot;&gt;wdiff&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;https://packages.debian.org/stable/sed&quot; target=&quot;_blank&quot;&gt;sed&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;https://packages.debian.org/stable/util-linux&quot; target=&quot;_blank&quot;&gt;util-linux&lt;/a&gt; (ens ofereix l’aplicació &lt;em&gt;rename&lt;/em&gt;)&lt;/li&gt;
+  &lt;/ul&gt;
+
+&lt;/div&gt;
+</description>
+        <pubDate>Sat, 02 Mar 2013 00:00:00 +0100</pubDate>
+        <link>http://peremig.github.io/howto/2013/03/02/dictats-autocorrectius.html</link>
+        <guid isPermaLink="true">http://peremig.github.io/howto/2013/03/02/dictats-autocorrectius.html</guid>
+        
+        <category>dictat</category>
+        
+        <category>iconv</category>
+        
+        <category>rename</category>
+        
+        <category>sed</category>
+        
+        <category>wdiff</category>
+        
+        
+        <category>howto</category>
+        
+      </item>
+    
+  </channel>
+</rss>

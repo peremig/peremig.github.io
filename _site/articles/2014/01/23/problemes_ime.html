@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width initial-scale=1">
+
+<meta property="og:title" content="Els meus problemes amb els IME">
+<title>Els meus problemes amb els IME</title>
+<meta property="og:description" content="    En la migració de Debian Squeeze a Wheezy he trobat un darrer entrebanc: el mètode d’entrada per a caràcters xinesos. Fins ara havia emprat SCIM i n’esta...">
+<meta property="og:url" content="http://peremig.github.io/articles/2014/01/23/problemes_ime.html">
+<meta property="og:site_name" content="Buscant pingüins al pol nord">
+<meta property="og:locale" content="ca_ES">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:site" content="@">
+<meta name="twitter:creator" content="@">
+<meta name="twitter:title" content="Els meus problemes amb els IME">
+<meta name="twitter:description" content="    En la migració de Debian Squeeze a Wheezy he trobat un darrer entrebanc: el mètode d’entrada per a caràcters xinesos. Fins ara havia emprat SCIM i n’esta...">
+<meta name="twitter:url" content="http://peremig.github.io/articles/2014/01/23/problemes_ime.html">
+
+<meta name="keywords" content="Linux, debian, català">
+
+<link rel="icon" href="/images/favicon.ico">
+<link rel="stylesheet" href="/css/main.css">
+<link rel="canonical" href="http://peremig.github.io/articles/2014/01/23/problemes_ime.html">
+<link rel="alternate" type="application/atom+xml" title="Buscant pingüins al pol nord" href="http://peremig.github.io/feed.xml" />
+
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+<script language="Javascript" type="text/javascript">
+function search_google()
+{
+  var query = document.getElementById("google-search").value;
+  window.open("http://google.com/search?q=" + query
+      + "%20site:" + "http://peremig.github.io");
+}
+</script>
+
+<script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', '', 'auto');
+ga('send', 'pageview');
+
+</script>
+
+
+<script type='text/javascript'>
+var blocklink = ['http://humanorightswatch.org','http://o-o-6-o-o.com','http://darodar.com','http://blackhatworth.com','http://hulfingtonpost.com','http://bestwebsitesawards.com','http://darodar.com','http://buttons-for-website.com','http://ilovevitaly.co','http://semalt.com','http://priceg.com','http://simple-share-buttons.com','http://googlsucks.com','http://4webmasters.org','http://aliexpress.com','http://addons.mozilla.org/en-US/firefox/addon/ilovevitaly/','http://free-share-buttons.com','http://buttons-for-your-website.com','http://theguardlan.com','http://buy-cheap-online.info','http://best-seo-offer.com'];
+for (var b = blocklink.length; b--;) {
+  if (document.referrer.match(blocklink[b]))
+    window.location = "http://www.google.com";
+}
+</script>
+
+
+
+
+</head>
+
+
+<body>
+
+<div class="container">
+
+  <header class="site-header">
+
+  <div class="wrapper">
+
+    <h1 class="site-title"><a href="/">Buscant pingüins al pol nord</a></h1>
+    <h3 class="site-meta">Les aventures d'un professor de català amb Linux i el xinès</h3>
+
+    <nav class="site-nav">
+      <a href="#" class="menu-icon">
+        <svg viewBox="0 0 18 15">
+          <path fill="#424242" d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.031C17.335,0,18,0.665,18,1.484L18,1.484z"/>
+          <path fill="#424242" d="M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0c0-0.82,0.665-1.484,1.484-1.484 h15.031C17.335,6.031,18,6.696,18,7.516L18,7.516z"/>
+          <path fill="#424242" d="M18,13.516C18,14.335,17.335,15,16.516,15H1.484C0.665,15,0,14.335,0,13.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.031C17.335,12.031,18,12.696,18,13.516L18,13.516z"/>
+        </svg>
+      </a>
+      <div class="trigger">
+        
+        
+        <a class="page-link" href="/">Inici</a>
+        
+        
+        
+        <a class="page-link" href="/about/">Qui sóc?</a>
+        
+        
+        
+        <a class="page-link" href="/archives/">Arxiu</a>
+        
+        
+        
+        <a class="page-link" href="/categories/">Categories</a>
+        
+        
+        
+        <a class="page-link" href="/tags/">Etiquetes</a>
+        
+        
+        
+        <a class="page-link" href="/guestbook/">Llibre de visites</a>
+        
+        
+        
+        <a class="page-link" href="/feed.xml">Segueix-me</a>
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+      </div>
+    </nav>
+
+  </div>
+
+</header>
+
+
+    
+
+  <div class="page-content col-sm-8">
+    <div class="post" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 itemprop="name" class="post-title">Els meus problemes amb els IME</h1>
+    <meta itemprop="keywords" content="ime,SCIM,UIM,IBUS,FCITX" />
+    <p class="post-meta">
+    Publicat a
+    
+    <a href="/categories/#articles">articles</a>&nbsp;
+     
+    
+    i etiquetat
+    
+    <a href="/tags/#ime" title="ime">ime </a>, 
+    
+    <a href="/tags/#SCIM" title="SCIM">SCIM </a>, 
+    
+    <a href="/tags/#UIM" title="UIM">UIM </a>, 
+    
+    <a href="/tags/#IBUS" title="IBUS">IBUS </a>, 
+    
+    <a href="/tags/#FCITX" title="FCITX">FCITX </a>
+    
+    
+    <time itemprop="datePublished" datetime="2014-01-23">
+    el 23 Jan, 2014
+    </time>
+    </p>
+  </header>
+
+  <article class="post-content" itemprop="articleBody">
+    <div style="text-align:center">
+
+  <p><img src="https://fcitx-im.org/images/1/19/Fcitx-pinyin.png" alt="Fcitx" /></p>
+
+</div>
+<div style="text-align:justify">
+
+  <p>En la migració de Debian Squeeze a Wheezy he trobat un darrer entrebanc: el mètode d’entrada per a caràcters xinesos. Fins ara havia emprat <strong>SCIM</strong> i n’estava força content, però el projecte semblava ja interromput  quan vaig actualitzar a Squeeze i ara sembla ja <a href="http://www.scim-im.org/" target="_blank">totalment abandonat</a>, de fet estava en projecte fer-ne una nova generació d’SCIM anomenada <a href="http://code.google.com/p/scim2/" target="_blank">SCIM2</a>, que va ser abandonada al seu torn quan alhora va començar el projecte <em>IBus</em>. A més a més, ja no existeix el <a href="http://packages.debian.org/search?keywords=scim&amp;searchon=names&amp;suite=stable&amp;section=all" target="_blank">paquet corresponent al mètode d’entrada per pinyin en els repositoris de Wheezy</a>.</p>
+
+  <!-- more -->
+
+  <p>S’imposa, doncs, la migració a un altre mètode d’entrada (cosa que ja <a href="/article/2011/02/10/perque_no_ibus.html" target="_blank">havia intentat el 2011 amb l’ibus</a>, però que vaig descartar perquè no admetia la introducció de caràcters accentuats).  En aquesta migració he provat tres IME, dels quals n’he hagut de descartar dos:</p>
+
+  <h3 id="uim">UIM</h3>
+
+  <p>Ha estat el primer que he instal·lat i he intentat fer funcionar. No he estat capaç d’arrencar cap mètode d’entrada pinyin per al xinès simplificat. Sembla ser que funciona força bé amb el japonès, però com que no en sé, no he instal·lat cap mètode d’entrada per al japonès. Després de molt googlejar i de força intents frustrants, he desinstal·lat i purgat tot els paquets que havia introduït al meu sistema.</p>
+
+  <h3 id="ibus">IBUS</h3>
+
+  <p>A continuació, he donat una segona oportunitat a aquest IME que havia descartat dos anys abans. Continua tenint errors importants i inexplicables: ara ja permet caràcters accentuats, però no pas en totes les aplicacions. És especialment greu la seva <a href="http://forums.debian.net/viewtopic.php?t=76716" target="_blank">incompatibilitat amb Libreoffice</a>,  amb aquesta aplicació és possible emprar el mètode d’entrada per al xinès, però no pas els caràcters accentuats (però si que permet introduir la <code>ç</code>, la <code>ŀ</code> i la <code>ñ</code>). és més, desactiva la tecla <em>Compose</em> (que tinc assignada a <em>Win esquerra</em>). Sembla funcionar bé, en canvi, amb altres aplicacions <em>KDE</em> (com ara <em>KWrite</em>).</p>
+
+  <p><a href="https://duckduckgo.com/?q=ibus+libreoffice&amp;t=debian" target="_blank">Aquestes disfuncions es documenten almenys des de 2010 fins a l’actualitat</a> i amb diferents distribucions Linux (Debian, Ubuntu, Arch, OpenSuse, Fedora, etc) sense que estiguin encara resoltes del tot <a href="https://bugs.launchpad.net/ubuntu/+source/ibus/+bug/1007423" target="_blank">ni sembli clara la voluntat de resoldre-les</a>.</p>
+
+  <p>L’única manera d’escriure caràcters accentuats amb Libreoffice és desactivar l’<strong>ibus</strong> (tancar-lo) i iniciar-lo abans d’escriure en xinès (ara bé, en alguna pàgina web s’adverteix que l’ibus provoca tancaments sobtats i  de les aplicacions de Libreoffice al cap d’una estona de treballar-hi; no he comprovat, però).</p>
+
+  <h3 id="fcitx">FCITX</h3>
+
+  <p>Ha estat el tercer IME que he provat i amb el que m’he quedat. La instal·lació és senzilla i ràpida a partir dels paquets dels repositoris Debian i ha funcionat des del primer moment amb totes les aplicacions on l’he provat (incloent-hi Libreoffice).</p>
+
+  <p>El seu punt més fort és que les diferents opcions que ofereix es presenten en un tipus de lletra clar i gros, clarament llegibles (a diferència d’<em>ibus</em> i <em>scim</em>), cosa que és d’agrair a partir de certes edats.</p>
+
+  <p>El seu punt més feble és que les diferents <em>hotkeys</em> es basen en la distribució del teclat americà (<em>us keyboard</em>), de manera que les tecles que s’assignen per defecte per visionar diferents conjunts d’opcions (cinc per defecte, però la xifra és configurable), no corresponen a les que trobem impreses sobre el teclat català. Així, doncs, per defecte s’utilitza «=» per a mostrar les opcions següents i «-» per mostrar-ne les anteriors, però en el nostre teclat, aquestes opcions se situen a les tecles «¿¡»  i «?’» respectivament (també podem configurar aquestes opcions).</p>
+
+  <h3 id="addenda">Addenda</h3>
+
+  <p>Un cop acabada la tria del nou IME, he ensopegat amb dues pàgines que poden ajudar qui es trobi en una situació anàloga a la que he descrit. La primera <a href="http://www.verious.com/article/linux-input-method-framework-brief-summary/" target="_blank">analitza diferents IME per a Linux</a> a data 15 de gener de 2011. La segona és, de fet, la resposta a la pregunta <em><a href="http://chakra-project.org/bbs/viewtopic.php?id=10365" target="_blank">What’s your favourite user input method?</a></em>  que es va fer dins del fòrum de Chakra per triar quin seria l’IME “oficial” d’aquesta distribució, aquesta pregunta es va fer el 5 de maig de 2013 i les respostes (poques) arriben fins al 7 de gener de 2014; aquesta pàgina ens pot ajudar a triar l’IME més adient per a la llengua en què vulguem escriure, en resum seria:</p>
+
+  <ul>
+    <li><a href="https://fcitx-im.org/wiki/Fcitx" target="_blank">FCITX</a> seria el millor IME per a <strong>xinès simplificat</strong>, però no gaire adequat per a japonès.</li>
+    <li><a href="https://code.google.com/p/gcin/" target="_blank">GCIN</a> seria el millor IME per a <strong>xinès tradicional</strong> (si més no, el més emprat per a aquesta finalitat)</li>
+    <li><a href="https://code.google.com/p/ibus/">IBUS</a> seria l’IME més emprat per a <strong>japonès</strong> i el que més suport presenta per a les <strong>llengües de l’Índia</strong></li>
+    <li><a href="https://code.google.com/p/uim/" target="_blank">UIM</a> és un IME adequat per a <strong>japonès</strong></li>
+    <li>Per al <strong>Coreà</strong>, hom aconsella <em>FCTIX</em> en comptes d’<em>IBUS</em></li>
+  </ul>
+
+</div>
+
+  </article>
+  <hr />
+</div>
+
+
+<section class="pager">
+  <ul>
+    
+    <li class="previous"><a href="/howto/2014/01/02/de_squeeze_a_wheezy_2.html" title="De debian squeeze a wheezy (2)">&larr; Entrades més antigues</a></li>
+    
+    
+    <li class="next"><a href="/howto/2014/01/24/Emacs_fcitx.html" title="Emacs i el xinès (fcitx)">Entrades més noves &rarr;</a></li>
+    
+  </ul>
+</section>
+
+<div id="disqus_thread"></div>
+
+<script type="text/javascript">
+
+  var disqus_developer = 1;
+
+var disqus_shortname ='peremig';
+/* * * DON'T EDIT BELOW THIS LINE * * */
+(function() {
+  var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+  dsq.src = 'https://' + disqus_shortname + '.disqus.com/embed.js';
+  (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+})();
+</script>
+
+<noscript>Sisplau activeu JavaScript per poder accedir als <a href="http://disqus.com/?ref_noscript">comentaris servits per Disqus.</a></noscript>
+
+
+
+    <section class="pager">
+  
+  
+</section>
+
+
+  </div>
+  <div class="col-sm-2">
+<div class="sidebar-module about">
+  <h4>Qui sóc?</h4>
+  <img title="Pere MiG" src="/images/pinguins.jpg" alt="Pere MiG"/>
+  <span>Blog sobre Linux de Pere MiG, professor de català amant dels impossibles.</span>
+  <br />
+
+  
+
+  Pots contactar amb mi a través de: <br />
+
+  
+  <a href="mailto:linux@peremig.cat" title="mailto: linux@peremig.cat"><i class="fa fa-envelope-square fa-3x"></i></a>&nbsp;
+  
+  
+  <a href="https://github.com/peremig" title="GithubID: peremig"><i class="fa fa-github-square fa-3x"></i></a>&nbsp;
+  
+  
+  <a href="https://twitter.com/" title="TwitterID: "><i class="fa fa-twitter-square fa-3x"></i></a>
+  
+
+  
+
+</div>
+
+<div class="sidebar-module">
+  <h4>Cerca en el lloc</h4>
+  <form onsubmit="search_google()" >
+    <input type="text" id="google-search" placeholder="Google search" />
+    <input type="submit" name="sa" value="Go" />
+  </form>
+</div>
+
+
+<div class="sidebar-module"> <!-- sidebar-module-inset">-->
+  <h4>Sobre el Copyright</h4>
+
+  
+
+  <a href="http://creativecommons.org/licenses/by-nc-sa/3.0/">
+    <img src="http://i.creativecommons.org/l/by-nc-sa/3.0/88x31.png">
+  </a>
+  <br />
+  <a href="http://creativecommons.org/licenses/by-nc-sa/3.0/">Attribution-NonCommercial-ShareAlike</a>
+
+  
+
+</div>
+
+
+<div class="sidebar-module">
+  <h4>Entrades recents</h4>
+  
+  <li>
+  <a href="//howto/2015/02/12/automuntar_usb_escriptura.html" title="Automuntar unitats USB amb accés a escriptura" rel="bookmark">Automuntar unitats USB amb accés a escriptura</a>
+  </li>
+  
+  <li>
+  <a href="//articles/2015/01/18/Debian_8_Acer_Aspire.html" title="Debian 8 (Jessie) en notebook Acer Aspire V5-121" rel="bookmark">Debian 8 (Jessie) en notebook Acer Aspire V5-121</a>
+  </li>
+  
+  <li>
+  <a href="//howto/2014/01/24/Emacs_fcitx.html" title="Emacs i el xinès (fcitx)" rel="bookmark">Emacs i el xinès (fcitx)</a>
+  </li>
+  
+  <li>
+  <a href="//articles/2014/01/23/problemes_ime.html" title="Els meus problemes amb els IME" rel="bookmark">Els meus problemes amb els IME</a>
+  </li>
+  
+  <li>
+  <a href="//howto/2014/01/02/de_squeeze_a_wheezy_2.html" title="De debian squeeze a wheezy (2)" rel="bookmark">De debian squeeze a wheezy (2)</a>
+  </li>
+  
+</div>
+
+
+<div class="sidebar-module">
+  <h4>Categories</h4>
+  
+  <li><a href="/categories/#articles" title="articles" rel="7">articles (7)</a></li>
+  
+  <li><a href="/categories/#howto" title="howto" rel="7">howto (7)</a></li>
+  
+</div>
+
+
+<div class="sidebar-module">
+  <h4>Etiquetes</h4>
+  
+    <a href="/tags/#ime" title="ime" rel="4">ime</a> &nbsp;
+  
+    <a href="/tags/#IBUS" title="IBUS" rel="2">IBUS</a> &nbsp;
+  
+    <a href="/tags/#Tegaki" title="Tegaki" rel="1">Tegaki</a> &nbsp;
+  
+    <a href="/tags/#PDF" title="PDF" rel="2">PDF</a> &nbsp;
+  
+    <a href="/tags/#xsane" title="xsane" rel="1">xsane</a> &nbsp;
+  
+    <a href="/tags/#Debian" title="Debian" rel="5">Debian</a> &nbsp;
+  
+    <a href="/tags/#Linkat" title="Linkat" rel="1">Linkat</a> &nbsp;
+  
+    <a href="/tags/#dictat" title="dictat" rel="1">dictat</a> &nbsp;
+  
+    <a href="/tags/#iconv" title="iconv" rel="1">iconv</a> &nbsp;
+  
+    <a href="/tags/#rename" title="rename" rel="1">rename</a> &nbsp;
+  
+    <a href="/tags/#sed" title="sed" rel="1">sed</a> &nbsp;
+  
+    <a href="/tags/#wdiff" title="wdiff" rel="1">wdiff</a> &nbsp;
+  
+    <a href="/tags/#vídeo" title="vídeo" rel="2">vídeo</a> &nbsp;
+  
+    <a href="/tags/#email" title="email" rel="1">email</a> &nbsp;
+  
+    <a href="/tags/#docència" title="docència" rel="1">docència</a> &nbsp;
+  
+    <a href="/tags/#corrector" title="corrector" rel="1">corrector</a> &nbsp;
+  
+    <a href="/tags/#gramàtica" title="gramàtica" rel="1">gramàtica</a> &nbsp;
+  
+    <a href="/tags/#Squeeze" title="Squeeze" rel="2">Squeeze</a> &nbsp;
+  
+    <a href="/tags/#Wheezy" title="Wheezy" rel="2">Wheezy</a> &nbsp;
+  
+    <a href="/tags/#nvidia" title="nvidia" rel="1">nvidia</a> &nbsp;
+  
+    <a href="/tags/#audio" title="audio" rel="1">audio</a> &nbsp;
+  
+    <a href="/tags/#AC'97" title="AC'97" rel="1">AC'97</a> &nbsp;
+  
+    <a href="/tags/#SCIM" title="SCIM" rel="1">SCIM</a> &nbsp;
+  
+    <a href="/tags/#UIM" title="UIM" rel="1">UIM</a> &nbsp;
+  
+    <a href="/tags/#FCITX" title="FCITX" rel="2">FCITX</a> &nbsp;
+  
+    <a href="/tags/#emacs" title="emacs" rel="1">emacs</a> &nbsp;
+  
+    <a href="/tags/#Jessie" title="Jessie" rel="2">Jessie</a> &nbsp;
+  
+    <a href="/tags/#usb" title="usb" rel="1">usb</a> &nbsp;
+  
+</div>
+
+
+<div class="sidebar-module">
+  <h4>Blogroll</h4>
+  
+  <li><a href="https://elageminada.wordpress.com" title="Bloc de llengua i literatura catalanes">Elageminada</a></li>
+  
+  <li><a href="https://hanyucat.wordpress.com/" title="Materials en català per a l'estudi de la llengua xinesa">Hanyu – Cat</a></li>
+  
+</div>
+
+
+<div class="sidebar-module">
+  <h4>Arxius</h4>
+
+  
+  
+  
+  
+  
+  <li id="2015" > <a href="/archives/#2015">2015</a></li>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <li id="2014" > <a href="/archives/#2014">2014</a></li>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <li id="2013" > <a href="/archives/#2013">2013</a></li>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <li id="2011" > <a href="/archives/#2011">2011</a></li>
+  
+  
+  
+  
+  
+
+</div>
+
+
+</div>
+
+
+
+  
+
+  <footer class="site-footer">
+
+  <p>Copyright &copy; <a href="/">Buscant pingüins al pol nord</a></p>
+  <p>Powered by <a href="https://github.com/jekyll/jekyll">Jekyll</a> 
+  a 
+  
+  <a href="https://github.com/">Github</a>
+  
+  | Tema <a href="https://github.com/yulijia/freshman21/">Freshman21</a> Dissenyat per <a href="http://yulijia.net">Lijia Yu</a>  
+
+
+  <div id="totop" style="position:fixed;bottom:150px;right:50px;cursor: pointer;">
+    <a title="Back To Top"><img src="/images/topbutton.png"/></a>
+  </div>
+
+  <script src="/js/jquery-1.9.1.min.js"></script>
+  <script src="/js/totop.js"></script>  
+
+
+
+</footer>
+
+
+</div>
+
+</body>
+
+</html>

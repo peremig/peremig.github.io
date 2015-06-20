@@ -1,0 +1,86 @@
+### Site info:
+title: Buscant pingüins al pol nord
+tagline: Les aventures d'un professor de català amb Linux i el xinès
+author: Pere MiG
+email: linux@peremig.cat
+description: "Buscant pingüins al pol nord. Un blog sobre Linux." # You can edit this line in _config.yml. It will appear in your document head meta and in your feed.xml site description
+keywords: "Linux, debian, català"
+baseurl: "" # the subpath of your site, e.g. /blog/
+url: "http://peremig.github.io" # the base hostname & protocol for your site
+locale: ca_ES
+
+### Personal info and site tools info:
+twitter_username: 
+github_username:  peremig
+disqus_shortname: peremig
+favicon:     "/images/favicon.ico"
+aboutme: Blog sobre Linux de Pere MiG, professor de català amant dels impossibles. # these are shown on aboutme-sidebar.
+aboutme_photo: /images/pinguins.jpg # your photo.
+google_analytics_key:  # put YOUR key here to enable tracking! (blank to disable)
+
+
+### Site setting:
+ShowContactInfo: "True" # Personal Info (twitter,github,email) can be seen on aboutme-sidebar, those info only shown where ShowContactInfo == True
+default_column: "two" # blog style: two columns, if default_column != "two", you will see a one column blog.
+default_locale: "ca" # blog sidebar language set, only include: English(en) and Chinese (cn)
+
+locales:
+    en:
+      Aboutme: "About Me"
+      Archives: "Archives"
+      Blogroll: "Blogroll"
+      Categories: "Categories"
+      Copyright_Notice: "Copyright Notice"
+      Recent_Posts: "Recent Posts"
+      Tags: "Tags"
+      Previous: "Older"
+      Next: "Newer"
+      PostedInCategories: "Posted in"
+      Taggedwith: "and tagged"
+      PostDate: "on "
+      Google_search: "Site Search"
+    ca:
+      Aboutme: "Qui sóc?"
+      Archives: "Arxius"
+      Blogroll: "Blogroll"
+      Categories: "Categories"
+      Copyright_Notice: "Sobre el Copyright"
+      Recent_Posts: "Entrades recents"
+      Tags: "Etiquetes"
+      Previous: "Entrades més antigues"
+      Next: "Entrades més noves"
+      PostedInCategories: "Publicat a"
+      Taggedwith: "i etiquetat"  
+      PostDate: "el "
+      Google_search: "Cerca en el lloc"
+    cn:
+      Aboutme: "关于我"
+      Archives: "存档"
+      Blogroll: "良师益友"        
+      Categories: "分类目录"    
+      Copyright_Notice: "版权声明"
+      Recent_Posts: "近期文章"
+      Tags: "标签" 
+      Previous: "前一页"
+      Next: "后一页"
+      PostedInCategories: "目录:"   
+      Taggedwith: "| 标签:"
+      PostDate: "| 发表时间: "
+      Google_search: "站内搜索"
+
+### your Blogroll info, only name can shown on the page.
+
+Blogroll:
+      - name: Elageminada
+        href: https://elageminada.wordpress.com
+        title: Bloc de llengua i literatura catalanes
+      - name: Hanyu – Cat
+        href: https://hanyucat.wordpress.com/
+        title: Materials en català per a l'estudi de la llengua xinesa
+
+
+### Build settings
+markdown: kramdown
+highlighter: pygments
+paginate: 5
+excerpt_separator: <!-- more -->
