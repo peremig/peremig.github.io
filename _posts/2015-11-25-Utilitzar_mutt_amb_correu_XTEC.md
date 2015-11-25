@@ -32,7 +32,7 @@ Per poder usar el correu XTEC des de **Mutt** és convenient, per ser ordenat, d
 set from = "usuari@xtec.cat"
 set realname = "Nom real de l'usuari"
 set imap_user = "usuari@xtec.cat"
-set imap_password = "contrasenya usuari XTEC" #No és necessari; si no es posa, la demanarà en entrar a Mutt
+set imap_pass = "contrasenya usuari XTEC" #No és necessari; si no es posa, la demanarà en entrar a Mutt
 set folder = "imaps://imap.gmail.com:993"
 set spoolfile = "+INBOX"
 set postponed = "+[Gmail]/Esborranys"
@@ -89,6 +89,6 @@ auto_view text/html
 
 {% endhighlight %}
 
-**Mutt** és molt més versàtil i ens permet el seu ús amb múltiples comptes de correu, però això serà tema d'un altre article.
+**Mutt** és molt més versàtil i ens permet el seu ús amb múltiples comptes de correu, però això és [tema d'un altre article](http://www.ylogico.com/linux/mutt-un-cliente-de-correo-y-configurar-varias-cuentas-de-gmail-por-imap/){:target="_blank"}.
 
 </div>
