@@ -20,7 +20,7 @@ vhR4wYABBm85GAt4kWrcnNcNzWDFDJUwkdgfwldkYf0CKWohLPBoDb2IlcmNzEMHBqUqP4HhSbO/BLQq
 </div>
 <div style="text-align:justify" markdown="1">
 
-**Mutt** és un client de correu en mode text potent i lleuger alhora, cosa que és molt d'agrair per accedir a comptes de correu a través d'IMAP (com ara *gmail*). Per la xarxa es poden trobar diverses guies de configuració dels comptes de *gmail* amb *Mutt*. Fa tres anys em vaig veure incapaç de fer funcionar el correu XTEC amb Mutt. Donat que els comptes XTEC funcionen a través de *gmail* sembla que no hi hauria d'haver cap problema. El cas és que, amb les darreres modificacions del [portal XTEC](http://xtec.gencat.cat/ca/),
+**Mutt** és un client de correu en mode text potent i lleuger alhora, cosa que és molt d'agrair per accedir a comptes de correu a través d'IMAP (com ara *gmail*). Per la xarxa es poden trobar diverses guies de configuració dels comptes de *gmail* amb *Mutt*. Fa tres anys em vaig veure incapaç de fer funcionar el correu XTEC amb Mutt. Donat que els comptes XTEC funcionen a través de *gmail* sembla que no hi hauria d'haver cap problema. El cas és que, amb les darreres modificacions del [portal XTEC](http://xtec.gencat.cat/ca/){:target="_blank"},
 es fa treballós arribar a llegir els correus i s'agraeix l'accés a una via ràpida i lleugera com la que ofereix **Mutt**.
 
 <!-- more -->
@@ -70,7 +70,7 @@ set editor=nano
 
 {% endhighlight %}
 
-Amb això accedirem bé als correus que rebem en mode text, però els correus *html* ens seran il·legibles si no connectem **Mutt** amb un navegador html. Com que es tracta de tenir un sistema lleuger, el connectarem a un navegador en mode text, que ens permetrà fer una primera lectura dels correus i, si cal, ja hi tornarem amb un lector més *pesat* o bé a través de *[La meva XTEC](https://accounts.google.com/ServiceLogin?continue=https%3A%2F%2Fsites.google.com%2Fa%2Fxtec.cat%2Faplicacionsxtec%2F&service=jotspot&sacu=1&hd=xtec.cat)*. He triat per a aquesta tasca **elinks**, per fer-ho, cal crear (o afegir-hi si ja el tenim) el fitxer `~/.mutt/mailcap` amb el contingut següent
+Amb això accedirem bé als correus que rebem en mode text, però els correus *html* ens seran il·legibles si no connectem **Mutt** amb un navegador html. Com que es tracta de tenir un sistema lleuger, el connectarem a un navegador en mode text, que ens permetrà fer una primera lectura dels correus i, si cal, ja hi tornarem amb un lector més *pesat* o bé a través de *[La meva XTEC](https://accounts.google.com/ServiceLogin?continue=https%3A%2F%2Fsites.google.com%2Fa%2Fxtec.cat%2Faplicacionsxtec%2F&service=jotspot&sacu=1&hd=xtec.cat){:target="_blank"}*. He triat per a aquesta tasca **elinks**, per fer-ho, cal crear (o afegir-hi si ja el tenim) el fitxer `~/.mutt/mailcap` amb el contingut següent
 
 {% highlight Bash shell scripts%}
 
