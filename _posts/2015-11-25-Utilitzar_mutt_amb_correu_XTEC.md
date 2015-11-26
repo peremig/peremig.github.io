@@ -3,7 +3,7 @@ published: true
 title: Utilitzar mutt amb correu XTEC
 layout: post
 author: Pere MiG 
-category: articles #howto
+category: #articles howto
 tags: 
 - Mutt
 - XTEC
