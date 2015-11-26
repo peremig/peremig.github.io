@@ -12,7 +12,7 @@ tags:
 ---
 <div style="text-align:center" markdown="1">
 
-![Missatge](../imatges/gmail.png)
+![Activar Mutt per a GMail](/imatges/gmail.png)
 
 </div>
 <div style="text-align:justify" markdown="1">
