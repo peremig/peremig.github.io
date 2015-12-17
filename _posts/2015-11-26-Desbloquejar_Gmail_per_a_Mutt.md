@@ -3,7 +3,7 @@ published: true
 title: Desbloquejar GMail per a Mutt
 layout: post
 author: Pere MiG 
-category: articles #howto
+category: howto #articles
 tags: 
 - email
 - gmail
