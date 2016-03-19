@@ -17,7 +17,7 @@ tags:
 </div>
 <div style="text-align:justify" markdown="1">
 
-Fa uns anys, quan van instal·lar-me la connexió de fibra òptica a casa (en aquells moments [Movistar](http://www.movistar.es/ca/particulars/internet/adsl-fibra-optica/fibra-optica/){:target="_blank"} oferia 50 Mb de pujada i 5 Mb de baixada), vaig tenir la desagradable sorpresa que els operaris podien fer-me-la arribar al punt més allunyat del lloc on tinc l'ordinador de sobretaula. Un lloc on el senyal wifi arribava força dèbil (a més, el wifi -N- tenia un sostre proper a la velocitat contractada). Vaig decidir, llavors, emprar PLC i vaig adquirir (amb vistes al futur) uns PLC que oferien connexió a 500 Mb. I aquí va començar una història de desencontres entre el router (connectat a un PLC) i l'ordinador (connectat a un altre PLC), que es passaven dies sencers sense veure's ni parlar-se.
+Fa uns anys, quan van instal·lar-me la connexió de fibra òptica a casa (en aquells moments [Movistar](http://www.movistar.es/ca/particulars/internet/adsl-fibra-optica/fibra-optica/){:target="_blank"} oferia 50 Mb de pujada i 5 Mb de baixada), vaig tenir la desagradable sorpresa que els operaris només podien fer-me-la arribar al punt més allunyat del lloc on tinc l'ordinador de sobretaula. Un lloc on el senyal wifi arribava força dèbil (a més, el wifi -N- tenia un sostre proper a la velocitat contractada). Vaig decidir, llavors, emprar PLC i vaig adquirir (amb vistes al futur) uns PLC que oferien connexió a 500 Mb. I aquí va començar una història de desencontres entre el router (connectat a un PLC) i l'ordinador (connectat a un altre PLC), que es passaven dies sencers sense veure's ni parlar-se.
 
 <!-- more -->
 
