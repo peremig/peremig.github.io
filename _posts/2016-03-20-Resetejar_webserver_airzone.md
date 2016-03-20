@@ -12,7 +12,7 @@ tags:
 ---
 <div style="text-align:center" markdown="1">
 
-![Airzone Flexa 3.0](images/airzone.jpg)
+![Airzone Flexa 3.0](/images/airzone.jpg)
 
 </div>
 <div style="text-align:justify" markdown="1">

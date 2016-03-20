@@ -12,7 +12,7 @@ tags:
 ---
 <div style="text-align:center" markdown="1">
 
-![Firefox](images/firefox.png)
+![Firefox](/images/firefox.png)
 
 </div>
 <div style="text-align:justify" markdown="1">
