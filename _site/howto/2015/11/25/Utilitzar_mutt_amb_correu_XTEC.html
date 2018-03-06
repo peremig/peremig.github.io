@@ -1,0 +1,587 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width initial-scale=1">
+
+<meta property="og:title" content="Utilitzar mutt amb correu XTEC">
+<title>Utilitzar mutt amb correu XTEC</title>
+<meta property="og:description" content="    Mutt és un client de correu en mode text potent i lleuger alhora, cosa que és molt d’agrair per accedir a comptes de correu a través d’IMAP (com ara gmai...">
+<meta property="og:url" content="http://peremig.github.io/howto/2015/11/25/Utilitzar_mutt_amb_correu_XTEC.html">
+<meta property="og:site_name" content="Buscant pingüins al pol nord">
+<meta property="og:locale" content="ca_ES">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:site" content="@">
+<meta name="twitter:creator" content="@">
+<meta name="twitter:title" content="Utilitzar mutt amb correu XTEC">
+<meta name="twitter:description" content="    Mutt és un client de correu en mode text potent i lleuger alhora, cosa que és molt d’agrair per accedir a comptes de correu a través d’IMAP (com ara gmai...">
+<meta name="twitter:url" content="http://peremig.github.io/howto/2015/11/25/Utilitzar_mutt_amb_correu_XTEC.html">
+
+<meta name="keywords" content="Linux, debian, català">
+
+<link rel="icon" href="/images/favicon.ico">
+<link rel="stylesheet" href="/css/main.css">
+<link rel="canonical" href="http://peremig.github.io/howto/2015/11/25/Utilitzar_mutt_amb_correu_XTEC.html">
+<link rel="alternate" type="application/atom+xml" title="Buscant pingüins al pol nord" href="http://peremig.github.io/feed.xml" />
+
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+<script language="Javascript" type="text/javascript">
+function search_google()
+{
+  var query = document.getElementById("google-search").value;
+  window.open("http://google.com/search?q=" + query
+      + "%20site:" + "http://peremig.github.io");
+}
+</script>
+
+<script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', '', 'auto');
+ga('send', 'pageview');
+
+</script>
+
+
+<script type='text/javascript'>
+var blocklink = ['http://humanorightswatch.org','http://o-o-6-o-o.com','http://darodar.com','http://blackhatworth.com','http://hulfingtonpost.com','http://bestwebsitesawards.com','http://darodar.com','http://buttons-for-website.com','http://ilovevitaly.co','http://semalt.com','http://priceg.com','http://simple-share-buttons.com','http://googlsucks.com','http://4webmasters.org','http://aliexpress.com','http://addons.mozilla.org/en-US/firefox/addon/ilovevitaly/','http://free-share-buttons.com','http://buttons-for-your-website.com','http://theguardlan.com','http://buy-cheap-online.info','http://best-seo-offer.com'];
+for (var b = blocklink.length; b--;) {
+  if (document.referrer.match(blocklink[b]))
+    window.location = "http://www.google.com";
+}
+</script>
+
+
+
+
+</head>
+
+
+<body>
+
+<div class="container">
+
+  <header class="site-header">
+
+  <div class="wrapper">
+
+    <h1 class="site-title"><a href="/">Buscant pingüins al pol nord</a></h1>
+    <h3 class="site-meta">Les aventures d'un professor de català amb Linux i el xinès</h3>
+
+    <nav class="site-nav">
+      <a href="#" class="menu-icon">
+        <svg viewBox="0 0 18 15">
+          <path fill="#424242" d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.031C17.335,0,18,0.665,18,1.484L18,1.484z"/>
+          <path fill="#424242" d="M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0c0-0.82,0.665-1.484,1.484-1.484 h15.031C17.335,6.031,18,6.696,18,7.516L18,7.516z"/>
+          <path fill="#424242" d="M18,13.516C18,14.335,17.335,15,16.516,15H1.484C0.665,15,0,14.335,0,13.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.031C17.335,12.031,18,12.696,18,13.516L18,13.516z"/>
+        </svg>
+      </a>
+      <div class="trigger">
+        
+        
+        <a class="page-link" href="/">Inici</a>
+        
+        
+        
+        <a class="page-link" href="/about/">Qui sóc?</a>
+        
+        
+        
+        <a class="page-link" href="/archives/">Arxiu</a>
+        
+        
+        
+        <a class="page-link" href="/categories/">Categories</a>
+        
+        
+        
+        <a class="page-link" href="/tags/">Etiquetes</a>
+        
+        
+        
+        <a class="page-link" href="/guestbook/">Llibre de visites</a>
+        
+        
+        
+        <a class="page-link" href="/feed.xml">Segueix-me</a>
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+      </div>
+    </nav>
+
+  </div>
+
+</header>
+
+
+    
+
+  <div class="page-content col-sm-8">
+    <div class="post" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 itemprop="name" class="post-title">Utilitzar mutt amb correu XTEC</h1>
+    <meta itemprop="keywords" content="Mutt,XTEC,email,gmail" />
+    <p class="post-meta">
+    Publicat a
+    
+    <a href="/categories/#howto">howto</a>&nbsp;
+     
+    
+    i etiquetat
+    
+    <a href="/tags/#Mutt" title="Mutt">Mutt </a>, 
+    
+    <a href="/tags/#XTEC" title="XTEC">XTEC </a>, 
+    
+    <a href="/tags/#email" title="email">email </a>, 
+    
+    <a href="/tags/#gmail" title="gmail">gmail </a>
+    
+    
+    <time itemprop="datePublished" datetime="2015-11-25">
+    el 25 Nov, 2015
+    </time>
+    </p>
+  </header>
+
+  <article class="post-content" itemprop="articleBody">
+    <div style="text-align:center">
+
+  <p><img src="data:image/png;base64,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" alt="Mutt" /></p>
+
+</div>
+<div style="text-align:justify">
+
+  <p><strong>Mutt</strong> és un client de correu en mode text potent i lleuger alhora, cosa que és molt d’agrair per accedir a comptes de correu a través d’IMAP (com ara <em>gmail</em>). Per la xarxa es poden trobar diverses guies de configuració dels comptes de <em>gmail</em> amb <em>Mutt</em>. Fa tres anys em vaig veure incapaç de fer funcionar el correu XTEC amb Mutt. Donat que els comptes XTEC funcionen a través de <em>gmail</em> sembla que no hi hauria d’haver cap problema. El cas és que, amb les darreres modificacions del <a href="http://xtec.gencat.cat/ca/" target="_blank">portal XTEC</a>,
+es fa treballós arribar a llegir els correus i s’agraeix l’accés a una via ràpida i lleugera com la que ofereix <strong>Mutt</strong>.</p>
+
+  <!-- more -->
+
+  <p>Per poder usar el correu XTEC des de <strong>Mutt</strong> és convenient, per ser ordenat, de crear la configuració d’usuari en un fitxer apart que desarem en el directori ocult amb el nom <code>~/.mutt/usuari_XTEC</code>; així, en cas que alguna cosa ens falli, ens serà més fàcil trobar l’error i arreglar-ho. El contigut d’aquest fitxer ha de ser com segueix:</p>
+
+  <div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nb">set </span>from <span class="o">=</span> <span class="s2">"usuari@xtec.cat"</span>
+<span class="nb">set </span>realname <span class="o">=</span> <span class="s2">"Nom real de l'usuari"</span>
+<span class="nb">set </span>imap_user <span class="o">=</span> <span class="s2">"usuari@xtec.cat"</span>
+<span class="nb">set </span>imap_pass <span class="o">=</span> <span class="s2">"contrasenya usuari XTEC"</span> <span class="c">#No és necessari; si no es posa, la demanarà en entrar a Mutt</span>
+<span class="nb">set </span>folder <span class="o">=</span> <span class="s2">"imaps://imap.gmail.com:993"</span>
+<span class="nb">set </span>spoolfile <span class="o">=</span> <span class="s2">"+INBOX"</span>
+<span class="nb">set </span>postponed <span class="o">=</span> <span class="s2">"+[Gmail]/Esborranys"</span>
+<span class="nb">set </span>record <span class="o">=</span> <span class="s2">"+[Gmail]/Enviats"</span>
+<span class="nb">set </span>trash <span class="o">=</span> <span class="s2">"imaps://imap.gmail.com/[Gmail]/Paperera"</span>
+<span class="nb">set </span>header_cache <span class="o">=</span>~/.mutt/cache/headers
+<span class="nb">set </span>message_cachedir <span class="o">=</span>~/.mutt/cache/bodies
+<span class="nb">set </span>certificate_file <span class="o">=</span>~/.mutt/certificates
+<span class="nb">set </span>smtp_url <span class="o">=</span> <span class="s2">"smtp://usuari@xtec.cat@smtp.gmail.com:587/"</span>
+<span class="nb">bind </span>editor &lt;space&gt; noop
+macro index gi <span class="s2">"&lt;change-folder&gt;=INBOX&lt;enter&gt;"</span> <span class="s2">"Go to inbox"</span>
+<span class="c">#macro index ga "&lt;change-folder&gt;=[Gmail]/All Mail&lt;enter&gt;" "Go to all mail"</span>
+macro index gs <span class="s2">"&lt;change-folder&gt;=[Gmail]/Enviats&lt;enter&gt;"</span> <span class="s2">"Vés a Enviats"</span>
+macro index ge <span class="s2">"&lt;change-folder&gt;=[Gmail]/Esborranys&lt;enter&gt;"</span> <span class="s2">"Vés a Esborranys"</span>
+macro index gp <span class="s2">"&lt;change-folder&gt;=[Gmail]/Paperera&lt;enter&gt;"</span> <span class="s2">"Vés a Paperera"</span>
+<span class="nb">set </span>move <span class="o">=</span> no  <span class="c">#Deixar de demanar "moure missatges llegits a mbox"!</span>
+<span class="nb">set </span>imap_keepalive <span class="o">=</span> 900</code></pre></div>
+
+  <p>Cal encara editar el fitxer <code>~/.muttrc</code> com segueix:</p>
+
+  <div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nb">source</span> ~/.mutt/usuari_XTEC</code></pre></div>
+
+  <p>A partir d’aquí podem fer altres canvis, per exemple, canviar l’editor per defecte (<strong>vi</strong>) per <strong>nano</strong>, de més fàcil ús. Ho fem editant el fitxer  <code>~/.muttrc</code>:</p>
+
+  <div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nb">source</span> ~/.mutt/usuari_XTEC
+<span class="nb">set </span><span class="nv">editor</span><span class="o">=</span>nano</code></pre></div>
+
+  <p>Amb això accedirem bé als correus que rebem en mode text, però els correus <em>html</em> ens seran il·legibles si no connectem <strong>Mutt</strong> amb un navegador html. Com que es tracta de tenir un sistema lleuger, el connectarem a un navegador en mode text, que ens permetrà fer una primera lectura dels correus i, si cal, ja hi tornarem amb un lector més <em>pesat</em> o bé a través de <em><a href="https://accounts.google.com/ServiceLogin?continue=https%3A%2F%2Fsites.google.com%2Fa%2Fxtec.cat%2Faplicacionsxtec%2F&amp;service=jotspot&amp;sacu=1&amp;hd=xtec.cat" target="_blank">La meva XTEC</a></em>. He triat per a aquesta tasca <strong>elinks</strong>, per fer-ho, cal crear (o afegir-hi si ja el tenim) el fitxer <code>~/.mutt/mailcap</code> amb el contingut següent</p>
+
+  <div class="highlight"><pre><code class="language-bash" data-lang="bash">text/html; elinks %s; <span class="nv">nametemplate</span><span class="o">=</span>%s.html
+text/html; elinks -no-numbering -no-references -no-home -dump-charset %<span class="o">{</span>charset<span class="o">}</span> -dump %s; <span class="nv">nametemplate</span><span class="o">=</span>%s.html; copiousoutput</code></pre></div>
+
+  <p>I tornar a <code>~/.muttrc</code> per completar-lo com veiem a continuació:</p>
+
+  <div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nb">source</span> ~/.mutt/usuari_XTEC
+<span class="nb">set </span><span class="nv">editor</span><span class="o">=</span>nano
+auto_view text/html</code></pre></div>
+
+  <p><strong>Mutt</strong> és molt més versàtil i ens permet el seu ús amb múltiples comptes de correu, però això és <a href="http://www.ylogico.com/linux/mutt-un-cliente-de-correo-y-configurar-varias-cuentas-de-gmail-por-imap/" target="_blank">tema d’un altre article</a>.</p>
+
+</div>
+
+  </article>
+  <hr />
+</div>
+
+
+<section class="pager">
+  <ul>
+    
+    <li class="previous"><a href="/howto/2015/02/12/automuntar_usb_escriptura.html" title="Automuntar unitats USB amb accés a escriptura">&larr; Entrades més antigues</a></li>
+    
+    
+    <li class="next"><a href="/howto/2015/11/26/Desbloquejar_Gmail_per_a_Mutt.html" title="Desbloquejar GMail per a Mutt">Entrades més noves &rarr;</a></li>
+    
+  </ul>
+</section>
+
+<div id="disqus_thread"></div>
+
+<script type="text/javascript">
+
+  var disqus_developer = 1;
+
+var disqus_shortname ='peremig';
+/* * * DON'T EDIT BELOW THIS LINE * * */
+(function() {
+  var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+  dsq.src = 'https://' + disqus_shortname + '.disqus.com/embed.js';
+  (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+})();
+</script>
+
+<noscript>Sisplau activeu JavaScript per poder accedir als <a href="http://disqus.com/?ref_noscript">comentaris servits per Disqus.</a></noscript>
+
+
+
+    <section class="pager">
+  
+  
+</section>
+
+
+  </div>
+  <div class="col-sm-2">
+<div class="sidebar-module about">
+  <h4>Qui sóc?</h4>
+  <img title="Pere MiG" src="/images/pinguins.jpg" alt="Pere MiG"/>
+  <span>Blog sobre Linux de Pere MiG, professor de català amant dels impossibles.</span>
+  <br />
+
+  
+
+  Pots contactar amb mi a través de: <br />
+
+  
+  <a href="mailto:linux@peremig.cat" title="mailto: linux@peremig.cat"><i class="fa fa-envelope-square fa-3x"></i></a>&nbsp;
+  
+  
+  <a href="https://github.com/peremig" title="GithubID: peremig"><i class="fa fa-github-square fa-3x"></i></a>&nbsp;
+  
+  
+  <a href="https://twitter.com/" title="TwitterID: "><i class="fa fa-twitter-square fa-3x"></i></a>
+  
+
+  
+
+</div>
+
+<div class="sidebar-module">
+  <h4>Cerca en el lloc</h4>
+  <form onsubmit="search_google()" >
+    <input type="text" id="google-search" placeholder="Google search" />
+    <input type="submit" name="sa" value="Go" />
+  </form>
+</div>
+
+
+<div class="sidebar-module"> <!-- sidebar-module-inset">-->
+  <h4>Sobre el Copyright</h4>
+
+  
+
+  <a href="http://creativecommons.org/licenses/by-nc-sa/3.0/">
+    <img src="http://i.creativecommons.org/l/by-nc-sa/3.0/88x31.png">
+  </a>
+  <br />
+  <a href="http://creativecommons.org/licenses/by-nc-sa/3.0/">Attribution-NonCommercial-ShareAlike</a>
+
+  
+
+</div>
+
+
+<div class="sidebar-module">
+  <h4>Entrades recents</h4>
+  
+  <li>
+  <a href="//articles/2018/03/06/Driver_Unichrome%E2%81%84OpenChrome_trencat_a_Debian_9.html" title="Driver per a xips de vídeo VIA UniChrome trencat a Debian 9 Stretch" rel="bookmark">Driver per a xips de vídeo VIA UniChrome trencat a Debian 9 Stretch</a>
+  </li>
+  
+  <li>
+  <a href="//howto/2016/03/20/Resetejar_webserver_airzone.html" title="Resetejar webserver d'Airzone" rel="bookmark">Resetejar webserver d'Airzone</a>
+  </li>
+  
+  <li>
+  <a href="//articles/2016/03/19/Torna_Firefox_a_Debian.html" title="Torna Firefox a Debian" rel="bookmark">Torna Firefox a Debian</a>
+  </li>
+  
+  <li>
+  <a href="//articles/2016/03/06/Abandonant_PLC_retorn_wifi.html" title="Abandonant els PLC, retorn al wifi" rel="bookmark">Abandonant els PLC, retorn al wifi</a>
+  </li>
+  
+  <li>
+  <a href="//articles/2015/12/13/Contacte_accidentat_amb_Windows_10.html" title="Contacte accidentat amb Windows 10" rel="bookmark">Contacte accidentat amb Windows 10</a>
+  </li>
+  
+</div>
+
+
+<div class="sidebar-module">
+  <h4>Categories</h4>
+  
+  <li><a href="/categories/#articles" title="articles" rel="11">articles (11)</a></li>
+  
+  <li><a href="/categories/#howto" title="howto" rel="10">howto (10)</a></li>
+  
+</div>
+
+
+<div class="sidebar-module">
+  <h4>Etiquetes</h4>
+  
+    <a href="/tags/#ime" title="ime" rel="4">ime</a> &nbsp;
+  
+    <a href="/tags/#IBUS" title="IBUS" rel="2">IBUS</a> &nbsp;
+  
+    <a href="/tags/#Tegaki" title="Tegaki" rel="1">Tegaki</a> &nbsp;
+  
+    <a href="/tags/#PDF" title="PDF" rel="2">PDF</a> &nbsp;
+  
+    <a href="/tags/#xsane" title="xsane" rel="1">xsane</a> &nbsp;
+  
+    <a href="/tags/#Debian" title="Debian" rel="7">Debian</a> &nbsp;
+  
+    <a href="/tags/#Linkat" title="Linkat" rel="1">Linkat</a> &nbsp;
+  
+    <a href="/tags/#dictat" title="dictat" rel="1">dictat</a> &nbsp;
+  
+    <a href="/tags/#iconv" title="iconv" rel="1">iconv</a> &nbsp;
+  
+    <a href="/tags/#rename" title="rename" rel="1">rename</a> &nbsp;
+  
+    <a href="/tags/#sed" title="sed" rel="1">sed</a> &nbsp;
+  
+    <a href="/tags/#wdiff" title="wdiff" rel="1">wdiff</a> &nbsp;
+  
+    <a href="/tags/#vídeo" title="vídeo" rel="3">vídeo</a> &nbsp;
+  
+    <a href="/tags/#email" title="email" rel="3">email</a> &nbsp;
+  
+    <a href="/tags/#docència" title="docència" rel="1">docència</a> &nbsp;
+  
+    <a href="/tags/#corrector" title="corrector" rel="1">corrector</a> &nbsp;
+  
+    <a href="/tags/#gramàtica" title="gramàtica" rel="1">gramàtica</a> &nbsp;
+  
+    <a href="/tags/#Squeeze" title="Squeeze" rel="2">Squeeze</a> &nbsp;
+  
+    <a href="/tags/#Wheezy" title="Wheezy" rel="2">Wheezy</a> &nbsp;
+  
+    <a href="/tags/#nvidia" title="nvidia" rel="1">nvidia</a> &nbsp;
+  
+    <a href="/tags/#audio" title="audio" rel="1">audio</a> &nbsp;
+  
+    <a href="/tags/#AC'97" title="AC'97" rel="1">AC'97</a> &nbsp;
+  
+    <a href="/tags/#SCIM" title="SCIM" rel="1">SCIM</a> &nbsp;
+  
+    <a href="/tags/#UIM" title="UIM" rel="1">UIM</a> &nbsp;
+  
+    <a href="/tags/#FCITX" title="FCITX" rel="2">FCITX</a> &nbsp;
+  
+    <a href="/tags/#emacs" title="emacs" rel="1">emacs</a> &nbsp;
+  
+    <a href="/tags/#Jessie" title="Jessie" rel="2">Jessie</a> &nbsp;
+  
+    <a href="/tags/#usb" title="usb" rel="1">usb</a> &nbsp;
+  
+    <a href="/tags/#Mutt" title="Mutt" rel="2">Mutt</a> &nbsp;
+  
+    <a href="/tags/#XTEC" title="XTEC" rel="1">XTEC</a> &nbsp;
+  
+    <a href="/tags/#gmail" title="gmail" rel="2">gmail</a> &nbsp;
+  
+    <a href="/tags/#Windows" title="Windows" rel="1">Windows</a> &nbsp;
+  
+    <a href="/tags/#xarxa" title="xarxa" rel="1">xarxa</a> &nbsp;
+  
+    <a href="/tags/#PLC" title="PLC" rel="1">PLC</a> &nbsp;
+  
+    <a href="/tags/#Iceweasel" title="Iceweasel" rel="1">Iceweasel</a> &nbsp;
+  
+    <a href="/tags/#Firefox" title="Firefox" rel="1">Firefox</a> &nbsp;
+  
+    <a href="/tags/#airzone" title="airzone" rel="1">airzone</a> &nbsp;
+  
+    <a href="/tags/#domòtica" title="domòtica" rel="1">domòtica</a> &nbsp;
+  
+    <a href="/tags/#webserver" title="webserver" rel="1">webserver</a> &nbsp;
+  
+    <a href="/tags/#Stretch" title="Stretch" rel="1">Stretch</a> &nbsp;
+  
+</div>
+
+
+<div class="sidebar-module">
+  <h4>Blogroll</h4>
+  
+  <li><a href="https://elageminada.wordpress.com" title="Bloc de llengua i literatura catalanes">Elageminada</a></li>
+  
+  <li><a href="https://hanyucat.wordpress.com/" title="Materials en català per a l'estudi de la llengua xinesa">Hanyu – Cat</a></li>
+  
+</div>
+
+
+<div class="sidebar-module">
+  <h4>Arxius</h4>
+
+  
+  
+  
+  
+  
+  <li id="2018" > <a href="/archives/#2018">2018</a></li>
+  
+  
+  
+  
+  
+  
+  
+  <li id="2016" > <a href="/archives/#2016">2016</a></li>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <li id="2015" > <a href="/archives/#2015">2015</a></li>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <li id="2014" > <a href="/archives/#2014">2014</a></li>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <li id="2013" > <a href="/archives/#2013">2013</a></li>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <li id="2011" > <a href="/archives/#2011">2011</a></li>
+  
+  
+  
+  
+  
+
+</div>
+
+
+</div>
+
+
+
+  
+
+  <footer class="site-footer">
+
+  <p>Copyright &copy; <a href="/">Buscant pingüins al pol nord</a></p>
+  <p>Powered by <a href="https://github.com/jekyll/jekyll">Jekyll</a> 
+  a 
+  
+  <a href="https://github.com/">Github</a>
+  
+  | Tema <a href="https://github.com/yulijia/freshman21/">Freshman21</a> Dissenyat per <a href="http://yulijia.net">Lijia Yu</a>  
+
+
+  <div id="totop" style="position:fixed;bottom:150px;right:50px;cursor: pointer;">
+    <a title="Back To Top"><img src="/images/topbutton.png"/></a>
+  </div>
+
+  <script src="/js/jquery-1.9.1.min.js"></script>
+  <script src="/js/totop.js"></script>  
+
+
+
+</footer>
+
+
+</div>
+
+</body>
+
+</html>

@@ -121,6 +121,10 @@ for (var b = blocklink.length; b--;) {
         
         
         
+        
+        
+        
+        
       </div>
     </nav>
 
@@ -211,57 +215,73 @@ for (var b = blocklink.length; b--;) {
 
   <p>Les ordres corresponents són:</p>
 
-  <div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nv">$ </span>wdiff -1 dictat_original dictat_alumne.txt <span class="c">#tot el text amb els inputs incorrectes al costat del correctes sense estadístiques encert / error </span>
+  <div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="gp">$ </span>wdiff -1 dictat_original dictat_alumne.txt <span class="c">#tot el text amb els inputs incorrectes al costat del correctes sense estadístiques encert / error </span>
 
-<span class="nv">$ </span>wdiff -s dictat_original dictat_alumne.txt <span class="c">#tot el text amb els inputs incorrectes al costat del correctes amb estadístiques encert / error </span>
+<span class="gp">$ </span>wdiff -s dictat_original dictat_alumne.txt <span class="c">#tot el text amb els inputs incorrectes al costat del correctes amb estadístiques encert / error </span>
 
-<span class="nv">$ </span>wdiff -2 dictat_original dictat_alumne.txt <span class="c">#tot el text amb les formes correctes de les errades (però sense mostrar-ne la forma errònia que ha introduït l’alumne)</span>
+<span class="gp">$ </span>wdiff -2 dictat_original dictat_alumne.txt <span class="c">#tot el text amb les formes correctes de les errades (però sense mostrar-ne la forma errònia que ha introduït l’alumne)</span>
 
-<span class="nv">$ </span>wdiff -3 dictat_original dictat_alumne.txt <span class="c">#només les errades amb les formes correctes al costat (separades per línies i sense mostrar la resta del text)</span></code></pre></div>
+<span class="gp">$ </span>wdiff -3 dictat_original dictat_alumne.txt <span class="c">#només les errades amb les formes correctes al costat (separades per línies i sense mostrar la resta del text)</span></code></pre></div>
 
   <p>Les ordres anteriors en mostraran la comparació en pantalla, però com el que ens interessarà serà produir un nou document per analitzar-lo (ja sigui per nosaltres o pels alumnes), emprarem la redirecció a fitxer de la sortida, per exemple:</p>
 
-  <div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nv">$ </span>wdiff -3 dictat_original dictat_alumne.txt &gt; dictat_corregit.txt</code></pre></div>
+  <div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="gp">$ </span>wdiff -3 dictat_original dictat_alumne.txt &gt; dictat_corregit.txt</code></pre></div>
 
   <p>Però, perquè ens sigui realment útil, tot això s’hauria de poder resumir en una sola ordre de la terminal. Hem de crear, per tant, un script de Bash i, per obtenir una sortida ordenada, ens anirà bé emprar les comandes sed i rename. Si hem anat seguint fins aquí, haurem observat que es creen fitxers de text, que cal que tinguin extensions diferents i que, al final, haurem de poder localitzar ràpidament els resultats.</p>
 
   <p>Un script pot ser el següent:</p>
 
-  <div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="lineno"> 1 </span><span class="c">#!/bin/bash</span>
-<span class="lineno"> 2 </span> <span class="nb">echo</span> <span class="s2">&quot;Convertint a UTF-8...&quot;</span>
-<span class="lineno"> 3 </span> <span class="k">for</span> i in <span class="k">$(</span> ls *.txt<span class="k">)</span><span class="p">;</span> <span class="k">do</span> iconv -f LATIN1 -t UTF-8 -o <span class="nv">$i</span>.utf <span class="nv">$i</span><span class="p">;</span> <span class="k">done</span>
-<span class="lineno"> 4 </span> mkdir utf
-<span class="lineno"> 5 </span> <span class="k">for</span> i in <span class="k">$(</span> ls *.txt<span class="k">)</span><span class="p">;</span> <span class="k">do</span> mv <span class="nv">$i</span>.utf ./utf/<span class="nv">$i</span><span class="p">;</span> <span class="k">done</span>
-<span class="lineno"> 6 </span> cp dictat ./utf/dictat.txt
-<span class="lineno"> 7 </span> <span class="nb">cd </span>utf
-<span class="lineno"> 8 </span> <span class="nb">echo</span> <span class="s2">&quot;Corregint...&quot;</span>
-<span class="lineno"> 9 </span> <span class="k">for</span> i in <span class="k">$(</span> ls *.txt<span class="k">)</span><span class="p">;</span> <span class="k">do</span> sed <span class="s2">&quot;s/</span><span class="nv">$/</span><span class="s2">\n/&quot;</span> <span class="nv">$i</span> &gt;<span class="nv">$i</span>.nou<span class="p">;</span> <span class="k">done</span>
-<span class="lineno">10 </span> <span class="k">for</span> i in <span class="k">$(</span> ls *.nou<span class="k">)</span><span class="p">;</span> <span class="k">do</span> wdiff -s <span class="nv">$i</span> dictat.txt.nou&gt; <span class="nv">$i</span>.res<span class="p">;</span> <span class="k">done</span>
-<span class="lineno">11 </span> rm *.txt
-<span class="lineno">12 </span> rm *.nou
-<span class="lineno">13 </span> rm dictat.*
-<span class="lineno">14 </span> rename <span class="s1">&#39;s/\.nou.res$//&#39;</span> *.res
-<span class="lineno">15 </span> <span class="nb">echo</span> <span class="s2">&quot;Fet!&quot;</span></code></pre></div>
+  <div class="highlight"><pre><code class="language-bash" data-lang="bash"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15</pre></td><td class="code"><pre><span class="c">#!/bin/bash</span>
+ <span class="nb">echo</span> <span class="s2">"Convertint a UTF-8..."</span>
+ <span class="k">for </span>i <span class="k">in</span> <span class="k">$(</span> ls <span class="k">*</span>.txt<span class="k">)</span>; <span class="k">do </span>iconv -f LATIN1 -t UTF-8 -o <span class="nv">$i</span>.utf <span class="nv">$i</span>; <span class="k">done
+ </span>mkdir utf
+ <span class="k">for </span>i <span class="k">in</span> <span class="k">$(</span> ls <span class="k">*</span>.txt<span class="k">)</span>; <span class="k">do </span>mv <span class="nv">$i</span>.utf ./utf/<span class="nv">$i</span>; <span class="k">done
+ </span>cp dictat ./utf/dictat.txt
+ <span class="nb">cd </span>utf
+ <span class="nb">echo</span> <span class="s2">"Corregint..."</span>
+ <span class="k">for </span>i <span class="k">in</span> <span class="k">$(</span> ls <span class="k">*</span>.txt<span class="k">)</span>; <span class="k">do </span>sed <span class="s2">"s/</span><span class="nv">$/</span><span class="se">\n</span><span class="s2">/"</span> <span class="nv">$i</span> &gt;<span class="nv">$i</span>.nou; <span class="k">done
+ for </span>i <span class="k">in</span> <span class="k">$(</span> ls <span class="k">*</span>.nou<span class="k">)</span>; <span class="k">do </span>wdiff -s <span class="nv">$i</span> dictat.txt.nou&gt; <span class="nv">$i</span>.res; <span class="k">done
+ </span>rm <span class="k">*</span>.txt
+ rm <span class="k">*</span>.nou
+ rm dictat.<span class="k">*</span>
+ rename <span class="s1">'s/\.nou.res$//'</span> <span class="k">*</span>.res
+ <span class="nb">echo</span> <span class="s2">"Fet!"</span><span class="w">
+</span></pre></td></tr></tbody></table>
 
-  <p>Al final de la seva execució, trobarem una carpeta /utf  dins de la qual hi seran els dictats dels alumnes en codificació UTF-8 i ja corregits (en aquest cas, el fitxer corregit de cada alumne contindrà tot el text amb les formes incorrectes -entre claudàtors- que ha introduït al costat de les correctes -entre claus- i, al final, l’estadística d’encerts / errors). Vegem-ne un exemple de fitxer de sortida:</p>
 
-  <blockquote>
-    <p>Els caçadors [-fortius cercan-] {+furtius cerquen+} els grans goril·les mascles per convertir el seu crani en [-petxa papers,-] {+petjapapers,+} i les mans i els [-peus,-] {+peus+} en cendrers, que venen a uns preus que s’acosten [-els-] {+als+} 50 [-dolars-] {+dòlars+} la peça. Els caçadors més [-ábils-] {+hàbils+} capturen vius [-als-] {+els+} goril·les més joves i els [-subasten-] {+subhasten+} per exportar-los [-il·legantment-] {+il·legalment+} a [-zoologics-] {+zoològics+} i col·leccions privades [-de reu-] {+d’arreu+} del món.</p>
 
-    <p>alumne.txt: 61 paraules  47 77% comunes  0 0% esborrades  14 22% canviades</p>
+Al final de la seva execució, trobarem una carpeta /utf  dins de la qual hi seran els dictats dels alumnes en codificació UTF-8 i ja corregits (en aquest cas, el fitxer corregit de cada alumne contindrà tot el text amb les formes incorrectes -entre claudàtors- que ha introduït al costat de les correctes -entre claus- i, al final, l’estadística d’encerts / errors). Vegem-ne un exemple de fitxer de sortida:
 
-    <p>dictat.txt: 59 paraules  47 79% comunes  0 0% inserides  12 20% canviades</p>
-  </blockquote>
+&gt;Els caçadors [-fortius cercan-] {+furtius cerquen+} els grans goril·les mascles per convertir el seu crani en [-petxa papers,-] {+petjapapers,+} i les mans i els [-peus,-] {+peus+} en cendrers, que venen a uns preus que s'acosten [-els-] {+als+} 50 [-dolars-] {+dòlars+} la peça. Els caçadors més [-ábils-] {+hàbils+} capturen vius [-als-] {+els+} goril·les més joves i els [-subasten-] {+subhasten+} per exportar-los [-il·legantment-] {+il·legalment+} a [-zoologics-] {+zoològics+} i col·leccions privades [-de reu-] {+d'arreu+} del món.
+&gt;
+&gt;alumne.txt: 61 paraules  47 77% comunes  0 0% esborrades  14 22% canviades
+&gt;
+&gt;dictat.txt: 59 paraules  47 79% comunes  0 0% inserides  12 20% canviades
 
-  <p>Requeriments sota Debian: per poder dur a terme aquesta tasca, cal tenir instal·lats els següents paquets (així com les seves dependències):</p>
+Requeriments sota Debian: per poder dur a terme aquesta tasca, cal tenir instal·lats els següents paquets (així com les seves dependències):
 
-  <ul>
-    <li><a href="https://packages.debian.org/stable/libc-bin" target="_blank">libc-bin</a> (ens ofereix l’aplicació <em>iconv</em>)</li>
-    <li><a href="https://packages.debian.org/stable/wdiff" target="_blank">wdiff</a></li>
-    <li><a href="https://packages.debian.org/stable/sed" target="_blank">sed</a></li>
-    <li><a href="https://packages.debian.org/stable/util-linux" target="_blank">util-linux</a> (ens ofereix l’aplicació <em>rename</em>)</li>
-  </ul>
+   - [libc-bin](https://packages.debian.org/stable/libc-bin){:target="_blank"} (ens ofereix l’aplicació *iconv*)
+   - [wdiff](https://packages.debian.org/stable/wdiff){:target="_blank"}
+   - [sed](https://packages.debian.org/stable/sed){:target="_blank"}
+   - [util-linux](https://packages.debian.org/stable/util-linux){:target="_blank"} (ens ofereix l’aplicació *rename*)
 
+
+
+</code></pre></div>
 </div>
 
   </article>
@@ -360,23 +380,23 @@ var disqus_shortname ='peremig';
   <h4>Entrades recents</h4>
   
   <li>
-  <a href="//howto/2015/02/12/automuntar_usb_escriptura.html" title="Automuntar unitats USB amb accés a escriptura" rel="bookmark">Automuntar unitats USB amb accés a escriptura</a>
+  <a href="//articles/2018/03/06/Driver_Unichrome%E2%81%84OpenChrome_trencat_a_Debian_9.html" title="Driver per a xips de vídeo VIA UniChrome trencat a Debian 9 Stretch" rel="bookmark">Driver per a xips de vídeo VIA UniChrome trencat a Debian 9 Stretch</a>
   </li>
   
   <li>
-  <a href="//articles/2015/01/18/Debian_8_Acer_Aspire.html" title="Debian 8 (Jessie) en notebook Acer Aspire V5-121" rel="bookmark">Debian 8 (Jessie) en notebook Acer Aspire V5-121</a>
+  <a href="//howto/2016/03/20/Resetejar_webserver_airzone.html" title="Resetejar webserver d'Airzone" rel="bookmark">Resetejar webserver d'Airzone</a>
   </li>
   
   <li>
-  <a href="//howto/2014/01/24/Emacs_fcitx.html" title="Emacs i el xinès (fcitx)" rel="bookmark">Emacs i el xinès (fcitx)</a>
+  <a href="//articles/2016/03/19/Torna_Firefox_a_Debian.html" title="Torna Firefox a Debian" rel="bookmark">Torna Firefox a Debian</a>
   </li>
   
   <li>
-  <a href="//articles/2014/01/23/problemes_ime.html" title="Els meus problemes amb els IME" rel="bookmark">Els meus problemes amb els IME</a>
+  <a href="//articles/2016/03/06/Abandonant_PLC_retorn_wifi.html" title="Abandonant els PLC, retorn al wifi" rel="bookmark">Abandonant els PLC, retorn al wifi</a>
   </li>
   
   <li>
-  <a href="//howto/2014/01/02/de_squeeze_a_wheezy_2.html" title="De debian squeeze a wheezy (2)" rel="bookmark">De debian squeeze a wheezy (2)</a>
+  <a href="//articles/2015/12/13/Contacte_accidentat_amb_Windows_10.html" title="Contacte accidentat amb Windows 10" rel="bookmark">Contacte accidentat amb Windows 10</a>
   </li>
   
 </div>
@@ -385,9 +405,9 @@ var disqus_shortname ='peremig';
 <div class="sidebar-module">
   <h4>Categories</h4>
   
-  <li><a href="/categories/#articles" title="articles" rel="7">articles (7)</a></li>
+  <li><a href="/categories/#articles" title="articles" rel="11">articles (11)</a></li>
   
-  <li><a href="/categories/#howto" title="howto" rel="7">howto (7)</a></li>
+  <li><a href="/categories/#howto" title="howto" rel="10">howto (10)</a></li>
   
 </div>
 
@@ -405,7 +425,7 @@ var disqus_shortname ='peremig';
   
     <a href="/tags/#xsane" title="xsane" rel="1">xsane</a> &nbsp;
   
-    <a href="/tags/#Debian" title="Debian" rel="5">Debian</a> &nbsp;
+    <a href="/tags/#Debian" title="Debian" rel="7">Debian</a> &nbsp;
   
     <a href="/tags/#Linkat" title="Linkat" rel="1">Linkat</a> &nbsp;
   
@@ -419,9 +439,9 @@ var disqus_shortname ='peremig';
   
     <a href="/tags/#wdiff" title="wdiff" rel="1">wdiff</a> &nbsp;
   
-    <a href="/tags/#vídeo" title="vídeo" rel="2">vídeo</a> &nbsp;
+    <a href="/tags/#vídeo" title="vídeo" rel="3">vídeo</a> &nbsp;
   
-    <a href="/tags/#email" title="email" rel="1">email</a> &nbsp;
+    <a href="/tags/#email" title="email" rel="3">email</a> &nbsp;
   
     <a href="/tags/#docència" title="docència" rel="1">docència</a> &nbsp;
   
@@ -451,6 +471,30 @@ var disqus_shortname ='peremig';
   
     <a href="/tags/#usb" title="usb" rel="1">usb</a> &nbsp;
   
+    <a href="/tags/#Mutt" title="Mutt" rel="2">Mutt</a> &nbsp;
+  
+    <a href="/tags/#XTEC" title="XTEC" rel="1">XTEC</a> &nbsp;
+  
+    <a href="/tags/#gmail" title="gmail" rel="2">gmail</a> &nbsp;
+  
+    <a href="/tags/#Windows" title="Windows" rel="1">Windows</a> &nbsp;
+  
+    <a href="/tags/#xarxa" title="xarxa" rel="1">xarxa</a> &nbsp;
+  
+    <a href="/tags/#PLC" title="PLC" rel="1">PLC</a> &nbsp;
+  
+    <a href="/tags/#Iceweasel" title="Iceweasel" rel="1">Iceweasel</a> &nbsp;
+  
+    <a href="/tags/#Firefox" title="Firefox" rel="1">Firefox</a> &nbsp;
+  
+    <a href="/tags/#airzone" title="airzone" rel="1">airzone</a> &nbsp;
+  
+    <a href="/tags/#domòtica" title="domòtica" rel="1">domòtica</a> &nbsp;
+  
+    <a href="/tags/#webserver" title="webserver" rel="1">webserver</a> &nbsp;
+  
+    <a href="/tags/#Stretch" title="Stretch" rel="1">Stretch</a> &nbsp;
+  
 </div>
 
 
@@ -472,7 +516,38 @@ var disqus_shortname ='peremig';
   
   
   
+  <li id="2018" > <a href="/archives/#2018">2018</a></li>
+  
+  
+  
+  
+  
+  
+  
+  <li id="2016" > <a href="/archives/#2016">2016</a></li>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
   <li id="2015" > <a href="/archives/#2015">2015</a></li>
+  
+  
+  
+  
+  
+  
+  
+  
+  
   
   
   

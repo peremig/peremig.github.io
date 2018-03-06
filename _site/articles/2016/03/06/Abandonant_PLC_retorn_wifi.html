@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width initial-scale=1">
+
+<meta property="og:title" content="Abandonant els PLC, retorn al wifi">
+<title>Abandonant els PLC, retorn al wifi</title>
+<meta property="og:description" content="    Fa uns anys, quan van instal·lar-me la connexió de fibra òptica a casa (en aquells moments Movistar oferia 50 Mb de pujada i 5 Mb de baixada), vaig tenir...">
+<meta property="og:url" content="http://peremig.github.io/articles/2016/03/06/Abandonant_PLC_retorn_wifi.html">
+<meta property="og:site_name" content="Buscant pingüins al pol nord">
+<meta property="og:locale" content="ca_ES">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:site" content="@">
+<meta name="twitter:creator" content="@">
+<meta name="twitter:title" content="Abandonant els PLC, retorn al wifi">
+<meta name="twitter:description" content="    Fa uns anys, quan van instal·lar-me la connexió de fibra òptica a casa (en aquells moments Movistar oferia 50 Mb de pujada i 5 Mb de baixada), vaig tenir...">
+<meta name="twitter:url" content="http://peremig.github.io/articles/2016/03/06/Abandonant_PLC_retorn_wifi.html">
+
+<meta name="keywords" content="Linux, debian, català">
+
+<link rel="icon" href="/images/favicon.ico">
+<link rel="stylesheet" href="/css/main.css">
+<link rel="canonical" href="http://peremig.github.io/articles/2016/03/06/Abandonant_PLC_retorn_wifi.html">
+<link rel="alternate" type="application/atom+xml" title="Buscant pingüins al pol nord" href="http://peremig.github.io/feed.xml" />
+
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+<script language="Javascript" type="text/javascript">
+function search_google()
+{
+  var query = document.getElementById("google-search").value;
+  window.open("http://google.com/search?q=" + query
+      + "%20site:" + "http://peremig.github.io");
+}
+</script>
+
+<script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', '', 'auto');
+ga('send', 'pageview');
+
+</script>
+
+
+<script type='text/javascript'>
+var blocklink = ['http://humanorightswatch.org','http://o-o-6-o-o.com','http://darodar.com','http://blackhatworth.com','http://hulfingtonpost.com','http://bestwebsitesawards.com','http://darodar.com','http://buttons-for-website.com','http://ilovevitaly.co','http://semalt.com','http://priceg.com','http://simple-share-buttons.com','http://googlsucks.com','http://4webmasters.org','http://aliexpress.com','http://addons.mozilla.org/en-US/firefox/addon/ilovevitaly/','http://free-share-buttons.com','http://buttons-for-your-website.com','http://theguardlan.com','http://buy-cheap-online.info','http://best-seo-offer.com'];
+for (var b = blocklink.length; b--;) {
+  if (document.referrer.match(blocklink[b]))
+    window.location = "http://www.google.com";
+}
+</script>
+
+
+
+
+</head>
+
+
+<body>
+
+<div class="container">
+
+  <header class="site-header">
+
+  <div class="wrapper">
+
+    <h1 class="site-title"><a href="/">Buscant pingüins al pol nord</a></h1>
+    <h3 class="site-meta">Les aventures d'un professor de català amb Linux i el xinès</h3>
+
+    <nav class="site-nav">
+      <a href="#" class="menu-icon">
+        <svg viewBox="0 0 18 15">
+          <path fill="#424242" d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.031C17.335,0,18,0.665,18,1.484L18,1.484z"/>
+          <path fill="#424242" d="M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0c0-0.82,0.665-1.484,1.484-1.484 h15.031C17.335,6.031,18,6.696,18,7.516L18,7.516z"/>
+          <path fill="#424242" d="M18,13.516C18,14.335,17.335,15,16.516,15H1.484C0.665,15,0,14.335,0,13.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.031C17.335,12.031,18,12.696,18,13.516L18,13.516z"/>
+        </svg>
+      </a>
+      <div class="trigger">
+        
+        
+        <a class="page-link" href="/">Inici</a>
+        
+        
+        
+        <a class="page-link" href="/about/">Qui sóc?</a>
+        
+        
+        
+        <a class="page-link" href="/archives/">Arxiu</a>
+        
+        
+        
+        <a class="page-link" href="/categories/">Categories</a>
+        
+        
+        
+        <a class="page-link" href="/tags/">Etiquetes</a>
+        
+        
+        
+        <a class="page-link" href="/guestbook/">Llibre de visites</a>
+        
+        
+        
+        <a class="page-link" href="/feed.xml">Segueix-me</a>
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+      </div>
+    </nav>
+
+  </div>
+
+</header>
+
+
+    
+
+  <div class="page-content col-sm-8">
+    <div class="post" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 itemprop="name" class="post-title">Abandonant els PLC, retorn al wifi</h1>
+    <meta itemprop="keywords" content="xarxa,PLC" />
+    <p class="post-meta">
+    Publicat a
+    
+    <a href="/categories/#articles">articles</a>&nbsp;
+     
+    
+    i etiquetat
+    
+    <a href="/tags/#xarxa" title="xarxa">xarxa </a>, 
+    
+    <a href="/tags/#PLC" title="PLC">PLC </a>
+    
+    
+    <time itemprop="datePublished" datetime="2016-03-06">
+    el 6 Mar, 2016
+    </time>
+    </p>
+  </header>
+
+  <article class="post-content" itemprop="articleBody">
+    <div style="text-align:center">
+
+  <p><img src="/images/plc.jpg" alt="PLC" /></p>
+
+</div>
+<div style="text-align:justify">
+
+  <p>Fa uns anys, quan van instal·lar-me la connexió de fibra òptica a casa (en aquells moments <a href="http://www.movistar.es/ca/particulars/internet/adsl-fibra-optica/fibra-optica/" target="_blank">Movistar</a> oferia 50 Mb de pujada i 5 Mb de baixada), vaig tenir la desagradable sorpresa que els operaris només podien fer-me-la arribar al punt més allunyat del lloc on tinc l’ordinador de sobretaula. Un lloc on el senyal wifi arribava força dèbil (a més, el wifi -N- tenia un sostre proper a la velocitat contractada). Vaig decidir, llavors, emprar PLC i vaig adquirir (amb vistes al futur) uns PLC que oferien connexió a 500 Mb. I aquí va començar una història de desencontres entre el router (connectat a un PLC) i l’ordinador (connectat a un altre PLC), que es passaven dies sencers sense veure’s ni parlar-se.</p>
+
+  <!-- more -->
+
+  <p>Ja des d’un primer moment, vaig poder observar que el rendiment dels PLC no arribava al que havia contractat (sí que hi arribava, però, una connexió d’un portàtil directa al router). També vaig patir de tant en tant pèrdues de senyal: els PLC s’ignoraven entre ells i no hi havia manera de comunicar l’ordinador amb el router (ni tan sols amb un miserable ping).</p>
+
+  <p>Com que hi havia webs on es deia que hi influïen les interferències de la xarxa elèctrica, l’electricista del barri va venir i va modificar la línia del pis de manera que els fils que anaven als dos endolls on eren connectats els PLC morissin en el mateix interruptor del quadre de llums. Però, tot i donant-se les mans, hi havia una progressiva caiguda de rendiment en la comunicació entre ells fins al dia que s’ignoraven totalment. Aquell dia tocava resetejar-ho tot (és a dir, apagar-ho tot), esperar uns 10 minuts que tots els seus indicadors leds deixessin d’estar actius i, després, reiniciar-ho tot: router i pc.</p>
+
+  <p>Des d’aleshores, la companyia ha ampliat dues vegades els amples de banda i actualment ofereix 300 Mb pujada i 30 Mb de baixada (si bé sembla ser que en el darrer Mobile Word Congress han anunciat que estan estudiant oferir els 300 Mb simètrics). Amb aquestes ampliacions, els problemes de desconnexió es van veure agreujats i les caigudes més freqüents. El més curiós, però, va ser que els tests de velocitat no mostraven massa millora; és van clavar al voltant d’uns 30 Mb de baixada i 30 Mb de pujada, tot i que la velocitat de pujada fos de 300 Mb. Una connexió directa a router, però, donava els resultats esperats.</p>
+
+  <p>La veritat és que em va pujar la mosca al nas. Vaig sospitar que es devia produir una col·lisió de dades en algun punt (un coll d’ampolla). Els cables eren tots categoria 5e, per aquest costat correcte. La sortida del router és Gigalan, així com la tarja de l’ordinador; també correcte. Primera sorpresa: les rosetes RJ45 del PLC eren tipus Fastlan, és a dir, limitades a 100 Mb/s. Llavors, quin sentit té oferir PLC de més de 100 Mb/s (500 Mb/s, en aquest cas) si després no podrà suportar velocitats més altes? Vaig descobrir que només els PLC de 1200 Mb/s munten rosetes RJ45 de tipus Gigalan (però avui dia ja hi ha alguna companyia, com <a href="https://www.adamo.es/ca/" target="_blank">Adamo</a>, que ofereix 1Gb de connexió a internet).</p>
+
+  <p>Vaig pensar a comprar nous PLC, però de marca diferent. Segona sorpresa: a can Google, els usuaris recomanaven la marca Devolo, la que ja estava emprant i que m’ha generat tots els inconvenients descrits abans ja des del primer dia de tenir-los.</p>
+
+  <p>Googlejant una mica, vaig poder llegir <a href="http://www.adslzone.net/postt98307.html" target="_blank">històries semblants a aquesta</a>. Va ser en aquell moment que vaig decidir abandonar els PLC i tornar a una solució wifi semblant a la que tenia en temps de l’ADSL (llavors vaig poder connectar el router més a la vora de l’ordinador (cablejar hauria estat millor, però la Gigalan està a punt de ser superada per l’oferta de velocitat de la fibra òptica i no em veig fent obres per amagar tubs corrugats plens de cables de xarxa). </p>
+
+  <p>La solució ha consistit en connectar el pc a un punt d’accés en mode bridge. I aquí ha estat la darrera sorpresa: quan, fa més de 10 anys, vaig connectar el router ADSL a un punt d’accés (que vaig modificar a mode bridge), no hi havia documentació a la xarxa que facilités una feina que em va ocupar un parell d’hores; avui dia, els fabricants ja ho tenen en compte (almenys <a href="http://www.asus.com/us/Networking/Wireless-AP-Repeater-Bridges-Products/" target="_blank">Asus</a>) i ha estat feina de pocs minuts tenir-ho tot en marxa i funcionant.</p>
+
+</div>
+
+  </article>
+  <hr />
+</div>
+
+
+<section class="pager">
+  <ul>
+    
+    <li class="previous"><a href="/articles/2015/12/13/Contacte_accidentat_amb_Windows_10.html" title="Contacte accidentat amb Windows 10">&larr; Entrades més antigues</a></li>
+    
+    
+    <li class="next"><a href="/articles/2016/03/19/Torna_Firefox_a_Debian.html" title="Torna Firefox a Debian">Entrades més noves &rarr;</a></li>
+    
+  </ul>
+</section>
+
+<div id="disqus_thread"></div>
+
+<script type="text/javascript">
+
+  var disqus_developer = 1;
+
+var disqus_shortname ='peremig';
+/* * * DON'T EDIT BELOW THIS LINE * * */
+(function() {
+  var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+  dsq.src = 'https://' + disqus_shortname + '.disqus.com/embed.js';
+  (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+})();
+</script>
+
+<noscript>Sisplau activeu JavaScript per poder accedir als <a href="http://disqus.com/?ref_noscript">comentaris servits per Disqus.</a></noscript>
+
+
+
+    <section class="pager">
+  
+  
+</section>
+
+
+  </div>
+  <div class="col-sm-2">
+<div class="sidebar-module about">
+  <h4>Qui sóc?</h4>
+  <img title="Pere MiG" src="/images/pinguins.jpg" alt="Pere MiG"/>
+  <span>Blog sobre Linux de Pere MiG, professor de català amant dels impossibles.</span>
+  <br />
+
+  
+
+  Pots contactar amb mi a través de: <br />
+
+  
+  <a href="mailto:linux@peremig.cat" title="mailto: linux@peremig.cat"><i class="fa fa-envelope-square fa-3x"></i></a>&nbsp;
+  
+  
+  <a href="https://github.com/peremig" title="GithubID: peremig"><i class="fa fa-github-square fa-3x"></i></a>&nbsp;
+  
+  
+  <a href="https://twitter.com/" title="TwitterID: "><i class="fa fa-twitter-square fa-3x"></i></a>
+  
+
+  
+
+</div>
+
+<div class="sidebar-module">
+  <h4>Cerca en el lloc</h4>
+  <form onsubmit="search_google()" >
+    <input type="text" id="google-search" placeholder="Google search" />
+    <input type="submit" name="sa" value="Go" />
+  </form>
+</div>
+
+
+<div class="sidebar-module"> <!-- sidebar-module-inset">-->
+  <h4>Sobre el Copyright</h4>
+
+  
+
+  <a href="http://creativecommons.org/licenses/by-nc-sa/3.0/">
+    <img src="http://i.creativecommons.org/l/by-nc-sa/3.0/88x31.png">
+  </a>
+  <br />
+  <a href="http://creativecommons.org/licenses/by-nc-sa/3.0/">Attribution-NonCommercial-ShareAlike</a>
+
+  
+
+</div>
+
+
+<div class="sidebar-module">
+  <h4>Entrades recents</h4>
+  
+  <li>
+  <a href="//articles/2018/03/06/Driver_Unichrome%E2%81%84OpenChrome_trencat_a_Debian_9.html" title="Driver per a xips de vídeo VIA UniChrome trencat a Debian 9 Stretch" rel="bookmark">Driver per a xips de vídeo VIA UniChrome trencat a Debian 9 Stretch</a>
+  </li>
+  
+  <li>
+  <a href="//howto/2016/03/20/Resetejar_webserver_airzone.html" title="Resetejar webserver d'Airzone" rel="bookmark">Resetejar webserver d'Airzone</a>
+  </li>
+  
+  <li>
+  <a href="//articles/2016/03/19/Torna_Firefox_a_Debian.html" title="Torna Firefox a Debian" rel="bookmark">Torna Firefox a Debian</a>
+  </li>
+  
+  <li>
+  <a href="//articles/2016/03/06/Abandonant_PLC_retorn_wifi.html" title="Abandonant els PLC, retorn al wifi" rel="bookmark">Abandonant els PLC, retorn al wifi</a>
+  </li>
+  
+  <li>
+  <a href="//articles/2015/12/13/Contacte_accidentat_amb_Windows_10.html" title="Contacte accidentat amb Windows 10" rel="bookmark">Contacte accidentat amb Windows 10</a>
+  </li>
+  
+</div>
+
+
+<div class="sidebar-module">
+  <h4>Categories</h4>
+  
+  <li><a href="/categories/#articles" title="articles" rel="11">articles (11)</a></li>
+  
+  <li><a href="/categories/#howto" title="howto" rel="10">howto (10)</a></li>
+  
+</div>
+
+
+<div class="sidebar-module">
+  <h4>Etiquetes</h4>
+  
+    <a href="/tags/#ime" title="ime" rel="4">ime</a> &nbsp;
+  
+    <a href="/tags/#IBUS" title="IBUS" rel="2">IBUS</a> &nbsp;
+  
+    <a href="/tags/#Tegaki" title="Tegaki" rel="1">Tegaki</a> &nbsp;
+  
+    <a href="/tags/#PDF" title="PDF" rel="2">PDF</a> &nbsp;
+  
+    <a href="/tags/#xsane" title="xsane" rel="1">xsane</a> &nbsp;
+  
+    <a href="/tags/#Debian" title="Debian" rel="7">Debian</a> &nbsp;
+  
+    <a href="/tags/#Linkat" title="Linkat" rel="1">Linkat</a> &nbsp;
+  
+    <a href="/tags/#dictat" title="dictat" rel="1">dictat</a> &nbsp;
+  
+    <a href="/tags/#iconv" title="iconv" rel="1">iconv</a> &nbsp;
+  
+    <a href="/tags/#rename" title="rename" rel="1">rename</a> &nbsp;
+  
+    <a href="/tags/#sed" title="sed" rel="1">sed</a> &nbsp;
+  
+    <a href="/tags/#wdiff" title="wdiff" rel="1">wdiff</a> &nbsp;
+  
+    <a href="/tags/#vídeo" title="vídeo" rel="3">vídeo</a> &nbsp;
+  
+    <a href="/tags/#email" title="email" rel="3">email</a> &nbsp;
+  
+    <a href="/tags/#docència" title="docència" rel="1">docència</a> &nbsp;
+  
+    <a href="/tags/#corrector" title="corrector" rel="1">corrector</a> &nbsp;
+  
+    <a href="/tags/#gramàtica" title="gramàtica" rel="1">gramàtica</a> &nbsp;
+  
+    <a href="/tags/#Squeeze" title="Squeeze" rel="2">Squeeze</a> &nbsp;
+  
+    <a href="/tags/#Wheezy" title="Wheezy" rel="2">Wheezy</a> &nbsp;
+  
+    <a href="/tags/#nvidia" title="nvidia" rel="1">nvidia</a> &nbsp;
+  
+    <a href="/tags/#audio" title="audio" rel="1">audio</a> &nbsp;
+  
+    <a href="/tags/#AC'97" title="AC'97" rel="1">AC'97</a> &nbsp;
+  
+    <a href="/tags/#SCIM" title="SCIM" rel="1">SCIM</a> &nbsp;
+  
+    <a href="/tags/#UIM" title="UIM" rel="1">UIM</a> &nbsp;
+  
+    <a href="/tags/#FCITX" title="FCITX" rel="2">FCITX</a> &nbsp;
+  
+    <a href="/tags/#emacs" title="emacs" rel="1">emacs</a> &nbsp;
+  
+    <a href="/tags/#Jessie" title="Jessie" rel="2">Jessie</a> &nbsp;
+  
+    <a href="/tags/#usb" title="usb" rel="1">usb</a> &nbsp;
+  
+    <a href="/tags/#Mutt" title="Mutt" rel="2">Mutt</a> &nbsp;
+  
+    <a href="/tags/#XTEC" title="XTEC" rel="1">XTEC</a> &nbsp;
+  
+    <a href="/tags/#gmail" title="gmail" rel="2">gmail</a> &nbsp;
+  
+    <a href="/tags/#Windows" title="Windows" rel="1">Windows</a> &nbsp;
+  
+    <a href="/tags/#xarxa" title="xarxa" rel="1">xarxa</a> &nbsp;
+  
+    <a href="/tags/#PLC" title="PLC" rel="1">PLC</a> &nbsp;
+  
+    <a href="/tags/#Iceweasel" title="Iceweasel" rel="1">Iceweasel</a> &nbsp;
+  
+    <a href="/tags/#Firefox" title="Firefox" rel="1">Firefox</a> &nbsp;
+  
+    <a href="/tags/#airzone" title="airzone" rel="1">airzone</a> &nbsp;
+  
+    <a href="/tags/#domòtica" title="domòtica" rel="1">domòtica</a> &nbsp;
+  
+    <a href="/tags/#webserver" title="webserver" rel="1">webserver</a> &nbsp;
+  
+    <a href="/tags/#Stretch" title="Stretch" rel="1">Stretch</a> &nbsp;
+  
+</div>
+
+
+<div class="sidebar-module">
+  <h4>Blogroll</h4>
+  
+  <li><a href="https://elageminada.wordpress.com" title="Bloc de llengua i literatura catalanes">Elageminada</a></li>
+  
+  <li><a href="https://hanyucat.wordpress.com/" title="Materials en català per a l'estudi de la llengua xinesa">Hanyu – Cat</a></li>
+  
+</div>
+
+
+<div class="sidebar-module">
+  <h4>Arxius</h4>
+
+  
+  
+  
+  
+  
+  <li id="2018" > <a href="/archives/#2018">2018</a></li>
+  
+  
+  
+  
+  
+  
+  
+  <li id="2016" > <a href="/archives/#2016">2016</a></li>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <li id="2015" > <a href="/archives/#2015">2015</a></li>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <li id="2014" > <a href="/archives/#2014">2014</a></li>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <li id="2013" > <a href="/archives/#2013">2013</a></li>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <li id="2011" > <a href="/archives/#2011">2011</a></li>
+  
+  
+  
+  
+  
+
+</div>
+
+
+</div>
+
+
+
+  
+
+  <footer class="site-footer">
+
+  <p>Copyright &copy; <a href="/">Buscant pingüins al pol nord</a></p>
+  <p>Powered by <a href="https://github.com/jekyll/jekyll">Jekyll</a> 
+  a 
+  
+  <a href="https://github.com/">Github</a>
+  
+  | Tema <a href="https://github.com/yulijia/freshman21/">Freshman21</a> Dissenyat per <a href="http://yulijia.net">Lijia Yu</a>  
+
+
+  <div id="totop" style="position:fixed;bottom:150px;right:50px;cursor: pointer;">
+    <a title="Back To Top"><img src="/images/topbutton.png"/></a>
+  </div>
+
+  <script src="/js/jquery-1.9.1.min.js"></script>
+  <script src="/js/totop.js"></script>  
+
+
+
+</footer>
+
+
+</div>
+
+</body>
+
+</html>

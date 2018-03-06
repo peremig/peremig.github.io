@@ -5,15 +5,363 @@
     <description>Buscant pingüins al pol nord. Un blog sobre Linux.</description>
     <link>http://peremig.github.io/</link>
     <atom:link href="http://peremig.github.io/zfeed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Thu, 18 Jun 2015 00:08:12 +0200</pubDate>
-    <lastBuildDate>Thu, 18 Jun 2015 00:08:12 +0200</lastBuildDate>
+    <pubDate>Tue, 06 Mar 2018 23:34:25 +0100</pubDate>
+    <lastBuildDate>Tue, 06 Mar 2018 23:34:25 +0100</lastBuildDate>
     <generator>Jekyll v2.2.0</generator>
+    
+      <item>
+        <title>Driver per a xips de vídeo VIA UniChrome trencat a Debian 9 Stretch</title>
+        <description>&lt;div style=&quot;text-align:center&quot;&gt;
+
+  &lt;p&gt;&lt;img src=&quot;https://www.freedesktop.org/wiki/Openchrome/openchrome.gif&quot; alt=&quot;OpenChrome&quot; /&gt;&lt;/p&gt;
+
+&lt;/div&gt;
+&lt;div style=&quot;text-align:justify&quot;&gt;
+
+  &lt;p&gt;De tant en tant em dedico a restaurar velles màquines i fer que puguin ser operatives amb sistemes més lleugers. Avui li ha tocat el torn a un vell portàtil amb xip de vídeo &lt;strong&gt;VIA UniChrome&lt;/strong&gt;. El sistema a instal·lar triat ha estat Debian 9 (Stretch) amb entorn gràfic  LXDE.&lt;/p&gt;
+
+  &lt;p&gt;En acabar la instal·lació la presentació horrible dels caràcters en pantalla ha indicat clarament que faltava instal·lar els drivers gràfics.&lt;/p&gt;
+
+  &lt;!-- more --&gt;
+
+  &lt;p&gt;Una consulta a &lt;code&gt;/var/log/Xorg.0.log&lt;/code&gt; ha estat suficient per corroborar que faltava el driver openchrome:&lt;/p&gt;
+
+  &lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span class=&quot;gp&quot;&gt;user@domain:/var/log$ &lt;/span&gt;cat Xorg.0.log | grep &lt;span class=&quot;s1&quot;&gt;&#39;(EE)&#39;&lt;/span&gt;
+        &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;WW&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; warning, &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;EE&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; error, &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;NI&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; not implemented, &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;??&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; unknown.
+&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;    18.964] &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;EE&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; Failed to load module &lt;span class=&quot;s2&quot;&gt;&quot;openchrome&quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;module does not exist, 0&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+  &lt;p&gt;En no haver-se instal·lat &lt;strong&gt;xserver-xorg-video-openchrome&lt;/strong&gt;, s’estava emprant el driver genèric &lt;strong&gt;Vesa&lt;/strong&gt;.&lt;/p&gt;
+
+  &lt;p&gt;La instal·lació del driver (paquet &lt;code&gt;xserver-xorg-video-openchrome&lt;/code&gt;) i el posterior reinici del sistema gràfic ha bloquejat tot el sistema operatiu amb una pantalla completament negra, fins al punt que ha estat impossible de canviar a cap cònsola virtual en mode text (&lt;code&gt;Ctrl + Alt + F1..F6&lt;/code&gt;). Ha calgut reiniciar la màquina, entrar en mode de rescat, desinstal·lar el driver &lt;em&gt;openchrome&lt;/em&gt; i tornar a iniciar amb el driver &lt;em&gt;Vesa&lt;/em&gt;.&lt;/p&gt;
+
+  &lt;p&gt;Després de googlejar, he pogut trobar una solució que m’ha funcionat. La versió instal·lada per Stretch és la &lt;code&gt;xserver-xorg-video-openchrome (1:0.5.0-3)&lt;/code&gt;, alguns usuaris en notificaven el malfuncionament i interferència amb altres elements del maquinari on actuava (wifi, ratolí, etc.). Tots ells ho havien solucionat &lt;strong&gt;reemplaçant aquesta versió per la que es troba a testing&lt;/strong&gt; &lt;code&gt;xserver-xorg-video-openchrome (1:0.6.0-3)&lt;/code&gt;. Eureka!&lt;/p&gt;
+
+&lt;/div&gt;
+</description>
+        <pubDate>Tue, 06 Mar 2018 00:00:00 +0100</pubDate>
+        <link>http://peremig.github.io/articles/2018/03/06/Driver_Unichrome%E2%81%84OpenChrome_trencat_a_Debian_9.html</link>
+        <guid isPermaLink="true">http://peremig.github.io/articles/2018/03/06/Driver_Unichrome%E2%81%84OpenChrome_trencat_a_Debian_9.html</guid>
+        
+        <category>Debian</category>
+        
+        <category>vídeo</category>
+        
+        <category>Stretch</category>
+        
+        
+        <category>articles</category>
+        
+      </item>
+    
+      <item>
+        <title>Resetejar webserver d&#39;Airzone</title>
+        <description>&lt;div style=&quot;text-align:center&quot;&gt;
+
+  &lt;p&gt;&lt;img src=&quot;/images/airzone.jpg&quot; alt=&quot;Airzone Flexa 3.0&quot; /&gt;&lt;/p&gt;
+
+&lt;/div&gt;
+&lt;div style=&quot;text-align:justify&quot;&gt;
+
+  &lt;p&gt;&lt;a href=&quot;http://www.airzone.es/&quot; target=&quot;_blank&quot;&gt;Airzone&lt;/a&gt; és un sistema de climatització per zones que permet oferir diferents temperatures de confort a diferents espais d’un mateix habitacle o empresa. A banda de les opcions programables que tenen tots aquests sistemes, el que el fa interessant és l’opció de control a través d’Internet mitjançant la configuració d’un mòdul webserver.&lt;/p&gt;
+
+  &lt;p&gt;En la configuració d’un sistema &lt;a href=&quot;http://www.airzone.es/en/pro/range-of-systems/flexa-3-0/&quot; target=&quot;_blank&quot;&gt;Flexa 3.0&lt;/a&gt; m’han aparegut diversos contratemps que cal anotar, ja que la solució si bé simple, no és accessible fàcilment. D’altra banda, potser per la novetat del sistema, &lt;a href=&quot;https://encrypted.google.com/&quot; target=&quot;_blank&quot;&gt;&lt;strong&gt;Google&lt;/strong&gt;&lt;/a&gt; no m’ha ajudat gens a trobat-ne les solucions.&lt;/p&gt;
+
+  &lt;!-- more --&gt;
+
+  &lt;p&gt;Existeixen dos tipus de webserver: cablejat amb RJ45 (cosa que demana fer arribar un cable d’aquest tipus des del nostre router domèstic fins al mòdul de control d’Airzone, normalment situat sobre el sostre fals del lavabo) o bé amb wifi (més còmode, però hem de tenir en compte que la placa utilitza wifi 802.11b -es veu que encara hi ha qui en fabrica tot i la seva obsolescència- i que si el sostre fals que amaga el mòdul de control és d’alumini ens pot causar interferències que redueixen la intensitat del senyal).&lt;/p&gt;
+
+  &lt;p&gt;La configuració del webserver consta de dues parts, en la primera es vincula el webserver al router domèstic (és a dir, li indiquem l’ESSID i la contrasenya associada i, si cal, una IP fixa). En la segona part, després de crear-nos un compte a &lt;a href=&quot;https://www.airzonecloud.com/#/init/login&quot; target=&quot;_blank&quot;&gt;Airzone Cloud&lt;/a&gt;, ens hi vinculem el webserver, de manera que podrem actuar sobre la climatització via aplicació de mòbil (tant per a mòbils &lt;a href=&quot;https://itunes.apple.com/es/app/airzone-cloud/id968067256&quot; target=&quot;_blank&quot;&gt;Apple&lt;/a&gt; com &lt;a href=&quot;https://play.google.com/store/apps/details?id=es.altra.airzone&quot; target=&quot;_blank&quot;&gt;Android&lt;/a&gt;) o via &lt;a href=&quot;https://www.airzonecloud.com/#/home/servers&quot; target=&quot;_blank&quot;&gt;pàgina web&lt;/a&gt;. Ambdues configuracions estan ben explicades en el fulletó que acompanya el mòdul webserver.&lt;/p&gt;
+
+  &lt;p&gt;La configuració que vaig fer era wifi i amb el mòdul de control amagat darrere d’un sostre fals d’alumini. Per millorar la qualitat del senyal, es va optar per un allargador USB i portar l’antena fora del lavabo, amagant-la sobre el sostre fals de pladur que oculta els conductes de climatització. Tot i amb això, va sorgir un problema: no hi havia manera de vincular el webserver amb l’aplicació d’&lt;em&gt;Airzone Cloud&lt;/em&gt;; després de diversos intents infructuosos, vam trucar a la &lt;a href=&quot;http://www.airzone.es/contacto/&quot; target=&quot;_blank&quot;&gt;seu central d’Airzone a Màlaga&lt;/a&gt; i ens en va donar el motiu: no els constava com a venut el mòdul i, per tant, no estava donat d’alta al &lt;em&gt;Cloud&lt;/em&gt;, cosa que van fer i es va poder solucionar aquest primer aspecte. Va ser en aquesta trucada que ens van dir que, tot i així el senyal era dèbil i que convindria allunyar l’antena (un dongle USB) del sostre d’alumini.&lt;/p&gt;
+
+  &lt;p&gt;Posteriorment, vam provar de canviar les opcions configurables del webserver (ESSID, contrasenya i IP). No es pot fer altra cosa que un reset del webserver, és impossible canviar-ne algun dels paràmetres per separat. Per fer-ho, hem de prémer tres cops (amb pulsació llarga) sobre el logotip &lt;em&gt;Airzone&lt;/em&gt; del &lt;em&gt;Flexa&lt;/em&gt; màster. Accedirem així al menú de &lt;code&gt;Configuració avançada&lt;/code&gt;, allí trobem dues opcions, &lt;code&gt;Informació&lt;/code&gt; i &lt;code&gt;Zones&lt;/code&gt;, hem de triar-ne &lt;em&gt;Informació&lt;/em&gt;. Aquesta opció consta de dues pantalles, en la segona d’elles, la darrera opció és &lt;code&gt;Webserver&lt;/code&gt;, si la triem podrem llegir la seva configuració actual i arribarem, finalment, a l’opció &lt;code&gt;Reset&lt;/code&gt;, amb què podrem deixar el mòdul tal i com venia de fàbrica per tornar-lo a configurar amb les noves opcions.&lt;/p&gt;
+
+  &lt;p&gt;Ignoro per què &lt;em&gt;Airzone&lt;/em&gt; no facilita l’accés a aquesta informació: l’ús del wifi 802.11b en la placa apareix en un dels catàlegs professionals consultats (però no està a l’abast del públic general), de manera que si l’instal·lador no se n’ha adonat o no ho diu, l’usuari no coneix aquesta dada (i potser hauria estat millor muntar com a mínim un 802.11g). La modificació dels paràmetres de configuració no és possible, cal fer un reset total i tornar a configurar (d’altra banda les opcions obertes són ben poques i, com va confirmar la trucada a Màlaga, el webserver informa de moltes variables que no són accessibles a l’usuari, com pot ser la potència del senyal wifi que arriba del router a la placa). Finalment, la manera de fer aquest reset s’ha ocultat excessivament, no s’hi arriba de forma intuïtiva i és la darrera del menú destinat al servei tècnic; fa la impressió que es consideri fer un &lt;em&gt;Reset&lt;/em&gt; com una avaria per a la qual calgui personal especialitzat, amb el seu cost de desplaçament i mà d’obra.&lt;/p&gt;
+
+&lt;/div&gt;
+</description>
+        <pubDate>Sun, 20 Mar 2016 00:00:00 +0100</pubDate>
+        <link>http://peremig.github.io/howto/2016/03/20/Resetejar_webserver_airzone.html</link>
+        <guid isPermaLink="true">http://peremig.github.io/howto/2016/03/20/Resetejar_webserver_airzone.html</guid>
+        
+        <category>airzone</category>
+        
+        <category>domòtica</category>
+        
+        <category>webserver</category>
+        
+        
+        <category>howto</category>
+        
+      </item>
+    
+      <item>
+        <title>Torna Firefox a Debian</title>
+        <description>&lt;div style=&quot;text-align:center&quot;&gt;
+
+  &lt;p&gt;&lt;img src=&quot;/images/firefox.png&quot; alt=&quot;Firefox&quot; /&gt;&lt;/p&gt;
+
+&lt;/div&gt;
+&lt;div style=&quot;text-align:justify&quot;&gt;
+
+  &lt;p&gt;El novembre de 2006, &lt;em&gt;Debian&lt;/em&gt; presentava &lt;a href=&quot;https://ca.wikipedia.org/wiki/IceWeasel&quot; target=&quot;_blank&quot;&gt;&lt;strong&gt;Iceweasel&lt;/strong&gt;&lt;/a&gt;, un fork de &lt;a href=&quot;https://www.mozilla.org/ca/firefox/new/&quot; target=&quot;_blank&quot;&gt;&lt;strong&gt;Firefox&lt;/strong&gt;&lt;/a&gt; motivat per discrepàncies amb &lt;em&gt;Mozilla Foundation&lt;/em&gt; sobre el caràcter de la llicència relativa a la marca del producte i el seu logotip.&lt;/p&gt;
+
+  &lt;p&gt;Deu anys després, el &lt;a href=&quot;https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=815006#5&quot; target=&quot;_blank&quot;&gt;17 de febrer de 2016&lt;/a&gt; Debian ha anunciat que reconeix que &lt;strong&gt;Firefox&lt;/strong&gt; compleix amb la &lt;a href=&quot;https://www.debian.org/social_contract.ca.html#guidelines&quot; target=&quot;_blank&quot;&gt;llicència DFSG&lt;/a&gt; i Mozilla que les modificacions aplicades a &lt;strong&gt;Iceweasel&lt;/strong&gt; no han impactat sobre la qualitat del producte. De manera que el passat 9 de març, &lt;em&gt;Debian&lt;/em&gt; &lt;a href=&quot;https://www.debian.org/security/2016/dsa-3510&quot; target=&quot;_blank&quot;&gt;ha anunciat la desaparició d’&lt;strong&gt;Iceweasel&lt;/strong&gt;&lt;/a&gt; i la seva substitució per &lt;strong&gt;Firefox&lt;/strong&gt;. És més, el proper &lt;em&gt;Debian Strech&lt;/em&gt; portarà paquets de &lt;strong&gt;Firefox&lt;/strong&gt; enlloc de paquets d’&lt;strong&gt;Iceweasel&lt;/strong&gt;.&lt;/p&gt;
+
+  &lt;!-- more --&gt;
+
+  &lt;p&gt;De fet, des de dijous 10 de març, ja no es possible actualitzar &lt;strong&gt;Iceweasel&lt;/strong&gt;, que ha mort en la versió 44.0.2. Una crida &lt;code&gt;# aptitude -u&lt;/code&gt; ens mostra un missatge d’error indicant-nos que no ha pogut resoldre la següent entrada de &lt;code&gt;/etc/apt/sources.list&lt;/code&gt;:&lt;/p&gt;
+
+  &lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span class=&quot;c&quot;&gt;# iceweasel&lt;/span&gt;
+deb http://mozilla.debian.net/ jessie-backports iceweasel-release&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+  &lt;p&gt;Per continuar tenint suport d’actualitzacions de seguretat tenim dues solucions: fer un &lt;em&gt;downgrade&lt;/em&gt; a &lt;strong&gt;Iceweasel&lt;/strong&gt; versió 38.7.0esr-1 o substituir-lo pel backport de &lt;strong&gt;Firefox&lt;/strong&gt; (versió 45.0.1 en el moment d’escriure aquestes línies).&lt;/p&gt;
+
+  &lt;p&gt;En el primer cas haurem de comentar o esborrar primer la línia que ens ha produït l’error en el nostre &lt;code&gt;/etc/apt/sources.list&lt;/code&gt; i assegurar-nos que hi tinguem la línia:&lt;/p&gt;
+
+  &lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;deb http://security.debian.org/ jessie/updates main&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+  &lt;p&gt;després caldrà fer &lt;em&gt;downgrade&lt;/em&gt; de la manera habitual.&lt;/p&gt;
+
+  &lt;p&gt;En el segon cas, l’haurem de substituir per&lt;/p&gt;
+
+  &lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span class=&quot;c&quot;&gt;# firefox&lt;/span&gt;
+deb http://mozilla.debian.net/ jessie-backports firefox-release&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+  &lt;p&gt;després desinstal·lar &lt;strong&gt;Iceweasel&lt;/strong&gt; i finalment instal·lar &lt;strong&gt;Firefox&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;/div&gt;
+</description>
+        <pubDate>Sat, 19 Mar 2016 00:00:00 +0100</pubDate>
+        <link>http://peremig.github.io/articles/2016/03/19/Torna_Firefox_a_Debian.html</link>
+        <guid isPermaLink="true">http://peremig.github.io/articles/2016/03/19/Torna_Firefox_a_Debian.html</guid>
+        
+        <category>Iceweasel</category>
+        
+        <category>Firefox</category>
+        
+        <category>Debian</category>
+        
+        
+        <category>articles</category>
+        
+      </item>
+    
+      <item>
+        <title>Abandonant els PLC, retorn al wifi</title>
+        <description>&lt;div style=&quot;text-align:center&quot;&gt;
+
+  &lt;p&gt;&lt;img src=&quot;/images/plc.jpg&quot; alt=&quot;PLC&quot; /&gt;&lt;/p&gt;
+
+&lt;/div&gt;
+&lt;div style=&quot;text-align:justify&quot;&gt;
+
+  &lt;p&gt;Fa uns anys, quan van instal·lar-me la connexió de fibra òptica a casa (en aquells moments &lt;a href=&quot;http://www.movistar.es/ca/particulars/internet/adsl-fibra-optica/fibra-optica/&quot; target=&quot;_blank&quot;&gt;Movistar&lt;/a&gt; oferia 50 Mb de pujada i 5 Mb de baixada), vaig tenir la desagradable sorpresa que els operaris només podien fer-me-la arribar al punt més allunyat del lloc on tinc l’ordinador de sobretaula. Un lloc on el senyal wifi arribava força dèbil (a més, el wifi -N- tenia un sostre proper a la velocitat contractada). Vaig decidir, llavors, emprar PLC i vaig adquirir (amb vistes al futur) uns PLC que oferien connexió a 500 Mb. I aquí va començar una història de desencontres entre el router (connectat a un PLC) i l’ordinador (connectat a un altre PLC), que es passaven dies sencers sense veure’s ni parlar-se.&lt;/p&gt;
+
+  &lt;!-- more --&gt;
+
+  &lt;p&gt;Ja des d’un primer moment, vaig poder observar que el rendiment dels PLC no arribava al que havia contractat (sí que hi arribava, però, una connexió d’un portàtil directa al router). També vaig patir de tant en tant pèrdues de senyal: els PLC s’ignoraven entre ells i no hi havia manera de comunicar l’ordinador amb el router (ni tan sols amb un miserable ping).&lt;/p&gt;
+
+  &lt;p&gt;Com que hi havia webs on es deia que hi influïen les interferències de la xarxa elèctrica, l’electricista del barri va venir i va modificar la línia del pis de manera que els fils que anaven als dos endolls on eren connectats els PLC morissin en el mateix interruptor del quadre de llums. Però, tot i donant-se les mans, hi havia una progressiva caiguda de rendiment en la comunicació entre ells fins al dia que s’ignoraven totalment. Aquell dia tocava resetejar-ho tot (és a dir, apagar-ho tot), esperar uns 10 minuts que tots els seus indicadors leds deixessin d’estar actius i, després, reiniciar-ho tot: router i pc.&lt;/p&gt;
+
+  &lt;p&gt;Des d’aleshores, la companyia ha ampliat dues vegades els amples de banda i actualment ofereix 300 Mb pujada i 30 Mb de baixada (si bé sembla ser que en el darrer Mobile Word Congress han anunciat que estan estudiant oferir els 300 Mb simètrics). Amb aquestes ampliacions, els problemes de desconnexió es van veure agreujats i les caigudes més freqüents. El més curiós, però, va ser que els tests de velocitat no mostraven massa millora; és van clavar al voltant d’uns 30 Mb de baixada i 30 Mb de pujada, tot i que la velocitat de pujada fos de 300 Mb. Una connexió directa a router, però, donava els resultats esperats.&lt;/p&gt;
+
+  &lt;p&gt;La veritat és que em va pujar la mosca al nas. Vaig sospitar que es devia produir una col·lisió de dades en algun punt (un coll d’ampolla). Els cables eren tots categoria 5e, per aquest costat correcte. La sortida del router és Gigalan, així com la tarja de l’ordinador; també correcte. Primera sorpresa: les rosetes RJ45 del PLC eren tipus Fastlan, és a dir, limitades a 100 Mb/s. Llavors, quin sentit té oferir PLC de més de 100 Mb/s (500 Mb/s, en aquest cas) si després no podrà suportar velocitats més altes? Vaig descobrir que només els PLC de 1200 Mb/s munten rosetes RJ45 de tipus Gigalan (però avui dia ja hi ha alguna companyia, com &lt;a href=&quot;https://www.adamo.es/ca/&quot; target=&quot;_blank&quot;&gt;Adamo&lt;/a&gt;, que ofereix 1Gb de connexió a internet).&lt;/p&gt;
+
+  &lt;p&gt;Vaig pensar a comprar nous PLC, però de marca diferent. Segona sorpresa: a can Google, els usuaris recomanaven la marca Devolo, la que ja estava emprant i que m’ha generat tots els inconvenients descrits abans ja des del primer dia de tenir-los.&lt;/p&gt;
+
+  &lt;p&gt;Googlejant una mica, vaig poder llegir &lt;a href=&quot;http://www.adslzone.net/postt98307.html&quot; target=&quot;_blank&quot;&gt;històries semblants a aquesta&lt;/a&gt;. Va ser en aquell moment que vaig decidir abandonar els PLC i tornar a una solució wifi semblant a la que tenia en temps de l’ADSL (llavors vaig poder connectar el router més a la vora de l’ordinador (cablejar hauria estat millor, però la Gigalan està a punt de ser superada per l’oferta de velocitat de la fibra òptica i no em veig fent obres per amagar tubs corrugats plens de cables de xarxa). &lt;/p&gt;
+
+  &lt;p&gt;La solució ha consistit en connectar el pc a un punt d’accés en mode bridge. I aquí ha estat la darrera sorpresa: quan, fa més de 10 anys, vaig connectar el router ADSL a un punt d’accés (que vaig modificar a mode bridge), no hi havia documentació a la xarxa que facilités una feina que em va ocupar un parell d’hores; avui dia, els fabricants ja ho tenen en compte (almenys &lt;a href=&quot;http://www.asus.com/us/Networking/Wireless-AP-Repeater-Bridges-Products/&quot; target=&quot;_blank&quot;&gt;Asus&lt;/a&gt;) i ha estat feina de pocs minuts tenir-ho tot en marxa i funcionant.&lt;/p&gt;
+
+&lt;/div&gt;
+</description>
+        <pubDate>Sun, 06 Mar 2016 00:00:00 +0100</pubDate>
+        <link>http://peremig.github.io/articles/2016/03/06/Abandonant_PLC_retorn_wifi.html</link>
+        <guid isPermaLink="true">http://peremig.github.io/articles/2016/03/06/Abandonant_PLC_retorn_wifi.html</guid>
+        
+        <category>xarxa</category>
+        
+        <category>PLC</category>
+        
+        
+        <category>articles</category>
+        
+      </item>
+    
+      <item>
+        <title>Contacte accidentat amb Windows 10</title>
+        <description>&lt;div style=&quot;text-align:center&quot;&gt;
+
+  &lt;p&gt;&lt;img src=&quot;https://static.fsf.org/fsforg/graphics/windows-infographic_share.png&quot; alt=&quot;Close Windows, Open Doors&quot; /&gt;&lt;/p&gt;
+
+&lt;/div&gt;
+&lt;div style=&quot;text-align:justify&quot;&gt;
+
+  &lt;p&gt;L’última versió de Windows que havia instal·lat era &lt;em&gt;Windows XP&lt;/em&gt;. No fa gaire em vaig veure en el compromís d’haver d’arrencar un ordinador que autoinstal·lava &lt;em&gt;Windows 8.1&lt;/em&gt; i després oferia la possibilitat d’actualització a &lt;em&gt;Windows 10&lt;/em&gt;. Desesperant!&lt;/p&gt;
+
+  &lt;!-- more --&gt;
+
+  &lt;p&gt;Un antic amic em va demanar consell per comprar un ordinador portàtil per substituir el maquinari que tenia (un sobretaula a 32 bits i 256 MB de memòria RAM). L’única condició que em va posar és que funcionés &lt;em&gt;amb l’últim Windows&lt;/em&gt;. Li vaig triar el que en la relació prestacions - preu semblava més ben ajustat i vaig convidar-lo a sopar per configurar junts la màquina i que se l’endugués a punt per funcionar.&lt;/p&gt;
+
+  &lt;p&gt;La màquina venia amb una preinstal·lació de Windows 8.1; després de carregar-ne la bateria (3 hores), vam procedir a fer-ne la instal·lació com a pas previ a l’actualització a la versió 10. &lt;/p&gt;
+
+  &lt;p&gt;&lt;strong&gt;Primera sorpresa&lt;/strong&gt;: l’instal·lador de Windows 8.1 no ens va donar cap opció de configuració del client de xarxa, espera que li vingui donat per servidor DNS i no permet la configuració d’IP estàtica. Donat que a casa puc comptar els clients de xarxa amb una mà, no tenia activat el servidor DNS del router, va caldre fer-ho (la intenció era acabar amb un Windows 10 instal·lat i actualitzat).&lt;/p&gt;
+
+  &lt;p&gt;&lt;strong&gt;Segona sorpresa&lt;/strong&gt;: l’instal·lador no dóna cap informació del que està fent, en el seu lloc, va mostrant pantalletes de publicitat i, si no hagués estat pel pilot que indica l’activitat del disc dur, en més d’una ocasió haguéssim pensat que l’instal·lador s’havia bloquejat.&lt;/p&gt;
+
+  &lt;p&gt;&lt;strong&gt;Tercera sorpresa&lt;/strong&gt;: la descàrrega de l’actualització a Windows 10 va estar força estona mostrant una barra de progrés que semblava jugar al pong amb els seus extrems, recordava els vells temps dels mòdems a 14,4 kbps, però usàvem una connexió de fibra òptica a 100 Mb/s. &lt;/p&gt;
+
+  &lt;p&gt;Tot plegat, des de l’encesa inicial del portàtil fins que va mostrar la primera pantalla de Windows 10, &lt;strong&gt;va durar 4 hores i 30 minuts&lt;/strong&gt;! Sort que havíem quedat a les 7 de la tarda! Però el més divertit va arribar a l’hora d’apagar: el sistema de la &lt;a href=&quot;https://duckduckgo.com/?q=bsod&amp;amp;t=ffhp&amp;amp;iax=1&amp;amp;ia=images&quot; target=&quot;_blank&quot;&gt;BSOD&lt;/a&gt; va fer honor a la seva fama i es va penjar, no va haver-hi altra manera de tancar-lo que prémer 10 segons el botó d’encesa.&lt;/p&gt;
+
+  &lt;p&gt;En fi, com duien els nostres veïns &lt;em&gt;aunque la mona se vista de seda, mona se queda&lt;/em&gt;.&lt;/p&gt;
+
+&lt;/div&gt;
+</description>
+        <pubDate>Sun, 13 Dec 2015 00:00:00 +0100</pubDate>
+        <link>http://peremig.github.io/articles/2015/12/13/Contacte_accidentat_amb_Windows_10.html</link>
+        <guid isPermaLink="true">http://peremig.github.io/articles/2015/12/13/Contacte_accidentat_amb_Windows_10.html</guid>
+        
+        <category>Windows</category>
+        
+        
+        <category>articles</category>
+        
+      </item>
+    
+      <item>
+        <title>Desbloquejar GMail per a Mutt</title>
+        <description>&lt;div style=&quot;text-align:center&quot;&gt;
+
+  &lt;p&gt;&lt;img src=&quot;/images/gmail.png&quot; alt=&quot;Activar Mutt per a GMail&quot; /&gt;&lt;/p&gt;
+
+&lt;/div&gt;
+&lt;div style=&quot;text-align:justify&quot;&gt;
+
+  &lt;p&gt;Després de &lt;a href=&quot;http://www.ylogico.com/linux/mutt-un-cliente-de-correo-y-configurar-varias-cuentas-de-gmail-por-imap/&quot; target=&quot;_blank&quot;&gt;configurar &lt;strong&gt;Mutt&lt;/strong&gt; per a múltiples comptes de correu&lt;/a&gt;, m’he trobat amb la sorpresa que si bé entrava al correu XTEC, no hi havia manera d’entrar al compte de &lt;em&gt;GMail&lt;/em&gt;. El curiós del cas, però, és que el de la XTEC és de fet un correu corporatiu que corre sota &lt;em&gt;GMail&lt;/em&gt;.&lt;/p&gt;
+
+  &lt;p&gt;A més, rebia un correu al compte que tinc vinculat a &lt;em&gt;GMail&lt;/em&gt; avisant-me que hi havia hagut un intent d’accedir-hi des d’una aplicació no confiable.&lt;/p&gt;
+
+  &lt;!-- more --&gt;
+
+  &lt;p&gt;La solució ens apareix un pèl amagada, es tracta d’accedir a la &lt;a href=&quot;https://www.google.com/settings/security/lesssecureapps&quot; target=&quot;_blank&quot;&gt;pàgina de GMail que ens permet activar l’accés per a qualsevol tipus de client de correu&lt;/a&gt; i desbloquejar-ne l’accés activant-ne l’opció corresponent, tal i com es veu en la imatge que acompanya aquest post.&lt;/p&gt;
+
+  &lt;p&gt;En el cas del correu XTEC, aquesta opció ja estava activada per defecte, per això havia funcionat des del principi.&lt;/p&gt;
+
+&lt;/div&gt;
+</description>
+        <pubDate>Thu, 26 Nov 2015 00:00:00 +0100</pubDate>
+        <link>http://peremig.github.io/howto/2015/11/26/Desbloquejar_Gmail_per_a_Mutt.html</link>
+        <guid isPermaLink="true">http://peremig.github.io/howto/2015/11/26/Desbloquejar_Gmail_per_a_Mutt.html</guid>
+        
+        <category>email</category>
+        
+        <category>gmail</category>
+        
+        <category>Mutt</category>
+        
+        
+        <category>howto</category>
+        
+      </item>
+    
+      <item>
+        <title>Utilitzar mutt amb correu XTEC</title>
+        <description>&lt;div style=&quot;text-align:center&quot;&gt;
+
+  &lt;p&gt;&lt;img src=&quot;data:image/png;base64,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&quot; alt=&quot;Mutt&quot; /&gt;&lt;/p&gt;
+
+&lt;/div&gt;
+&lt;div style=&quot;text-align:justify&quot;&gt;
+
+  &lt;p&gt;&lt;strong&gt;Mutt&lt;/strong&gt; és un client de correu en mode text potent i lleuger alhora, cosa que és molt d’agrair per accedir a comptes de correu a través d’IMAP (com ara &lt;em&gt;gmail&lt;/em&gt;). Per la xarxa es poden trobar diverses guies de configuració dels comptes de &lt;em&gt;gmail&lt;/em&gt; amb &lt;em&gt;Mutt&lt;/em&gt;. Fa tres anys em vaig veure incapaç de fer funcionar el correu XTEC amb Mutt. Donat que els comptes XTEC funcionen a través de &lt;em&gt;gmail&lt;/em&gt; sembla que no hi hauria d’haver cap problema. El cas és que, amb les darreres modificacions del &lt;a href=&quot;http://xtec.gencat.cat/ca/&quot; target=&quot;_blank&quot;&gt;portal XTEC&lt;/a&gt;,
+es fa treballós arribar a llegir els correus i s’agraeix l’accés a una via ràpida i lleugera com la que ofereix &lt;strong&gt;Mutt&lt;/strong&gt;.&lt;/p&gt;
+
+  &lt;!-- more --&gt;
+
+  &lt;p&gt;Per poder usar el correu XTEC des de &lt;strong&gt;Mutt&lt;/strong&gt; és convenient, per ser ordenat, de crear la configuració d’usuari en un fitxer apart que desarem en el directori ocult amb el nom &lt;code&gt;~/.mutt/usuari_XTEC&lt;/code&gt;; així, en cas que alguna cosa ens falli, ens serà més fàcil trobar l’error i arreglar-ho. El contigut d’aquest fitxer ha de ser com segueix:&lt;/p&gt;
+
+  &lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span class=&quot;nb&quot;&gt;set &lt;/span&gt;from &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;usuari@xtec.cat&quot;&lt;/span&gt;
+&lt;span class=&quot;nb&quot;&gt;set &lt;/span&gt;realname &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;Nom real de l&#39;usuari&quot;&lt;/span&gt;
+&lt;span class=&quot;nb&quot;&gt;set &lt;/span&gt;imap_user &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;usuari@xtec.cat&quot;&lt;/span&gt;
+&lt;span class=&quot;nb&quot;&gt;set &lt;/span&gt;imap_pass &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;contrasenya usuari XTEC&quot;&lt;/span&gt; &lt;span class=&quot;c&quot;&gt;#No és necessari; si no es posa, la demanarà en entrar a Mutt&lt;/span&gt;
+&lt;span class=&quot;nb&quot;&gt;set &lt;/span&gt;folder &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;imaps://imap.gmail.com:993&quot;&lt;/span&gt;
+&lt;span class=&quot;nb&quot;&gt;set &lt;/span&gt;spoolfile &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;+INBOX&quot;&lt;/span&gt;
+&lt;span class=&quot;nb&quot;&gt;set &lt;/span&gt;postponed &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;+[Gmail]/Esborranys&quot;&lt;/span&gt;
+&lt;span class=&quot;nb&quot;&gt;set &lt;/span&gt;record &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;+[Gmail]/Enviats&quot;&lt;/span&gt;
+&lt;span class=&quot;nb&quot;&gt;set &lt;/span&gt;trash &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;imaps://imap.gmail.com/[Gmail]/Paperera&quot;&lt;/span&gt;
+&lt;span class=&quot;nb&quot;&gt;set &lt;/span&gt;header_cache &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;~/.mutt/cache/headers
+&lt;span class=&quot;nb&quot;&gt;set &lt;/span&gt;message_cachedir &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;~/.mutt/cache/bodies
+&lt;span class=&quot;nb&quot;&gt;set &lt;/span&gt;certificate_file &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;~/.mutt/certificates
+&lt;span class=&quot;nb&quot;&gt;set &lt;/span&gt;smtp_url &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;smtp://usuari@xtec.cat@smtp.gmail.com:587/&quot;&lt;/span&gt;
+&lt;span class=&quot;nb&quot;&gt;bind &lt;/span&gt;editor &amp;lt;space&amp;gt; noop
+macro index gi &lt;span class=&quot;s2&quot;&gt;&quot;&amp;lt;change-folder&amp;gt;=INBOX&amp;lt;enter&amp;gt;&quot;&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;Go to inbox&quot;&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;#macro index ga &quot;&amp;lt;change-folder&amp;gt;=[Gmail]/All Mail&amp;lt;enter&amp;gt;&quot; &quot;Go to all mail&quot;&lt;/span&gt;
+macro index gs &lt;span class=&quot;s2&quot;&gt;&quot;&amp;lt;change-folder&amp;gt;=[Gmail]/Enviats&amp;lt;enter&amp;gt;&quot;&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;Vés a Enviats&quot;&lt;/span&gt;
+macro index ge &lt;span class=&quot;s2&quot;&gt;&quot;&amp;lt;change-folder&amp;gt;=[Gmail]/Esborranys&amp;lt;enter&amp;gt;&quot;&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;Vés a Esborranys&quot;&lt;/span&gt;
+macro index gp &lt;span class=&quot;s2&quot;&gt;&quot;&amp;lt;change-folder&amp;gt;=[Gmail]/Paperera&amp;lt;enter&amp;gt;&quot;&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;Vés a Paperera&quot;&lt;/span&gt;
+&lt;span class=&quot;nb&quot;&gt;set &lt;/span&gt;move &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; no  &lt;span class=&quot;c&quot;&gt;#Deixar de demanar &quot;moure missatges llegits a mbox&quot;!&lt;/span&gt;
+&lt;span class=&quot;nb&quot;&gt;set &lt;/span&gt;imap_keepalive &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; 900&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+  &lt;p&gt;Cal encara editar el fitxer &lt;code&gt;~/.muttrc&lt;/code&gt; com segueix:&lt;/p&gt;
+
+  &lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span class=&quot;nb&quot;&gt;source&lt;/span&gt; ~/.mutt/usuari_XTEC&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+  &lt;p&gt;A partir d’aquí podem fer altres canvis, per exemple, canviar l’editor per defecte (&lt;strong&gt;vi&lt;/strong&gt;) per &lt;strong&gt;nano&lt;/strong&gt;, de més fàcil ús. Ho fem editant el fitxer  &lt;code&gt;~/.muttrc&lt;/code&gt;:&lt;/p&gt;
+
+  &lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span class=&quot;nb&quot;&gt;source&lt;/span&gt; ~/.mutt/usuari_XTEC
+&lt;span class=&quot;nb&quot;&gt;set &lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;editor&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;nano&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+  &lt;p&gt;Amb això accedirem bé als correus que rebem en mode text, però els correus &lt;em&gt;html&lt;/em&gt; ens seran il·legibles si no connectem &lt;strong&gt;Mutt&lt;/strong&gt; amb un navegador html. Com que es tracta de tenir un sistema lleuger, el connectarem a un navegador en mode text, que ens permetrà fer una primera lectura dels correus i, si cal, ja hi tornarem amb un lector més &lt;em&gt;pesat&lt;/em&gt; o bé a través de &lt;em&gt;&lt;a href=&quot;https://accounts.google.com/ServiceLogin?continue=https%3A%2F%2Fsites.google.com%2Fa%2Fxtec.cat%2Faplicacionsxtec%2F&amp;amp;service=jotspot&amp;amp;sacu=1&amp;amp;hd=xtec.cat&quot; target=&quot;_blank&quot;&gt;La meva XTEC&lt;/a&gt;&lt;/em&gt;. He triat per a aquesta tasca &lt;strong&gt;elinks&lt;/strong&gt;, per fer-ho, cal crear (o afegir-hi si ja el tenim) el fitxer &lt;code&gt;~/.mutt/mailcap&lt;/code&gt; amb el contingut següent&lt;/p&gt;
+
+  &lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;text/html; elinks %s; &lt;span class=&quot;nv&quot;&gt;nametemplate&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;%s.html
+text/html; elinks -no-numbering -no-references -no-home -dump-charset %&lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;charset&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt; -dump %s; &lt;span class=&quot;nv&quot;&gt;nametemplate&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;%s.html; copiousoutput&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+  &lt;p&gt;I tornar a &lt;code&gt;~/.muttrc&lt;/code&gt; per completar-lo com veiem a continuació:&lt;/p&gt;
+
+  &lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span class=&quot;nb&quot;&gt;source&lt;/span&gt; ~/.mutt/usuari_XTEC
+&lt;span class=&quot;nb&quot;&gt;set &lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;editor&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;nano
+auto_view text/html&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+  &lt;p&gt;&lt;strong&gt;Mutt&lt;/strong&gt; és molt més versàtil i ens permet el seu ús amb múltiples comptes de correu, però això és &lt;a href=&quot;http://www.ylogico.com/linux/mutt-un-cliente-de-correo-y-configurar-varias-cuentas-de-gmail-por-imap/&quot; target=&quot;_blank&quot;&gt;tema d’un altre article&lt;/a&gt;.&lt;/p&gt;
+
+&lt;/div&gt;
+</description>
+        <pubDate>Wed, 25 Nov 2015 00:00:00 +0100</pubDate>
+        <link>http://peremig.github.io/howto/2015/11/25/Utilitzar_mutt_amb_correu_XTEC.html</link>
+        <guid isPermaLink="true">http://peremig.github.io/howto/2015/11/25/Utilitzar_mutt_amb_correu_XTEC.html</guid>
+        
+        <category>Mutt</category>
+        
+        <category>XTEC</category>
+        
+        <category>email</category>
+        
+        <category>gmail</category>
+        
+        
+        <category>howto</category>
+        
+      </item>
     
       <item>
         <title>Automuntar unitats USB amb accés a escriptura</title>
         <description>&lt;div style=&quot;text-align:center&quot;&gt;
 
-  &lt;p&gt;&lt;img src=&quot;https://images.duckduckgo.com/iu/?u=http%3A%2F%2Fdebianhelp.files.wordpress.com%2F2011%2F11%2Fusb-300.gif&amp;amp;f=1&quot; alt=&quot;usb&quot; /&gt;&lt;/p&gt;
+  &lt;p&gt;&lt;img src=&quot;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMgAAADICAYAAACtWK6eAAAABHNCSVQICAgIfAhkiAAAIABJREFUeJzsvVmsbNl53/f71tpTzXWGe+58b89kd9McRA3smc2WZIpiNx3bkBAkkeEXGU7gBMiDFEM2qAYMw36I/eAgchwYQR6Sh/AhsESaMIwIumpSNGVR4tTNZs/dt/vO594z1Klh773Wl4e1d9WuOqdFiSIpkrrfRd06tWpPq/b3X9/8beH7SL/6q/9b3OkcRHFcRMb0oqKwNkliKcuJjeNIyjKXOI6k3l7V+KIoNY4TVbUexn48Llya9l2rVTpYK194AfeZz/yS+35e9226TTVF38+D33HHVn9n5/Kmta1N7/16HGtXddaK46il6lJjrHXOJyJWnPPOGJ9HkSlEXOl9OTUmGaWp3bW22JtOzV4Ube+srf3JNeA2QG7TD4TkO2/ynenTn/6tLe/lpHNsibDpnFsD1kSivmrZVZUOaEdEMtBEVRLQCMSIiAVvVMWJUKriAA/kIsxAJ6pmIqJT72USRYy9130w+yKLdxF2vTd7o9H01r/6V//99e/FvG7TbfpuACL/4l/8P9m1azcyY2xmrW4Vhd6lqg+KyL0iercqZ4ENIAkgCKcS0cb5BFBUpRpTRFBVkMZWqmGsQQ60ALZV9bqIvaLqr4nIJe+5IuIvWqsX49jsFIWdxDHFdErh3F65t9fP/82/+dUSZPmIt+k2vQt9NyqW3rhx415j5Ce99x/2Xu8ETojQA+14Txs0U5VEBAmMLxgDxhhEBJljwoc3Ba8ANYCEGhSqiggVSgRQq0qMEImwDnoeyFX9TESmIjL1XkbTKddF3NuzGW9b699U7b6xsZG9CrL9F/nBbtNfLfozS5Df+I3/9SyYO53T+1TdgyAPiMh7VTlmjWnZyGKtIYoMkTVEkSWKDVEUkcSWKLIYI4gBI6bi9YAC7xXnFe8d6hWvhHevOOdxzlOWjrJ0FNW7dx4/Bw2goAgi4L1HVUeqeh3kKnBFhCveyxURuaTqr4vYG8bkN0C3/+k//QfXRb4n2uZt+jGj78gVn/70p027fa5z69bs4yL6c96bnxVhS4TUGDEiRqwRSbOEVhbTbidkWUKrndBup+HVSogiGySHgDUGoCEloHQO5xyu9OHdebxTisJRFAWzWcF4PGM8mTIZ5+R5QVE6nAvSJUih6r0SR1RfieBRVFEHug3mIujzqvpNkfh5a8tvR5HeunnTFevr2+43f/M3nchtNew2fQeAfPrT/0c2neY/KeI+qSo/GewLPWlMlLRasQyHHdbWeqyv92i1YuLYYo3BGAkvK1hrsNYglc2xetp6RMOqvwSaWiqo9zivlKXDVRLEOccsL5lOc6aznOlkxnSSBwBNZjgXJJAuqWugqrmIjL3XXWAHZEdEb6pyyVp9FeRFY+xL/+Sf/L1Xv5c/9G360aQjAfLpT386grP9yaT4KeDnRPQZETmXpnHabqf0ei16vTbr613W13usrXVJkwgRwWtY+VU9bs70ioZVPdgSugDGgoK6pEi4LDGIQGQq1Uya+4ZjFkXJdFIwnQVQTCc54/GE8XhKnpfM8qCSFdV7WbhwLfNpB/A451SE6yLyqqp+C3hJxLwMeh1kO0nczb292e6//Jf/4+T7chdu0w8tHWmk7+zc0e33Z+8R0V8R4SkRWbPWxr1eizvuOM6ZM8fY2BhgbcPjpNoAhA8SoQGKSsdZrOYsGB4AEbwKToWystWNCGkkRAoiC3BQ7yeWtGVI0oRuz9e2B650zGY5BwcTRqMJo9GY0f6E0cGEsgjSyKvifThUcBzoOtAHeR/oVNXvAN9S1a+WJX+UJK1vAG98f27DbfphpSMlyK//+r/5BWPcf+W9fySOo3OdTsvceedJTp/eYG2tS7fbIk1jvPd4XxnMvnpVKAggUQoHY6fsTGFUhNdBIYwKGBdQOEOp4FTxBJAECSIYhMgK1oCV8IqMElslMUpmIIuo3j2JUVo2vGJf4l1JnhfkeXifzgomkynj8YzJZMbBwYzpNA/2zhy8gnMeVS1Bborhmnquichl0LfAvyLC896PXvzn//x/2v2B3q3b9AOnJYD8g3/w79Nu9+KdqvorIvqr1prhcNi1J09u8sAD5zh5cgNrDaoBDM4twOEqgJROmZbKuFQmuXKQw04ONybhfS+H/ULYyw3jUsidBIB4AROMeCOCCT5iEMUgGIHIhFdslawCQzuCdqS0I087gk6k9GKlYz2ZUaxRIsCKIuooplNm4wnjgzH7+0Edm84K8qKkKDxl6YPtogs7KBj/mgPXQb4B/ive89U4Nm9FEdcg3nvhhf7oM5/5pfwv4R7epu8jLalYafrmQJVfVvUfN8b2B4OuveuuU7z//XfT77ex1gRQeF3YFpU9YAQ8wszDm/vwyg68vitcGws7M6H0SllpRkaEJBKyyNBPDJERbPUyBiIJRr4QJItT8D6E150PqtzYKful4ichTiJEWAFjwBpIjdKPPGupMoiUYeIZxsJanDEYJgwHXZwPdsn+/gH7+2N29w4YHwT7RTVcsys9RamoSiyix1UZgvyUMex6r68UhXzZ+/IPHnig/CPgxl/GTbxN3z+aS5Bf+7V/27M2/6Cq/pox8ni7nfUefPAuuffeM5w8uY61UoGjcsF6P5ceeem5NFLe3lfe3IMrB8qNCYxKQcSSxJZuIrQiIbVCbGvVSTCVhKhdwKrM/V0q4Dw4rYCh4JwGsDVeTpXSU73CdqgSGyWNPG1ZSJpu5OnY8N6NPG1xJG6KFjOK2ZR8FlSx2TS857OConCUngosLlxDWXrQWyBvifC6qrwO8pox+qpzfPu113734mc+85nbOWM/4jSXINaWp72XnwC9p9Vq9Tc2+tx990nOnz8ejGxf3+umi1aZOdiewvPb8M0bwou3wKshi4RBZtjsRGx1IzY6hn5qaEUGawSlYmYfjOUaBGWl0jgfMhK9Zz5Wj6tXCg0BRadK6WBWKrlTpqWncMH2KRRGpWHkgTxcuwi0rLKeODYTx0Zs2UyFXpbS6nTpqscVBbPxmMl4ymw6oygceeErt3LBLC/JczGqfsN73fBePwAcgHvDe/mytea5u+9+8vlPf/rjl2G698ILvze5DZYfTZoDpCj8/VHEzzvnj21s9Hnf++5iY2OItYayLOcqVe0pQkNG08V95Q/eUb55A7anwet092bC3esJx3uWxAZju4oNBp2e2oNUeZOqVJPaUA7virIY917xLLZpBgYFiCqVzIqhjMCpDyDzSuEXEkZVmTnhxsywWxjeMkpiYrqRZy3yHE9LNqxl0BXa7QzvfBWoLJnNcoqypCgcs9wxGRccjKeMxzPjve+oyt2qHPfeP6Gql2ez6Z9Ya567774n/xA+c/Ev4f7epr8gNSSIPyciDyZJ1F1f73H27BbdbjZn4nncohIgTpWDAi7uwze34fpEGLQiHjiecH4Yc7IX0UtNkBRO54zqlPmrZvajxmowrH4OLuNm9HzJUxxskEo/k8rury9bRHFeUJQCofCAD6rdfmnYj5SRM2xHlrU4pmsdncjRjnLacUGWxTgf0l7ywjFtF3SnaVDJZqWZzYr2bFa2y7LcKkt3RpVjReFPifDXfv3Xf+vFKOK1KOKNZ5/9+9e+/7f2Nn0vKPrVX/3f4l6vN1DdOW2MPdXrteL19R6bmwOsNRRliQv5HPOdhGAbbE+Vd/bhnZHQTw33bcY8fmebVhRUKLekOtUqUWVw+2VQLEsSXQKHro5X+VqekO/oWKhgurofwSkQVelfRhSvIa++mUxSqLBTGvacxYqSGmUzKTmZFJyJhU5kSRNPqiE3LCsd3Y6bp7YcHMzY2xuzs3vAZJKT52XLe/8e7/U+0L+uyvNlqV8qS/u7/+gf/e8vWJtfh2s5UD777LP+B3nTb9OfnaKTJ2etPHcPeq8no8iara111tf7GGMCI7pgjEtlOYtK5U2CnSns52BFuGcj4e6NhFYsGALjqy7siwXDV6pak5FZvBYq1bIapapLYKkDjUGaMA9E+hVAzc/
+F8rkWsfTFHyLVNVTeuOtFxMhZLuUJ61HJVlSwFc1oGUeSCOqDhPReiWJLt5dx8uQ6k0nO/mjC9va+GY0mTCazrqo+aIycBP9wWbpXytJ8NY63ft+Y6Hlg/AO747fpz0VRnndTKO5SLY5Za2RjY8Bg0AVoxDs8xoAgS+kermJMI8J627LWsggSjOm5dFiAwS2NL6TIXCLMt1t+bzK9mzN8fX6WbJM5MFhWwZbtnCA6pP5PqHLFFpkBCsy8YeZhz1lG3jLxhrE3DGxB1zha4kjwWOux1mBSwVpLp5PR6Wa0Win7+2NGo6mZTPJ+nhf92ay4w3vuEuFcWbLlvd7/j//xv355Nssvtlq9G88++3enP1gWuE1/GkXOuVTEn1eVTWuNrK316PU6wMKIrldhYbEqC9COldRKzWNAYOBaciwkRXDFql+RAtXYgrm1kgzVik+T6RtSpALHsvrVSN8F8LVtInOwLGI31XdS4+OIhAKRJely4A3TPOWdMqFvSo5HOaejnKHNyUQR9ahTnHNYG9HvtTl2bEhZOkb7Uy5f2ebGjT1u3Rrhvdv0Xh/23nxYxF/Nc74qEv/OdFr8Z+D578N9vk3fJUUio0gkWwPtGGPodDJaraRKDqyZ3CN+IUGUEKHezGA9DYG6/Zlnb+bZaNtgf6xKAg9OpQr0NaQKK5KhMRb+XoDsKG/XQgWrgSULW2QuRRYesRp0NTiABlBqY37xXn0djiOC9zAiwpfCvo8ZmISBLdgwM7pSEqF45yiqdBtjgkS5665TnD59jP39Mdeu7Zpbt/bNrVv7kfd6SoQUOA7usV/7td/6kygyfxDHvPjss3/vtur1l0xRHLdtUfihiHSsNWRZSpLEzH1D1XLrnJ9XBtaR834C6xkMEtgel1zdt5zuRyGqvsLM2mRyFkBY9Vg1JcOSNGmOcdiAX4wFMMyPfcTxFDCNH+HPUirVtFkKFXZ9xL6HHRMx8BHTyLAuOR1TkmlJ5EuKsiSOYtI0ptttMRx02Fjv0+u22d7u0u21ORhNsslkdno2K047595rDO9xzh33Xv7413/9f3kpyzrv/OZv/t2d2/VcfzlkP/KRT2wZI0+D3t3ptNoPPngn6+v9ea5VXXsRoueKMY07pZ69HG5OlUsjj1Ph7CDCSO3F0rkd4hoxj4U7d9lYdw0vVBNI9d9BmgT17TCgGpKGoIYdtmt0bowbmJf/NiWGiCC10lVN1Zg6ebLepvaIVQY9ll2fsKsxuQoxSiweo+C9C2n54ylFXmCNZXNzwOnTm5w5s0UrS3DOM5nM8F5TYAv4EMj9qnoiiti9cOHnb1648PnZD44tblNN9vHHnzmm6p42Rs53u+3k/vvPyXDYDaCoQVIlJdb14c2ajNr7+9ZeSESMrZDGQhabOSO7+l1lAQ6a4NC5sd1Uher3Wv0KQJDl2Ai1ZJDqb1m2SVgAaNnuYF4bfxggCwN+aUwa49XnquoeJ4YSQ4FlimVChMNgUKy6UPTltErRcShKksR0uhnDYY/hsEuaJsY5F5ela5Wl64vIhvd6TtWeePjhT6aPP/4L+1/4wr+/XZPyAyT72GOf3FLlaWvNuV6vnbznPefo97vznCtXuXlDHlbwagHULUhSq7Qiz5t7cO0AdmdKJxG6iYGKWV0FkrntUQcMq8/OM4+uz+2WOaiOskGkki6VRClLyqI49P1CravsFFkBQ0NSNAFi6s9mGUimsT/V96ZxLI8wxbBHwkhjHCZImqpCTL2nyEOdymyaIwK9XpuNzQGbmwOyNKWGtYjU0uR93us5oAPGffSjzxQPPfS0P3XqV8oXXviM/mDY5K8u2Y985BePW6t/I47jM/1+295771n6/XalUtXqVTlPUAy2SCirRTX4iFSZuFDf8fZ+YFJroJuaKqioC2Y+wuZYNbxrdUlZ/q45PlepvDLd3+VgdzuAQgyYaCFd6n2b4KBi/lq9WnrJElhY+rwqWRYAqoFiBEwFlhkR+8TsExg/EiUhLDDeK7NZzv7+mIODCQIMhz3OnN1ia2uNKLKMxzPyvFTnXFdE7gR5n6qeSRLZjaLdG3/4h7fVru832aee+oVj3punjbGnut22vffe0xVAXAWIRWeR0GXEsVjlwp+CEhsoXMjNOiiUWRnsFSNB7XL1yj4HREMioMv2RlOFakiBJQO/cZzJ3k1uvf0y73z9OW6+8TwH25eZjnZCgqWNEWsRY+dMvbBDGrGPBrOvqlv1NnPJAisgkeUxBBXBiVBiyLEUYsklIseGY6hHS0dZlpRFUGNVFWuFViul02kxGHTIskREJJ5Oi66qroNuOqfHk0TWH3vsmeiBB56++ZWvfLb4wbHMXy2yTz75zLGy5BPGyMl2O43vvffMHCCqzMERJIlW43UNSOAYA/SS4P69ciBsT5TtqSd3ijUhzT14lWQ5MMiyoV63VPQr4NB6nIZ9wkItmx3scfOtb/HC5/4t73zt9zm4/jazvW3KfIZ6j3cF6kvUu8D0xh5iflbsj6NsjyUJtAoQWRyruR8IHsNYEg6ImZgIS1C7TF1G7D3T6YzxwYTJZEYSxwzXehw/vk6n0wKEPC9Q1ViVDVV9ADgBvpNl9tYTTzyTf/CDP1d++cufd88++33nmb9SZB9++OkNEf1Z0FNZlqT33XeOwaCDc8Hkrb1ZVRnqXM3yXkO3kspjJSgWaMXC9gQuH8A4Vw5yz7RUsthgg1lytBSpP3vm9kXTxbushgWAuspolzjFlSVXv/WHjK5dJB/tcHD9IrfefIHtb/9nbr3xTUbX3qQ82CdudUnbfcRUahHLtsaS6mQsUjWMoCFBWAKULAGHQzZM9c9QSZUAlolJcAiReuKq1XCop/dMxlOmkxneeXq9Nse2hpw8uU4UWfK8lPF4Zr13fTBnRdz7vHdZu21vPPXU5243xfseUwTivdeJiM6Kws0rBlep2VitBkqeS2gIZ0N3kG4M9w49lw+E/cJwaeS5vK9MCmVSetZalk5qyGywYZoxjNrb1JQghyLlS2BabG/TFtlwi/7pezi4cYnxzcvko5359WbDLfCO4dn3YGw0tytWZlj9L4DHlzmz/VuoK2kNN4iSNHD8oT0O//3uFFSuQiwFltIKuUT0/JS2z4l9iS1LiqKoUuxzSlfS7bXZ2OhhjNDrtbh0aZsbN3Z7OzsHXVV30ns6Zcnx3/iNf/0l5/zz/+yf/bev/Zku5zZ9R7KPPvqpNWPco6qczbK0d889Z6Tf76C6kBi1LdL8XEsSAGtNWDkrQzQygYEvj4VpAZPCs33gGOWe0ofkxmDjy3JsxB82zBdSRo8ASZ16AmWRM927xWxvm4PrFzFJiohFjMHGLfpn7uHkBz9Ke+MEJoqXbIjamBIN6pibjZnubnPz9W8yunaROMuwUUwUx6FWfkW1mtsnKy8zN/QrbFWSxVTnzE3E2KTMTBR+OzyRekCqBahgf2/EbFZgrWVjc8DW1hr9foc8zxmPZ+K9RsAZ8A96z5q1Ujz66C+99dRT/0Nx4cL/eTtL+C9I9tFHPz5U1YdU9VyWpcM77zwlg0F73ofK+xoULjCkr8aqtO8QG5Elnb4VhQ4kO7kwdaGLCYTKwEnuuTX17Iw9+7ljUnpyR6jNYB6/XwT8Gq7bZkReG4CpgYaJQAxxd8ipD/88g7P3Y6KYfHSTfLRLOTkgafdJBxtYG1cBwMDE5fSAg2sXufKNL3Dxy/+BN/7gd7j0tee48crXuPnmi7gip9VfI04zTBQdNuir615yBDQAdJQdgwRjvhTLzCRMTUIpFqseox5RnTtGptOc6TRHVen122xsDNjY6ANIWTozmeSpMbKuKmdV87vz/Mrk4Yf/yxt/8Af/720D/i9A9pFHPjkA/QmQ81mWbJ47tyWDQQdrwy1XZSExvJ9n+KoqpfNVAqKvmruFfTIbpIgqHJTCzVlglNKH0tiDPKhd0zJU982qTii5CyW8M6fMXP05lM+WjkZlYHhfZAeHlkE2aWOyDq31kxy7/yN0T5wnafdRX5Lv32J09Q0gNISIkhQTxRgbIwK+mDDduc7V57/
+Epa9e4PI3vsjB9Xc4uP4Ot978FniPGIuxBhsnRGn2ZwcItcG+2HZeyCWCF0NuIgoTUQb/80KqofjShbZF0xznHEkS0eu16fc7JElc3Ssx3vuec+6Eqp4xxlpry+TRR38h/9Snnpz9x//4H28D5bsg+zM/84s9Y8z7QO9M0/jkmTPHZDBoE8fxfKOmarWU4duItFtrQvd2AjBiCxuZMsqFS+PQEE5V5vlcQmDsmQvG/KhKdtyt3kczz7io7JdCmVaAyV3wjuWqFH5R1+4QJEpJ+pt0tu4gG2zQXtuif/pussEmonDrzefZeeObHFx/m7TTD9Kk3UOMwZjgft1751VG1y4y3r689EPtX3+b3XdexxU5aadPd+N4mK+pQdBIW5mDYNlTtuT9YiFFageAilCYiEnUIjcRqBKrw2odO/FMZzl7uwc470jThJMnN1hf69PppOzujpnNCquqXeBB8OetJS/L1vaFC5+93XHluyD78z//ibaqvxvk7iSJz21trctg0KHVSoA6RZylfCz1Ou+cqKpVSkqocIqiUMVrBGIT4iOxEW5Og7o1d4nWiyTSSCuRJRvDaahEDDld1csvx1KqIDW1ZDA2xsQJ1lpMFGHTjLTTJxtu0Tl2GjcbM7r6JqMrbwQj3Duy/jpR1sFGMdlgnc7aceKsQzE9ID/YC7+Dd+QHu0x2buDyGWIMWX+NpNWhinyvxEJW3b0Lu6TabGHPsLBpQFBjcMZQ2JjcJKgIkTrqUsyy9JRFwWw6oyxLkiRmrWoBm2WpzGaFLUuXlaUbgJx2Tk8+9tgn2g8//Lfe/uIXf/t2764/B9mHH/54yzk5KyL3xXF0z+bmQIbDLp1Oa26HgM4j6c3GDfP+WN5XgS6qLu4L5mjFoYvIrZkwKQ25DxxiTM0wlfdIWDKA66V3noXLwj4JoNL5frDYd0E6Z7wo65ANNukcO4N6RzHeY/fiS0z3timnY+J2F5ukxK0O3c2TdNa2iLM26h1lPkWdw1gLApOdG/h8RpS1GJ6+i6y/thR0PASQI9SvenrS+NI03kXAG0NhIgqbgIScrvl+6kMCZGWXRJGh081YW+uTZUnDdtSsLP0pVT0O0va+OHjssafzn/3Zn9y7cOHC94J/fuzJPvXULyXOlVvAA1EU3b+21pXhsEu/3wZqCbIAQ/XDzyVLc7z2fBlrsNXDciKB1MIghakTLk/qBtXLMYI5QGARl+DdVJOVeEUDkDS2rf82hIf3xFmb3qk76Z+6G7zj4OpbXH/pKxxceRN1jv7xM9gkJWl16GycYHjmLjrrJ5iNbmHjBJtk5KNdojQj66+zfv5eWoNNjI2Wr1FkCRzL361csxz9Xbj2IE0KGzONWnhjsOqJfIFU96UsQ2eV0WhMmiYMhz1OnT5Gq5WiquzsjMR7uqBnjDEPGIN3rnzpC1/4/27XmvwZyP7MzzwTx7H0nHPvj6Lo/b1e26yvh0caiMgcIPX6PVezGuM1UOoH3hiRhdEughWlHQOENqOTUsi9VE+carpIG27T6gKb6lhz5V1lpjm4WGa4Oq0dEcQY4qxF3O6T9ddJOj2MGPavvsHk1jVmezcRMcRpi6y3RtLpkvXW6B47xdZ9H2DjjveSpG1cPmV86yrTvR18MSNpdYiTFBvHQWFsqFZHzmPpulbnsQyg4OkyeGNRYyhthLMRomA0qFyuDCn1ReHwzhEnEZ1Oi263TauV4Jy302mRqeoa6JpI6/gTT3ySj33smdGFC5+9DZQ/hexP//R/bZ2bpMboh6y1P9lupyZ0NRkuAaR+1QAJWb2r34VIsFIxgQ0pHUYgi4TEhtfNqXBQBqVhzjDSYJgVteQ7AWQ+1thneUWWpfEoSelunaE93CJpdxldf4e9t1/h1lvfxsSWKAl2S5RmtIebrJ27l827H2B4+g6iOCUf73Hr4ivcePWblNMxSbtLlLaI0xa2mjMsJGH9Nxw9j6Xxeu5NdbPa1tuIMoopowRRxXiPoMEd7FzIEp7lqFcGgy7DtWCXFHnJdJYb53zqPWe893epkjunB0899bdv/t7vfTB/9tkLh6PDtwn7/vevSbd7vAB+2lrzUBRZs77e58SJ9bkNUsc6YOH2XQBjkWlbAyYUWfnFw3Rs4I7MKp0oFBlNnbBXNgDRYHqzkqLRXFHnkqLJ/BUIRVgE5BoM17RPmtIqzlqVKnUvSbvH/rU32X7tBfbeeY0yn5L1BmT9DYwVRIJ7t7txksGJc/SOnWK6u831N17kxivPU0z2MXFMZ2MLG8chq/dd1Kclj1d1I44qyoJlNQ0TspXVWMo4JY/TMFd1GBfSVcoyFF8djCd471lf77OxGRpxTKcz8rwweV62ReQekDPO5e3f+731q88999u3O9UfQfYrX/mK/8IXPjd99NFPfESEh1WJNjYGcubMZpUOoktgqPOzAkiYjzXBEjq91wmNZv74tUggscEmcSrsl+FZIF6P0scX4FmoISsJhqzsB3OOWzZ6F8t0AFlQ7ayNibMWWW+duN0lTlsU0wOmOzeY3LqKm01APUm7GyLpUUKctUk7PdL+kDjNUOfYv/4Os9EO+cE+rsyJk4wk64Qs4ub1zpldqmj64prnUqexLfV2LOpO6oOptfjIosaiEh7UYrxDnacsS4q8qLrRLLKD0zQhigzOqXXO98qyHKgyUPWtRx75ZPnLv/zXb3z+85+/3SK1Qbb+44knPvkBVX66KFy2uTm0588fn5fXNu2NWu2qARCo+XCcylXrPHlRhqCctXObxAqsZaFV6MwJ4zJIk8PqhsxXzUOq1XxgAZpl3X35b4OAhvwqN5vgZmN8MUXLEvBEaUZn4yTDs/dh45jiYI9r3/4Tdt5+mdloh/b6ceK0RZRkGMAmKa3+Ghvn30vWHZBPRuxeeoPrrz7P7qWpAfFQAAAgAElEQVTXSTt92sMN4jTDVpnDh+ZBEwiNeTTnsGJXLSdLCmosLkpxcYK3MaYs52qXc57ZbMb+/gHWWnq9NidOrNNqhW6Z4/GUonA9VT0NejdgZ7Po8pNPPjW7cOE/3G49VNEcII899vR7Qd9XljrY3Bwkp05tzFf+eRVhRd7Xadq152pR0rpoCapzoJReSZJo7tkSEbJI2MiEg1LYK4LRrnMmWFU1WEqtXzDZwgM2Z7gj9hMR8v0dbr3+DS798e9y6U9+l+1Xvs7BjUu42ZSsNyTO2tgko7N+nP7xM7QGG0x2t7n55rfYfec1yumErNcPtkmcBLDHCa3+Ouvn7iFtdynzKdtvvMTelYtMdm/QP3aKtN0liuPledAE9EqAcS5NlheDOTio1EgaaqUYfBThkgw1FuMKxPngpnae6WTKdJZjI0u32+LYsSGdTgvnPLu74wi0A3pSlftns2j20EPPXP3Sl24b79AAyKOPfuJOVb1XVU+sr/fbW1tD0jSeq1lz0pDcDjKPqKvq/O5VGtc8fuGrgqvwYE9TJTYaEit045BjVaiwX4RaEah19Ib6wbKNslBLWBpbNmoX+xkxTG5d49q3vszlr13g2ot/yP6VN5nsXGW6dxOXB15Ie31a/TWy/jppZwAoxWTEzsVXKCYH+DIPc4hj4qyNMYa03aWzfow46yCqTHa32bn8BuOd6yStLq3egPZgoxFxX75mjBwaOyRNV+a4JDmp/rMWZ2Mwtv4REa/gQppKXhSo8yRJRLfbptPJsNaiquK9xkXhh6p6yhgxxjjz+ON/Y/LUU3/z4MKFf1f+BXnsR5qaKtYJVc577+8aDLr94bBDu52SJNFSR/cAgFpaLIz1pUje3KD3c5ukyAtEhCSJgw1AcAWvZ8HDdX0qTL3g/LJqcQggssooh5ludTU2COObl7n2/Je4+drX2L/8BtO9bfYvv8HN177B9Ze/CuoZnLqLOG0RZy3ag03Wzt1Hd/MEk1vX2Xnr21z59h8z279FnLbobpwISYsGxBg6a1t01jeJ4oTRjStce+V5br3zBr2NE2zecR/WRssgYXF9sDKPFdXqaAlZ7dfYBjG4OKbMWiDB/rFFDiiuLBmNxkwmU9Qra8Mem8eGbGwMmExyJpOZKQqXAfeBnPPez2az6c0vfenz17/
+XTPejRA0V65l18KdV9YFer73e77frks+5BKl7EtYCQ6jSRLxn8eRYqm2ZA2Zhs1BF26N5xD0ywfXbSeCggN3ZQjFfkiIiK2rJCjAa6shRqosRIWp3mY12mNy6RjkbV9fmKcb7iAmg7W6dptVfx4hgk4S0O6B//Cxxp0txsMfulbcY3bjMdHebtNMj6/RCENFYbJyQdLpsv/ES229+m9lol96xk3TWNskGQ+IkXTA+C0b/80gPqf44dIxq4qFi0qBRhEYxGkWgHinL0FmlDPlceV5gI8tg0Kk7qlAUpRRFGRVF2RGRU8aQffSjz/jnnvudN+HZ7xnT/SjRHCAf+cjPt0XsMVX5yVYrPdZup6yv9+h0sqUCqrm21dCJawFCFSSjYdDPv6+Dic5jrCWqnp9uxJBZYZgJk0KYlMLECY3TLG681IG3d4kfNK5pSYpQGdbDTUCxcUqUpERpCxunuCKnnB5QTkcMjp8n6w2rbN+ItN1jcOIsaScETqd7N9m7/BZ7V97CGBu8W0mKsRFx1iLt9rj68te5/uoLeFeStDuknR7rZ+4i6/SYp8CwYO6Fd+sooC++M42NjpIwzcVBbYTGMVoFL0U9ouHRDbNZzmQyA4UsS1hf69NupxgTHmBalr7lnDutSldV04ce+srkoYeeGf9VtEvmAPm5n/tbEpLb9LEkiU/GseXYsQG9XmshQVai6kGSLJi1VrUElpIIqT57H1LknfOIMUHdMgZTJTR24xAruTwRZr6WIkelbSw+mMb7XIYJoSWPLBhLRDBRTH/rHBt3PcjgzD10j50iafcoJiNm+zvkB3tESVJ5tU5gq/wrMYbWYJ2103fS3TyJK2Zce/nrXH3pa8z2d4izDllvEECEcu3V59m98haz0S7GWpJWm1P3f4j2YJ0aIM3AKDTmwarkbMzj3UqDVxeJ+bGDJPFZho8SpCwR76FqCDieTDkYjYnimMGgy4njG8RxRFmW7O+Pcc5vqHLOWo5bq6MvfOFzL34vme9HgeYAuXDhtydPPPFMz3ueBM6LIKdPbzIYdJcA0gTHMgXjPWBE5xJFmlxbZwZ7rW68IYpMyLyVkCIfm3CkmYNRIXMmWWaGxqq7ooa8m/EepI4QVTGKtNunvXac3tZZ+ifOE7e7TPZuMN3dZrpzg3I2IUpbpO0+xgb1KU5bZJ0+aXdAqzdkdrDL6MYVRjcuU0zHGGPIegOuvvw1rr/6ArODfQTIun3u+IlH6awdA/ySA+GQpJB3mUdDvYLD8zu8TxVDMUHlwkYQR+Gz86gr0TpFJS8AJWultNsp7XYw4PO8jCaTvAWsea+9xx//1ODhh/+La1/84m/v/wX57keGbPPDww8/HRvDY977c94TnzlzTNbWutSBQFi4cQNpQ4+WuU1SA0Uad7hmBkWWynbjuT0ixEbJLPQTZeqE3RzKpj0yZ4qVXCxZdpsiiwDbHFDzv0MyZdLuBZfuyTtYP/8e0k6fYjxidO0iN996idG1i0RpRtLuBRXKGKI4Ju306Z84w+DUHfgyZ3TjMldf/hqjG1fxZU7a6XH121/l+mvfopiMAENrsMbdP/MxOuvHgqpTXYuhIQlWJUhTslDNrfqwPO/V8gEWRn7j2EGStMAaxCvGhW6PZVmwv39AkYeY1WDQZX29T7fbYjYryPMi8l6H3vuzoKfB3XjyyWfGTz75KwcXLvz4P3dxCSBPPPF023v/oCqnrJW1EyfWpd9vE0WmoV5BM/G8pvqmzKVHg0Hr1Zt6CxW8V4rSzYGUJKGZggGySEkMJEa4kQu5b/TSbah0wEoqCtWKvGLEr67UEtruSCURjTW0Bpusn7uPpN3FFVOuv/Q1di+9zsHNK7T66yTtLmm7A1XaTdxqs3H2XnqbJxFj2H3nDW688S1uXXyVqy99ndGNK7iyIGl3GB4/w10/8yTdtc0AkBUHAs25sczYS1LiCKlpmnOdx4RW5x/OYQSIIjRNg1PCOchzBCiKkv39A7xzJHHE+vqA/qBLlqVsb+9RFEXsva6JcI+qpuPx+JUvfelze9815/2I0BJAHn3046mqnAU9J2LOrK/3TLfbotVKqq7uhw9Qp5rUHDhPBqnDJXNw0ABJve/iOSJSxUmMqVNShNQqUwe5ZynaXh9hiVGWJMpRXp6VfZrMZw1RmpH2BqSdPmlngI0TxjvX2b96kfxgDzebYKOYpN0hSlNsFJF1Q+Cw1V8jShLK6YSdt19jf/syZR6aHvaPneL43Q9w7oMP0+oPCTJUDjHvaiS9vrimCnWkrUFTgszzD6pFoHGsej9jwURIFM2NGnEOX4RuKmUZumjayNLptOj12iRJhCpmOs1T73XNOd+31gweffQX80ce+Zs7P85FWEsA+dCHPh6nqR14r3cZY+7v9Vq2283o9zsYY5YDhqwCZpHn1ByjyQCyAEsYM3OjXb1irSWqDOPUQjsIFUov7BahnWd11AZjHcU8DYCYFRWrud+S1AnZx+21Y/S2TtPdOIGbjdm78hbXvv3HTPd3QJWsPyCK4rkNlXZ6DE+cpbd5gihJGV2/zGw8wpcFqp61U+c5cd/7OHnfB8i6tRfrMECMOUoSHJYiq9c+lxbNhWF1n/k5Fr87aQJxDHGElA5xJagync7qpEba7YzhsMuxY8MqPWUmZekSVY4D94roJIoYPfTQY7d+9mcfKS9c+PHLCF4CyCOP/JyJ49io6n0i8uEsi6NuN2Njo7/82IOKFoBZ9qqYKqWk+mbJNlhIFEPt0dFK3YKF4S6VutWJIBKh8MLYQe6aKRYNlUkaEqr5XSNSvVC/Fi7jQ+AyUkmHIYOT5+lsHme6v8ve1YvcfPPb7F1+k2I6IW13STt94izDWEva6tDdPMHGubspi4LR9lWK6ZisN2SwdZqT73k/rf7aStug5sLRkIRzcbeyXXMeDXXTHLHNkSpZY7uqigziGEmzcL7ZFKpShtk0ZzbLcc6zttZnOOyyttbj4GDGbFaYPM9boOe8lw2R7EpZnr/1xS9+5seuV/ASQNL0I9x992jHue6DIjyqqkmnk827+gFL5scqQKo/Fze9Cr5BzbwsQLKATlXz7qvOir4CmMEaITW1PQIzD7kPYJmrIEsr7UJimQYjValLDcZaXmVXVRljQtFUa7hBa7BB0ukRZ23KfMpkZ5vxznUOtq8w2r7C+NZ1pqMd8C5ULG4eJ+v2aPcHiBi8K8nHo+pn86StDjaKQglv/bvI8vUsrfrzn+3oeSy7hVcA0pzfKkDqY9gIkjgY70bAe7QoKYuS2aygKEqMMbTbKcNhNzQKNEbyvIy813Xn/NAY2iJT/amf+sW9//SfPvdj5eFaAsibb17wFy5cKB999BfeA/K4cy7rdDJz5kzwj88BocwduYEWOn4TIKYuPK8MkkUSnqlWP1MfDERDE+cypKdYa+agzCz0Y4/XAJC90szPvuStmkut5bqP1Sq9o1bVQ0xEpUJ1B2ze8R6Gp+6kM9ygnE24efEV3v76l7jxyvPsXn2L6d5NiskB6gpsFDM8cZbhybOoevauvs07L/wx22+/hpYFvWPHSVqd0ISuIS6W57EMlhr8S5KTI+bxLmBbkp5NaV8vZFaQJEHaLSgKJM8rD5djNp2xv3cwj7pvba2RZQl5XlTd54u+Kvepiolj2X/qqb91+cKFf/djkw1sjxp85JFnzoG+13sdtNut1vp6P2TjWlN5qfQIR5Yc+t9Uj0mwtTHIQjVY9NGqwKWgUgUTSzdPgIyqNqVWoBMpqa36Znkh1wWTNEtu68Gmh6e56gLzZ3vAqiqy4k0ygrURSdams7HFxrl7OPHeD3Lq/p+gf/wMIjDavsqVl7/Bxa9+iTf/5Au8/c0vc+VbX2Xn8kXGN69TTMbMRnuMbl5n59KboJ44zegM1zDWLDGyOep66rnNbYiGYU6dIbwKoMOLwJKTowaMUNk8BrEGkyQQRTAroCxRr5RlOY++t9sZ3W6LtbVgT5Wll/F4kqiyAXq8LAuefPJT+7//+5+99ednxx8+OhIgjz/+i5vAKe/
+1TJalw14vo91OSdP4qM0rakBjrh8Ho91YUzHr4q4GCdNYNuc1JUpZPd1KvccaW2UCC+1ISU1w0eY+JDd6rc7bYH5kpT6kGjuUBMji9E2GPFRHTsjLynoD+lunGJ68g+GpO0LNR6uFtSHfyRU5xWTEdO8W04M91LuQByUG7wpGN69z65038K5EnSOq6tijJDt8bfVPY5bH53NdkRJL1zsHzuJz8zda/T0W2xkkSYOHy3twJVqW+Kqz42QyxVpL1kpYWwuLpjHCdFqIKv2iKDaBlqq6Rx755PYv//J/N/n85/+vH+lYyZEA+ehHf7HtvXRB76/TTobDDt1uRkPLWqZGJq8c8Qr16TBXDkSCzluvhizbM8558sJVhzTEcXh6bmJgGCuKMPVwUBp888azvHIur8iLldesMticsZaNYVjUokjIlwEJgGkP11k/fScn3/sB7vjgw5z/iUc4ef+H2Dh3D93N40RxGrowxkkow41iynLGtVdfZO/6ZaajPdr9Nbrrm/P6/cMq3+FnIzYTGpfmsRITOnIejd9joQ6vSKw4QtptKAvIc9Q50CBJdvcOcM7R6bTY2BjQ64XuN+PxlPF4moGcFWEdIjMe33r9ued+tG2SIwHyoQ/9bZdlRamqDxlj7/Re2dwcMByGqHqdqluv2fNykIZKAA1w1JKkinNIvVrN1Ycmey+SG2vx7l1Iz7A2GO6RKC3rySzkCqWG3K2l1fcINYXG981XU/1b2oaGGtJk2Arc1kZESUKSZvOkxFZvSHd9i+GJM2ycv5sT9zzI6fs/xLkPfIQ7P/wId3zwITrDDfLxAddee5G9a5eZjXZpD9dIspQ4TRuerob0aM6teU0rgG5KR5kvBCu2B8x/90NjBjCCiSwmjhAbodMZWrpwPwpHURRMpzOSJJ67gsOTkUVGo0kSnq/Ilvfa++hHPzl97rnPvfO9YdcfPB0JkC9/+d9NP/KRTxTGmMe91/vK0pnjx4eyttadMxGwxNiHAdK4eaY22qVRVWiWjlWtz8DCO6YKRRnULa++Kt0NIGtZJbNBLSsUZl6qTrYrKoosVk4a3zVVlCZAltSTam51/OBQQmTjc9jfEMUJWbdHZ22T/tZJhifPsn7mTjbP38PWnfdx7I57QkTee3auvs32269zcOsGcasVjqFKPh3jq7iEaTzsx5jFyZcAIqvzWMyh+RPP4yAcXgwOtSEygkkSJI4gL1DnQomyamWgTxBjSJOYtbUerVaKtYbxeIpz2i6KchPYAMqPfvQT15988lPjCxd+9J6EdSRAAP7O3/n7fmdn7wOgZ73X3uZm3/Z6beIoBPIWkfJ69arXW1gwVvBiNaWFMQYbRUjdHLuOhehidawliABoyN0q8iIkOQJJVcIaGViLgxu48DBy4fkbq4HCOZRXVI/mNkvMtgqYlX1YHWseSxbMZ+ozNxjVWEv/2Ek2ztzB8MQZxnu3uPTiN3jnxa9z69JFxrs32b16iWI6wRhL2moTJcnREm318+qLlc+NACRmeT9WwBa2FySymE4LSocfT9Cq/No5z/7eAbNZTpam9Acd1tZ6dLoZs2nOjRt7kbWy4T3HwW4Uhbz5xS9+9tp3w6R/mfSuAPnwh/9vVf3KOVU9CXq23+/E7XZCu5MFxq+pXqGqpXvhRq0Zo6lqBV97UFHMfGVf1JMsVrUFhXwp76metqsgGlZra4gNJEbJTABPqTDzZoV5ZUWvr1bY+VjFakcwHtBInV/V15lf78Kwf5fj1Oc0ECUJaatN1ukx3tlm7/oVblx8jeneDvs3rnHjrVe59sbLXH3t21x/81Wm+zvYKCJO0gosOj9v7cZu/m7LgF4BAsstXucLQXNuNMAkgkTR/B7qdBYygTX0ay6KUNJrrZBlCf1epy5jkMkkj4qi7ICuiWjrkUeezr/4xc+++acx5A8bvStAtrYelOFw0jOGEyLmwTSNszQN4jSOVnarGboBhvCxAQyRuapVj9mqflpZtBSqDrOoRmzU8pZVJ3lX+mCPRBYjQmahGymxUQoVxs7Mn58emFfm17m6utbXWZ93VRpA0xCWZSZclSzN8SXmYw6QetxGMUmrzXhnm/3tq+xeeZvx3g671y9z89JFrr3+Ehdf+CpXXv0W+WRMnKak7Q5pq4WpusRwxDUdnoccvqZaqh0xj0NzqO9bHGHiCD86QIsC9UGFCEmOY7zX+bMVe7027XbK3t6YPC/TonBDkFOAe/zxZ95+6qmnf2TUrXcFyAsvfEafeOJvTJwrT4rwmCptaw0nT66TpBELlgh/Llo5LMhUbpWFblupW5X0CNIkfL8otlqqJaz+kiqLtrJLCkdelnj1JHEUnABA1yptq6RGOXDBDWzMu0iPJSAsq2CHWgjN91kwGyvfz/X91XOILDHgYlUXUM/ejSvsXHqLa6+/hCsP80wxm7J79TKXXn4BV+Qk7Tb9jWPYKEY4ysPVOD+L88NyVL4p1d4NJEu/kbVIlSeH8/jJdOHRVGUymTEeT0Gh1c7YrJrVOee5dWvPeq9dEd1U1fPec+0LX/jcW+/Gez9M9K4AAXjuud85ePzxZ06D/lRZ+kEc22hra1A9tOWwmrVYLRuSpPF306u1+I5aAQLeRdXSxYnqgivn3HwVEwld5SOp01LCY8wcMFOzSDZuMELNHPV1rzILsNwudM7Yi2n/acb7gnGlcZ4jjqOeMp+ye/USs4PRYZCoUsymjG5tU0ynxGnK5pnzJFm7ka7SmM+SpKjvReP8jbE58y8Z70cfR6rCK7EWnMONJ9Uz8yrpXpaUVQGWMZW61e8QRaFzSp6XUZ6XHfAbIqKPP/5M+bGP/cKNCxf+/Q91JvCfChCAJ554Zg24zzl/LIpsdzBok2UJWRY3YiH1Y9gWxvgcGCwAEXT55W3q2hFrJITSJRwvULg9DXzUWSl47ymdJy8KjBjixAJCZIIU6UceQRiVIQtYG0wBzB+/IBVXHLmSVq+mrXKUZAmAqBeAFaaicTwaxyA4MTrDNZJWm9loj2I65WB3O1QAHvEg1b0bVxERTr/nQTqD9colfBj0S9fQ+NAcq8F7CCz1to0x05ioTZNKgkzweQgi1uScZzQak+c5CgzXegyHPfr9Nvv7E8bjaeKc7wNnvPddY+T1J5/8xP4PM0i+I0AeeeRTKWimqndaa04ZY+h2W/R77UW+e70qQsVslQSodd35jQjqldTZvnO1qtq+Yto6ol4DSCrQ1OW8ATSLZtpFGRqkxbEN/YAFYlHaxjOIPCXC1BtcdR6zxAALdaNZvbe0jSyM2KX0lAaAmnbM4ns5tP0hVcgIaavNxpk7WDtxmla3x3S0z3jv6EyN7toGZx/4IMNjW6TtzjIgmvOoz786j0Mqnxzar/6NaByzCaA6wOsOxvjZMm+rKnleMp3O8KUjSxM2Nob0+x0Abt0ambJ0LWBNlXPe2+3nnvvsD+1Teb8jQB599OMqIjMR/QDovc55GQ47rK/1FqsTUC8788CfNG/IQrVakiAVadXpoVY/5mrWkjRZ2Dl1LljdTsjVjSCqc4ZuKZAZpWM99ZrtVfBShThlYbyLLABhqutsXsKRqR0rq+ySMS7LY01ANFWw+u8oSeiub9DuD2n3B7T6AwbHjtNZ26S3vkl3bZP+xjHWT57h3AMf4Pxf+zD9Y1vEWTYHM41zNNU4eZd5LLZfntvy9S+/I3XOW/j9i1u7uPF0sSpU5Jwjz0vyvMRaS7ud0R90iWNLWXqKwkV5XnRVdUuV2eOPfyL/2Mc+fvPChc//0KXLy3feJNA//Ie/9a9E5L9RpfeBD9xp3ve+c7SyZN65fd4rq2Z+Y7AVR9T1IWIFK7Yy3hdSIBxgUa6rXsmLoM/meRm8V2VZRXFL8jyf67tF6arHw2l4jngnY9BvV2nZVWmvCtuF5eVxwuUiYs9ZVBSpkx0rN65ZYqCGijNXSQhlug1GXKSy1GBbtDsyBqQWsvO6lOW2P80VW9WDd3hXMrp1g50r77B//QrT/T28dwyPn+DY2Ts4du4ukjQ9dMxlFavpytXla6i3lcX+dW3Mag/hICG1cZ2C5jnlzj6jl14nv7kT7uVSY4/
+F+9pan5Mnj3HPvedotTL29sb80R+9yCuvvMNkMvPe6zuqfDGKzP8cRek3n3327/5QZQJ/RwlS0+OPP32P9/64qh7r9lpxu5XQamfzenVZlSA0V6jVV3UXFgGQefq86LKPfynpax5qlzo8wjzlRRV1oa1QWbrQKaWSJAaIJEiTWMLNnnqLb664FUAiK8RGsIbF4xvkqNV4RVI0JUSTOefjy6rNatFX7fGyNiKKY5I0o93v0988zvqpM2yeuYPN02fpbxyrDPTqN+YodWjVu1VL7+ZCIHNpWY/VnsWlGBar0kRw+yPyqzcodvfxxbt3Jq0fhTGbFTjvSJKY4TBE3aMoYm/vQIqizFT5/9l781hNrus+8Hfurf1b3tYbu9mkSJGSIo9FWePIC6nFkmJjtNixYTgYDJBJ/hgbcWL9kWAsawFkAoHtBAkM2I4t2QnmrxkMQkwGsbVEY0RJu0lFlkcaSzSbS7fY7G728vb37bXce8/8ce+t5b3XbJJqUqSk06iuelX11Vdf1T33nPM724CZ18qyLL7ylS+cf7Fj8tWgF80g73rXhwcABgB+KAyCNAgEVlb6dYTvoQwi9jEGRCtA8RDh1crhrWew+pj7j/23dTNSAHKxW7Z/nxViPmKYEAqgJwwiwQiIodnmlNRpvPsYJBAWOAiE7corRXuANTfp77Ozr56ZW6qLOGyw+YONluJ3icDW00oHS+gtrWCwsoq030cQxY3d0L5eS6IJNPcqrTBvFnevEtQc23eN+qe0GQS2F6WZzlFt76JY34LJi9qzfjPS2haqK4oSJAT6vRRLSwOkaYKiKOHQrQGAO4lQPfjgB2cPPfRze4899rnXhLr1EhjkA3NjREaEd2lthszAieOrSLO4Gcj1QyYXyuCNW7dI5/9wuCK3/m+nmDQNOn0fDask1JiAn8r94K6xAgJgu+7mRQWjDcKgid8CgJgYfWmwJDWYgJwJBtax6O9ZCFs0IhAEKQmhXxzDHISF99sa+w3hw5mmI4Xq5wUHVrSkMOrH2+zzzAo/8G1qshQCgSAEwgZ2+nuWZH+LJLc4ySjd70WtiHUluP9+1hpmkaO4fA3lxjbUdA423r57YWJmyySu6ehgkGJ1bejqAhcYj2dCKZMZw8eJxMkgqM6fPfvF10SA44tmkLNn/9PsoYd+dkkI+lFjzDIRxWurA8RJiCi0rZ8bNcIOgQNGei1RALQe7GHVUur9LTVh//lE9o+GeZpX7OtuKa1t5C15dYkREBCSQUwGqbDGPYNQsah/g4CTJrI7yEIBhI55YikQSYFA2kos0kmbtvpU/9LWgPf72mqZBQbYzurUmundYA6cdAvcoPf3FQrhluY+/b3WjOGefb1dM4V7VvulcYuhoRT0eAq1s4tqYxvVzgh6sQBrc0jOwyHkfq8HU4rClhkKgwBLy32EYYggkDSZLIRSOjWGh8wUvvvdP2teC+hW8FJOTpLgWlWpb2ht1vK8HG5s7iFNI6Rp1JpF3UCo/28YxJMPUAQ3g527IqTDNIIEwoC6L6R1AXYKF5HNGbEmii0EUU5UXdMrSSIXTcxIiZEEGqtSIRMG1yvGtgZyCGhDKAEETAjJqlvNzN941TzippltPr37CXWvlHZEZ/2ZropVqzfC+4y4sQ/QSNHO0lL3CC1H5aHqGtDRSmsAACAASURBVFkR6yWBuxVDDiZnyyDN+Qy708AoBZ4vLHPs7EGNp1alutmM9gJERLYNQ1nZ4NNKIUki3HnnEWRZjNksx/XrO8loNL0bwC8yI/rYxz6zwTx69l/+y49913JKXrQEAYAf/dEPCSmNBuhugN6ktaYsjbF2ZOjSaqk1+zQqRY1iCVusGi4LsDNved/Hgf0tu8RFoNb9EOsD3fv0R+257sVUGh4CtqnD9jxBjIw0hkIjExoVC5QsoN04AYBYNrO2t0cCN7NLQYikLXIXS9sYKAkE0kAgCwR6oUQWiu4SdNdpIJAG0q3tdiKFlVCBrxEmEElbDV+Krqrk/yZqHRNdaUHUMLMyjMq4Jkfu+Xm1j7UB5jn0zi6q6xuo1jeh9iYwRQGwaQLcXgb5SdIikRWKokSvl2J5eYjV1SGqqsLe3oS0NokxvALgeBCkF8+e/dz1l/WFt4FeIoP8tDZG7kmJ+4n4zUrpKE1jsbzcRxj45jgNUlWHlXjd3nsC95GdcQ+flVpCpVbNvHQ66CHp/u3ZUGtrlyhtZz8C6lAZAhCAERIjJoPILQaAhm1b7VU9QTajMZBO1/fqT3vxKhkRwoAQCUIohVOJ0LFnvKoW+HMEarUpaB2TsrEtpPB5NfuZAbUa1Y6S1gQoNlDMUOylnVer3I8rCvB8Dh5PYHb3oHf3oPfGMOOpjblyrRNuF2ndVJkXUiCKAqysDBGGAYQQNJvlQVWpDOBlrU317nf/XP7oo5/7rtgkL4lBvva1L+qvfvXzk/e858OnmfEGpfRaFAVRmtow+CiyGls73opaDHIgSaolNTrEh0lxrgMWSYiWutX1V3Sv2SBqxjAK19iSDdf1gP3MKpxdMhQaKWkwCBqECrb0qXHfXev1zgj2TOFn9I5BXM/0cLCxs1X8ItCSBHBGM+oB3znujonW3zVM63+pe7RMDG3gJAWjYIPKGChnl8FoQGuQqoA8B08m4N0RzPYO1NYOzGgMsyjqVNtXgowxyPOiblu9umprby0t9TEazVGWVWgMDwCsGWP4Xe/60DcfffTzr7qP5CUxiKd3v/tDsTEUEuFvAWJojMGRIwP0+im8zVFDud5A3zezAYeoWN5D3j7SdiS2mKKN9LTB4Y4cYQY7pnH2vA1NqVx5TSkQhuG+KzifidAYUIUYBhUEKgC5IRRaozJs+yk6KRBJQkACUuLgzL5/tveD3KtpbVXJM4g3quX+67SgZ2fdG1hGUIZRaIPcMBbKoHDMoWCjB8AMqjQoz0GTCXhvD7y1DbO1AzMawcxm4KJ0WYP7nv1tom7HZCvZfYE6QQJZlmJtzXa9yrIYi0Uui6Jc0lobKen5973vg9MzZ74wva03dQt6SUa6J2PMeWPis0Ko981mi9WtLUp2tieUZQnSNDncx4GDitChJ9yCaggYbqBJiaBmHuvRDdqt4QDASJAzoKvK9saYzvKaYWzt4SY6OSSDAAaxAGIYRGww4QATE2JhJOZOXSk1o1COQYRwg5vrgU317N7Asv73N0he15T3mf62BFLL6GfuTByaGQZw4IBdrG2tYbQGaQNhbElR8tLC1bxCUQB5AS4LcKVcqoG7tg+J+A54o27Jh+Y6QhCCIEQYBgjDEFFs0c8wCq0dsjKsawH3eimyLEGSRPTUU1eyGze23pLn5UfyHCMAN17+nb10elkM8tu//U+2f/3X/+QJgJ9Uiu+YTou7NzbGSNMEJ0/FkKKL3dvn7bdadFPDHI17pCVt6nMcQ5BjEGZy0JUCswBzWzA2L6sOcFQW4ZpM5iiLEuLIsG5Y2tw1IwRjWVQYcIUpB9jmCOucYGZCLEogr0ztcU8kIXY2Rxw4mwLcqELut9SVR5xlzA6wMK2nwOy6ccEygnZ/azbub7sw+6famjS0gqxKUFFAlAUoXwB5AZSFrXPFTXmljnprEY2XMgwOpf2IpYewgyBAlqUYDnoYLvUxHPYxGPaxvDxAr5fWzZSI7CR36tRRrKwMkOcV8rw4vr6+/XcAfMUtrxq9LAYBgK2tndGJE8MvGaOXjNGnr1/fllEc4NixZYsUeZDf2yFAHUayb3Kp/+j0IGkf8KuaabovV0ofXCEBND0U2eGuxJX7sOwwnNHWobi9M0avl2I48OnEzQsm+ylkpCBhMECJESLsIcYEESqWtv8igNKwlSCVgCBtDWp3kdo3Au4USGh/EbW/tL7L5iRmA7C2/dB1BVIKst7WtoOU1oBRgPZ2hra2hNEOoq0v9rIZolGTUDMbAASBQJLESLMEWWalQC9LkfWsZhFFkZMgVoqEUYDI+kE6TOW3kyTGvfeexHyeR5ubu2vG6Ds+/enPHjl3bmX3kUd+6VWpt/WyGWQy+X/nd9zxvseY5X1am5/
+c3Zse6W2l4fb2GGtHhsjS5LbdZPs9HoZ2WSjZIlNWgtgPhYFXZZqX6X0VAKNihlYG01npuusCaRLXDUbbFMKqXRkMEminemksEKKChNYETQKKAGiu808OFqFrtWDzazbWr8G2Z4kgducZCPZuDANpNITRkFpBqApCWSYhVYEqu4bpqpe12lQ/LOCQR/iiycLk0qq2gVuHAcIgQByHNXNYNSmtW04nycHxYANOKywWOSpXD1gpqwKTsEBImkRYWRkQkUiY1SqAIx/4wO7okUfw2maQRx55RAOPXP3Yx/7NE8bgm8z8t0ej2drF5zYQunpJjVK1T71qzWLtF7lforhT3Lrd2I0PnAcQbKq8V698v3B7toU2G+Ygku67CUoZzBcFyqrC6vIAvSxGGO5/NH5kEVLWiDDHEheYIsREhJhTiAIBNAS0kJ1idlaQOjWIGMSWGQQY0jAkNAJjIFhDGl0zAhkFYTSE1hBaQSgFMrp5bq11vb2fs78DtWm/LSmEhWR7vRT9fg+DQc+uh3adJhGkkwZN1ESjNvnbYTCqSmE+W2A8nmAynmE0mmA8mmE6m1tvOxF6vRT33nuXS8piMJvYGJMWRSUOud1XhF42g3gioseJ6P9i5hOzWb529eoWVlf71tjKkiY110OQdko7OIk1nLCPafadeUDVarbtwKdOOnAdQs8HWNB272VfXZ5RlRq7ezMUpcJwYGFrKQ6+C+EHORQCGKSmQgWCdjFdmlxsF/bp9f4e4bpbMdfSgZhBxthjxsA65YzdZ9j+7WBXhlVXvXQ4FCp/kdSRNrWqFFhVKY2RJG7x23GEMAoRhSGiyKlJUXQwDduRr6E1ny8wn+WYLwrM53PkiwJlWaIoKhRlhaqoUJalRRiN7cJVVRWeffZ5TGe2I6+UkqsKOP8qxvt+xwzyO7/zq89+6lOfkVrjvUqZO8bj2dGNjT0xHPYQRyGkKzm63413KLVe9KHndMbawTO87UHOT8GSYVi2jFK0FgM20sG/duAaZiwWJbTWIGL0sgRJx3jvEoERQSNk1bWfWtKqnhBq3Y7rXG7/Z83AzIdvw8+8qI3pl80S7oNS+kqXdpGuSHgQBIjjCGmaoD/IanWp38+sHdHorTUZZle/t6qrzmilUCmF+TzHdDrHdDLDZDzFdLrAZDpD3o4E9pEXDtnzKb5KKayvb2M+Vw6UEdoYunl8/StA3zGDAICU/XWt518CVGIMf+TKla1ICIHVVVuS0r/M2mtxiLF9UKJ0191z2+oW6n2ePIIqpUBI/rMNo+w32K0gaQZsVWlsb01QDRWGroTNzZjkcOIataoZpD3jA4cP9NuEJNV30Z5wuLkHISTiOEavZyu193qZsxUy5/D1iJKoUwbqpkj7mIOZUZW2Eeh4PMVkPMV4PMN4NMF0NkdZO2eNBTMcAgdgX321xqnrn7UBI89L5IWy38SslaLqxo0Tt+8h3YJuC4OcOxfN3vzmxaPGiFWtzdtns8XJra1ReunSOu68k3H06HIzU+Jm0qE9A3f1Vez/TJt5WtsdVYFdq2lBto4X075zvMRpOyVtaU2lbF7JbFZAa1ttPk2iOlLgpVGXcV/JN9v+/ULY/ipW/Qms3yEK7d9xhCiKEEfOHxFFiOMQcRQhjILuwHVkjEFRWIPat2lbLHIUeYn5IkdRFMgXpV3nJfJFibIqrecePj4PaDuPraCg+rif2bzd5t+X0RqGDZhFJQSqlZXd1xeDOMjt4sc+9sd/RWS+obWJRqPp6YsXbyBJYqysDCCFPGD07afujHeLL73FcX9YAIAQ4ADwPpKOH4BdFK6XMv7L2RYf8Cm9ZsidBKzXAnXTCVAbxCQIobMjMud06/UcstRLkSTWNjzsfRjXOKfdqtuGhVRYzBcYeaN6PMXEGdWLxaJ1T6J5OtRIiTp8vr5vf4pnENTSqc4hQhP/ZesPGJ1lohqNbudTfGG6LQziqSynT8Vx/G+JRFKW6vjGxl44HPZoOOjh6NFlOwPXyvQ+Ixu3sDvayA26kqC51kGVzaoz7HwlQf1NBGmljLsGOYPBtjjwTARoYyWJUgZlqbC8lB2CcL165H+jRYqkSzdIkKQJsiyxMGuaIopDhEEAIe153uawjCEODchlZuSLEtPpDOPJFJPxDJPpDNPxDPNFXqtLWhtoo2GUi+1CK0FMkH2WLcPT2xZEALFzCoFb+xv1CtSgZ8QEnyPpLmaUMvrpp2+8viSIp9/93X+688/+2We/EQTmUa3N8cWifGB9fS/O0hhJEmFpqVcXeejSC//ejmS5hZ5+s8MEF+4gm8HPpovesDuzPg6rdSmtkJcVzNSiAL0sRhKHt5SIL5XqCaOZQ2p/QxAEdh0GCALrdwiiAEkUIkpixFGEOIkQx3YJguCmUelamxpBsmub7VeUJfJ5gfkir1GnRZ5jMVugrJQDL5pqmcJ5N5tuYV3pUEuE9qCv7Riy0HcLDvfe0i6D1O+HhWBlTFIeO/ZDr08GAYB//a9/ees3fuMzf86MDMCdW1t7J4wxYnl5gCCQ6A/S/SGFblVbtIfAtwfMjRegWnltXbf5LhnYF1wDB0RgB/XWkLA/Sv5bAyilsViUKMsKSmUQS30Xnv2dMUl7dm3cis2gCqMQaWqdb2kWWw91miDNUkRRcIg08NdyaJpzHNYGsjYoiwrj8RSj8RTj0cRu700wnc6sesV+qvD/WykhXZMfbyR0lM1DbIq6DmBLwjTMgTrcBl6y7GMyBrU0A4AIVRQtFv/+3/9Dc5vnppvSK6ArEE6e/MK5a9curRDhbxljfmI2K06fO3cJ2hjcf/8pBDKoZ/q2iuXXL2TE+w/ViNBhKNeB7eYcwL6HUDYh8wEbMJz9AeuUsrZJ0AIWGKwYRhkXjq2w6vpivFge2R/Nal86IQxlPfMnaYw4iZDEMeLEOiwDV6Glu5YvyJzGMPJFgclkhul0hsl0jul0htnUSoeq9lorV1JJ1Z2G/TOqZ3S0Bm9rlm8mOrbFONwH28ly/vNt5uF9TtTuRlPJsS5R27ChGY8L/Zu/+ZuvNN5R0yuiTH/0ox8sPvGJzz7JrP8TM9I8L9ZurO/G/UEih4MMR44sI0na/Q4PQaraR1vMUatP+wx63n/uvusdYBIXTs4Q1ldSf4BhIWAvTWTns9oYVKWG0jmEkDDG2PpgLTVjPxFgB7TLZpRCQEhrFwRSIopCxHGMKI6QJBHixP4dx9GhiFL7ufjwfbtUqKoKZalQOJRpOpljOptj5pb5LEeel82M31KJbPahN6rtndMBBsEBaeHtiK5kaVW/ZAM2PmjRF+5A/T0NE3RVsvabJAIbw/p3f/efLtDimFeaXjFr87d+61eu/97vnf8/btz4874xuKuqqvuuXt3uMQMPvC1AFC3XqgCAfeLkEBWrs68rUOAuY/fbyaUjkQ7TtsC2EogkGGOlCRuuJYl37DXSiGGMdPaBgtIG29sjlGWJtZUB0jS0zTzR1beJfIhGVHuk0yRBmsbIMhvAF4S2rnBX3UKH4dpSx6tPSilXFWSC0d7UhWtYlWk2tVLCgxRtYKST+Wm/En5FrZFLrf1t9cf/2TGs4crE+v/ZheBrg7LUqJSGlAJZEiEMBURgq+q1axmwu7bP02ey9+6nKiL4yt6vXxukTR/96P3FJz7xh2cA7gP8D+bz/J6N9b3wuUvrAGD9Izhc1TqcXkgRqx9ijXbVF9//+fo41+oWAWAOnN4LILAvxjhpQu5jNkTEBkRqZsznJYwaYWmph14vQRRJiyolsUOX4tpobgxuiUAGkIFo9PoXIGv/FE4KLDCfzTGdLawfYlH4+lIoyxJlVaEqK9tK23BjC7hB7FtSsFd9UI/9Rj1qqVfWPmgxhmgxv3ukml3BPodwKeW86cY2PDLaShFBhMW8wnCQIOvFCMMGavbQbn1tss+6eZXEAF5VLzrwCjMIAPzWb/
+3qtz7xiT8WWqv7q0rL8WR2z6VLN0QUStdaOqpjeG7HtHDLuKRDjgthC6mxKybnJVgtfRgAdAsOBtgFkyqlMZnmkEGANE0wHA4wHPadzyFDliWI4+hF+YDs4GraCHj7YLEoMJsuMJnMMJlMMZ3OMR7PsFjkUJVyN0m2jUHLPqjzK2pbAB0IVhA549hNLLWvoqlH5qxlqzCxjVlro23GGJvRWFnGqJRbV9oBBPAGNgCgKBRAVlr0MptAJaSomZDReNIPPjO6fYnxL5JeFUBfa74oRPi/MVeslLljfX0vTZOI+v0Ux4+voNdLgBa2ydxWrdr74Az0m6lgXTUM2L/v5oa8ICAICPB5JQQLQ9bgr920EqRlszCgiWCYkaQJ3nDPKQwGfRcyL25qm7QZ2Rg7885cdGutLo2nGI+nWCwKaJfsZIw1pD0ytd9maJkL8OZybSwTAFeP2CMLvl6v3eXVHMcUnj/Yho8pzVCVQqUMKucX0kpDG+68s/bv84X4hKD6nicTq/5plWI4TJFI2aoz3FVRGzUXIOJXvef6q8Igzz67Mr333t1vSSnOaG3u0Nr82M7udPXCt68hCKRFatrNQfdRJ33qkHPaGlXnU9w954XIf4dwVUvAAmwkjGSwm7esXWKNdu99J0FIpMA995zEG+4+ieGwjyg6XGJ4uyHPCyzmORaL3HZmWuTIXQjHYlEgXxR1QYNFboMnYaz4smO85UH3lkBdXrIFqdbHmv3eiPYndVQbd49aG6sW+eJ7yrh9gDLaFYGzEs8YO+gBdjk5hMBVKklczbQ4DhEEASaTBba3x8hzjTxXICxgGOhrg34vqX1kdeVKdqWKtAHA5fcsg7hQlNGnPvX7Z42hSEpa3dubvn02y+N+33p9V1cHjarVnvVrhMsZa/VAb+un/hzU59zMoD98u9lJ5Jr5BASbuutnQnceuXsha9DHgcRw2MP9953GnaeO2+PMruK86ayryjLHaDR1ORBj64MYzTCbza0jjtEMfpeGSABIinrgcz3DosUgjehowjraTrtmRq6fGKOGda3dZqA0o1KMqjJ1Nf2q8lKi8X77WltB4DoXS4tQhZFEEklkvQjDYYbhMHMptRG2tsYQgrG7O8d0WmE2L+ti44G02YjSJauRoHocMEMzc2GM+N5kEE9Sbl3R+tRfAOoeZiTG6B9+7rkbgtkgTe9BliV1Cc6aDkBQ3ZCS1ol2gLdYyu/n+vDNVKz2VzQMYWFgaQcRMwIjnX0iwbAz7PJyH6dPH0e/n9VoUFXZMO/ReILJyEW3jqeYzebWblDadezVtWEriGwfQDQzaG04wM/0DaLUVaNQSwmgYZAannXSRZDLUzRNFXy7uCZESsOnohhnZFi+2a8uAWEokCYBkiSoq2vGSYw0bQIhg1Baj38YIJABjh+3yVbPPXcD16/vYjIpUZYak8kCWhmsrPaxtJTVzVmbyr/MRKT5O0l8eZn0qjLIww8/rH7t175waTh87vPGcM8YXhuPZ0evX9+JsyzB6dNHsbzU73xmPxi1X206KBEaBtsP694MBmiH0dfSh111dEFg19XXd0XzkkobRr+f4fixVaRpgqpSGI0mWF/fws7OCPP5Aou5VadsxGuJqqrq2zhM1SGg7u3eSIA2c/iBv0+CtFAnkI2HYtO0qvMedasa+aZD7JAmU//tDWo/QQSB6//oCgOGoUAQCESRRBQFiKMAcWyrk8RxZHPNXThM7RFnhjYW5h0OM5w8uYogENjYGGE0ylEUBlNTgIigtYFt89cJ5TFEKPl2Vq97kfSqR939/u9/sADwlY9//DPLzPoNWuu/vbMzOan18wjDAHEUupYKNzdsD7c52ue1jjvDvnW0vtaBCenAda1eHbAApNe1UYMEUQj0sgRLSwNEkcRoNMPly9dw/plL2NzcOXDPQMsA9V+xHzYFalvBntcY4c14aRxzHjywsz014ITxqJhBabs61dJCa9NBlvxaup4j3pYIQ4EoEohjgTgOEMeWKTwDSClrpMwXu/B1d402touxkBBCtZyjEqurtopMGBKI9rC7W6CqNMaTOfKiqoGNQApn60Ebg5Loe1zFalMU6W9UFX3WGBMrpVdHo3l86dI6sTa4596TiOOgNYAZXQnQlQYeQbl1qEl33dguXnIcjniRiwYO4TMQJRiEKLLQbhgG0Jox2pvg4rPPY29v3LJrmt/cMZjdnq4PopEOtWrl99Mh9gSslFDOzqkUQ7t+jcoZ2oa5VpmamKz6K2spEYbOhgiF3ZY2n0TIpp6xzzpkBoyr7s7CgMhlbxoDwxKSCMb1ohRCQwgBIyWEMS7g0T67EyeOIAxDpOkIN254473C+voeirzCYJBafw4zWyfh9yjMexg9/PA/vvGrv/pvzg4G4l4iyLKsfnxzc7cPZkqyGEfXlpD14gOfuyUadYsT9jPHi70GkZtZA4Jh2wgojiIkaQQiYDKZY3tnD7u7I5Rlt5VzY1hz0/9wn2PMYbCNDeK/1KmMNkvXzvyajbMVnBNO27Ki2kkHpbnjg/B2g5UKNsTGM4eUnklsLeHAqVA+LL7bssIHQGoLjRtjjwsBwS4XRWsYl8ZLvkOXENbOEsK2oZACQpKrydt3kouc8V4gzyvs8QxlpVAWCkRkjDGK6PuIQQDgD//wH09//df/3f/NXGgi3DmbFfcw7yVBGIAAnEqONDPlC6BRbarRpjb+dYhUOKCG1dQO52ghPAAIbHPdXVqLzTIMwcwY7Y2xuzOCUr4COjqDXXhItgXBtiVBFxZuwa6wPgitvJRwi1OZtL65beUL7nvGCAJCGMLZEb7ySMt0Ec0+4wpIGEO1CuWrldj7NTBEljGMqXPbiayaJYVw1/OMZvcZISCMXWygZoiVlaHNeoxsbNt8rpAXlUu1te+CfFmYV5leVm3e20mPPfank3e/+0MlEY2M4ePG8B15XpINJpRIkrDug1ijKociUIcP/v3Hb6aGNfvauv5h5OpaCYEkiWqv+ZUrN3D1+XXMZnMwuNN+TpAbLNSUw7FV7/1Ma/9mQzbFVxkUpUa+UJjPK8wXFRYLO2CKQjnmaIxqwDKYlIQoIiSxQJoSeplAryeR9QTS1NoSUWSZwzf7qQvu7//N3O045X97G1aHR/3Y22WtZ+whWsNO8rljpq3qNYWYhBQIwwBJEsIYVftf6ksxSiHovz366Oe/9SKG1W2j76oE8RSG6TOAnhtT3KG17k+ni3vWb+xGgghhJLG81LOOxBdBrwYSaNUt327azpg2DGRmmaPlyAM7pKkOymXAUGMToGFWo2EHvtGoXF689VTbc7wm5gtbWyOXWiqUXby6JCVBdoqQUH0L7T/3k/f3dAWTN+y5kYREIBZg4ToGt363V8GMIJARENI4qSHQNuyNMRBuX69nAxmZFYJAYDTKkecaSnEIYMUYfscnP/nZi8ZUT0bR5u7DDz/8iqtcrwkGca1/L3z843/yH5lVJQT+4d5oerxSCmmWgEBYWem/wBX4UAnh168Ez1jD3c7+xpi6mIE91mKQlufa34s2tqKjV5e8P8LOrK1f5WZrPxhtWR6nJrUMaiktg7AvNkTU9IA/9Oa7G/v5x353I40FeewXcE2hUe8SBmS6zFGrxQBgCCQY0hAMmUZdE55BRM0gftI5enTJed8JW1tzaG0EgCFAv6C1Okok/yjP078B8Ipnp3/XVaw2vf/9f29PqXIOcGyMGTDzWp5bgzdN43pAvtDgp5tNi7eZ7IyXIkkiGMO4fOka9vbGLb2baulSVhqLXGG+qKx+nVtVqSi76pJ2La0sIwjEsUSWhej1QgwHIYaDCP1BgF5PIk0DxIlAFArIwDOJaOwKuonqhJbPpX0OdU/tRvq2Ocf+11G8uKv6ssNmfZi6TSPwqpdH3psJzbCpVS+Gt5usr8WeY7iqDDFTBmANwF1AlL33vR/cOnv2CxPsk3W3k15TDHLmzH8o3vnOnx9LyQURrRpj7lgsioiZRRQFzh7x2YjfFZutJikFev0MQRCgLCtcv7qByXjaMWZJECplkOfa2hC5Ql5oqMqGg1uVxc6atkSPRBwHSJMAaRYic0u/
+H6DXC5BlAZLYnheENrxDiEZC1U5EvPBEQfu5od5/s3MOnlwLlBYq2LFP3GbHBnRFvtvwfc0osIziYWghyPVu0TDGsFJGM7Ng5gGAewGKtJble97zofJ97/vg/MyZL5Q3f1svn15TDAIAX/3qny7e8Y6ffi6KKGSmPoA7qkqnk+kC/V6KNI1etD3ySpIQEr1eCiLCYp5jc2MH8/nCxkw55iAilIXGYqFRlhaF8iNGBtb5lmUhBoMIS0sJVldTrK1lWFlOMBxG6PVCJIllCC89AbSciHTAq14jY/5UHKL+tMZ742Nx6mDrnPr63iapP9FCANsRz/uApjp27hCgrQFdGi3Ah/t7rz9gi1aEodBRRLkxpipLY5gpIcJpIfjNzBQKIXf/4i9emRZt3/2Rdgh97Wtf1A899OGZlHJqDJ/QWg+U0pnRVkHv9ZIXTHF9NUgIK0HAjNl8gZ2dEfJF4TrQNlKkrJqMupWVAe699wSWl1MsLSVYWkowGMTo92P0shBJGiKOXdX0oHHMidqWaatG+wYztepP+XNxCDOgeDw5oAAAIABJREFUyzRtyI7aS2ujzURt1ayB4LtW/2Fh7/V3kI0FK4oce3t7uHHjOi5duoSnnnoajz/+LTz++Lfw3HOXUBQ5BoOhRxVNEMgqisSUCLmNBOCUWSwDvMKMpfe85yPxu971c3tnz/7Z7Da+5tcmgwDAo49+fved7/zINSmxBmBZa3N0Ni+kYaZBP0MQSsjvoiQRQqDfS2EMYzqZYzye1FXJfXs4IQTKUqMorBF+6tRRPPDAG7G8nGIwiJCmAdI0tLFMoUTQKubW6P6twQ4/KFuSwDNL8yFLh9gfHVa4hYqFtu3RNlTcwf22SX1fN7kmG4Mid+nBoxE2NtZx5cplXLhwAU8+eQ7f/OZf4+tf/yv81V/9Fa5ds8JgeXkZRBJCSBNFQZWmwTgMaa61sk20NKcA3QHwCWZaItLbDz30Szvvf/8DxZkzZ26LDv6aZRAA+MpX/mzxX//rX15iFgD4DczoV5WOZrMcSRwiS2PcrAjaK01egiilbdTuZA5VKQhJHQ90WWpbobHSOH3nMfx3P3wvlpeGCMMQRZ47X0C7gsc+p2LbiHZM0WhaXW98e6mljns+be98vemX+nu61n39Z+cQtZjhoJTy1JbubAyKosBTTz+NL3/5P+PRR8/iL//yq3j88cdx/vx5XL16Fdvb25jP52Bm5PkC29s7uHbtGtI0Q5qmOoqiQggqw1CoJAmVECiM0aXWiJkxAPgEgPu1NgkweO7s2c/dll6GrwmY92bkvKeXPvnJz5w1hlaN4Q8vFsWbt7fHSZpGRAQcObKMMPzu8LkQBMMGRV7V+d+0b/B2JnVXEjSKQwhJUKrC3mgP89kC2sWZCxIWBSLUejvBBvGbVilO0Rx2YeyH3B+8+m+PszMn6vj/20rU+r8h/3UkRB3guLm5gY2NjZteSSmNjY115PkCURRjPB7hLW95K9bWltHrZRzHgRkOI0PERohKLBZ6UFU4wox3EGmtFMKPf/wP/qKqFn/zr/7V//odqVyvaQni6ezZz11773v/7nPM5iSANa3N0mKeC6U0DYc91+noVeupAgAudLuPsqiwvb2DMi9dq+iut7wqtfV+K42jR5dw+q5jSBObi5/EMbTLPzfGBqoeZlR3bY32LN8ysrFvhq8lyEHp0vpgR0QdECKN6GrOoQMfO/xeXbgN3P35ypBJHGN3bxe7u7s2U/IFqCgKXL58CePxmHu9TKdpnKdpWhIRhWHAUSR0GPLMGGOqihMAKcCniOitABZxnO3+1E/9vemZM/+heNnv+eV+8NWmn/qpX8gBc50ZJTPu11qnSnOQFyXCMMRgkMG5rV8VklJgOOgjL0psbe5CKVs8oR4kLq4pL6zfo1Qax46u4A13n7BRskK43IkIUkoURdFBb7rGdYsZ0DBFXTOrY2xT57yDI7o+rXOoVrG6nz54Tutb6n8tw73NFPuXIAgx6A+wsrKCLMuwtbWFPL916/PJZELr6+uyqkoVRZEaDAbKf6etFENKSlooxdIYxAD6AN1lDN+pdVm+//0f3j5z5vMvS5K8bhjkzJn/qM6e/dy1Bx/8oCaiJWYeKqWXy7IiKQQlcYjgNpQCfbEkpcBg0MdikWNza9fmP4AaiNdFs+aFwiKvUFUax46t4O67jzsGIQgpEYa2M5MxtoeGUho1xNqRHm4QClEzCICWrXG4tDh8aZina2x3n93NbDvax2iHnHCAUQC45jwx+v0BkiQBs60RvFjM61wbT0EQot/vY2lpGUtLS5ymqT5+/Pj82LFj+XA4VEIIw8wkBJGUpKSEImI2hoUxCAEcA2gV4JgZ5sEHP7j46Ef/weiRRx55Sbrla9oGOYyOHz/69dFoa1yWpLU2w+k0P/L81c1QKYX7778Tg8HN+7TfbvLBeFppAFTHW7XVIfK1eDyRhT6VMWClEAQBBoO+nQmlhNIaZVlCQ9dxXEwMwQCzADHDCNEJY/bjkUk4vwLVEZvk4r3cHcPCrAIQ3LRxs4eai3WuDFBHX7rZ02gkzs2flw30zLIM9913P44cOYIs6+HrX/86tra2oFQJIeyksbq6huPHT+DYseNYW1tTJ06cGJ84cWy8vLw0IyKqqoqEENoYQwAoSSSHIe0GQZlPJnolz3moFJ8E8IvMuJNZ3PX1r2//nwCeu/kdHqTXjQTx9KUvPaLe+96fWVSVmAlBihlvUMpkWhthjEEQ2HpbrzQJIZBlKebzHLu7ewDc7E5oInkF2T7fixLKSZB77jmBILTpqF6dsqEloc3FFgJlWTUh9n7WR3eeb6tFTcxXG7VqSSEX/lIv5CsrAgcHdhuhaqleBzS0m6hYravU2wckoY0eSOIEg8EAR48eQZomuPfee/G2tz2AH/uxH8MDDzyA++9/M06dOo2jR49Vq6sr014vmwWBLN2z6aSoEzETAUIIDgJUADQzkzHIjMGQCMeIxPEHH/xQ9dhjn3/uxb7n1x2DAMCZM18sPvCBX3xeKVMA5pgx3CvLarkolX3wSVSrMa8UCUFI0wSLRYG9vTEAdJhDOKg3X1RYLEqrYh1fwRvecAJhENQglQ+v9+WPwjCsK6EYrVtc0Ta8vcHcRs3QqGbuH8N2x1os5phMJtjd3cX29jZGeyNI18JZiIMwOR3YOEi3UrOa2z78IkS2FcXS8jLWVleRZRnuvvsNeNP9b8Jb3vIW3HnnaaytraHXGyJJkipJorGUYg5wZTMMiYmIHZewLQ1EJASbMJSVEKzYHhWeQZj5TgD04IMfVO95z8/PT5xI8nPnzr2gyvW6ZBDA2iQ/8iM/PY6i6HkiswLQ/WWpRKW00MYgS22vvVeKiATiOEKe5xiPLeTuPeh+1iYStjPTwja0PHbU2iAykG0Ut45HsjV8bfEDZoM8zzv5Hu1ZuPaVtP0QPi8DNsW2LEuM9vZw9erzOH/+GXzrW9/EN77xdVy4cAHD4QBZliFJbDsKX5LUS579478rLVoSpcWgbRuoYeT2NfafY7ejKMLa2hEcWTuC4XCIMArB7Puoa2jNJRFPiTBnNqV7XszMbIzxmy7MiwGAgkDoMKSCCAutOVCKUyHEEKC7ieg+rfX1kyfv3bmV8f66ZRAAuPvufjEYPDAKw0JrbQKAj2vNPaW0Q03sIH4lSAhCFIUoigKT6bwzeJqIWssg87ltb3zs2DLuvssa6YcxCIAaEvVBiD7f3FNH03EjzjhH3Nb2Fq5du4Zvf/vbOHfuCTz++Dfx19/8azz55DlcuHAely5dxo0b17Gzs4PpdAIigeFwgNB1I/aX9CKldkK2/r+ZVOmqaIcc72x0FDDXT9EGogpXq5i5KTphjKmEwIQICyGoco/OADDGcohhZu3X2uLHCmAFmEoIUkSkteaUGX2AlomwojX13v/+nx2/7W0/Pfna1754KOb8ujPS2/TII49o4JGtf/SPfvtLw+HKgkivFkX19u3tyaoxhpjZ9uqLw5t0tnr5xAzbu9Clm3I7n7yt7tSQEerQbmNMXfytTRbJkgijEIPBAEKIumRP5ewSH/nahIsDi8UCGxvrOH/
++GVy5cgVXr17F889fwbVr1256/5ubG8jzAlEU4N5778PKyoplkvr6VBvVh+kgtwJCDvDBIYzTlVR84JzWV7Ad/LbjdGvnoWsiglIKRLYYhRCmlJIWxoCUwlBrPsqMnwdwsqpMOBiIM5/+9O9dePjhj4733+PrWoJ4+tCHHiqB3gwQW8wYEOGNRVlJrWx1j8S1Jrud3mNrNwQoS4X5Iq+Zo7MIwmJRYT4vUFYKR48uWxVL3uSxsyu2ANR+EiLLiEVZHoo0ERGee+4ivva1v8SXv/xlPPHEE9jc3MB0OnWXvPlvnk4n2NjYRJqmGAwG6PV6INFF3azTjw/8Nn8bB02klqOypYe1TCh0DrcVuNYxY2xGZVUZMJtCCBoLQTnRS6/wTkQsJaswxAwAay1CBwWvMvObjEHGHBRnz37+2/s/+z3BIGfOnOFf+7X/eba9rbdt/rOJjeZlrU2vLFXduCaKbqefhBAEsi4nCvI2iI+rsum4i0WJ2axhkLvuOm4rNrYTjFw8lmGfL2FbngkXnkEEVFXlOs5yq9KIHVxVVUFrhb3dXeyN9rCzswOt9S1zZsqyxGQyQZ7nNfwaxTGiMOzaEG1bojW4a4QLDSLWtTWajx6mgnmGqgVJi2F8QW+bl25KKXlMRMXLYRAAEIKMEFAAabuGAJACWANoCcDSQw99KH7wwQ/PH3vs83v+c98TDAIAjzzyCJ8586eTn/zJn90CeALglNZmrSiqUClNACHN4pu2P36p5KHKqlI2ireGVOEMdCsFZrOiZpAjR5Zx993H9nWNalJb7ZprRgCo7jLFzLYiugvPaM/kg0EfR48cRRzHUEphc3MTylWDvxVprbG+vo6qqtDvD7C8vIz+YND6nR3+aAZ8+3/av6e90f18V6q0PrNPJ/PtqJUyAEwhBI8AURDhZRePIyKEIaowxMLNTaQ1JQAdB3AnQMekNNP3ve9/2Hzb236t/NrX/nf9PcMgnv7+3//IfGsrGAUB7QHIANxblkpWlQYbr26F+E7VLR/qoZRtXFN70VtqhhAC83mB6TR3nvQl3HXXsXrA+yy8TtZdnb7qmcSiW3EcQSnbYk07b3u7B3kQBFhaXq6djtvbW5jP5y/699hYqQDHjh3D0vJyp4zPAdXKSw0cIi0OUa88M7T9JY1k8X6e7jGlbBE513w0lxLbQqAE8B0XaiACBwFKIVASsdEaCTN6zFgDcFpruRpF80vvf/+PjL/nGORzn/uc+cpX/mzvJ3/y5zeFMGyMTo3hQVWpflXpukLgd9qhlhzUqrVGWSkQnGolGuYgIsxmOabTBapKYzBIsbIycIXZqMUkTdpdg2h5SWKczyCoPfeVKuvQDAv3esdlhl4vQ7/fh9YGRZFjNOrWNUizDKsrqzh+/AROnz6NN77xPrz1rT+EN73pzTh16hRO3XkKw+GwZpB9lga8OtUxqW9hjNvndfPnaH+XqesEK6Vdx6wKxrARAlMpaRuAosMDl18SWenOKgigLCpGhogkQEOAjgFmAGBG1Nv7nmMQT4899qeTH//xn9mVUmwT0V1am1N5XgltDIFtVqKULz+XxBvlSmsorWsVq2YSF6w4n5eYzgpUpa7br9nehBZA3C893F9NQQPT7A9ca4CyLKBU5Qq0yRoxA4AkSbG2toaBU5MuX74EZkYYhuj1+rjjxB14431vxFvf+la84x3vwDvf+WP4iZ/4CTzwwAN44733YnllGVIGrdn+cI871X/c2hjvqGhdoBqAV6d8Zypb0KIsFYwtMV9aAx0734l61Xl3VmoJKQXiWKokCYowDFiIIDOGE2NMCnCiNS69rmHeW1FRvPGalFceY1Z9IWikDf+dvb1Zj40tSn3k6BKWhtnLujaj6UEuiMDCv3zXEpkAgkCvl2B1ZYCiUNjdneHChesIAgnmVQyHvXrwWCYg+K5WjflAUMr6BIIgQBjGGA6HUEpjPp9DaQUppEWfmCEBpEmCN77xPgRBiOWlZZRVhSRJLOP0+85BmCDNMqSp7d3h1b79i/2ltjKi88F1VMHGNdmmriEOWFSKnW2lDddG+P4+7sxwTXkMmI2WkraFwC7w8pjDNHWUGACEECKKIrmyspL0+/2k3+9ng8EwY6Z0Z2cqH3/8OXHlyraLCeXXtx/kVuQqyV/+2Mc++yXYEs7LRVH+8N6I17xRKEggy6KXpG455BPGVQZs6+ftWRQEpGmE5eUe5vMCo9EcW1sjXLoUgZnrsBhfEJqoW8bI77N2uXHfTciyDItFjqqqUBQFwIyAmnYBUkqsLK8giiKsLC9DG40kSbCysorAQcztVm4eSfNjybI5OklWzKLFNG4iaLFGtxRT25by6iLbnijGlzgyLUaopaTrTkJaCFRCYCEl7xBhSi+j9KiUkuI4lkmSyCAIgjiOgzRNg16vFy4vLydBEKSwdmoym03FbLZtqiqHjWAhJYT83jPSD6PHHvvc6L3v/bk9Zt4EzJ3MfGeeV6S1IWaDLEteVqUUY1DPfHXKbA3BWpjX2zthGMAwYz7PMR7PUVUK/X5qS/gEtpNVd2ABaFUFsbOsbSQaBF49M5jNZjDaZiL6YEfUjCLQ6/UwcGEl3qhnbrlUPLd3DG2/tOK+4MMXW2qXl36wjGxqyWBDRMpS2WDNvEKelyh9tyqt4SJEWs49ZiGoFIIWQmAiBHakxKYQNANIvVhV2E1WJIQQSZIEa2tryfHjx5dOnTq1cvLkyWN33XXXsbvuuuvIysrKEoDezs5O9Dd/8zfysccexX/5L2f0YkEySYYzgC4y8//3PS1B2iTl0tWyvHFGyrDPzLtamw+MxrOB9xccOTLE8nK/lg63otp/wahRGMAOlCaY0BrRIhRYXu75D2JnZ4Lt7TGefPIy7rvvDtxxxyriyEX4umu4U9GWHG2GlDJAlmUYDAaYTCaYzafIqIcwDJ26BIACSBkcVJ2MaUkGtkzNBOMTdMnVsCKgAQ+M7YjrVCArAXTT9tmt2xKhUZ3sT3eAgwa4IuIS4EoIKgCURFQRoSKCYoYmotKjVvsN88PUpjiO5dLSUjwYDJJer5cMh8O41+tFvV4vkFKGeZ6H169fD8+fPy83NzfFlStXcOPGDWxsbGBzcxN7e3umqgy//e1HsbR0hwFQCCHU9w2DPPzwL5UAnv/Up/7k/9HalMbo43levUUpvcKw1Z3CUNo+eS82LMXN8uQGmFfbakday0OcJBGWlu35ttDDHNeubSNNI4ShxJG1IcLQdnu1haO7XNr1k2hXL8omFRVFgUW+QFHkYGbEcWwBA6cK2ThXK/EIqPNJrErXSC3BvtA0nBbFdbNSLx08cyilWr0XrVRwcVP2LtliUxYhsnFTRNBEXMEa3guACiLOheBCCBTM5KtZ081geCKiNE1FEAQiCAIZBIFMkiTo9/vh0tJSmqZpJoTohWGYGGPC3d1dmk6n2NzcxIULF3D+/HmcP38e586dw+XLlzvXPnnyNCul3HDQlTFCf98wiKd//s//l4uf/OQfGK1lKQT/j1rrnxmNZoExBmVZ4a7TxzAYpLe8TuMYFBDgusls4xjglmJidZc0jRDIoY3fkgJbW2NcvLiOPC/xwz98N4bDrIVutY1fB6026giqym7HcYJ+vw+lFMbjMaqqslHBYeTaOsMlW7n6vUyOEZynjNqwsrU1bKyYK56ttW3oqaoWE3ibpV253fc3JzCzIUIBUE7EOYBcCCyIUBBRCcAwMxMxAzBExMb4BqFdiGuftKA0TeXq6mq6srKSLS8v93u9Xm84HMbD4TAQQojxeEzPP/+8+Na3vkVPPfUUnT9/HhcuXMDGxgbyPEdRFCjL8kCqbxhGLKVkZ8cxIIwQgr/vGAQANjfDaysrOAtUKTMWWuv3TKeLo8yAFBJHjgywstJ/YY9729FlN5pDDh4FtSSLg4BFEmJtbQgiAa0MJtMFtrYmeOaZa7jrrqM4cWK5Ba02tgh5yxle6fLhKOTSWK0kqaoKk8kEg34fYRRBCNmRFOCm21S7jXO7G69HmDzK1Gw3Kp4NNWcNoCJC6cI4KilFxQzFzBVgKoAqABXAyqlQ2j0javNCw7DUUZv6/X7U6/
+WiJEmSwWAQ+r+FEGFVVdHOzk586dKlYG9vjzY2NnD9+nWsr6/jxo0buH79er1W6oUjVGyn3ppBDMAls/n+UbHa9Md//CsVgMuf/OQffRHAtlJYUcq8fTyer2ithVLK9eR74TKntYEruhpBjYi10a2WX2HQz0AkUFUahhnj8QLPPbeBIBDIshhZFtU+j449xO2vsbO+1ha1yrIMRVFgNBphPp+5vvOEKGqF1jgPfWMfePtBtxry6JpJnDOSjdEuvJzh1CUmIm1tBLEAOCcyCyLkzFwwU8VsjDFtdKt5bIc9yjiOSQghpJQkhBBpmgb9fj9aXV1NsyzrhWHYT9M0DcMw1FrTdDrFxsYGzp8/j6eeegpPPfUUzp07h2efffZFjYHD3qUQ0iViMTOjFEJ+/6lYbXrmmS/feOtb3/cYYJTW9HcB/MJ8Xg7XN0airBTuPHUEq6svIElqRxo5A5vBdf+MLvTrh4VwdkovS3DqlOugxcBkOsfly1soS4U3vekkhsPMMRp3vxCo99V2BdkZcDAYWM9+WWE6nUJVCsPhkjXUARfbZJGkg36IRpo0MBYbIighZCEE5wAKIrFgRgFwCUAza8NsDLN0axjAqkyAaKtILUco6jQBWLUpWF5eTpaXl7OlpaV0MBj0+v1+lGVZIKWUk8lEXL58WX7zm98Uzz77LJ0/fx5XrlzB9evXsVgssFgsMJ/PX1JozYFX2Yp+sAHVpI0x358qlieXT7Lx8Y//wVeIZGyMSQB+cD7PTxljgiCw0OzSMDu0OF1LOHg/MtipXF0PdMMg/jMyEMhkgqNHl8EMaGOQ5yXW1/eQpjHuuMNgdbVxJHapmZUbXwNcR64EvV4Pk8kY88UCACEMYwgXqtJGmxo/BAwA5aNdiUTFDM0sKos0oWTmitlUQoiCCCUAZSWNYMcIpDXDJzvVKJ5rksPMLKUUzi8RpmkaJkkSZlkW9fv9MMuyOAzD2BgTT6fTZHNzM5jNZrSzs4MbN27g+eefx/PPP4/Lly/j8uXLuHr1aof5bgdZdZRARMb+bv7+liCefvu3/8n2xz722T8XIrpuTBUYw+9aLMqj167tyLKsSN51FL1ecoBJ2sF7Dczb3o96P/tiCmB49ZuIsLY2QBhKlFWFra0xZrMczz67DmOM7QEShwcciXbb3kPbl2BDSmxZnaLIMZvNsLu3hzhOEUUJgiB0CA0xkWAhGERkHLKUE3HOjJwICyFkDnBhYVd2raPtQAdqyBZCCHK2A4IgqAet20/eL8HMFMdxOBwOo+Xl5d5wOMyiKOr3+/00DMOQmWkymWB9fZ2eeuopPPPMM3jyySfxxBNP4OLFi7edGfaTSy1gV/SCmanU2vyAQTz9i3/xy+Pf+I0/OheG9FmlcImZ/6eyrI7u7s5CpTSOH1/G0aNLiEJ50GsuRAfFanIcqFaKfOuC2u3m0S4Qer0E97zhBMJQ4sqVbRRFhevXd8FscPfdxzAcJk4NstfazxRNTSmuHYn9/gAAYTKZoCxzaK1NlvWqKIpyKQM/+AtmlESoAKOZYZjtmgjaqkxth56sAyi909EPXItEGS9BKI5jORgMksFgkA4Gg7TX62WDwaBWm6bTqbx69Wrw+OOPyytXrtDFixdx9epVbG1tYTQaYTKZYDweYzwev+LM4YmaF2sAVEIEP2CQhoh/53ewC+DLn/jEZ5lZHzGGf3yxKO4pyyom9/SWljIkia2G6FWI2g8CNBpVyw8CoK443cC+qJkkkgHCsI+ytIF66+t7mEysTyNJIjAPkaYhfOSrZ4RuzBRqFIiIOEmSOle9KAooVeqqklUYinkQBOMgCOYACoAr2Dgndj4MaG3IbkuHdlm/i9a61tN9v/MwDEkIIaMokkEQBFLKIEmSoNfrhUmSpGEYJgDSqqrSjY2NoCgK2tvbw/r6Oi5fvoxvf/vbuHjxIi5cuIArV668Wi/7ANmsQ8kuJo0BKECZHzDIIXTixOmvbGxcvwZUv8xsPqKUPr2+MYpns5xOnVzF2toA/UEG0fKW74d5awO+ZpyW2uX3gWGd8RaeWl7ug5kxnebY25tiMslx8eIGiqLC6dMrNbK1DwjyWo/fNkKQCcOQ0zRlYxRNJoQ8z3WeL5SUVERRMBcimAshlJcQ/qKHMYG3I4IgALO9+TAMyRhDURQFPugvy7JeFEW9Xq+XxHEcMTONRiNcu3aNnnrqKXryySfx9NNP49y5c7h06ZKNI3uNkCscYZxKyMysAPoBgxxGH/3oB4tPf/qzV5jlI8bwpjHmI6z1m4tCrV2/sYuiqLC2prC6OnApsY1UsKEizlAXtWXSwLywaFJRVFgsCiwWJfKiRJ5X9b7pdOGNZ0ynBTY3xzb6+MgAWRbC2hDknG1kvOfa2hMua5fBFv7tQSktjTFUVVVQFHnPMQWnaboIgqCqo5JdRK9XldxAgc2elCSllFmWpUmSxHEcp71eL06SJErTNCCicD6fB9euXQufeOIJee3aNXH16lVcu3YNm5ub2NnZwfb2NnZ3d7Gzs/OaYg5L1p6ygAMbIi6V+oGRflN6+OFfmQP46qc+9Zltq1/jPUVR/fdFUa1obUKbCkpYWel2vGLyMClsC2cXuaq0gXHxS0Vh89in0wVm89IxSoGiUC6XHABQAlQVRRnt7nJgDJMQwgjRM3EcuqhXXwKLnW8CpuVwq/v8pWkKZpaz2UxqrdM8z4WU0jhJwUSkPTNIKSGlJGaWSZJIIYQkIhlFURDHcZhlWSqESJk5U0qle3t74caGLRKxvr6Oixcv4tvf/jaefvppXLhw4UA4x2uVnB8EHlMgEpWU9AMGuRU9/fR/fva++z78b4HZs0S8B9D75rPyWFWNaL4okZcKd55aQxpHkNJnhNh6vfN5geksx2xmmWE+L1yVRVX7ICzmzuwkBjvIVQO8xcwjIlqtKr28uztPgkBURFSdODHQQSC8PcI+DMUb620jGgDiONbOiA4Xi4VUSsWz2WzFGCMAIEmSeRAECtZOpSAIgiRJkl6vl4Vh2AuCIEvTNInjOBRC0O7urrh69So988wz5B11zz77LK5fv17bPFVl04NfL2SlZMBCCLY2Hhmlvs/9IC+GnK9k+9Of/pP/VhRKMfOOZvMQl+aHJhMOxA1CmRcYDP7/9u4lNs7rugP4/9x7v/f3zTcvzlCUVAUFmrh1CyQoksJFWyDd9AEU7aJyt63RwI0FGEiQ2FG8oLlRIkhoECBx4BQwkC66cJYu0EVrAzZaNF3UdmpFD5IWRVGiyOGbM5yZ73VPF99Qpm3VVSRaD+r+gFkS38yAB3fuOeee68Oy1OiMevlK0qzSlYKHAAALxUlEQVS8GyTLkSTlhPcsK7uHy+F2GDJjnQirzFgtg0J0pNRrgFgvK9RoFYV+ghm/v7k5cIQQ0rJEXqk4cN1yAuGtinEfzfwIIdj3/ZyIRL/fl1mWOcPhMBRCwPM8OwxD9jzPsm3bdl3XtizLIiJ7OBxay8vL9urqqlpfXxeLi4s3WzmWl5fR6XSwtLR021cZPKBYSgXXDYWUigBoIp04jno0W03uxNTUV64BuPbNb/5gXinqag07SbJDKyub4fr6tqrEASxLIU3KSYrlAOpybQAoE4J2U6opQCkR+gA2iOgqwFcAnpNSXs5zeek73/nKtb3PPnny5b9h1vWdncFjWuuo/HlVzYUA/18HvfZWrYEyQGzbLo9elUP1hNba11rbvu/7URQJ27YdAH6WZWo4HN782bTbxnHx4kW8++67WF1d/TS+4nuFy5ljNluWDaVs2LaNVmsC9Xpb2bYryiIpEqLMBMgvY3KSxc7O2UtKVf4py7L3mcVfAvTbWqPZ6w7LPYgupyd+sOEVOwBWAFwGcJUZ88w8D+hFpZxlZh4KkSZpSgmRTrKsPzx+/LgsV66SlPzvWSYyIfjv0jR/YmWl69q2HAhBaaXikBBlv4rWu2dR9nb+0ofSwEqpwvd91lor27Zlo9FQx44d85iZFhYWxOzsrNjtgL1y5QpWVlbQ7/cxGAwwHA4xGAxuZrUeUtr3/bzVmijGxiao2ZyQ1WpbhWFVeV6gHKfs5GYWnGWPaDfvnZqaIg1g5/
+jxV88fO7bckxJ9Ilxi5t9M06wNkA1wD6A1Imww0ybAa0RiVWt0AHSUKlaI5PL0dGvlpz99Mr2d53Y6dGVsTKZ5nk8wU5Ek2RfX1npOmXKtpL5vsZS7QfLhoPhogIzStuw4TlGpVITv+3JmZkZOT0/T22+/fXN06eLi4n2tS+wT7ft+EQQVDoIKhWFVhmGMIIhkHFcpDKsUhjUZBBUhpc2jVX2NmS8S6SUhssEn9HMbt+O55176nJTydwH9GwAHRUHLUuKy1mJO63z2zJkTS/v1rMnJV341y9I/K4riaYA+4/u2deRIbafR8HQQ2GDWe4rBH7c3aLTWaDabtmVZzhtvvCFee+01ev311/frrd5zRMRCSEgpWUqLlLLgeX5Rq9WzsbEJbjTGqdE4bEVRVTiOT0JQxoycynMrGYAeQMsAZgD6L6Xkv0gZXzcryF3yPLkwGCT/KqXzn0RaMVNSFNZOkoj+YIB9vdT+xo1sod3mt5iFp7X+qzTNP3/9+npYFPFgYqKSWJYQ2D0oe4sVZNfeVDBR2Y7S7Xb3863ea8zMRb1ez5vNCd1otEW9Pq7CsCpd1xeO48GybOE4PqRUKPvR0CHiK0S4BNC01rgK0CKArTzPN5Ok3vne945nJkDu0qhecud91r+EH//46ewb3zgzbdthxkx1rQvR7+vH1tZ6jhDEzaaX27bkck/y8Y36rTDzqBXljkbe3g9sWZb2vIB9P2TPC4XvRxQEMVUqsajXm4iiuoii+milEJqINgDe0JrXiGhVa70K0DUiLDDzFcC+fPjwxMKzz/7px6qXJkAeMqN7v8+dPPmj17Tmgghj3e6wnWWFb9uyG8duoRTLUYiMOn8/vHHftTcl/ABvuss+mFEFz3FcrlSq+djYeD4+fhTN5mGrWm3LIKhIKRWVnQW0e+Q3ZeYdZp5mxgUiPicE/8/WFmbHxprr5ZyCDwq7t2IC5CHV7w/fc12LmCnSGn+YJPmvX7++GSRJOGy1/FQICIBvtqIDt1xRWGv9oBb1GICuVOK8VmtyrdZGtdqUYViXYRgp1/WU6wZwHFc6jgchFIjQA+gaM88BNMfM81LSNa15lQgbAG0UBTZeeumZjQ8e88nbcBMgD6nvf/9rm089dfqdVqtmA7mT5zra2kpaROTYNukwtLVllRPQbrVy7N2b5Hl+31cQIUg7jsuO47Hr+uQ4HnlegDhuoFZrcr3eomp1jHy/SpZlCyIMmNEFeJuZu6MA6DDrOSI1ozVmtM5nT59+5q6SJCZAHmKvvPJ8F8C/nTz5cqh14QD8R91uMpbnBR09Gg/i2M53f6F89G/3tsl/4nCKe4Mdxyna7UNZq3VYt9tHZRy3rEqlIZVybKUUl+fFBaSUGbPOmcU15uISEZ0n0r9Qii5q7S4pRd3BoFN4XisDFu96Y2UC5ADI8/xngEyF0L7W+kv9fnZkebnrpKlHjYaXAlrsnu7bNVoxSEp5rwOEXdfN47hWxHGD47ihoqgmgqAqgyAiz/MRBJFwHF+UR0mQlW03eh6gBQBXASwARYfIWrasYi1JnJVDhwYrzz771L63CJsAOQDOnDmxNDn56lvD4fph5kIRIdjaSkNm2I4jC8cRXDbo6puRsPcc+6cYIKyUxbZts2U5sG2HbNtBHNe50Wjper3F9fo4R1Edvh+JsoWfEgA7APpE6DHzBpG+DuACM81YFl98663H3nvzzS/fk7SbCZADYmrqyd7zz7/8KkADZkRFob/Q62W1xcUeWi03iSI731sj2VMHIQAf26fsE12tVvNDh47mY2MTqNcnVBw3LccJLMtyrN3W+vK+domi0NtC8FVmnGPWF6R0fpGm6bwQat119XBzc5AmCSdvvvnlfbkG4XaYADlATp9+eutb3/rhzwDlMmvO8+LzOztcXV8vx/AEgSrK6Yrlxn0/g0IpUYRhXERRlcMwpjCsCt+PRBRVZRRVKAhi8v2KdN1AjKaH7ABYZqZFIl7SulgCxA1mLAF6UWta0lpeP3PmxMq+vck7+Vz38+HG/vvud0/Mnjr1k43t7V6bmdw811/Y2kotZliWJbRl4eb5kbsIEFZKsZQWpBSklI0oinWj0Sra7UO60TgkarU2+X6NlLJGNRlKyhenAPrMWGbmaSHonNbiQp5b586e/dv5+58v+DATIAfQO+/88+ZnP/sn/6h1ssqMSp7rz/R6mS8lcRxbme8LvXuP/B3gSiXKx8bG82bzENdqLRHHbeX7kXQcT1qWw0opUsqm0dmKAcCrAGaIcB6gGYBmmfmGZYme1tQbDvuDwcDfedCCAzABciCNDnktfPvbP/oPZn2Ymf44z/Xj3W6uyutDrKxcSf7f/0jteS4HQaXw/ZA8LyTfr4goiqlarYs4riMMa+R5sbRtm4hEDmALoDVmXgF4DUAHwA0h6KoQfAXAQr3euPr1rz85+JS/hn1hAuQAO3Xqq+deeOHvN/LccYpCV4fD7CgRFJHQcazyveWR0WAGBgi7m2bf97labeTt9uGs3T5M9fq4iKKmbVmuFEIIIpETISeiITMygDe1xhyRvgiIn0uJ80lCs2fPPtO5j1/DXTEBcsCtrASddlu8mmVpD8BfJ0k+sbUFVwgaJglTFDHSNGEpRdFut/Jara0bjXFUKg0VBFXp+6Fl265yHI8sy96tTWBUyZ4D6DKznmamOWZxTSlay3NsAdjKc2zNz9d69/ULuEsmQA640ST7/37hhX+wtM6P5rn+Pebsc9vbpDqdLdI610qF4siRX0O7XaBWa1K12qIgqJPr+lJKm5k5ZeZtItpk5k1m3mDGipQ0x8xzWmNGyuT9U6e+duN+f979ZgLkEZEkznu2jR8AxVBrPd7tJuHs7HVaWrKLIJjA4483BZFyiIQu52uRJqIBs97NOF0C9LmiED+3LLpkWX8wPTX1+G2diHyYPYB5A+PT8txzpyMhqk8A+s8B/gvLEhNKCaRpOb9rNIxuGcA1Ip4nknNFgesAL0tJK4BYy3Na9bx0c2rqxEP90+l2mQB5xExO/jDMMvk7RVE8A9BvARyMinbbKDNQV4jwvhBiRil9IY4b7z8sGadPgwmQR9CpUz9pbG/3vshMXwL4V4QQ0wDOA2K2KNJtIeoDx9nMgE764osvZnQHd5QfFCZAHkGTk5Mqy440tM6OAKgJYXXSNF86e/arD2061jAMwzAMwzAMwzAMwzAMwzAMwzAMwzAMwzAMwzAMwzAMwzAMwzAMwzAMwzAMwzAMwzAMwzAMwzAMw3hE/S+6dEbJMbwnJwAAAABJRU5ErkJggg==&quot; alt=&quot;usb&quot; /&gt;&lt;/p&gt;
 
 &lt;/div&gt;
 &lt;div style=&quot;text-align:justify&quot;&gt;
@@ -28,7 +376,7 @@
 
   &lt;p&gt;Fent memòria vaig recordar que vaig instal·lar Jessie des de llapis de memòria USB, cosa que m’havia deixat la següent línia a &lt;em&gt;fstab&lt;/em&gt;:&lt;/p&gt;
 
-  &lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;/dev/sdb1       /media/usb1        auto       rw,user,noauto      &lt;span class=&quot;m&quot;&gt;0&lt;/span&gt; 0&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+  &lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;/dev/sdb1       /media/usb1        auto       rw,user,noauto      0 0&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
   &lt;p&gt;En principi, i donades les regles udev, no cal aquesta entrada en aquest fitxer. La solució, doncs, ha estat tan simple com comentar-la (també pot eliminar-se, però així em serveix de recordatori per si torna a passar en una altra instal·lació):&lt;/p&gt;
 
@@ -118,13 +466,13 @@
 
   &lt;p&gt;&lt;em&gt;Fcitx&lt;/em&gt;, per contra, &lt;a href=&quot;https://fcitx-im.org/wiki/FAQ#Emacs&quot; target=&quot;_blank&quot;&gt;crida Emacs passant-li una variable d’entorn LC_CTYPE assignada a xinès simplificat&lt;/a&gt; amb la comanda:&lt;/p&gt;
 
-  &lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span class=&quot;nv&quot;&gt;$ LC_CTYPE&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;zh_CN.UTF-8 emacs&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+  &lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span class=&quot;gp&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;LC_CTYPE&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;zh_CN.UTF-8 emacs&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
   &lt;p&gt;Aquesta comanda no canvia el &lt;em&gt;locale&lt;/em&gt; del sistema i activa &lt;em&gt;fcitx&lt;/em&gt; per a &lt;em&gt;Emacs&lt;/em&gt;. Cal, però, &lt;a href=&quot;https://wiki.debian.org/Locale&quot; target=&quot;_blank&quot;&gt;haver definit abans el locale&lt;/a&gt; que es passa amb la variable d’entorn LC_CTYPE (en aquest cas &lt;code&gt;zh_CN.UTF-8&lt;/code&gt;). La manera més senzilla en un sistema debian és emprant la comanda &lt;code&gt;# dpkg-reconfigure locales&lt;/code&gt; (com a &lt;em&gt;root&lt;/em&gt;)&lt;/p&gt;
 
   &lt;p&gt;Ara bé, això no arregla el problema dels accents ni el de la tecla &lt;em&gt;compose&lt;/em&gt;. La &lt;a href=&quot;https://xmleye.wordpress.com/2009/12/13/entrada-de-acentos-y-japones-en-emacsgtkkde-en-ubuntu-9-10-karmic-koala/&quot; target=&quot;_blank&quot;&gt;solució, referida a uim&lt;/a&gt;, ens la dóna Antonio García-Domínguez, de la Universitat de Cadis: consisteix en cridar &lt;em&gt;Emacs&lt;/em&gt; buidant-li la variable d’entorn XMODIFIERS a través de la comanda&lt;/p&gt;
 
-  &lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span class=&quot;nv&quot;&gt;$ XMODIFIERS&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;@im&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;none emacs&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+  &lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span class=&quot;gp&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;XMODIFIERS&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;@im&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;none emacs&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
   &lt;p&gt;Cridar així &lt;em&gt;Emacs&lt;/em&gt; ens restablirà els accents i la tecla &lt;em&gt;compose&lt;/em&gt;, però no ens comunicarà &lt;em&gt;Fcitx&lt;/em&gt; amb &lt;em&gt;Emacs&lt;/em&gt;, raó per la qual no hi podrem emprar l’IME.&lt;/p&gt;
 
@@ -132,7 +480,7 @@
 
   &lt;p&gt;La solució és cridar &lt;em&gt;Emacs&lt;/em&gt; passant-li el valor de les dues variables alhora. Això ho podem fer amb la instrucció següent:&lt;/p&gt;
 
-  &lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span class=&quot;nv&quot;&gt;$ LC_CTYPE&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;zh_CN.UTF-8 emacs &lt;span class=&quot;p&quot;&gt;|&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;XMODIFIERS&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;@im&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;none&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+  &lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span class=&quot;gp&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;LC_CTYPE&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;zh_CN.UTF-8 emacs | &lt;span class=&quot;nv&quot;&gt;XMODIFIERS&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;@im&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;none&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
   &lt;p&gt;I ara sí, ja tindrem l’&lt;em&gt;Emacs&lt;/em&gt; amb &lt;em&gt;fcitx&lt;/em&gt; de forma totalment funcional i hi podrem usar aquest IME a més a més dels que aquest editor ja porta incorporats. Només quedarien per fer uns petits detalls:&lt;/p&gt;
 
@@ -154,507 +502,6 @@
         <category>emacs</category>
         
         <category>FCITX</category>
-        
-        
-        <category>howto</category>
-        
-      </item>
-    
-      <item>
-        <title>Els meus problemes amb els IME</title>
-        <description>&lt;div style=&quot;text-align:center&quot;&gt;
-
-  &lt;p&gt;&lt;img src=&quot;https://fcitx-im.org/images/1/19/Fcitx-pinyin.png&quot; alt=&quot;Fcitx&quot; /&gt;&lt;/p&gt;
-
-&lt;/div&gt;
-&lt;div style=&quot;text-align:justify&quot;&gt;
-
-  &lt;p&gt;En la migració de Debian Squeeze a Wheezy he trobat un darrer entrebanc: el mètode d’entrada per a caràcters xinesos. Fins ara havia emprat &lt;strong&gt;SCIM&lt;/strong&gt; i n’estava força content, però el projecte semblava ja interromput  quan vaig actualitzar a Squeeze i ara sembla ja &lt;a href=&quot;http://www.scim-im.org/&quot; target=&quot;_blank&quot;&gt;totalment abandonat&lt;/a&gt;, de fet estava en projecte fer-ne una nova generació d’SCIM anomenada &lt;a href=&quot;http://code.google.com/p/scim2/&quot; target=&quot;_blank&quot;&gt;SCIM2&lt;/a&gt;, que va ser abandonada al seu torn quan alhora va començar el projecte &lt;em&gt;IBus&lt;/em&gt;. A més a més, ja no existeix el &lt;a href=&quot;http://packages.debian.org/search?keywords=scim&amp;amp;searchon=names&amp;amp;suite=stable&amp;amp;section=all&quot; target=&quot;_blank&quot;&gt;paquet corresponent al mètode d’entrada per pinyin en els repositoris de Wheezy&lt;/a&gt;.&lt;/p&gt;
-
-  &lt;!-- more --&gt;
-
-  &lt;p&gt;S’imposa, doncs, la migració a un altre mètode d’entrada (cosa que ja &lt;a href=&quot;/article/2011/02/10/perque_no_ibus.html&quot; target=&quot;_blank&quot;&gt;havia intentat el 2011 amb l’ibus&lt;/a&gt;, però que vaig descartar perquè no admetia la introducció de caràcters accentuats).  En aquesta migració he provat tres IME, dels quals n’he hagut de descartar dos:&lt;/p&gt;
-
-  &lt;h3 id=&quot;uim&quot;&gt;UIM&lt;/h3&gt;
-
-  &lt;p&gt;Ha estat el primer que he instal·lat i he intentat fer funcionar. No he estat capaç d’arrencar cap mètode d’entrada pinyin per al xinès simplificat. Sembla ser que funciona força bé amb el japonès, però com que no en sé, no he instal·lat cap mètode d’entrada per al japonès. Després de molt googlejar i de força intents frustrants, he desinstal·lat i purgat tot els paquets que havia introduït al meu sistema.&lt;/p&gt;
-
-  &lt;h3 id=&quot;ibus&quot;&gt;IBUS&lt;/h3&gt;
-
-  &lt;p&gt;A continuació, he donat una segona oportunitat a aquest IME que havia descartat dos anys abans. Continua tenint errors importants i inexplicables: ara ja permet caràcters accentuats, però no pas en totes les aplicacions. És especialment greu la seva &lt;a href=&quot;http://forums.debian.net/viewtopic.php?t=76716&quot; target=&quot;_blank&quot;&gt;incompatibilitat amb Libreoffice&lt;/a&gt;,  amb aquesta aplicació és possible emprar el mètode d’entrada per al xinès, però no pas els caràcters accentuats (però si que permet introduir la &lt;code&gt;ç&lt;/code&gt;, la &lt;code&gt;ŀ&lt;/code&gt; i la &lt;code&gt;ñ&lt;/code&gt;). és més, desactiva la tecla &lt;em&gt;Compose&lt;/em&gt; (que tinc assignada a &lt;em&gt;Win esquerra&lt;/em&gt;). Sembla funcionar bé, en canvi, amb altres aplicacions &lt;em&gt;KDE&lt;/em&gt; (com ara &lt;em&gt;KWrite&lt;/em&gt;).&lt;/p&gt;
-
-  &lt;p&gt;&lt;a href=&quot;https://duckduckgo.com/?q=ibus+libreoffice&amp;amp;t=debian&quot; target=&quot;_blank&quot;&gt;Aquestes disfuncions es documenten almenys des de 2010 fins a l’actualitat&lt;/a&gt; i amb diferents distribucions Linux (Debian, Ubuntu, Arch, OpenSuse, Fedora, etc) sense que estiguin encara resoltes del tot &lt;a href=&quot;https://bugs.launchpad.net/ubuntu/+source/ibus/+bug/1007423&quot; target=&quot;_blank&quot;&gt;ni sembli clara la voluntat de resoldre-les&lt;/a&gt;.&lt;/p&gt;
-
-  &lt;p&gt;L’única manera d’escriure caràcters accentuats amb Libreoffice és desactivar l’&lt;strong&gt;ibus&lt;/strong&gt; (tancar-lo) i iniciar-lo abans d’escriure en xinès (ara bé, en alguna pàgina web s’adverteix que l’ibus provoca tancaments sobtats i  de les aplicacions de Libreoffice al cap d’una estona de treballar-hi; no he comprovat, però).&lt;/p&gt;
-
-  &lt;h3 id=&quot;fcitx&quot;&gt;FCITX&lt;/h3&gt;
-
-  &lt;p&gt;Ha estat el tercer IME que he provat i amb el que m’he quedat. La instal·lació és senzilla i ràpida a partir dels paquets dels repositoris Debian i ha funcionat des del primer moment amb totes les aplicacions on l’he provat (incloent-hi Libreoffice).&lt;/p&gt;
-
-  &lt;p&gt;El seu punt més fort és que les diferents opcions que ofereix es presenten en un tipus de lletra clar i gros, clarament llegibles (a diferència d’&lt;em&gt;ibus&lt;/em&gt; i &lt;em&gt;scim&lt;/em&gt;), cosa que és d’agrair a partir de certes edats.&lt;/p&gt;
-
-  &lt;p&gt;El seu punt més feble és que les diferents &lt;em&gt;hotkeys&lt;/em&gt; es basen en la distribució del teclat americà (&lt;em&gt;us keyboard&lt;/em&gt;), de manera que les tecles que s’assignen per defecte per visionar diferents conjunts d’opcions (cinc per defecte, però la xifra és configurable), no corresponen a les que trobem impreses sobre el teclat català. Així, doncs, per defecte s’utilitza «=» per a mostrar les opcions següents i «-» per mostrar-ne les anteriors, però en el nostre teclat, aquestes opcions se situen a les tecles «¿¡»  i «?’» respectivament (també podem configurar aquestes opcions).&lt;/p&gt;
-
-  &lt;h3 id=&quot;addenda&quot;&gt;Addenda&lt;/h3&gt;
-
-  &lt;p&gt;Un cop acabada la tria del nou IME, he ensopegat amb dues pàgines que poden ajudar qui es trobi en una situació anàloga a la que he descrit. La primera &lt;a href=&quot;http://www.verious.com/article/linux-input-method-framework-brief-summary/&quot; target=&quot;_blank&quot;&gt;analitza diferents IME per a Linux&lt;/a&gt; a data 15 de gener de 2011. La segona és, de fet, la resposta a la pregunta &lt;em&gt;&lt;a href=&quot;http://chakra-project.org/bbs/viewtopic.php?id=10365&quot; target=&quot;_blank&quot;&gt;What’s your favourite user input method?&lt;/a&gt;&lt;/em&gt;  que es va fer dins del fòrum de Chakra per triar quin seria l’IME “oficial” d’aquesta distribució, aquesta pregunta es va fer el 5 de maig de 2013 i les respostes (poques) arriben fins al 7 de gener de 2014; aquesta pàgina ens pot ajudar a triar l’IME més adient per a la llengua en què vulguem escriure, en resum seria:&lt;/p&gt;
-
-  &lt;ul&gt;
-    &lt;li&gt;&lt;a href=&quot;https://fcitx-im.org/wiki/Fcitx&quot; target=&quot;_blank&quot;&gt;FCITX&lt;/a&gt; seria el millor IME per a &lt;strong&gt;xinès simplificat&lt;/strong&gt;, però no gaire adequat per a japonès.&lt;/li&gt;
-    &lt;li&gt;&lt;a href=&quot;https://code.google.com/p/gcin/&quot; target=&quot;_blank&quot;&gt;GCIN&lt;/a&gt; seria el millor IME per a &lt;strong&gt;xinès tradicional&lt;/strong&gt; (si més no, el més emprat per a aquesta finalitat)&lt;/li&gt;
-    &lt;li&gt;&lt;a href=&quot;https://code.google.com/p/ibus/&quot;&gt;IBUS&lt;/a&gt; seria l’IME més emprat per a &lt;strong&gt;japonès&lt;/strong&gt; i el que més suport presenta per a les &lt;strong&gt;llengües de l’Índia&lt;/strong&gt;&lt;/li&gt;
-    &lt;li&gt;&lt;a href=&quot;https://code.google.com/p/uim/&quot; target=&quot;_blank&quot;&gt;UIM&lt;/a&gt; és un IME adequat per a &lt;strong&gt;japonès&lt;/strong&gt;&lt;/li&gt;
-    &lt;li&gt;Per al &lt;strong&gt;Coreà&lt;/strong&gt;, hom aconsella &lt;em&gt;FCTIX&lt;/em&gt; en comptes d’&lt;em&gt;IBUS&lt;/em&gt;&lt;/li&gt;
-  &lt;/ul&gt;
-
-&lt;/div&gt;
-</description>
-        <pubDate>Thu, 23 Jan 2014 00:00:00 +0100</pubDate>
-        <link>http://peremig.github.io/articles/2014/01/23/problemes_ime.html</link>
-        <guid isPermaLink="true">http://peremig.github.io/articles/2014/01/23/problemes_ime.html</guid>
-        
-        <category>ime</category>
-        
-        <category>SCIM</category>
-        
-        <category>UIM</category>
-        
-        <category>IBUS</category>
-        
-        <category>FCITX</category>
-        
-        
-        <category>articles</category>
-        
-      </item>
-    
-      <item>
-        <title>De debian squeeze a wheezy (2)</title>
-        <description>&lt;div style=&quot;text-align:center&quot;&gt;
-
-  &lt;p&gt;&lt;img src=&quot;/images/mute_icon.png&quot; alt=&quot;Mute&quot; /&gt;&lt;/p&gt;
-
-&lt;/div&gt;
-&lt;div style=&quot;text-align:justify&quot;&gt;
-
-  &lt;p&gt;Comentava en l’entrada anterior com en la migració d’squeeze a wheezy m’havien fallat el sistema gràfic i el so. En el post anterior mostrava com s’havia solucionat la fallada del servidor gràfic. En aquest es mostrarà com s’ha arreglat el sistema d’àudio.&lt;/p&gt;
-
-  &lt;!-- more --&gt;
-
-  &lt;p&gt;El xip d’àudio que utilitza el maquinari és un SiS SI7012 integrat en la placa base, no havia mostrat mai símptomes de mal funcionament en cap de les versions anteriors de Debian emprades (la primera amb aquest maquinari va ser &lt;em&gt;Sarge&lt;/em&gt;, Debian 3.0), però havia mostrat un comportament una mica erràtic sota &lt;em&gt;Ubuntu 6.06 LTS&lt;/em&gt; (que es va solucionar migrant a Debian Sarge).&lt;/p&gt;
-
-  &lt;p&gt;En acabar la instal·lació de Wheezy (es va optar per fer una instal·lació neta del sistema en comptes d’una actualització des d’Squeeze), sobtava que el sistema estava mut. La icona del mesclador de so &lt;em&gt;kmix&lt;/em&gt; apareixia amb el símbol d’altaveu mut i era impossible activar el so a través dels controladors dels mesclador.&lt;/p&gt;
-
-  &lt;p&gt;Una revisió de la instal·lació amb les comandes &lt;code&gt;aplay -l&lt;/code&gt;, &lt;code&gt;aplay -L&lt;/code&gt;, &lt;code&gt;lspci&lt;/code&gt; i &lt;code&gt;cat /proc/asound/modules&lt;/code&gt; semblava indicar que tot era correcte, però no hi havia so. En arrencar l’&lt;em&gt;alsamixer&lt;/em&gt;, es mostrava com a sistema de so per defecte &lt;em&gt;pulseaudio&lt;/em&gt;.&lt;/p&gt;
-
-  &lt;p&gt;Una recerca a &lt;a href=&quot;https://encrypted.google.com/search?hl=en&amp;amp;q=debian%20wheezy%20%22SiS%20SI7012%22&quot; target=&quot;_blank&quot;&gt;Google&lt;/a&gt;, em va fer veure que aquest problema ja havia aparegut amb Squeeze i afectava també el xip &lt;em&gt;SiS AC’97&lt;/em&gt;. Les &lt;a href=&quot;https://www.debian-fr.org/pas-de-son-avec-squeeze-t37367.html&quot; target=&quot;_blank&quot;&gt;diferents solucions que hom hi aportava&lt;/a&gt; no em van funcionar. Vaig recordar que l’&lt;em&gt;Asus Eeepc 710&lt;/em&gt; duu com a xip de so un AC’97 i que en fer-li la migració a Wheezy el passat estiu no n’havia experimentat cap problema. Així que vaig decidir revisar-li la instal·lació i configuració per mirar de treure’n l’entrellat.&lt;/p&gt;
-
-  &lt;p&gt;La sorpresa me la va donar l’&lt;em&gt;alsamixer&lt;/em&gt;, en l’Eeepc el sistema de so per defecte no era &lt;em&gt;pulseaudio&lt;/em&gt; (de fet ni tan sols hi apareixia). La raó era molt senzilla: &lt;em&gt;pulseaudio&lt;/em&gt; no estava instal·lat en l’Eeepc; així, doncs, la solució ha estat tan senzilla com desintal·lar &lt;em&gt;pulseaudio&lt;/em&gt; en l’ordinador de sobretaula (deixant-hi, però, els paquets &lt;code&gt;libpulse-mainloop-glib0&lt;/code&gt; i &lt;code&gt;libpulse0&lt;/code&gt;). Un cop reiniciat el sistema de so (o tota la màquina, si es prefereix) i ajustats els controladors del mesclador de so, s’ha acabat amb la mudesa de Wheezy.&lt;/p&gt;
-
-  &lt;p&gt;Queda per explicar per què la instal·lació de l’Eeepc no duia el sistema de so &lt;em&gt;pulseaudio&lt;/em&gt;. En aquesta màquina, i donada la seva poca capacitat de disc (4 GB), es va fer una instal·lació del sistema base que es va anar completant a mà (sense utilitzar les Tasques de Debian); en instal·lar el so, es va instal·lar el sistema de so &lt;em&gt;alsa&lt;/em&gt; de la manera més mínima possible, per la qual cosa es va obviar &lt;em&gt;pulseaudio&lt;/em&gt;.&lt;/p&gt;
-
-&lt;/div&gt;
-</description>
-        <pubDate>Thu, 02 Jan 2014 00:00:00 +0100</pubDate>
-        <link>http://peremig.github.io/howto/2014/01/02/de_squeeze_a_wheezy_2.html</link>
-        <guid isPermaLink="true">http://peremig.github.io/howto/2014/01/02/de_squeeze_a_wheezy_2.html</guid>
-        
-        <category>Debian</category>
-        
-        <category>Squeeze</category>
-        
-        <category>Wheezy</category>
-        
-        <category>audio</category>
-        
-        <category>AC&#39;97</category>
-        
-        
-        <category>howto</category>
-        
-      </item>
-    
-      <item>
-        <title>De debian squeeze a wheezy (1)</title>
-        <description>&lt;div style=&quot;text-align:center&quot;&gt;
-
-  &lt;p&gt;&lt;img src=&quot;https://i1.wp.com/kbase.vectorworks.net/images/nvidia-2.jpg&quot; alt=&quot;nVidia&quot; /&gt;&lt;/p&gt;
-
-&lt;/div&gt;
-&lt;div style=&quot;text-align:justify&quot;&gt;
-
-  &lt;p&gt;Aquestes vacances de Cap d’Any he estat migrant d’Squeeze a Wheezy (versió 7.3). Tot ha anat bé llevat de dues qüestions: la gràfica i el so. En aquest primer post tractaré de com he resolt el sistema gràfic (ja que va ser el primer que vaig resoldre).&lt;/p&gt;
-
-  &lt;!-- more --&gt;
-
-  &lt;p&gt;El sistema actualitzat és un pèl antic, es tracta d’un AMD 386, amb una gràfica amb xip &lt;em&gt;nvidia Geforce 6200LE&lt;/em&gt;, per la qual cosa, almenys en teoria, no hauria de tenir problemes amb les drivers lliures &lt;em&gt;nouveau&lt;/em&gt;. D’entrada, cal dir ja que en la versió Squeeze aquests drivers no havien funcionat, per la qual cosa vaig optar per baixar-ne els drivers propietaris de la web d’&lt;em&gt;nvidia&lt;/em&gt; i compilar-los. Tot i que sempre van funcionar correctament, la veritat és que el procediment era una mica pesat, ja que qualsevol actualització del kernel linux o del servidor gràfic &lt;em&gt;x.org&lt;/em&gt; m’obligava a recompilar-ne els drivers.&lt;/p&gt;
-
-  &lt;p&gt;En arrencar Wheezy amb els drivers nouveau, feia la impressió que estigués arrencant un Windows: el sistema arrencava lentament i el servidor gràfic anava força lent (a trompades); és més, al cap d’una estona i quan es començava a fer ús de la multitasca, feia la impressió que tot el sistema s’hagués penjat (el sistema gràfic es congelava i deixava de respondre a ratolí i a teclat).&lt;/p&gt;
-
-  &lt;p&gt;La solució passa per desintal·lar els drivers &lt;em&gt;nouveau&lt;/em&gt; i fer servir els drivers propietaris. Si intentem la via fàcil (desintal·lar i purgar el paquet &lt;em&gt;xserver-xorg-video-nouveau&lt;/em&gt; i instal·lar el paquet &lt;em&gt;xserver-xorg-video-nvidia&lt;/em&gt;), observarem que no només no funciona, sinó que ni tan sols arrenca el servidor gràfic. Arreglar-ho demana uns quants passos més:&lt;/p&gt;
-
-  &lt;ol&gt;
-    &lt;li&gt;Eliminar el fitxer &lt;em&gt;/usr/lib/xorg/modules/drivers/nouveau.so&lt;/em&gt;&lt;/li&gt;
-    &lt;li&gt;Obligar el servidor gràfic a emprar els drivers propietaris i, per tant, crear el fitxer &lt;em&gt;/etc/X11/xorg.conf&lt;/em&gt; amb almenys les línies següents:&lt;/li&gt;
-  &lt;/ol&gt;
-
-  &lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;Section &lt;span class=&quot;s2&quot;&gt;&amp;quot;Screen&amp;quot;&lt;/span&gt;
-	Identifier	&lt;span class=&quot;s2&quot;&gt;&amp;quot;Default screen&amp;quot;&lt;/span&gt;
-	Device		&lt;span class=&quot;s2&quot;&gt;&amp;quot;Default Video Card&amp;quot;&lt;/span&gt;
-	DefaultDepth	24
-EndSection
-
-Section &lt;span class=&quot;s2&quot;&gt;&amp;quot;Device&amp;quot;&lt;/span&gt;
-	Identifier	&lt;span class=&quot;s2&quot;&gt;&amp;quot;Default Video Card&amp;quot;&lt;/span&gt;
-	Driver		&lt;span class=&quot;s2&quot;&gt;&amp;quot;nvidia&amp;quot;&lt;/span&gt;
-EndSection&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-
-  &lt;p&gt;Reiniciem llavors el servidor gràfic (o tot el sistema, com ho preferim) i ja tindrem el sistema gràfic amb la potència i fiabilitat de GNU/Linux, amb l’avantatge (respecte de la compilació dels drivers), que qualsevol actualització que es faci del nucli Linux o de les &lt;em&gt;X&lt;/em&gt; ens  recompilarà els drivers de forma totalment automàtica. El desavantatge és que no disposarem dels darrers drivers publicats per &lt;em&gt;nvidia&lt;/em&gt;.&lt;/p&gt;
-
-&lt;/div&gt;
-</description>
-        <pubDate>Wed, 01 Jan 2014 00:00:00 +0100</pubDate>
-        <link>http://peremig.github.io/howto/2014/01/01/de_squeeze_a_wheezy_1.html</link>
-        <guid isPermaLink="true">http://peremig.github.io/howto/2014/01/01/de_squeeze_a_wheezy_1.html</guid>
-        
-        <category>Debian</category>
-        
-        <category>Squeeze</category>
-        
-        <category>Wheezy</category>
-        
-        <category>vídeo</category>
-        
-        <category>nvidia</category>
-        
-        
-        <category>howto</category>
-        
-      </item>
-    
-      <item>
-        <title>Corrector gramatical i d’estil en català</title>
-        <description>&lt;div style=&quot;text-align:center&quot;&gt;
-
-  &lt;p&gt;&lt;img src=&quot;https://i0.wp.com/www.softcatala.org/w/images/8/8c/LanguageTool-Icon.png&quot; alt=&quot;Language Tool&quot; /&gt;&lt;/p&gt;
-
-&lt;/div&gt;
-&lt;div style=&quot;text-align:justify&quot;&gt;
-
-  &lt;p&gt;En la seva web, &lt;a href=&quot;https://www.languagetool.org/ca/&quot; target=&quot;_blank&quot;&gt;Language Tool&lt;/a&gt; es defineix com a &lt;em&gt;eina de programari lliure per a la correcció gramatical i d’estil en català i &lt;a href=&quot;http://www.languagetool.org/languages/&quot; target=&quot;_blank&quot;&gt;en moltes altres llengües&lt;/a&gt;&lt;/em&gt; (a més del català, el castellà, l’anglès, el francès i, fins i tot, xinès). Les seves funcions van més enllà de les del corrector ortogràfic (de fet, aplica més de 1000 regles, tant gramaticals com estilístiques: concordança, apostrofació, majúscules i minúscules, puntuació, accentuació, lèxiques, etc.).&lt;/p&gt;
-
-  &lt;!-- more --&gt;
-
-  &lt;p&gt;Per funcionar requereix que estigui instal·lada la versió 7 o superior de &lt;em&gt;Java&lt;/em&gt;. Pot executar-se des de tres escenaris diferenciats:&lt;/p&gt;
-
-  &lt;ul&gt;
-    &lt;li&gt;com a &lt;em&gt;extensió del LibreOffice&lt;/em&gt;&lt;/li&gt;
-    &lt;li&gt;com a &lt;em&gt;aplicació independent&lt;/em&gt; (com si fos qualsevol altre programa d’ordinador)&lt;/li&gt;
-    &lt;li&gt;com a &lt;a href=&quot;https://addons.mozilla.org/firefox/addon/languagetoolfx/&quot; target=&quot;_blank&quot;&gt;extensió per a Firefox&lt;/a&gt; (ens servirà, per exemple, per revisar la correcció del nostre correu, aportacions a fòrums, etc.)&lt;/li&gt;
-  &lt;/ul&gt;
-
-  &lt;p&gt;Cal tenir en compte que, a l’igual que qualsevol altre corrector gramatical, els resultats que ofereix són sempre propostes de correcció i que la decisió última sempre ha d’estar en mans de la persona que està escrivint el text. Tot i això, aquest corrector serà de gran ajut a l’hora d’intentar aconseguir una producció més correcta dels textos propis alhora que obliga a reflexionar sobre qüestions lingüístiques per decidir si s’accepten o no els diferents suggeriments que fa sobre els escrits que es revisen.&lt;/p&gt;
-
-&lt;/div&gt;
-</description>
-        <pubDate>Wed, 09 Oct 2013 00:00:00 +0200</pubDate>
-        <link>http://peremig.github.io/articles/2013/10/09/corrector_gramatical_catala.html</link>
-        <guid isPermaLink="true">http://peremig.github.io/articles/2013/10/09/corrector_gramatical_catala.html</guid>
-        
-        <category>corrector</category>
-        
-        <category>gramàtica</category>
-        
-        
-        <category>articles</category>
-        
-      </item>
-    
-      <item>
-        <title>Com enviar els butlletins de notes per correu electrònic</title>
-        <description>&lt;div style=&quot;text-align:center&quot;&gt;
-
-  &lt;p&gt;&lt;img src=&quot;https://i1.wp.com/inlab.fib.upc.edu/sites/default/files/styles/galleryformatter_slide/public/saga1.png&quot; alt=&quot;SAGA&quot; /&gt;&lt;/p&gt;
-
-&lt;/div&gt;
-&lt;div style=&quot;text-align:justify&quot;&gt;
-
-  &lt;p&gt;El proper dissabte comença el descans de setmana santa. Abans, però, en la majoria de centres es lliuraran els butlletins de qualificacions que s’han imprès des de &lt;a href=&quot;http://educacio.gencat.cat/portal/page/portal/Educacio/PCentrePrivat/PCPInici/PCPGestioAdministrativa/PCPAccesSAGA&quot; target=&quot;_blank&quot;&gt;SAGA&lt;/a&gt;, un cop acabades les avaluacions del segon trimestre. Aquests butlletins són, en origen, un document PDF generat per aquell aplicatiu; aquest document duu ordenats tots els butlletins de qualificacions dels alumnes d’un grup classe a raó d’un butlletí per pàgina. Amb les retallades econòmiques i l’augment d’hores de dedicació al centre que patim els docents, cal pensar algun sistema que estalviï alhora diners i temps. Pel que fa als butlletins, enviar-los per e-mail (s’estalvien diners de paper, tinta i lloguer de fotocopiadora) i enviar-los de forma automatitzada (estalviem el temps d’ensobrat i de preparació dels butlletins.&lt;/p&gt;
-
-  &lt;!-- more --&gt;
-
-  &lt;p&gt;Els passos a seguir són:&lt;/p&gt;
-
-  &lt;ol&gt;
-    &lt;li&gt;Configuració del servidor de correu electrònic (només cal fer-ho el primer cop que enviem butlletins)&lt;/li&gt;
-    &lt;li&gt;Desmuntar el document generat per SAGA&lt;/li&gt;
-    &lt;li&gt;Enviar els butlletins a les famílies respectives&lt;/li&gt;
-  &lt;/ol&gt;
-
-  &lt;h3 id=&quot;configurar-el-servidor-de-correu&quot;&gt;Configurar el servidor de correu&lt;/h3&gt;
-
-  &lt;p&gt;Com a servidor de correu, empro Exim4 perquè s’instal·la per defecte a Debian i és fàcil de configurar amb l’ordre dpkg-reconfigure exim4-config. Podem seguir &lt;a href=&quot;http://www.elrincondetolgalen.com/2012/07/09/configurar-exim4-com-gmail-como-smarthost-en-debian/&quot; target=&quot;_blank&quot;&gt;aquest tutorial en castellà&lt;/a&gt;. Cal tenir en compte una petita modificació: per enviar correus des de l’adreça &lt;u&gt;usuari@xtec.cat&lt;/u&gt;, hem d’editar el fitxer &lt;code&gt;/etc/exim4/passwd.client&lt;/code&gt; amb les següents dades:&lt;/p&gt;
-
-  &lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span class=&quot;lineno&quot;&gt;1 &lt;/span&gt;gmail-smtp.l.google.com:usuari@xtec.cat:password
-&lt;span class=&quot;lineno&quot;&gt;2 &lt;/span&gt;*.google.com:usuari@xtec.cat:password
-&lt;span class=&quot;lineno&quot;&gt;3 &lt;/span&gt;smtp.gmail.com:usuari@xtec.cat:password&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-
-  &lt;h3 id=&quot;desmuntar-el-document-generat-per-saga&quot;&gt;Desmuntar el document generat per SAGA&lt;/h3&gt;
-
-  &lt;p&gt;El document generat per SAGA s’anomena &lt;strong&gt;informe.pdf&lt;/strong&gt;, per desmuntar-lo i crear un document PDF per a cada pàgina podem utilitzar &lt;em&gt;pdftk&lt;/em&gt;:&lt;/p&gt;
-
-  &lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;pdftk informe.pdf burst&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-
-  &lt;p&gt;Això és crearà un seguit de fitxers anomenats &lt;em&gt;pg__000X.pdf&lt;/em&gt;, on X és el número corresponent a la pàgina que ocupa en el document mare (&lt;em&gt;informe.pdf&lt;/em&gt;). Ara bé, quan passem de les nou pàgines, la numeració elimina un zero (els fitxer passen a ser &lt;em&gt;pg_00XX.pdf&lt;/em&gt;). Com que encara no tenim grups classe de més de 99 alumnes, la cosa no passa d’aquí; altrament tindríem fitxers &lt;em&gt;pg_0XXX.pdf&lt;/em&gt;. Es crearà també un fitxer de text que fa les funcions de fitxer de log, és irrellevant per als nostres propòsits, de manera que el podem esborrar.&lt;/p&gt;
-
-  &lt;p&gt;La manera com ens ha desmuntat el fitxer inicial pot complicar-nos la feina. Personalment, prefereixo un seguit de fitxers anomenat &lt;em&gt;pN.pdf&lt;/em&gt;, on N sigui el número de pàgina independentment dels dígits que el conformin. He optat, doncs, per reanomenar aquests fitxers amb l’ordre &lt;code&gt;mv&lt;/code&gt; inserida dins un script de bash (el dono al final d’aquest article).&lt;/p&gt;
-
-  &lt;h3 id=&quot;enviar-els-butlletins-a-les-famlies-respectives&quot;&gt;Enviar els butlletins a les famílies respectives&lt;/h3&gt;
-
-  &lt;p&gt;Aquest procés ha de ser automàtic. Altrament es converteix en un assumpte més tediós que donar-los en suport físic (paper). Per tant, s’ha de crear un nou script de bash que adjunti cada butlletí a un missatge de correu electrònic apropiat per al seu destinatari. La meva solució opta per servir-se de diferents utilitats:&lt;/p&gt;
-
-  &lt;ul&gt;
-    &lt;li&gt;un fitxer de text on es recullin les adreces de correu que rebran els butlletins (&lt;strong&gt;important&lt;/strong&gt;: el contingut s’ha d’elaborar a raó d’una adreça per línia i s’han d’ordenar en el mateix ordre que apareix el llistat dels alumnes del grup-classe a SAGA). L’he anomenat &lt;em&gt;adreces.txt&lt;/em&gt;&lt;/li&gt;
-    &lt;li&gt;un fitxer de text on es recull el text que conformarà el cos del missatge. L’he anomenat &lt;em&gt;mailtext.txt&lt;/em&gt;&lt;/li&gt;
-    &lt;li&gt;l’aplicació &lt;code&gt;read&lt;/code&gt;, que ens servirà per llegir el fitxer d’adreces línia a línia (això és, adreça a adreça)&lt;/li&gt;
-    &lt;li&gt;l’aplicació &lt;code&gt;uuencode&lt;/code&gt;, que ens codificarà el butlletí en format PDF de forma convenient per adjuntar al correu electrònic&lt;/li&gt;
-    &lt;li&gt;l’aplicació &lt;code&gt;mail&lt;/code&gt;, que ens enviarà el correu electrònic a l’adreça desitjada a través d’&lt;code&gt;exim4&lt;/code&gt;&lt;/li&gt;
-  &lt;/ul&gt;
-
-  &lt;p&gt;En aquest procés, l’ordre bàsica és:&lt;/p&gt;
-
-  &lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;cat mailtext.txt&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; uuencode ./butlletins/pN.pdf butlleti.pdf&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;|&lt;/span&gt; mail -s &lt;span class=&quot;s2&quot;&gt;&amp;quot;Butlletins de l&amp;#39;avaluació&amp;quot;&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$i&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-
-  &lt;h3 id=&quot;reunim-ho-en-un-script-de-bash&quot;&gt;Reunim-ho en un script de bash&lt;/h3&gt;
-
-  &lt;p&gt;He reunit tot plegat en un script de bash, el llistat del qual és el següent:&lt;/p&gt;
-
-  &lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span class=&quot;lineno&quot;&gt; 1 &lt;/span&gt;&lt;span class=&quot;c&quot;&gt;#! /bin/bash&lt;/span&gt;
-&lt;span class=&quot;lineno&quot;&gt; 2 &lt;/span&gt;&lt;span class=&quot;c&quot;&gt;# Primer pas: desmuntar el pdf amb pdftk fitxer.pdf burst&lt;/span&gt;
-&lt;span class=&quot;lineno&quot;&gt; 3 &lt;/span&gt; mkdir butlletins
-&lt;span class=&quot;lineno&quot;&gt; 4 &lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;Pas 1: Creant els butlletins...&amp;quot;&lt;/span&gt;
-&lt;span class=&quot;lineno&quot;&gt; 5 &lt;/span&gt; cp informe.pdf ./butlletins
-&lt;span class=&quot;lineno&quot;&gt; 6 &lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;cd &lt;/span&gt;butlletins
-&lt;span class=&quot;lineno&quot;&gt; 7 &lt;/span&gt; pdftk informe.pdf burst
-&lt;span class=&quot;lineno&quot;&gt; 8 &lt;/span&gt; rm informe.pdf
-&lt;span class=&quot;lineno&quot;&gt; 9 &lt;/span&gt; rm *.txt
-&lt;span class=&quot;lineno&quot;&gt;10 &lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;... pas 1 fet!&amp;quot;&lt;/span&gt;
-&lt;span class=&quot;lineno&quot;&gt;11 &lt;/span&gt;
-&lt;span class=&quot;lineno&quot;&gt;12 &lt;/span&gt;&lt;span class=&quot;c&quot;&gt;# Segon pas: reanomenar les pàgines de pg__000X.pdf a pX.pdf &lt;/span&gt;
-&lt;span class=&quot;lineno&quot;&gt;13 &lt;/span&gt;&lt;span class=&quot;c&quot;&gt;# i de pg__00XX.pdf a pXX.pdf amb mv&lt;/span&gt;
-&lt;span class=&quot;lineno&quot;&gt;14 &lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;Pas 2: Preparant-los per trametre...&amp;quot;&lt;/span&gt;
-&lt;span class=&quot;lineno&quot;&gt;15 &lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;cont&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;1
-&lt;span class=&quot;lineno&quot;&gt;16 &lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;nom&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot;p&amp;quot;&lt;/span&gt;
-&lt;span class=&quot;lineno&quot;&gt;17 &lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;ext&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot;.pdf&amp;quot;&lt;/span&gt;
-&lt;span class=&quot;lineno&quot;&gt;18 &lt;/span&gt; &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; i in &lt;span class=&quot;k&quot;&gt;$(&lt;/span&gt;ls *.pdf&lt;span class=&quot;k&quot;&gt;)&lt;/span&gt;
-&lt;span class=&quot;lineno&quot;&gt;19 &lt;/span&gt; &lt;span class=&quot;k&quot;&gt;do&lt;/span&gt;
-&lt;span class=&quot;lineno&quot;&gt;20 &lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;nounom&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$nom$cont$ext&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-&lt;span class=&quot;lineno&quot;&gt;21 &lt;/span&gt; mv &lt;span class=&quot;nv&quot;&gt;$i&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$nounom&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-&lt;span class=&quot;lineno&quot;&gt;22 &lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;cont&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;$((&lt;/span&gt;cont+1&lt;span class=&quot;k&quot;&gt;))&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-&lt;span class=&quot;lineno&quot;&gt;23 &lt;/span&gt; &lt;span class=&quot;k&quot;&gt;done&lt;/span&gt;
-&lt;span class=&quot;lineno&quot;&gt;24 &lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;cd&lt;/span&gt; ..
-&lt;span class=&quot;lineno&quot;&gt;25 &lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;... pas 2 fet!&amp;quot;&lt;/span&gt;
-&lt;span class=&quot;lineno&quot;&gt;26 &lt;/span&gt;
-&lt;span class=&quot;lineno&quot;&gt;27 &lt;/span&gt;&lt;span class=&quot;c&quot;&gt;# Tercer pas: enviar correus amb el butlletí a cada família&lt;/span&gt;
-&lt;span class=&quot;lineno&quot;&gt;28 &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;Pas 3: enviant butlletins...&amp;quot;&lt;/span&gt;
-&lt;span class=&quot;lineno&quot;&gt;29 &lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;j&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;1
-&lt;span class=&quot;lineno&quot;&gt;30 &lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;h&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;1
-&lt;span class=&quot;lineno&quot;&gt;31 &lt;/span&gt; &lt;span class=&quot;k&quot;&gt;while&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;read &lt;/span&gt;i
-&lt;span class=&quot;lineno&quot;&gt;32 &lt;/span&gt; &lt;span class=&quot;k&quot;&gt;do&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;echo&lt;/span&gt;  &lt;span class=&quot;s2&quot;&gt;&amp;quot;Enviant a &lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$i&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-&lt;span class=&quot;lineno&quot;&gt;33 &lt;/span&gt; &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;cat mailtext.txt&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; uuencode ./butlletins/p&lt;span class=&quot;si&quot;&gt;${&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;j&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;}&lt;/span&gt;.pdf butlleti.pdf&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;|&lt;/span&gt; mail -s &lt;span class=&quot;s2&quot;&gt;&amp;quot;Butlletins de l&amp;#39;avaluació&amp;quot;&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$i&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot;&lt;/span&gt;
-&lt;span class=&quot;lineno&quot;&gt;34 &lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;j&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;$((&lt;/span&gt;j+h&lt;span class=&quot;k&quot;&gt;))&lt;/span&gt;
-&lt;span class=&quot;lineno&quot;&gt;35 &lt;/span&gt; &lt;span class=&quot;k&quot;&gt;done&lt;/span&gt; &amp;lt; adreces.txt
-&lt;span class=&quot;lineno&quot;&gt;36 &lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;... tramesa feta. Pas 3 fet!&amp;quot;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-
-  &lt;p&gt;Si es vol utilitzar, n’hi ha prou amb copiar aquest codi i enganxar-ho en un fitxer de text (el meu s’anomena &lt;em&gt;butlletins.sh&lt;/em&gt;). En fer-ho, tinguem present que li haurem de donar permisos d’execució perquè funcioni.&lt;/p&gt;
-
-  &lt;p&gt;Requeriments sota Debian: per poder dur a terme aquesta tasca, cal tenir instal·lats els següents paquets (així com les seves dependències):&lt;/p&gt;
-
-  &lt;ul&gt;
-    &lt;li&gt;&lt;a href=&quot;http://packages.debian.org/stable/pdftk&quot; target=&quot;_blank&quot;&gt;pdftk&lt;/a&gt;&lt;/li&gt;
-    &lt;li&gt;&lt;a href=&quot;http://packages.debian.org/stable/coreutils&quot; target=&quot;_blank&quot;&gt;coreutils&lt;/a&gt; (ens ofereix l’aplicació &lt;strong&gt;&lt;em&gt;mv&lt;/em&gt;&lt;/strong&gt;)&lt;/li&gt;
-    &lt;li&gt;&lt;a href=&quot;http://packages.debian.org/stable/sharutils&quot; target=&quot;_blank&quot;&gt;sharutils&lt;/a&gt; (ens ofereix l’aplicació &lt;strong&gt;&lt;em&gt;uuencode&lt;/em&gt;&lt;/strong&gt;)&lt;/li&gt;
-  &lt;/ul&gt;
-
-&lt;/div&gt;
-</description>
-        <pubDate>Tue, 19 Mar 2013 00:00:00 +0100</pubDate>
-        <link>http://peremig.github.io/howto/2013/03/19/enviar-butlletins.html</link>
-        <guid isPermaLink="true">http://peremig.github.io/howto/2013/03/19/enviar-butlletins.html</guid>
-        
-        <category>PDF</category>
-        
-        <category>email</category>
-        
-        <category>docència</category>
-        
-        
-        <category>howto</category>
-        
-      </item>
-    
-      <item>
-        <title>Vídeo amb GNU/Linux</title>
-        <description>&lt;div style=&quot;text-align:center&quot;&gt;
-  &lt;p&gt;&lt;img src=&quot;https://i1.wp.com/www.pcactual.com/medio/2010/01/26/edita_videoen_linux_con_kdenlive_618x380.jpg&quot; alt=&quot;Vídeo amb Linux&quot; /&gt;&lt;/p&gt;
-&lt;/div&gt;
-
-&lt;div style=&quot;text-align:justify&quot;&gt;
-  &lt;p&gt;En el marc de l’edició del concurs &lt;a href=&quot;http://lletra.uoc.edu/viquilletra/Viquilletra&quot; target=&quot;_blank&quot;&gt;Viquilletra 2013&lt;/a&gt; (on han participat alumnes d’un grup de 4t d’ESO), vaig assistir a un seminari de vídeo impartit per un formador de la &lt;a href=&quot;http://www.xtec.cat/web/guest/home&quot; target=&quot;_blank&quot;&gt;XTEC&lt;/a&gt;. La sessió, de quatre hores de durada, va ser molt profitosa i interessant. Després d’una introducció teòrica que havia de durar una hora (i que es va allargar una mica més), es va passar a la part pràctica, on entre tots els assistents havíem de crear un vídeo a partir d’una obra literària catalana.&lt;/p&gt;
-
-  &lt;p&gt;Com que calia que cadascú portés el seu portàtil, ens hi vam trobar amb tres sistemes diferents: Windows, Mac i GNU/Linux (aquest darrer minoritari, només jo). Es va plantejar, doncs, el problema de les compatibilitats; el formador va recomanar el &lt;em&gt;Movie maker&lt;/em&gt; per a Windows i l’&lt;em&gt;iMovie&lt;/em&gt; per als que duien Mac. Pel que fa a GNU/Linux, va dir que &lt;em&gt;no hi ha un editor de vídeo satisfactori&lt;/em&gt; (sic). Quan li vaig exposar diferents alternatives, va reconèixer que li sonava &lt;em&gt;un tal Cinelerra molt complicat i Kdenlive&lt;/em&gt;, i que mai no havia utilitzat cap dels dos; per la qual cosa vaig deduir que la seva valoració sobre els editors de vídeo amb GNU/Linux partia d’apriorismes sense cap altres fonaments que el desconeixement i el prejudici.&lt;/p&gt;
-
-  &lt;!-- more --&gt;
-
-  &lt;p&gt;Personalment, conec força bé &lt;a href=&quot;http://www.kdenlive.org/&quot; target=&quot;_blank&quot;&gt;Kdenlive&lt;/a&gt; i no hi he trobat a faltar res que tinguin altres editors de vídeo d’altres plataformes. Però, a més, i a banda de &lt;a href=&quot;http://cinelerra.org/&quot; target=&quot;_blank&quot;&gt;Cinelerra&lt;/a&gt;, els usuaris de GNU/Linux disposem d’altres opcions com ara&lt;/p&gt;
-
-  &lt;ul&gt;
-    &lt;li&gt;&lt;a href=&quot;http://www.openmovieeditor.org/&quot; target=&quot;_blank&quot;&gt;Open movie editor&lt;/a&gt;,&lt;/li&gt;
-    &lt;li&gt;&lt;a href=&quot;http://www.openshotvideo.com/&quot; target=&quot;_blank&quot;&gt;Openshot video editor&lt;/a&gt;,&lt;/li&gt;
-    &lt;li&gt;&lt;a href=&quot;http://lives.sourceforge.net/&quot; target=&quot;_blank&quot;&gt;LiVES&lt;/a&gt;,&lt;/li&gt;
-    &lt;li&gt;&lt;a href=&quot;http://www.pitivi.org/&quot; target=&quot;_blank&quot;&gt;PiTiVi&lt;/a&gt;,&lt;/li&gt;
-    &lt;li&gt;&lt;a href=&quot;http://linuxstopmotion.org/&quot; target=&quot;_blank&quot;&gt;Stopmotion&lt;/a&gt;&lt;/li&gt;
-    &lt;li&gt;&lt;a href=&quot;http://www.blender.org/&quot; target=&quot;_blank&quot;&gt;Blender&lt;/a&gt;&lt;/li&gt;
-    &lt;li&gt;…&lt;/li&gt;
-  &lt;/ul&gt;
-
-  &lt;p&gt;Encara més, només amb el terminal podem treballar sobre vídeos amb &lt;a href=&quot;http://www.ffmpeg.org/&quot; target=&quot;_blank&quot;&gt;FFmpeg&lt;/a&gt; i &lt;a href=&quot;http://www.mplayerhq.hu/design7/news.html&quot; target=&quot;_blank&quot;&gt;Mencoder&lt;/a&gt; amb els quals, a banda de convertir entre diferents formats de vídeo, separar imatge de so, etc., també podem crear diversos efectes.&lt;/p&gt;
-
-  &lt;p&gt;Treballant amb edició de vídeo amb &lt;em&gt;Kdenlive&lt;/em&gt;, només un cop no vaig saber com crear un efecte: el de rebobinat de cinta de vídeo (encara ara no sé com fer-lo).  Ho vaig solucionar ràpidament amb &lt;em&gt;Openshot&lt;/em&gt;, on aquesta opció es troba ràpidament en el seu menú d’efectes.&lt;/p&gt;
-
-  &lt;p&gt;Per acabar, dues anècdotes. Una d’antiga, el 2006, quan començava amb això de GNU/Linux, vaig trobar-me editant un vídeo amb un programa propietari sota Windows (penso que era &lt;em&gt;Pinacle Studio 8&lt;/em&gt;); va ser impossible fer un clip de més de 15 minuts sense que el programa petés i, encara més impossible, crear un DVD de vídeo. Amb GNU/Linux no se m’ha presentat mai aquest problema i, amb &lt;a href=&quot;http://qdvdauthor.sourceforge.net/&quot; target=&quot;_blank&quot;&gt;‘Q’ dvdauthor&lt;/a&gt;, crear un DVD vídeo és una tasca força fàcil i visual (de fet, hi he creat algun DVD de 80 minuts de durada).&lt;/p&gt;
-
-  &lt;p&gt;La segona anècdota és més moderna i es va esdevenir en el seminari a què vaig assistir. Hi havia assistents que duien Windows i altres que duien Mac; cadascun va crear els seus clips de vídeo. Quan els vam voler ajuntar va aparèixer la incompatibilitat dels formats de vídeo propietari (&lt;em&gt;mov&lt;/em&gt; i &lt;em&gt;wmv&lt;/em&gt;). A més a més, cap dels programes amb què els havien creat permetia la conversió a un format comú. Cap? No, per sort hi havia algú (jo) que duia GNU/Linux i, amb una senzilla comanda de &lt;em&gt;Ffmpeg&lt;/em&gt; (aplicació que era desconeguda per al formador), es van convertir tots els vídeos a un format comú i es van poder deixar els clips llestos per al muntatge final. La comanda va ser: &lt;code&gt;ffmpeg -i FitxerEntrada FitxerSortida&lt;/code&gt;, on l’extensió del fitxer n’indica el format.&lt;/p&gt;
-
-&lt;/div&gt;
-</description>
-        <pubDate>Sun, 10 Mar 2013 00:00:00 +0100</pubDate>
-        <link>http://peremig.github.io/articles/2013/03/10/video-amb-linux.html</link>
-        <guid isPermaLink="true">http://peremig.github.io/articles/2013/03/10/video-amb-linux.html</guid>
-        
-        <category>vídeo</category>
-        
-        
-        <category>articles</category>
-        
-      </item>
-    
-      <item>
-        <title>Dictats autocorrectius amb GNU/Linux</title>
-        <description>&lt;div style=&quot;text-align:center&quot;&gt;
-  &lt;p&gt;&lt;img src=&quot;https://deixebledetux.files.wordpress.com/2013/03/dictat.jpg?w=221&amp;amp;h=160&quot; alt=&quot;Dictat&quot; /&gt;&lt;/p&gt;
-&lt;/div&gt;
-
-&lt;div style=&quot;text-align:justify&quot;&gt;
-
-  &lt;p&gt;Avui dia, el dictat és un procediment que té poc prestigi (potser és perquè durant el segle XX per aquí hi va haver abundor de dictadors, o potser és perquè el més pesat de tot és haver-los de corregir); malgrat tot, encara és una pràctica útil que relaciona com cap altra el so amb la grafia que el representa.&lt;/p&gt;
-
-  &lt;p&gt;Com acabo d’apuntar, el més pesat del dictat és la seva correcció. La combinació d’unes poques eines sota GNU/Linux ens automatitzen aquesta tasca tan pesada (i més encara si volem). I, el que és més interessant, és que utilitzarem el format text pla (TXT).&lt;/p&gt;
-
-  &lt;!-- more --&gt;
-
-  &lt;p&gt;El procés a seguir és el següent:&lt;/p&gt;
-
-  &lt;ol&gt;
-    &lt;li&gt;Es fa el dictat (pot ser a càrrec del professor o, fins i tot, a través de síntesi de veu).&lt;/li&gt;
-    &lt;li&gt;Es fa una comparació automatitzada amb el text que s’ha dictat.&lt;/li&gt;
-    &lt;li&gt;Es retorna als alumnes .&lt;/li&gt;
-  &lt;/ol&gt;
-
-  &lt;p&gt;Necessitem tres aplicacions:&lt;/p&gt;
-
-  &lt;ul&gt;
-    &lt;li&gt;&lt;strong&gt;iconv&lt;/strong&gt; (només si el nostres alumnes utilitzen Windows o qualsevol altre sistema que encara no codifiqui amb UTF-8)&lt;/li&gt;
-    &lt;li&gt;&lt;strong&gt;wdiff&lt;/strong&gt;&lt;/li&gt;
-    &lt;li&gt;&lt;strong&gt;sed&lt;/strong&gt;&lt;/li&gt;
-    &lt;li&gt;&lt;strong&gt;rename&lt;/strong&gt;&lt;/li&gt;
-  &lt;/ul&gt;
-
-  &lt;p&gt;Els meus alumnes, que treballen amb ordinadors de l’Educat 1×1 (després va ser Educat  2.0), empren gairebé sempre l’entorn Windows, per la qual cosa, codifiquen el text en Latin-1. El primer pas a fer consiteix en canviar la codificació a UTF-8, cosa que, des de la terminal es fa amb l’ordre:&lt;/p&gt;
-
-  &lt;p&gt;&lt;code&gt;iconv -f LATIN1 -t UTF-8 -o FITXERi.utf FIXTER.latin1&lt;/code&gt;&lt;/p&gt;
-
-  &lt;p&gt;Com que tenim més d’un alumne, farem la conversió dins d’un bucle (assumim que tots els fitxers dels alumnes tenen l’extensió TXT):&lt;/p&gt;
-
-  &lt;p&gt;&lt;code&gt;for i in $( ls *.txt); do iconv -f LATIN1 -t UTF-8 -o $i.utf $i; done&lt;/code&gt;&lt;/p&gt;
-
-  &lt;p&gt;El següent pas,  seria ja corregir-los el dictat. Per fer-ho, comparem els fitxers dels alumnes amb el fitxer que contindrà el text correcte que els hem dictat. Aquesta comparació es fa mot a mot (d’aquí que s’utilitzi wdiff i no pas diff). Aquesta utilitat ens dóna diferents opcions de sortida:&lt;/p&gt;
-
-  &lt;ul&gt;
-    &lt;li&gt;tot el text amb els inputs incorrectes al costat del correctes sense estadístiques encert / error&lt;/li&gt;
-    &lt;li&gt;tot el text amb els inputs incorrectes al costat del correctes amb estadístiques encert / error&lt;/li&gt;
-    &lt;li&gt;tot el text amb les formes correctes de les errades (però sense mostrar-ne la forma errònia que ha introduït l’alumne)&lt;/li&gt;
-    &lt;li&gt;només les errades amb les formes correctes al costat (separades per línies i sense mostrar la resta del text)&lt;/li&gt;
-  &lt;/ul&gt;
-
-  &lt;p&gt;Les ordres corresponents són:&lt;/p&gt;
-
-  &lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;wdiff -1 dictat_original dictat_alumne.txt &lt;span class=&quot;c&quot;&gt;#tot el text amb els inputs incorrectes al costat del correctes sense estadístiques encert / error &lt;/span&gt;
-
-&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;wdiff -s dictat_original dictat_alumne.txt &lt;span class=&quot;c&quot;&gt;#tot el text amb els inputs incorrectes al costat del correctes amb estadístiques encert / error &lt;/span&gt;
-
-&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;wdiff -2 dictat_original dictat_alumne.txt &lt;span class=&quot;c&quot;&gt;#tot el text amb les formes correctes de les errades (però sense mostrar-ne la forma errònia que ha introduït l’alumne)&lt;/span&gt;
-
-&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;wdiff -3 dictat_original dictat_alumne.txt &lt;span class=&quot;c&quot;&gt;#només les errades amb les formes correctes al costat (separades per línies i sense mostrar la resta del text)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-
-  &lt;p&gt;Les ordres anteriors en mostraran la comparació en pantalla, però com el que ens interessarà serà produir un nou document per analitzar-lo (ja sigui per nosaltres o pels alumnes), emprarem la redirecció a fitxer de la sortida, per exemple:&lt;/p&gt;
-
-  &lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;wdiff -3 dictat_original dictat_alumne.txt &amp;gt; dictat_corregit.txt&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-
-  &lt;p&gt;Però, perquè ens sigui realment útil, tot això s’hauria de poder resumir en una sola ordre de la terminal. Hem de crear, per tant, un script de Bash i, per obtenir una sortida ordenada, ens anirà bé emprar les comandes sed i rename. Si hem anat seguint fins aquí, haurem observat que es creen fitxers de text, que cal que tinguin extensions diferents i que, al final, haurem de poder localitzar ràpidament els resultats.&lt;/p&gt;
-
-  &lt;p&gt;Un script pot ser el següent:&lt;/p&gt;
-
-  &lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span class=&quot;lineno&quot;&gt; 1 &lt;/span&gt;&lt;span class=&quot;c&quot;&gt;#!/bin/bash&lt;/span&gt;
-&lt;span class=&quot;lineno&quot;&gt; 2 &lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;Convertint a UTF-8...&amp;quot;&lt;/span&gt;
-&lt;span class=&quot;lineno&quot;&gt; 3 &lt;/span&gt; &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; i in &lt;span class=&quot;k&quot;&gt;$(&lt;/span&gt; ls *.txt&lt;span class=&quot;k&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;do&lt;/span&gt; iconv -f LATIN1 -t UTF-8 -o &lt;span class=&quot;nv&quot;&gt;$i&lt;/span&gt;.utf &lt;span class=&quot;nv&quot;&gt;$i&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;done&lt;/span&gt;
-&lt;span class=&quot;lineno&quot;&gt; 4 &lt;/span&gt; mkdir utf
-&lt;span class=&quot;lineno&quot;&gt; 5 &lt;/span&gt; &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; i in &lt;span class=&quot;k&quot;&gt;$(&lt;/span&gt; ls *.txt&lt;span class=&quot;k&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;do&lt;/span&gt; mv &lt;span class=&quot;nv&quot;&gt;$i&lt;/span&gt;.utf ./utf/&lt;span class=&quot;nv&quot;&gt;$i&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;done&lt;/span&gt;
-&lt;span class=&quot;lineno&quot;&gt; 6 &lt;/span&gt; cp dictat ./utf/dictat.txt
-&lt;span class=&quot;lineno&quot;&gt; 7 &lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;cd &lt;/span&gt;utf
-&lt;span class=&quot;lineno&quot;&gt; 8 &lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;Corregint...&amp;quot;&lt;/span&gt;
-&lt;span class=&quot;lineno&quot;&gt; 9 &lt;/span&gt; &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; i in &lt;span class=&quot;k&quot;&gt;$(&lt;/span&gt; ls *.txt&lt;span class=&quot;k&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;do&lt;/span&gt; sed &lt;span class=&quot;s2&quot;&gt;&amp;quot;s/&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$/&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;\n/&amp;quot;&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$i&lt;/span&gt; &amp;gt;&lt;span class=&quot;nv&quot;&gt;$i&lt;/span&gt;.nou&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;done&lt;/span&gt;
-&lt;span class=&quot;lineno&quot;&gt;10 &lt;/span&gt; &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; i in &lt;span class=&quot;k&quot;&gt;$(&lt;/span&gt; ls *.nou&lt;span class=&quot;k&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;do&lt;/span&gt; wdiff -s &lt;span class=&quot;nv&quot;&gt;$i&lt;/span&gt; dictat.txt.nou&amp;gt; &lt;span class=&quot;nv&quot;&gt;$i&lt;/span&gt;.res&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;done&lt;/span&gt;
-&lt;span class=&quot;lineno&quot;&gt;11 &lt;/span&gt; rm *.txt
-&lt;span class=&quot;lineno&quot;&gt;12 &lt;/span&gt; rm *.nou
-&lt;span class=&quot;lineno&quot;&gt;13 &lt;/span&gt; rm dictat.*
-&lt;span class=&quot;lineno&quot;&gt;14 &lt;/span&gt; rename &lt;span class=&quot;s1&quot;&gt;&amp;#39;s/\.nou.res$//&amp;#39;&lt;/span&gt; *.res
-&lt;span class=&quot;lineno&quot;&gt;15 &lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;Fet!&amp;quot;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-
-  &lt;p&gt;Al final de la seva execució, trobarem una carpeta /utf  dins de la qual hi seran els dictats dels alumnes en codificació UTF-8 i ja corregits (en aquest cas, el fitxer corregit de cada alumne contindrà tot el text amb les formes incorrectes -entre claudàtors- que ha introduït al costat de les correctes -entre claus- i, al final, l’estadística d’encerts / errors). Vegem-ne un exemple de fitxer de sortida:&lt;/p&gt;
-
-  &lt;blockquote&gt;
-    &lt;p&gt;Els caçadors [-fortius cercan-] {+furtius cerquen+} els grans goril·les mascles per convertir el seu crani en [-petxa papers,-] {+petjapapers,+} i les mans i els [-peus,-] {+peus+} en cendrers, que venen a uns preus que s’acosten [-els-] {+als+} 50 [-dolars-] {+dòlars+} la peça. Els caçadors més [-ábils-] {+hàbils+} capturen vius [-als-] {+els+} goril·les més joves i els [-subasten-] {+subhasten+} per exportar-los [-il·legantment-] {+il·legalment+} a [-zoologics-] {+zoològics+} i col·leccions privades [-de reu-] {+d’arreu+} del món.&lt;/p&gt;
-
-    &lt;p&gt;alumne.txt: 61 paraules  47 77% comunes  0 0% esborrades  14 22% canviades&lt;/p&gt;
-
-    &lt;p&gt;dictat.txt: 59 paraules  47 79% comunes  0 0% inserides  12 20% canviades&lt;/p&gt;
-  &lt;/blockquote&gt;
-
-  &lt;p&gt;Requeriments sota Debian: per poder dur a terme aquesta tasca, cal tenir instal·lats els següents paquets (així com les seves dependències):&lt;/p&gt;
-
-  &lt;ul&gt;
-    &lt;li&gt;&lt;a href=&quot;https://packages.debian.org/stable/libc-bin&quot; target=&quot;_blank&quot;&gt;libc-bin&lt;/a&gt; (ens ofereix l’aplicació &lt;em&gt;iconv&lt;/em&gt;)&lt;/li&gt;
-    &lt;li&gt;&lt;a href=&quot;https://packages.debian.org/stable/wdiff&quot; target=&quot;_blank&quot;&gt;wdiff&lt;/a&gt;&lt;/li&gt;
-    &lt;li&gt;&lt;a href=&quot;https://packages.debian.org/stable/sed&quot; target=&quot;_blank&quot;&gt;sed&lt;/a&gt;&lt;/li&gt;
-    &lt;li&gt;&lt;a href=&quot;https://packages.debian.org/stable/util-linux&quot; target=&quot;_blank&quot;&gt;util-linux&lt;/a&gt; (ens ofereix l’aplicació &lt;em&gt;rename&lt;/em&gt;)&lt;/li&gt;
-  &lt;/ul&gt;
-
-&lt;/div&gt;
-</description>
-        <pubDate>Sat, 02 Mar 2013 00:00:00 +0100</pubDate>
-        <link>http://peremig.github.io/howto/2013/03/02/dictats-autocorrectius.html</link>
-        <guid isPermaLink="true">http://peremig.github.io/howto/2013/03/02/dictats-autocorrectius.html</guid>
-        
-        <category>dictat</category>
-        
-        <category>iconv</category>
-        
-        <category>rename</category>
-        
-        <category>sed</category>
-        
-        <category>wdiff</category>
         
         
         <category>howto</category>

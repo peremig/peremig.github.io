@@ -121,6 +121,10 @@ for (var b = blocklink.length; b--;) {
         
         
         
+        
+        
+        
+        
       </div>
     </nav>
 
@@ -178,13 +182,13 @@ for (var b = blocklink.length; b--;) {
 
   <p><em>Fcitx</em>, per contra, <a href="https://fcitx-im.org/wiki/FAQ#Emacs" target="_blank">crida Emacs passant-li una variable d’entorn LC_CTYPE assignada a xinès simplificat</a> amb la comanda:</p>
 
-  <div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nv">$ LC_CTYPE</span><span class="o">=</span>zh_CN.UTF-8 emacs</code></pre></div>
+  <div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="gp">$ </span><span class="nv">LC_CTYPE</span><span class="o">=</span>zh_CN.UTF-8 emacs</code></pre></div>
 
   <p>Aquesta comanda no canvia el <em>locale</em> del sistema i activa <em>fcitx</em> per a <em>Emacs</em>. Cal, però, <a href="https://wiki.debian.org/Locale" target="_blank">haver definit abans el locale</a> que es passa amb la variable d’entorn LC_CTYPE (en aquest cas <code>zh_CN.UTF-8</code>). La manera més senzilla en un sistema debian és emprant la comanda <code># dpkg-reconfigure locales</code> (com a <em>root</em>)</p>
 
   <p>Ara bé, això no arregla el problema dels accents ni el de la tecla <em>compose</em>. La <a href="https://xmleye.wordpress.com/2009/12/13/entrada-de-acentos-y-japones-en-emacsgtkkde-en-ubuntu-9-10-karmic-koala/" target="_blank">solució, referida a uim</a>, ens la dóna Antonio García-Domínguez, de la Universitat de Cadis: consisteix en cridar <em>Emacs</em> buidant-li la variable d’entorn XMODIFIERS a través de la comanda</p>
 
-  <div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nv">$ XMODIFIERS</span><span class="o">=</span>@im<span class="o">=</span>none emacs</code></pre></div>
+  <div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="gp">$ </span><span class="nv">XMODIFIERS</span><span class="o">=</span>@im<span class="o">=</span>none emacs</code></pre></div>
 
   <p>Cridar així <em>Emacs</em> ens restablirà els accents i la tecla <em>compose</em>, però no ens comunicarà <em>Fcitx</em> amb <em>Emacs</em>, raó per la qual no hi podrem emprar l’IME.</p>
 
@@ -192,7 +196,7 @@ for (var b = blocklink.length; b--;) {
 
   <p>La solució és cridar <em>Emacs</em> passant-li el valor de les dues variables alhora. Això ho podem fer amb la instrucció següent:</p>
 
-  <div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nv">$ LC_CTYPE</span><span class="o">=</span>zh_CN.UTF-8 emacs <span class="p">|</span> <span class="nv">XMODIFIERS</span><span class="o">=</span>@im<span class="o">=</span>none</code></pre></div>
+  <div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="gp">$ </span><span class="nv">LC_CTYPE</span><span class="o">=</span>zh_CN.UTF-8 emacs | <span class="nv">XMODIFIERS</span><span class="o">=</span>@im<span class="o">=</span>none</code></pre></div>
 
   <p>I ara sí, ja tindrem l’<em>Emacs</em> amb <em>fcitx</em> de forma totalment funcional i hi podrem usar aquest IME a més a més dels que aquest editor ja porta incorporats. Només quedarien per fer uns petits detalls:</p>
 
@@ -301,23 +305,23 @@ var disqus_shortname ='peremig';
   <h4>Entrades recents</h4>
   
   <li>
-  <a href="//howto/2015/02/12/automuntar_usb_escriptura.html" title="Automuntar unitats USB amb accés a escriptura" rel="bookmark">Automuntar unitats USB amb accés a escriptura</a>
+  <a href="//articles/2018/03/06/Driver_Unichrome%E2%81%84OpenChrome_trencat_a_Debian_9.html" title="Driver per a xips de vídeo VIA UniChrome trencat a Debian 9 Stretch" rel="bookmark">Driver per a xips de vídeo VIA UniChrome trencat a Debian 9 Stretch</a>
   </li>
   
   <li>
-  <a href="//articles/2015/01/18/Debian_8_Acer_Aspire.html" title="Debian 8 (Jessie) en notebook Acer Aspire V5-121" rel="bookmark">Debian 8 (Jessie) en notebook Acer Aspire V5-121</a>
+  <a href="//howto/2016/03/20/Resetejar_webserver_airzone.html" title="Resetejar webserver d'Airzone" rel="bookmark">Resetejar webserver d'Airzone</a>
   </li>
   
   <li>
-  <a href="//howto/2014/01/24/Emacs_fcitx.html" title="Emacs i el xinès (fcitx)" rel="bookmark">Emacs i el xinès (fcitx)</a>
+  <a href="//articles/2016/03/19/Torna_Firefox_a_Debian.html" title="Torna Firefox a Debian" rel="bookmark">Torna Firefox a Debian</a>
   </li>
   
   <li>
-  <a href="//articles/2014/01/23/problemes_ime.html" title="Els meus problemes amb els IME" rel="bookmark">Els meus problemes amb els IME</a>
+  <a href="//articles/2016/03/06/Abandonant_PLC_retorn_wifi.html" title="Abandonant els PLC, retorn al wifi" rel="bookmark">Abandonant els PLC, retorn al wifi</a>
   </li>
   
   <li>
-  <a href="//howto/2014/01/02/de_squeeze_a_wheezy_2.html" title="De debian squeeze a wheezy (2)" rel="bookmark">De debian squeeze a wheezy (2)</a>
+  <a href="//articles/2015/12/13/Contacte_accidentat_amb_Windows_10.html" title="Contacte accidentat amb Windows 10" rel="bookmark">Contacte accidentat amb Windows 10</a>
   </li>
   
 </div>
@@ -326,9 +330,9 @@ var disqus_shortname ='peremig';
 <div class="sidebar-module">
   <h4>Categories</h4>
   
-  <li><a href="/categories/#articles" title="articles" rel="7">articles (7)</a></li>
+  <li><a href="/categories/#articles" title="articles" rel="11">articles (11)</a></li>
   
-  <li><a href="/categories/#howto" title="howto" rel="7">howto (7)</a></li>
+  <li><a href="/categories/#howto" title="howto" rel="10">howto (10)</a></li>
   
 </div>
 
@@ -346,7 +350,7 @@ var disqus_shortname ='peremig';
   
     <a href="/tags/#xsane" title="xsane" rel="1">xsane</a> &nbsp;
   
-    <a href="/tags/#Debian" title="Debian" rel="5">Debian</a> &nbsp;
+    <a href="/tags/#Debian" title="Debian" rel="7">Debian</a> &nbsp;
   
     <a href="/tags/#Linkat" title="Linkat" rel="1">Linkat</a> &nbsp;
   
@@ -360,9 +364,9 @@ var disqus_shortname ='peremig';
   
     <a href="/tags/#wdiff" title="wdiff" rel="1">wdiff</a> &nbsp;
   
-    <a href="/tags/#vídeo" title="vídeo" rel="2">vídeo</a> &nbsp;
+    <a href="/tags/#vídeo" title="vídeo" rel="3">vídeo</a> &nbsp;
   
-    <a href="/tags/#email" title="email" rel="1">email</a> &nbsp;
+    <a href="/tags/#email" title="email" rel="3">email</a> &nbsp;
   
     <a href="/tags/#docència" title="docència" rel="1">docència</a> &nbsp;
   
@@ -392,6 +396,30 @@ var disqus_shortname ='peremig';
   
     <a href="/tags/#usb" title="usb" rel="1">usb</a> &nbsp;
   
+    <a href="/tags/#Mutt" title="Mutt" rel="2">Mutt</a> &nbsp;
+  
+    <a href="/tags/#XTEC" title="XTEC" rel="1">XTEC</a> &nbsp;
+  
+    <a href="/tags/#gmail" title="gmail" rel="2">gmail</a> &nbsp;
+  
+    <a href="/tags/#Windows" title="Windows" rel="1">Windows</a> &nbsp;
+  
+    <a href="/tags/#xarxa" title="xarxa" rel="1">xarxa</a> &nbsp;
+  
+    <a href="/tags/#PLC" title="PLC" rel="1">PLC</a> &nbsp;
+  
+    <a href="/tags/#Iceweasel" title="Iceweasel" rel="1">Iceweasel</a> &nbsp;
+  
+    <a href="/tags/#Firefox" title="Firefox" rel="1">Firefox</a> &nbsp;
+  
+    <a href="/tags/#airzone" title="airzone" rel="1">airzone</a> &nbsp;
+  
+    <a href="/tags/#domòtica" title="domòtica" rel="1">domòtica</a> &nbsp;
+  
+    <a href="/tags/#webserver" title="webserver" rel="1">webserver</a> &nbsp;
+  
+    <a href="/tags/#Stretch" title="Stretch" rel="1">Stretch</a> &nbsp;
+  
 </div>
 
 
@@ -413,7 +441,38 @@ var disqus_shortname ='peremig';
   
   
   
+  <li id="2018" > <a href="/archives/#2018">2018</a></li>
+  
+  
+  
+  
+  
+  
+  
+  <li id="2016" > <a href="/archives/#2016">2016</a></li>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
   <li id="2015" > <a href="/archives/#2015">2015</a></li>
+  
+  
+  
+  
+  
+  
+  
+  
+  
   
   
   

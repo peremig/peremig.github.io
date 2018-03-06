@@ -121,6 +121,10 @@ for (var b = blocklink.length; b--;) {
         
         
         
+        
+        
+        
+        
       </div>
     </nav>
 
@@ -182,87 +186,136 @@ for (var b = blocklink.length; b--;) {
 
   <p>Com a servidor de correu, empro Exim4 perquè s’instal·la per defecte a Debian i és fàcil de configurar amb l’ordre dpkg-reconfigure exim4-config. Podem seguir <a href="http://www.elrincondetolgalen.com/2012/07/09/configurar-exim4-com-gmail-como-smarthost-en-debian/" target="_blank">aquest tutorial en castellà</a>. Cal tenir en compte una petita modificació: per enviar correus des de l’adreça <u>usuari@xtec.cat</u>, hem d’editar el fitxer <code>/etc/exim4/passwd.client</code> amb les següents dades:</p>
 
-  <div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="lineno">1 </span>gmail-smtp.l.google.com:usuari@xtec.cat:password
-<span class="lineno">2 </span>*.google.com:usuari@xtec.cat:password
-<span class="lineno">3 </span>smtp.gmail.com:usuari@xtec.cat:password</code></pre></div>
+  <div class="highlight"><pre><code class="language-bash" data-lang="bash"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
+2
+3</pre></td><td class="code"><pre>gmail-smtp.l.google.com:usuari@xtec.cat:password
+<span class="k">*</span>.google.com:usuari@xtec.cat:password
+smtp.gmail.com:usuari@xtec.cat:password<span class="w">
+</span></pre></td></tr></tbody></table>
 
-  <h3 id="desmuntar-el-document-generat-per-saga">Desmuntar el document generat per SAGA</h3>
 
-  <p>El document generat per SAGA s’anomena <strong>informe.pdf</strong>, per desmuntar-lo i crear un document PDF per a cada pàgina podem utilitzar <em>pdftk</em>:</p>
 
-  <div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nv">$ </span>pdftk informe.pdf burst</code></pre></div>
 
-  <p>Això és crearà un seguit de fitxers anomenats <em>pg__000X.pdf</em>, on X és el número corresponent a la pàgina que ocupa en el document mare (<em>informe.pdf</em>). Ara bé, quan passem de les nou pàgines, la numeració elimina un zero (els fitxer passen a ser <em>pg_00XX.pdf</em>). Com que encara no tenim grups classe de més de 99 alumnes, la cosa no passa d’aquí; altrament tindríem fitxers <em>pg_0XXX.pdf</em>. Es crearà també un fitxer de text que fa les funcions de fitxer de log, és irrellevant per als nostres propòsits, de manera que el podem esborrar.</p>
+### Desmuntar el document generat per SAGA
 
-  <p>La manera com ens ha desmuntat el fitxer inicial pot complicar-nos la feina. Personalment, prefereixo un seguit de fitxers anomenat <em>pN.pdf</em>, on N sigui el número de pàgina independentment dels dígits que el conformin. He optat, doncs, per reanomenar aquests fitxers amb l’ordre <code>mv</code> inserida dins un script de bash (el dono al final d’aquest article).</p>
+El document generat per SAGA s’anomena **informe.pdf**, per desmuntar-lo i crear un document PDF per a cada pàgina podem utilitzar *pdftk*:
 
-  <h3 id="enviar-els-butlletins-a-les-famlies-respectives">Enviar els butlletins a les famílies respectives</h3>
 
-  <p>Aquest procés ha de ser automàtic. Altrament es converteix en un assumpte més tediós que donar-los en suport físic (paper). Per tant, s’ha de crear un nou script de bash que adjunti cada butlletí a un missatge de correu electrònic apropiat per al seu destinatari. La meva solució opta per servir-se de diferents utilitats:</p>
+<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="gp">$ </span>pdftk informe.pdf burst</code></pre></div>
 
-  <ul>
-    <li>un fitxer de text on es recullin les adreces de correu que rebran els butlletins (<strong>important</strong>: el contingut s’ha d’elaborar a raó d’una adreça per línia i s’han d’ordenar en el mateix ordre que apareix el llistat dels alumnes del grup-classe a SAGA). L’he anomenat <em>adreces.txt</em></li>
-    <li>un fitxer de text on es recull el text que conformarà el cos del missatge. L’he anomenat <em>mailtext.txt</em></li>
-    <li>l’aplicació <code>read</code>, que ens servirà per llegir el fitxer d’adreces línia a línia (això és, adreça a adreça)</li>
-    <li>l’aplicació <code>uuencode</code>, que ens codificarà el butlletí en format PDF de forma convenient per adjuntar al correu electrònic</li>
-    <li>l’aplicació <code>mail</code>, que ens enviarà el correu electrònic a l’adreça desitjada a través d’<code>exim4</code></li>
-  </ul>
 
-  <p>En aquest procés, l’ordre bàsica és:</p>
+Això és crearà un seguit de fitxers anomenats *pg__000X.pdf*, on X és el número corresponent a la pàgina que ocupa en el document mare (*informe.pdf*). Ara bé, quan passem de les nou pàgines, la numeració elimina un zero (els fitxer passen a ser *pg_00XX.pdf*). Com que encara no tenim grups classe de més de 99 alumnes, la cosa no passa d’aquí; altrament tindríem fitxers *pg_0XXX.pdf*. Es crearà també un fitxer de text que fa les funcions de fitxer de log, és irrellevant per als nostres propòsits, de manera que el podem esborrar.
 
-  <div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nv">$ </span><span class="o">(</span>cat mailtext.txt<span class="p">;</span> uuencode ./butlletins/pN.pdf butlleti.pdf<span class="o">)</span> <span class="p">|</span> mail -s <span class="s2">&quot;Butlletins de l&#39;avaluació&quot;</span> <span class="s2">&quot;</span><span class="nv">$i</span><span class="s2">&quot;</span></code></pre></div>
+La manera com ens ha desmuntat el fitxer inicial pot complicar-nos la feina. Personalment, prefereixo un seguit de fitxers anomenat *pN.pdf*, on N sigui el número de pàgina independentment dels dígits que el conformin. He optat, doncs, per reanomenar aquests fitxers amb l’ordre `mv` inserida dins un script de bash (el dono al final d’aquest article).
 
-  <h3 id="reunim-ho-en-un-script-de-bash">Reunim-ho en un script de bash</h3>
 
-  <p>He reunit tot plegat en un script de bash, el llistat del qual és el següent:</p>
+### Enviar els butlletins a les famílies respectives
 
-  <div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="lineno"> 1 </span><span class="c">#! /bin/bash</span>
-<span class="lineno"> 2 </span><span class="c"># Primer pas: desmuntar el pdf amb pdftk fitxer.pdf burst</span>
-<span class="lineno"> 3 </span> mkdir butlletins
-<span class="lineno"> 4 </span> <span class="nb">echo</span> <span class="s2">&quot;Pas 1: Creant els butlletins...&quot;</span>
-<span class="lineno"> 5 </span> cp informe.pdf ./butlletins
-<span class="lineno"> 6 </span> <span class="nb">cd </span>butlletins
-<span class="lineno"> 7 </span> pdftk informe.pdf burst
-<span class="lineno"> 8 </span> rm informe.pdf
-<span class="lineno"> 9 </span> rm *.txt
-<span class="lineno">10 </span> <span class="nb">echo</span> <span class="s2">&quot;... pas 1 fet!&quot;</span>
-<span class="lineno">11 </span>
-<span class="lineno">12 </span><span class="c"># Segon pas: reanomenar les pàgines de pg__000X.pdf a pX.pdf </span>
-<span class="lineno">13 </span><span class="c"># i de pg__00XX.pdf a pXX.pdf amb mv</span>
-<span class="lineno">14 </span> <span class="nb">echo</span> <span class="s2">&quot;Pas 2: Preparant-los per trametre...&quot;</span>
-<span class="lineno">15 </span> <span class="nv">cont</span><span class="o">=</span>1
-<span class="lineno">16 </span> <span class="nv">nom</span><span class="o">=</span><span class="s2">&quot;p&quot;</span>
-<span class="lineno">17 </span> <span class="nv">ext</span><span class="o">=</span><span class="s2">&quot;.pdf&quot;</span>
-<span class="lineno">18 </span> <span class="k">for</span> i in <span class="k">$(</span>ls *.pdf<span class="k">)</span>
-<span class="lineno">19 </span> <span class="k">do</span>
-<span class="lineno">20 </span> <span class="nv">nounom</span><span class="o">=</span><span class="nv">$nom$cont$ext</span><span class="p">;</span>
-<span class="lineno">21 </span> mv <span class="nv">$i</span> <span class="nv">$nounom</span><span class="p">;</span>
-<span class="lineno">22 </span> <span class="nv">cont</span><span class="o">=</span><span class="k">$((</span>cont+1<span class="k">))</span><span class="p">;</span>
-<span class="lineno">23 </span> <span class="k">done</span>
-<span class="lineno">24 </span> <span class="nb">cd</span> ..
-<span class="lineno">25 </span> <span class="nb">echo</span> <span class="s2">&quot;... pas 2 fet!&quot;</span>
-<span class="lineno">26 </span>
-<span class="lineno">27 </span><span class="c"># Tercer pas: enviar correus amb el butlletí a cada família</span>
-<span class="lineno">28 </span><span class="nb">echo</span> <span class="s2">&quot;Pas 3: enviant butlletins...&quot;</span>
-<span class="lineno">29 </span> <span class="nv">j</span><span class="o">=</span>1
-<span class="lineno">30 </span> <span class="nv">h</span><span class="o">=</span>1
-<span class="lineno">31 </span> <span class="k">while</span> <span class="nb">read </span>i
-<span class="lineno">32 </span> <span class="k">do</span> <span class="nb">echo</span>  <span class="s2">&quot;Enviant a </span><span class="nv">$i</span><span class="s2">&quot;</span><span class="p">;</span>
-<span class="lineno">33 </span> <span class="o">(</span>cat mailtext.txt<span class="p">;</span> uuencode ./butlletins/p<span class="si">${</span><span class="nv">j</span><span class="si">}</span>.pdf butlleti.pdf<span class="o">)</span> <span class="p">|</span> mail -s <span class="s2">&quot;Butlletins de l&#39;avaluació&quot;</span> <span class="s2">&quot;</span><span class="nv">$i</span><span class="s2">&quot;</span>
-<span class="lineno">34 </span> <span class="nv">j</span><span class="o">=</span><span class="k">$((</span>j+h<span class="k">))</span>
-<span class="lineno">35 </span> <span class="k">done</span> &lt; adreces.txt
-<span class="lineno">36 </span> <span class="nb">echo</span> <span class="s2">&quot;... tramesa feta. Pas 3 fet!&quot;</span></code></pre></div>
+Aquest procés ha de ser automàtic. Altrament es converteix en un assumpte més tediós que donar-los en suport físic (paper). Per tant, s’ha de crear un nou script de bash que adjunti cada butlletí a un missatge de correu electrònic apropiat per al seu destinatari. La meva solució opta per servir-se de diferents utilitats:
 
-  <p>Si es vol utilitzar, n’hi ha prou amb copiar aquest codi i enganxar-ho en un fitxer de text (el meu s’anomena <em>butlletins.sh</em>). En fer-ho, tinguem present que li haurem de donar permisos d’execució perquè funcioni.</p>
+   - un fitxer de text on es recullin les adreces de correu que rebran els butlletins (**important**: el contingut s’ha d’elaborar a raó d’una adreça per línia i s’han d’ordenar en el mateix ordre que apareix el llistat dels alumnes del grup-classe a SAGA). L’he anomenat *adreces.txt*
+   - un fitxer de text on es recull el text que conformarà el cos del missatge. L’he anomenat *mailtext.txt*
+   - l’aplicació `read`, que ens servirà per llegir el fitxer d’adreces línia a línia (això és, adreça a adreça)
+   - l’aplicació `uuencode`, que ens codificarà el butlletí en format PDF de forma convenient per adjuntar al correu electrònic
+   - l’aplicació `mail`, que ens enviarà el correu electrònic a l’adreça desitjada a través d’`exim4`
 
-  <p>Requeriments sota Debian: per poder dur a terme aquesta tasca, cal tenir instal·lats els següents paquets (així com les seves dependències):</p>
+En aquest procés, l’ordre bàsica és:
 
-  <ul>
-    <li><a href="http://packages.debian.org/stable/pdftk" target="_blank">pdftk</a></li>
-    <li><a href="http://packages.debian.org/stable/coreutils" target="_blank">coreutils</a> (ens ofereix l’aplicació <strong><em>mv</em></strong>)</li>
-    <li><a href="http://packages.debian.org/stable/sharutils" target="_blank">sharutils</a> (ens ofereix l’aplicació <strong><em>uuencode</em></strong>)</li>
-  </ul>
 
+<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="gp">$ </span><span class="o">(</span>cat mailtext.txt; uuencode ./butlletins/pN.pdf butlleti.pdf<span class="o">)</span> | mail -s <span class="s2">"Butlletins de l'avaluació"</span> <span class="s2">"</span><span class="nv">$i</span><span class="s2">"</span></code></pre></div>
+
+
+
+### Reunim-ho en un script de bash
+
+He reunit tot plegat en un script de bash, el llistat del qual és el següent:
+
+
+<div class="highlight"><pre><code class="language-bash" data-lang="bash"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36</pre></td><td class="code"><pre><span class="c">#! /bin/bash</span>
+<span class="c"># Primer pas: desmuntar el pdf amb pdftk fitxer.pdf burst</span>
+ mkdir butlletins
+ <span class="nb">echo</span> <span class="s2">"Pas 1: Creant els butlletins..."</span>
+ cp informe.pdf ./butlletins
+ <span class="nb">cd </span>butlletins
+ pdftk informe.pdf burst
+ rm informe.pdf
+ rm <span class="k">*</span>.txt
+ <span class="nb">echo</span> <span class="s2">"... pas 1 fet!"</span>
+
+<span class="c"># Segon pas: reanomenar les pàgines de pg__000X.pdf a pX.pdf </span>
+<span class="c"># i de pg__00XX.pdf a pXX.pdf amb mv</span>
+ <span class="nb">echo</span> <span class="s2">"Pas 2: Preparant-los per trametre..."</span>
+ <span class="nv">cont</span><span class="o">=</span>1
+ <span class="nv">nom</span><span class="o">=</span><span class="s2">"p"</span>
+ <span class="nv">ext</span><span class="o">=</span><span class="s2">".pdf"</span>
+ <span class="k">for </span>i <span class="k">in</span> <span class="k">$(</span>ls <span class="k">*</span>.pdf<span class="k">)</span>
+ <span class="k">do
+ </span><span class="nv">nounom</span><span class="o">=</span><span class="nv">$nom$cont$ext</span>;
+ mv <span class="nv">$i</span> <span class="nv">$nounom</span>;
+ <span class="nv">cont</span><span class="o">=</span><span class="k">$((</span>cont+1<span class="k">))</span>;
+ <span class="k">done
+ </span><span class="nb">cd</span> ..
+ <span class="nb">echo</span> <span class="s2">"... pas 2 fet!"</span>
+
+<span class="c"># Tercer pas: enviar correus amb el butlletí a cada família</span>
+<span class="nb">echo</span> <span class="s2">"Pas 3: enviant butlletins..."</span>
+ <span class="nv">j</span><span class="o">=</span>1
+ <span class="nv">h</span><span class="o">=</span>1
+ <span class="k">while </span><span class="nb">read </span>i
+ <span class="k">do </span><span class="nb">echo</span>  <span class="s2">"Enviant a </span><span class="nv">$i</span><span class="s2">"</span>;
+ <span class="o">(</span>cat mailtext.txt; uuencode ./butlletins/p<span class="k">${</span><span class="nv">j</span><span class="k">}</span>.pdf butlleti.pdf<span class="o">)</span> | mail -s <span class="s2">"Butlletins de l'avaluació"</span> <span class="s2">"</span><span class="nv">$i</span><span class="s2">"</span>
+ <span class="nv">j</span><span class="o">=</span><span class="k">$((</span>j+h<span class="k">))</span>
+ <span class="k">done</span> &lt; adreces.txt
+ <span class="nb">echo</span> <span class="s2">"... tramesa feta. Pas 3 fet!"</span><span class="w">
+</span></pre></td></tr></tbody></table>
+
+
+
+Si es vol utilitzar, n’hi ha prou amb copiar aquest codi i enganxar-ho en un fitxer de text (el meu s’anomena *butlletins.sh*). En fer-ho, tinguem present que li haurem de donar permisos d’execució perquè funcioni.
+
+Requeriments sota Debian: per poder dur a terme aquesta tasca, cal tenir instal·lats els següents paquets (així com les seves dependències):
+
+   - [pdftk](http://packages.debian.org/stable/pdftk){:target="_blank"}
+   - [coreutils](http://packages.debian.org/stable/coreutils){:target="_blank"} (ens ofereix l’aplicació ***mv***)
+   - [sharutils](http://packages.debian.org/stable/sharutils){:target="_blank"} (ens ofereix l’aplicació ***uuencode***)
+
+
+</code></pre></div></code></pre></div>
 </div>
 
   </article>
@@ -361,23 +414,23 @@ var disqus_shortname ='peremig';
   <h4>Entrades recents</h4>
   
   <li>
-  <a href="//howto/2015/02/12/automuntar_usb_escriptura.html" title="Automuntar unitats USB amb accés a escriptura" rel="bookmark">Automuntar unitats USB amb accés a escriptura</a>
+  <a href="//articles/2018/03/06/Driver_Unichrome%E2%81%84OpenChrome_trencat_a_Debian_9.html" title="Driver per a xips de vídeo VIA UniChrome trencat a Debian 9 Stretch" rel="bookmark">Driver per a xips de vídeo VIA UniChrome trencat a Debian 9 Stretch</a>
   </li>
   
   <li>
-  <a href="//articles/2015/01/18/Debian_8_Acer_Aspire.html" title="Debian 8 (Jessie) en notebook Acer Aspire V5-121" rel="bookmark">Debian 8 (Jessie) en notebook Acer Aspire V5-121</a>
+  <a href="//howto/2016/03/20/Resetejar_webserver_airzone.html" title="Resetejar webserver d'Airzone" rel="bookmark">Resetejar webserver d'Airzone</a>
   </li>
   
   <li>
-  <a href="//howto/2014/01/24/Emacs_fcitx.html" title="Emacs i el xinès (fcitx)" rel="bookmark">Emacs i el xinès (fcitx)</a>
+  <a href="//articles/2016/03/19/Torna_Firefox_a_Debian.html" title="Torna Firefox a Debian" rel="bookmark">Torna Firefox a Debian</a>
   </li>
   
   <li>
-  <a href="//articles/2014/01/23/problemes_ime.html" title="Els meus problemes amb els IME" rel="bookmark">Els meus problemes amb els IME</a>
+  <a href="//articles/2016/03/06/Abandonant_PLC_retorn_wifi.html" title="Abandonant els PLC, retorn al wifi" rel="bookmark">Abandonant els PLC, retorn al wifi</a>
   </li>
   
   <li>
-  <a href="//howto/2014/01/02/de_squeeze_a_wheezy_2.html" title="De debian squeeze a wheezy (2)" rel="bookmark">De debian squeeze a wheezy (2)</a>
+  <a href="//articles/2015/12/13/Contacte_accidentat_amb_Windows_10.html" title="Contacte accidentat amb Windows 10" rel="bookmark">Contacte accidentat amb Windows 10</a>
   </li>
   
 </div>
@@ -386,9 +439,9 @@ var disqus_shortname ='peremig';
 <div class="sidebar-module">
   <h4>Categories</h4>
   
-  <li><a href="/categories/#articles" title="articles" rel="7">articles (7)</a></li>
+  <li><a href="/categories/#articles" title="articles" rel="11">articles (11)</a></li>
   
-  <li><a href="/categories/#howto" title="howto" rel="7">howto (7)</a></li>
+  <li><a href="/categories/#howto" title="howto" rel="10">howto (10)</a></li>
   
 </div>
 
@@ -406,7 +459,7 @@ var disqus_shortname ='peremig';
   
     <a href="/tags/#xsane" title="xsane" rel="1">xsane</a> &nbsp;
   
-    <a href="/tags/#Debian" title="Debian" rel="5">Debian</a> &nbsp;
+    <a href="/tags/#Debian" title="Debian" rel="7">Debian</a> &nbsp;
   
     <a href="/tags/#Linkat" title="Linkat" rel="1">Linkat</a> &nbsp;
   
@@ -420,9 +473,9 @@ var disqus_shortname ='peremig';
   
     <a href="/tags/#wdiff" title="wdiff" rel="1">wdiff</a> &nbsp;
   
-    <a href="/tags/#vídeo" title="vídeo" rel="2">vídeo</a> &nbsp;
+    <a href="/tags/#vídeo" title="vídeo" rel="3">vídeo</a> &nbsp;
   
-    <a href="/tags/#email" title="email" rel="1">email</a> &nbsp;
+    <a href="/tags/#email" title="email" rel="3">email</a> &nbsp;
   
     <a href="/tags/#docència" title="docència" rel="1">docència</a> &nbsp;
   
@@ -452,6 +505,30 @@ var disqus_shortname ='peremig';
   
     <a href="/tags/#usb" title="usb" rel="1">usb</a> &nbsp;
   
+    <a href="/tags/#Mutt" title="Mutt" rel="2">Mutt</a> &nbsp;
+  
+    <a href="/tags/#XTEC" title="XTEC" rel="1">XTEC</a> &nbsp;
+  
+    <a href="/tags/#gmail" title="gmail" rel="2">gmail</a> &nbsp;
+  
+    <a href="/tags/#Windows" title="Windows" rel="1">Windows</a> &nbsp;
+  
+    <a href="/tags/#xarxa" title="xarxa" rel="1">xarxa</a> &nbsp;
+  
+    <a href="/tags/#PLC" title="PLC" rel="1">PLC</a> &nbsp;
+  
+    <a href="/tags/#Iceweasel" title="Iceweasel" rel="1">Iceweasel</a> &nbsp;
+  
+    <a href="/tags/#Firefox" title="Firefox" rel="1">Firefox</a> &nbsp;
+  
+    <a href="/tags/#airzone" title="airzone" rel="1">airzone</a> &nbsp;
+  
+    <a href="/tags/#domòtica" title="domòtica" rel="1">domòtica</a> &nbsp;
+  
+    <a href="/tags/#webserver" title="webserver" rel="1">webserver</a> &nbsp;
+  
+    <a href="/tags/#Stretch" title="Stretch" rel="1">Stretch</a> &nbsp;
+  
 </div>
 
 
@@ -473,7 +550,38 @@ var disqus_shortname ='peremig';
   
   
   
+  <li id="2018" > <a href="/archives/#2018">2018</a></li>
+  
+  
+  
+  
+  
+  
+  
+  <li id="2016" > <a href="/archives/#2016">2016</a></li>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
   <li id="2015" > <a href="/archives/#2015">2015</a></li>
+  
+  
+  
+  
+  
+  
+  
+  
+  
   
   
   
