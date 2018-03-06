@@ -10,7 +10,7 @@ url: "http://peremig.github.io" # the base hostname & protocol for your site
 locale: ca_ES
 
 ### Personal info and site tools info:
-twitter_username: @Pere_MiG
+twitter_username: Pere_MiG
 github_username:  peremig
 disqus_shortname: peremig
 favicon:     "/images/favicon.ico"
