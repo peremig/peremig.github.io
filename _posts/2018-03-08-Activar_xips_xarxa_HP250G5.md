@@ -46,6 +46,6 @@ Un cop fet això, en la primera arrencada (o en una consulta a **dmesg**) trobar
 
 {% endhighlight %}
 
-Es tracta d'un [bug del kernel documentat a Debian](https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=857198#15), que es manifesta en la cerca de les versions del driver de les 27 en avall. Els missatges d'error venen donats perquè [les versions salten de la 22 a la 27](https://wireless.wiki.kernel.org/en/users/drivers/iwlwifi/core_release), amb la qual cosa les versions 23 a 26 no existeixen. Això, tot i que pot resultar un pèl lleig, no afecta el funcionament del xip, ja que s'instal·la la millor versió possible (-22.ucode).
+Es tracta d'un [bug del kernel documentat a Debian](https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=857198#15){:target="_blank"}, que es manifesta en la cerca de les versions del driver de les 27 en avall. Els missatges d'error venen donats perquè [les versions salten de la 22 a la 27](https://wireless.wiki.kernel.org/en/users/drivers/iwlwifi/core_release){:target="_blank"}, amb la qual cosa les versions 23 a 26 no existeixen. Això, tot i que pot resultar un pèl lleig, no afecta el funcionament del xip, ja que s'instal·la la millor versió possible (-22.ucode).
 
 </div>
