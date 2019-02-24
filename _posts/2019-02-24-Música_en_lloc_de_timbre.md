@@ -27,8 +27,8 @@ No en conec cap per Windows, de fet fa vora quinze anys que vaig deixar d'utilit
 
 La base de l'*script* rau en els passos següents:
 
-    1. La pàgina de Youtube se selecciona aleatòriament d'una base de dades de pàgines proposades per l'alumnat.
-    2. S'executa la música
+   1. La pàgina de Youtube se selecciona aleatòriament d'una base de dades de pàgines proposades per l'alumnat.
+   2. S'executa la música
 
 A continuació dono el codi de l'*script*, anomenat `timbres.sh`:
 
